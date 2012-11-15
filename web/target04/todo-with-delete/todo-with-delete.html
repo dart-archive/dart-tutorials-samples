@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>Todo</title>
-    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="todo-with-delete.css">
   </head>
   <body>
-    <h2>Procrastinator's Todo</h2>
+    <h2>Todo</h2>
         
     <div>
       <input id="to-do-input" type="text" placeholder="What needs to be done?"> </input>
@@ -18,7 +18,9 @@
       </ul>
     </div>
     
-    <script type="application/dart" src="todo.dart"></script>
+    <button id="delete-all" type="button" float:right> Delete All </button>
+    
+    <script type="application/dart" src="todo-with-delete.dart"></script>
     <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
   </body>
 </html>
