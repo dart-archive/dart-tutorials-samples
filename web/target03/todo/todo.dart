@@ -13,5 +13,5 @@ void addToDoItem(Event e) {
   var newToDo = new LIElement();
   newToDo.text = toDoInput.value;
   toDoInput.value = '';
-  toDoList.elements.add(newToDo);
+  toDoList.children.add(newToDo);
 }

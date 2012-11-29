@@ -9,7 +9,7 @@ void main() {
   toDoList = query('#to-do-list');
   toDoInput.on.change.add(addToDoItem);
   deleteAll = query('#delete-all');
-  deleteAll.on.click.add((e) => toDoList.elements.clear());
+  deleteAll.on.click.add((e) => toDoList.children.clear());
 }
 
 void addToDoItem(Event e) {
@@ -17,5 +17,5 @@ void addToDoItem(Event e) {
   newToDo.text = toDoInput.value;
   newToDo.on.click.add((e) => newToDo.remove());
   toDoInput.value = '';
-  toDoList.elements.add(newToDo);
+  toDoList.children.add(newToDo);
 }
