@@ -9,6 +9,5 @@ String palindrome() {
   for (int i = shoutThis.length - 1; i >= 0; i--) {
     buffer.add(shoutThis[i]);
   }
-  shoutThis = buffer.toString();
   return buffer.toString();
 }
