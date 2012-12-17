@@ -1,5 +1,0 @@
-name:  Shout
-description:  Shout! Shout! Let it all out!
-
-dependencies:
-  web_ui: any
