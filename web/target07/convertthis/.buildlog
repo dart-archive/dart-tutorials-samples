@@ -1,0 +1,66 @@
+---
+build.dart 
+[{"method":"mapping","params":{"from":"web/convertThis.html","to":"web/out/convertThis.html"}}]
+Total time spent on web/convertThis.html                     -- [32m258 ms[0m
+build.dart finished [451 ms]
+
+---
+build.dart --changed=web/out/convertThis.html --changed=web/out/convertThis.html_bootstrap.dart --changed=web/o...
+
+build.dart finished [207 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [188 ms]
+
+---
+build.dart --removed=pubspec.lock
+
+build.dart finished [182 ms]
+
+---
+build.dart --removed=web/out/convertThis.html --removed=web/out/convertThis.html_bootstrap.dart --removed=web/o...
+
+build.dart finished [181 ms]
+
+---
+build.dart --changed=pubspec.lock
+
+build.dart finished [186 ms]
+
+---
+build.dart --changed=web/out/convertThis.html --changed=web/out/convertThis.html_bootstrap.dart --changed=web/o...
+
+build.dart finished [247 ms]
+
+---
+build.dart --changed=web/convertThis.html
+[{"method":"mapping","params":{"from":"web/convertThis.html","to":"web/out/convertThis.html"}}]
+Total time spent on web/convertThis.html                     -- [32m219 ms[0m
+build.dart finished [427 ms]
+
+---
+build.dart --changed=web/out/convertThis.html --changed=web/out/convertThis.html_bootstrap.dart --changed=web/o...
+
+build.dart finished [196 ms]
+
+---
+build.dart --changed=web/out/convertThis.html_bootstrap.dart.js --changed=web/out/convertThis.html_bootstrap.da...
+
+build.dart finished [184 ms]
+
+---
+build.dart --removed=pubspec.lock
+Unable to open file: /Users/mcampione/TUTORIAL_EXAMPLES/dart-tutorials-samples/web/target08/convertthis/packages/web_ui/component_build.dart'file:///Users/mcampione/TUTORIAL_EXAMPLES/dart-tutorials-samples/web/target08/convertthis/build.dart': Error: line 1 pos 1: library handler failed
+import 'package:web_ui/component_build.dart';
+^
+build.dart finished [60 ms]
+
+---
+build.dart --removed=web/out/convertThis.html --removed=web/out/convertThis.html_bootstrap.dart --removed=web/o...
+Unable to open file: /Users/mcampione/TUTORIAL_EXAMPLES/dart-tutorials-samples/web/target08/convertthis/packages/web_ui/component_build.dart'file:///Users/mcampione/TUTORIAL_EXAMPLES/dart-tutorials-samples/web/target08/convertthis/build.dart': Error: line 1 pos 1: library handler failed
+import 'package:web_ui/component_build.dart';
+^
+build.dart finished [58 ms]
+

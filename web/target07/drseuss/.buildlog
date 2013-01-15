@@ -1,0 +1,39 @@
+---
+build.dart 
+[{"method":"mapping","params":{"from":"web/drseuss.html","to":"web/out/drseuss.html"}}]
+Total time spent on web/drseuss.html                         -- [32m250 ms[0m
+build.dart finished [446 ms]
+
+---
+build.dart --changed=web/out/convertercomponent.dart --changed=web/out/drseuss.dart --changed=web/out/drseuss.h...
+
+build.dart finished [188 ms]
+
+---
+build.dart --changed=web/drseuss.html
+[{"method":"mapping","params":{"from":"web/drseuss.html","to":"web/out/drseuss.html"}}]
+Total time spent on web/drseuss.html                         -- [32m214 ms[0m
+build.dart finished [410 ms]
+
+---
+build.dart --changed=web/out/convertercomponent.dart --changed=web/out/drseuss.dart --changed=web/out/drseuss.h...
+
+build.dart finished [190 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [190 ms]
+
+---
+build.dart --changed=web/out/convertercomponent.dart --changed=web/out/drseuss.dart --changed=web/out/drseuss.h...
+
+build.dart finished [198 ms]
+
+---
+build.dart --removed=pubspec.lock --removed=web/out/convertercomponent.dart --removed=web/out/drseuss.dart --re...
+Unable to open file: /Users/mcampione/TUTORIAL_EXAMPLES/dart-tutorials-samples/web/target08/drseuss/packages/web_ui/component_build.dart'file:///Users/mcampione/TUTORIAL_EXAMPLES/dart-tutorials-samples/web/target08/drseuss/build.dart': Error: line 1 pos 1: library handler failed
+import 'package:web_ui/component_build.dart';
+^
+build.dart finished [60 ms]
+
