@@ -1,0 +1,22 @@
+
+body {
+  background-color: WhiteSmoke;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 20px;
+}
+
+.x-converter {
+  text-align: center;
+  background-color: LemonChiffon;
+  margin: 10px;
+  padding: 10px;
+  border: inset;
+}
+
+input {
+  width: 72px;
+  font-size: 14px;
+}
