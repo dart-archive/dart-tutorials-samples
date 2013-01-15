@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Hang Man</title>
+    <link rel="stylesheet" href="simplehangman.css">
+  </head>
+  <body>
+    <h1>Simple Hangman</h1>
+
+        <div id="hangman">
+          <template iterate="character in hyphens"> {{character}} </template>
+        </div>
+      
+        <div>
+          <template instantiate="if !dead && !won">
+            Guess a letter...
+            <input on-key-up="checkit()" bind-value="guessedletter">
+            <p>
+              <template instantiate="if wrongletters.length != 0"> Sorry! The word contains no: </template>
+            </p>
+            <p id="wrong">
+              <template iterate="usedchars in wrongletters"> {{usedchars}} </template>
+            </p>
+          </template>
+          
+          <template instantiate="if dead"> You're dead! </template>
+          <template instantiate="if won"> You Win! </template>
+        </div>
+          
+    <script type="application/dart" src="simplehangman.dart"></script>
+    <script type="text/javascript" src="packages/browser/dart.js"></script>
+  </body>
+</html>

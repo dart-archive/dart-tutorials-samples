@@ -1,0 +1,296 @@
+---
+build.dart 
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Unhandled exception:
+NoSuchMethodError : method not found: 'add'
+Receiver: null
+Arguments: [" ms"]
+#0      Object._noSuchMethod (dart:core-patch:1360:3)
+#1      Object.noSuchMethod (dart:core-patch:1361:25)
+#2      _printMessage (package:web_ui/src/utils.dart:75:24)
+#3      asyncTime.<anonymous closure> (package:web_ui/src/utils.dart:60:20)
+#4      _FutureImpl._complete (bootstrap:840:19)
+#5      _FutureImpl._complete (bootstrap:848:5)
+#6      _FutureImpl._setValue (bootstrap:862:14)
+#7      _CompleterImpl.complete (bootstrap:949:26)
+#8      _FutureImpl.transform.<anonymous closure> (bootstrap:887:25)
+#9      _FutureImpl._complete (bootstrap:840:19)
+#10     _FutureImpl._complete (bootstrap:848:5)
+#11     _FutureImpl._setValue (bootstrap:862:14)
+#12     _CompleterImpl.complete.complete (bootstrap:949:26)
+#13     _FutureImpl._complete (bootstrap:840:19)
+#14     _FutureImpl._complete (bootstrap:848:5)
+#15     _FutureImpl._setValue (bootstrap:862:14)
+#16     _CompleterImpl.complete (bootstrap:949:26)
+#17     _FutureImpl.transform.<anonymous closure> (bootstrap:887:25)
+#18     _FutureImpl._complete (bootstrap:840:19)
+#19     _FutureImpl._complete (bootstrap:848:5)
+#20     _FutureImpl._setValue (bootstrap:862:14)
+#21     _CompleterImpl.complete (bootstrap:949:26)
+#22     Futures.wait.<anonymous closure> (bootstrap:725:29)
+#23     _FutureImpl._complete (bootstrap:840:19)
+#24     _FutureImpl._complete (bootstrap:848:5)
+#25     _FutureImpl._setValue (bootstrap:862:14)
+#26     _CompleterImpl.complete.complete (bootstrap:949:26)
+#27     _FutureImpl._complete (bootstrap:840:19)
+#28     _FutureImpl._complete (bootstrap:848:5)
+#29     _FutureImpl._setValue (bootstrap:862:14)
+#30     _CompleterImpl.complete.complete (bootstrap:949:26)
+#31     _FutureImpl._complete (bootstrap:840:19)
+#32     _FutureImpl._complete (bootstrap:848:5)
+#33     _FutureImpl._setValue (bootstrap:862:14)
+#34     _CompleterImpl.complete (bootstrap:949:26)
+#35     _FutureImpl.transform.<anonymous closure> (bootstrap:887:25)
+#36     _FutureImpl._complete (bootstrap:840:19)
+#37     _FutureImpl._complete (bootstrap:848:5)
+#38     _FutureImpl._setValue (bootstrap:862:14)
+#39     _CompleterImpl.complete (bootstrap:949:26)
+#40     _SendPortImpl.call.<anonymous closure> (dart:isolate-patch:65:27)
+#41     _ReceivePortImpl._handleMessage (dart:isolate-patch:40:92)
+build.dart finished [768 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [186 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [181 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [175 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [165 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [166 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [181 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [173 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [169 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [171 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [167 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [183 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [171 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [192 ms]
+
+---
+build.dart --changed=web/adlibitum.html
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+[{"method":"warning","params":{"file":"web/adlibitum.html","message":"Unexpected end tag (template). Ignored.","line":21,"charStart":801,"charEnd":812}}]
+[{"method":"warning","params":{"file":"web/adlibitum.html","message":"Unexpected end tag (template). Missing end tag (body).","line":25,"charStart":1009,"charEnd":1016}}]
+Total time spent on web/adlibitum.html                       -- [32m153 ms[0m
+build.dart finished [345 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [200 ms]
+
+---
+build.dart --changed=web/adlibitum.html
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m157 ms[0m
+build.dart finished [402 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [181 ms]
+
+---
+build.dart --changed=web/adlibitum.html
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m162 ms[0m
+build.dart finished [369 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [196 ms]
+
+---
+build.dart --changed=web/adlibitum.html
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m162 ms[0m
+build.dart finished [368 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [207 ms]
+
+---
+build.dart --changed=web/adlibitum.dart
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m161 ms[0m
+build.dart finished [360 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [210 ms]
+
+---
+build.dart --changed=web/out/adlibitum.html_bootstrap.dart.js --changed=web/out/adlibitum.html_bootstrap.dart.j...
+
+build.dart finished [207 ms]
+
+---
+build.dart --changed=web/adlibitum.dart
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m169 ms[0m
+build.dart finished [357 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [195 ms]
+
+---
+build.dart --changed=web/out/adlibitum.html_bootstrap.dart.js --changed=web/out/adlibitum.html_bootstrap.dart.j...
+
+build.dart finished [187 ms]
+
+---
+build.dart 
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m160 ms[0m
+build.dart finished [346 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [215 ms]
+
+---
+build.dart --changed=web/adlibitum.dart
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m169 ms[0m
+build.dart finished [371 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [193 ms]
+
+---
+build.dart --changed=web/adlibitum.html
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m170 ms[0m
+build.dart finished [369 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [188 ms]
+
+---
+build.dart --changed=web/adlibitum.dart
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m167 ms[0m
+build.dart finished [365 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [202 ms]
+
+---
+build.dart --changed=web/adlibitum.css
+
+build.dart finished [187 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [195 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [224 ms]
+
+---
+build.dart --removed=web/out/adlibitum.dart --removed=web/out/adlibitum.html --removed=web/out/adlibitum.html_b...
+
+build.dart finished [183 ms]
+
+---
+build.dart --changed=pubspec.yaml
+
+build.dart finished [187 ms]
+
+---
+build.dart --changed=web/adlibitum.html
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m207 ms[0m
+build.dart finished [412 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [197 ms]
+
+---
+build.dart --changed=web/adlibitum.dart
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m170 ms[0m
+build.dart finished [365 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [209 ms]
+
+---
+build.dart --changed=web/adlibitum.dart
+[{"method":"mapping","params":{"from":"web/adlibitum.html","to":"web/out/adlibitum.html"}}]
+Total time spent on web/adlibitum.html                       -- [32m167 ms[0m
+build.dart finished [363 ms]
+
+---
+build.dart --changed=web/out/adlibitum.dart --changed=web/out/adlibitum.html --changed=web/out/adlibitum.html_b...
+
+build.dart finished [193 ms]
+

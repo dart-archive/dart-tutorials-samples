@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad Libitum</title>
+    <link rel="stylesheet" href="adlibitum.css">
+  </head>
+  <body>
+    <h1>Ad Libitum</h1>
+    
+      <input type="text" bind-value="sillyword" on-change="verify()" placeholder="Silly Word">
+      <input type="text" bind-value="adjective" on-change="verify()" placeholder="Adjective">
+      <input type="text" bind-value="animal"    on-change="verify()" placeholder="Animal">
+      <input type="text" bind-value="bodypart"  on-change="verify()" placeholder="Body Part">
+      <input type="text" bind-value="verb"      on-change="verify()" placeholder="Verb">
+      <input type="text" bind-value="adverb"    on-change="verify()" placeholder="Adverb">
+      
+      <template instantiate="if show">
+        <p>Dear Ms. {{sillyword}},</p>
+        
+        <p>Little {{adjective}} Billy missed school
+        because he was sick with wild-{{animal}} flu.
+        His {{bodypart}} swelled up and fell off.
+        He can no longer {{verb}}.</p>
+        
+        <p>Most {{adverb}} yours, Billy's mother</p>
+      </template>
+
+    <script type="application/dart" src="adlibitum.dart"></script>
+    <script type="text/javascript" src="packages/browser/dart.js"></script>
+  </body>
+</html>
