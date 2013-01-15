@@ -2,7 +2,7 @@ import 'package:web_ui/web_ui.dart';
 
 class ConverterComponent extends WebComponent {
   
-  double ratio = 0.5;
+  num ratio = 0.5;
   String thing_one = '0';
   String thing_two = '0';
 
