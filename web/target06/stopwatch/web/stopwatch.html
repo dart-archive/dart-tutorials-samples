@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="stopwatch.css">
+  </head>
+  <body>
+    <h1>Stop Watch</h1>
+
+    <div id="stopwatch">
+      <div>
+      {{counter}}
+      </div>
+      <div>
+      <button on-click="startwatch()" id="startbutton">Start</button>
+      <button on-click="stopwatch()"  id="stopbutton">Stop</button>
+      <button on-click="resetwatch()" id="resetbutton">Reset</button>
+      </div>
+    </div>
+    
+    <script type="application/dart" src="stopwatch.dart"></script>
+    <script type="text/javascript" src="packages/browser/dart.js"></script>
+  </body>
+</html>

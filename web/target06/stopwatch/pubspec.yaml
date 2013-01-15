@@ -1,0 +1,6 @@
+name:  stopwatch
+description:  Stop that!
+
+dependencies:
+  browser: any
+  web_ui: any
