@@ -1,0 +1,5 @@
+name:  littleben_clock
+description:  A little working clock
+
+dependencies:
+  web_ui: any
