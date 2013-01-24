@@ -2,4 +2,5 @@ name:  Shout
 description:  Shout! Shout! Let it all out!
 
 dependencies:
+  browser: any
   web_ui: any
