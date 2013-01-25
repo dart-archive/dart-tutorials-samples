@@ -10,7 +10,7 @@ bool dead = false;
 bool won = false;
 
 void main() {
-  setupHangmanGrid();
+  setUpHangmanGrid();
 }
 
 void checkit() {
@@ -54,8 +54,7 @@ void revealnewbodypart() {
   hangmandisplay[row][col] = deadmanparts[wrongletters.length][2];
 }
 
-void setupHangmanGrid()
-{
+void setUpHangmanGrid() {
   var gallows = [ '+---+  ',
                   '\|      ',
                   '\|      ',
