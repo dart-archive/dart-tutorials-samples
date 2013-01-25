@@ -1,0 +1,36 @@
+
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+p {
+  color: #333;
+}
+
+#table-container {
+  min-height: 175px;
+  min-width: 75px;
+  padding-right: 20px;
+  float: left;
+}
+
+#hangman {
+  font-size: 24px;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+#wrong {
+  font-size: 24px;
+  margin-left: 32px;
+  margin-top: 12px;
+}
+
+input {
+  width: 2em;
+}
