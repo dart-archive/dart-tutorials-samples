@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show me the JSON</title>
+    <link rel="stylesheet" href="its_all_about_you.css">
+  </head>
+  <body>
+    <h1>Tell me about yourself</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th> </th>
+    <th>Enter Value</th>
+    <th>Data Type</th>
+    <th>JSON String</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td align="right">Favorite Number:</td>
+    <td><input type="text" bind-value="favoritenumber" on-change="showJSON()"></td>
+    <td>integer</td>
+    <td><span class="result"> {{ intasjson }} </span></td>
+  </tr>
+  <tr>
+    <td align="right">Value of Pi:</td>
+    <td><input type="text" bind-value="valueofpi" on-change="showJSON()"></td>
+    <td>double</td>
+    <td><span class="result"> {{ doubleasjson }} </span></td>
+  </tr>
+  <tr>
+    <td align="right">What's your sign?</td>
+    <td><input type="text" bind-value="horrorscope" on-change="showJSON()"></td>
+    <td>String</td>
+    <td><span class="result"> {{ stringasjson }} </span></td>
+  </tr>
+  <tr>
+    <td align="right">A few of your favorite things?</td>
+    <td>
+      <input type="text" bind-value="favone" on-change="showJSON()">
+      <input type="text" bind-value="favtwo" on-change="showJSON()">
+      <input type="text" bind-value="favthree" on-change="showJSON()">
+    </td>
+    <td>List&lt;String&gt;</td>
+    <td><span class="result"> {{ listasjson }} </span></td>
+  </tr>
+  <tr>
+    <td align="right">I Love Chocolate!</td>
+    <td><input type="radio" on-change="showJSON()" name="chocolate" value="true" id="true" checked="checked">True
+        <input type="radio" on-change="showJSON()" name="chocolate" value="false" id="false">False
+    </td>
+    <td>bool</td>
+    <td><span class="result"> {{ boolasjson }} </span></td>
+  </tr>
+  </tbody>
+</table>
+    
+    <div class="givemespace">
+      <label>All data together as a map</label><br>
+      <textarea id="mapasjson" readonly>{{ mapasjson }}</textarea>
+    </div>
+    
+    <script type="application/dart" src="its_all_about_you.dart"></script>
+    <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+    <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+</html>
