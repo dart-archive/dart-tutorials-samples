@@ -1,78 +1,78 @@
 import 'dart:html';
-import 'dart:json' as JSON;
+import 'dart:json' as json;
 
 // JSON strings, bound to HTML
-String intasjson;
-String doubleasjson;
-String stringasjson;
-String listasjson;
-String boolasjson;
-String mapasjson;
+String intAsJson;
+String doubleAsJson;
+String stringAsJson;
+String listAsJson;
+String boolAsJson;
+String mapAsJson;
 
 // Data input as strings, bound to input fields
-String favoritenumber='';
-String valueofpi='';
-String horrorscope='';
-String favone='';
-String favtwo='';
-String favthree='';
+String favoriteNumber='';
+String valueOfPi='';
+String horrorScope='';
+String favOne='';
+String favTwo='';
+String favThree='';
 String chocolate='';
 
-void showJSON() {
-  
-  // typed data to convert to JSON
-  num favnum = int.parse(favoritenumber);
-  num pi = double.parse(valueofpi);
+void showJson() {
+  // Typed data to convert to JSON
+  num favNum = int.parse(favoriteNumber);
+  num pi = double.parse(valueOfPi);
   var anElement = query('#true');
   bool choco = anElement.checked ? true : false;
   
-  List<String> favoritethings = [ favone, favtwo, favthree ];
+  List<String> favoriteThings = [ favOne, favTwo, favThree ];
 
-  Map formdata = {
-    'favoritenumber': favnum,
-    'valueofpi': pi,
+  Map formData = {
+    'favoriteNumber': favNum,
+    'valueOfPi': pi,
     'chocolate': choco,
-    'horrorscope': horrorscope,
-    'favoritethings': favoritethings
+    'horrorScope': horrorScope,
+    'favoriteThings': favoriteThings
   };
 
-  // convert everything to JSON
-  intasjson = JSON.stringify(favnum);
-  doubleasjson = JSON.stringify(pi);
-  boolasjson = JSON.stringify(choco);
-  stringasjson = JSON.stringify(horrorscope);
-  listasjson = JSON.stringify(favoritethings);
-  mapasjson = JSON.stringify(formdata);
+  // Convert everything to JSON
+  intAsJson = json.stringify(favNum);          // int
+  doubleAsJson = json.stringify(pi);           // double
+  boolAsJson = json.stringify(choco);          // boolean
+  stringAsJson = json.stringify(horrorScope);  // string
+  listAsJson = json.stringify(favoriteThings); // list of strings
+  mapAsJson = json.stringify(formData);        // map with string keys
+                                               // and mixed values
 }
 
 void main() {
-  populateFromJSON();
-  showJSON();
+  populateFromJson();
+  showJson();
 }
 
-void populateFromJSON() {
+void populateFromJson() {
 
-String jsondataasstring = '''
-{ "favoritenumber":44,
-  "valueofpi":3.141592,
+String jsonDataAsString = '''
+{ "favoriteNumber":44,
+  "valueOfPi":3.141592,
   "chocolate":true,
-  "horrorscope":"virgo",
-  "favoritethings":["raindrops",
+  "horrorScope":"virgo",
+  "favoriteThings":["raindrops",
                     "whiskers",
                     "mittens"]
 }
 ''';
 
-  Map jsondata = JSON.parse(jsondataasstring);
+  Map jsonData = json.parse(jsonDataAsString);
   
-  favoritenumber = jsondata['favoritenumber'].toString();
-  valueofpi = jsondata['valueofpi'].toString();
-  horrorscope = jsondata['horrorscope'];
-  favone = jsondata['favoritethings'][0];
-  favtwo = jsondata['favoritethings'][1];
-  favthree = jsondata['favoritethings'][2];
+  favoriteNumber = jsonData['favoriteNumber'].toString();
+  valueOfPi = jsonData['valueOfPi'].toString();
+  horrorScope = jsonData['horrorScope'];
+  favOne = jsonData['favoriteThings'][0];
+  favTwo = jsonData['favoriteThings'][1];
+  favThree = jsonData['favoriteThings'][2];
 
-  if (jsondata['chocolate']) {
+  if (jsonData['chocolate']) {
     var anElement = query('#true');
     anElement.checked = true;
   } else {
