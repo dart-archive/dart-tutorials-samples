@@ -1,6 +1,0 @@
-name:  littleben
-description:  A lesser clock
-
-dependencies:
-  browser: any
-  web_ui: any
