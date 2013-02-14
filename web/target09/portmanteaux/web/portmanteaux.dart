@@ -1,14 +1,14 @@
 import 'dart:html';
-import 'dart:json' as JSON;
+import 'dart:json' as json;
 
-var wordlist;
+var wordList;
 
 void main() {
-  query('#getwords').onClick.listen(makerequest);
-  wordlist = query('#wordlist');
+  query('#getWords').onClick.listen(makeRequest);
+  wordList = query('#wordList');
 }
 
-void makerequest(Event e) {
+void makeRequest(Event e) {
   var path = 'portmanteaux.json';
   var httpRequest = new HttpRequest();
   httpRequest.open('GET', path);
@@ -18,11 +18,12 @@ void makerequest(Event e) {
 
 requestComplete(HttpRequest request) {
   if (request.status == 200) {
-    List<String> portmanteaux = JSON.parse(request.responseText);
+    List<String> portmanteaux = json.parse(request.responseText);
     for (int i = 0; i < portmanteaux.length; i++) {
-      wordlist.children.add(new LIElement()..text = portmanteaux[i]);
+      wordList.children.add(new LIElement()..text = portmanteaux[i]);
     }
   } else {
-    wordlist.children.add(new LIElement()..text = 'Request failed, status={$request.status}');
+    wordList.children.add(new LIElement()..text =
+        'Request failed, status={$request.status}');
   }
 }
