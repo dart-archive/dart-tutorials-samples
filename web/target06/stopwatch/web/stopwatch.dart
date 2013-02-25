@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:async';
 import 'package:web_ui/watcher.dart' as watchers;
 
 String counter='00:00';
@@ -18,7 +19,8 @@ void main() {
 
 void startwatch() {
   mywatch.start();
-  window.setInterval(updateTime, 1000);
+  var oneSecond = new Duration(seconds:1);
+  var timer = new Timer.repeating(oneSecond, updateTime);
   startButton.disabled = true;
   stopButton.disabled = false;
   resetButton.disabled = true;
@@ -37,7 +39,7 @@ void resetwatch() {
   resetButton.disabled = true;
 }
 
-void updateTime() {
+void updateTime(Timer t) {
   var s = mywatch.elapsedMilliseconds~/1000;
   var m = 0;
   

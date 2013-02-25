@@ -1,7 +1,7 @@
 String currentTime;
 
 void main() {
-  Date today = new Date.now();
+  DateTime today = new DateTime.now();
   currentTime = formatTime(today.hour, today.minute, today.second);
 }
 
