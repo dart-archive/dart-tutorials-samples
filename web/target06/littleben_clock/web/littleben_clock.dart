@@ -5,11 +5,11 @@ String currentTime;
 
 void main() {
   var oneSecond = new Duration(seconds:1);
-  var timer = new Timer.repeating(oneSecond, updateTime);
+  var timer = new Timer.periodic(oneSecond, updateTime);
   updateTime(timer);
 }
 
-void updateTime(Timer t) {
+void updateTime(Timer _) {
   DateTime today = new DateTime.now();
   currentTime = formatTime(today.hour, today.minute, today.second);
   watchers.dispatch();
