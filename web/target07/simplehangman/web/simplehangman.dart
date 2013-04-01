@@ -1,7 +1,7 @@
 
 String answer = 'pumpernickel';
-List<String> characters = answer.splitChars();
-List<String> hyphens    = answer.replaceAll(new RegExp('.'), '-').splitChars();
+List<String> characters = answer.split("");
+List<String> hyphens    = answer.replaceAll(new RegExp('.'), '-').split("");
 
 List<String> wrongletters = new List();
 String guessedletter = '';

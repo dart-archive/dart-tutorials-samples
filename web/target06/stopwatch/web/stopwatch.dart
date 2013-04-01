@@ -20,7 +20,7 @@ void main() {
 void startwatch() {
   mywatch.start();
   var oneSecond = new Duration(seconds:1);
-  var timer = new Timer.repeating(oneSecond, updateTime);
+  var timer = new Timer.periodic(oneSecond, updateTime);
   startButton.disabled = true;
   stopButton.disabled = false;
   resetButton.disabled = true;
@@ -39,7 +39,7 @@ void resetwatch() {
   resetButton.disabled = true;
 }
 
-void updateTime(Timer t) {
+void updateTime(Timer _) {
   var s = mywatch.elapsedMilliseconds~/1000;
   var m = 0;
   

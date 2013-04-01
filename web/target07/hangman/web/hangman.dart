@@ -1,7 +1,7 @@
 String answer = 'ambidextrous';
 
-List<String> characters   = answer.splitChars();
-List<String> hyphens      = answer.replaceAll(new RegExp('.'), '-').splitChars();
+List<String> characters   = answer.split("");
+List<String> hyphens      = answer.replaceAll(new RegExp('.'), '-').split("");
 List<String> wrongletters = new List();
 List<List> hangmandisplay;
 
@@ -63,7 +63,7 @@ void setUpHangmanGrid() {
   hangmandisplay = new List(gallows.length);
   
   for (int i = 0; i < gallows.length; i++) {
-    List<String> row = gallows[i].splitChars();
+    List<String> row = gallows[i].split("");
     hangmandisplay[i] = row;
   }
 }
