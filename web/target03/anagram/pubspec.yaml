@@ -1,0 +1,4 @@
+name: anagram
+description: Make a word from the letters
+dependencies:
+  browser: any
