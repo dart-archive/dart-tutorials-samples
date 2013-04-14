@@ -5,8 +5,8 @@ String currentTime;
 
 void main() {
   var oneSecond = new Duration(seconds:1);
-  var timer = new Timer.periodic(oneSecond, updateTime);
-  updateTime(timer);
+  new Timer.periodic(oneSecond, updateTime);
+  updateTime(null);
 }
 
 void updateTime(Timer _) {

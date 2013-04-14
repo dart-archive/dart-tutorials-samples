@@ -20,7 +20,7 @@ void main() {
 void startwatch() {
   mywatch.start();
   var oneSecond = new Duration(seconds:1);
-  var timer = new Timer.periodic(oneSecond, updateTime);
+  new Timer.periodic(oneSecond, updateTime);
   startButton.disabled = true;
   stopButton.disabled = false;
   resetButton.disabled = true;
