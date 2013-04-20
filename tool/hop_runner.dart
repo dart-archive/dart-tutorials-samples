@@ -5,7 +5,7 @@ import 'package:hop/hop.dart';
 import 'package:hop/hop_tasks.dart';
 
 String deployFolderName = '.deploy';
-String workingBranch = 'hop_gh_pages';
+String workingBranch = 'master';
 
 List webUIFiles = ['web/target06/littleben/web/littleben.html',
                    'web/target06/littleben_clock/web/littleben_clock.html',
