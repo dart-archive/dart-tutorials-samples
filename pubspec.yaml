@@ -1,5 +1,13 @@
 name:  tutorialsamples
 description:  A sample application
-
-#dependencies:
-#  unittest: { sdk: unittest }
+environment:
+  sdk: '>=0.4.7+1.r21548'
+dependencies:
+  oauth2: '>=0.4.7+1'
+  http: '>=0.4.7+1'
+  pathos: '>=0.4.7+1'
+  hop: '>=0.21.0'
+  browser: any
+  web_ui:
+    git: https://github.com/dart-lang/web-ui.git
+#  web_ui: any
