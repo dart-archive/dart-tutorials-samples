@@ -23,6 +23,6 @@ processString(String jsonString) {
   }
 }
 
-handleError(AsyncError error) {
+handleError(Error error) {
   wordList.children.add(new LIElement()..text = 'Request failed.');
 }
