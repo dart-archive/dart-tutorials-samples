@@ -22,7 +22,7 @@ Project structure
 	A tool that builds the gh-pages deployable version of the apps.
 	To run and update the gh-pages repo, run these commands from the top-level directory. Make sure Dart is in your path:
 
-pub update && dart tool/hop_runner.dart pages
+[pub update && dart tool/hop_runner.dart pages]
 
 
 **README.md:**
