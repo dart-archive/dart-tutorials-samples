@@ -5,6 +5,9 @@ A Game of Darts
 These are small Dart samples used by the online Dart tutorials:
 [A Game of Darts](http://www.dartlang.org/docs/tutorials/)
 
+For links to running versions of all of the apps, visit
+[index.html](http://dart-lang.github.io/dart-tutorials-samples/)
+
 Repo and testing
 ----------------
 Currently, drone.io tests only whether the .dart files under web/ pass static analysis (dart_analyzer). We could do real unit testing, and we could do better with HTML samples.
@@ -19,9 +22,8 @@ Project structure
 	A tool that builds the gh-pages deployable version of the apps.
 	To run and update the gh-pages repo, run these commands from the top-level directory. Make sure Dart is in your path:
 
- pub update && dart tool/hop_runner.dart pages
+pub update && dart tool/hop_runner.dart pages
 
-[Run all of the apps here.](http://dart-lang.github.io/dart-tutorials-samples/)
 
 **README.md:**
 	This file.
