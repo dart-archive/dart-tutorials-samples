@@ -9,14 +9,14 @@
   <body>
     <h1>Ad Libitum</h1>
     
-      <input type="text" bind-value="sillyword" on-change="verify()" placeholder="Silly Word">
-      <input type="text" bind-value="adjective" on-change="verify()" placeholder="Adjective">
-      <input type="text" bind-value="animal"    on-change="verify()" placeholder="Animal">
-      <input type="text" bind-value="bodypart"  on-change="verify()" placeholder="Body Part">
-      <input type="text" bind-value="verb"      on-change="verify()" placeholder="Verb">
-      <input type="text" bind-value="adverb"    on-change="verify()" placeholder="Adverb">
+      <input type="text" bind-value="sillyword" placeholder="Silly Word">
+      <input type="text" bind-value="adjective" placeholder="Adjective">
+      <input type="text" bind-value="animal"    placeholder="Animal">
+      <input type="text" bind-value="bodypart"  placeholder="Body Part">
+      <input type="text" bind-value="verb"      placeholder="Verb">
+      <input type="text" bind-value="adverb"    placeholder="Adverb">
       
-      <template instantiate="if show">
+      <template instantiate="if show()">
         <p>Dear Ms. {{sillyword}},</p>
         
         <p>Little {{adjective}} Billy missed school

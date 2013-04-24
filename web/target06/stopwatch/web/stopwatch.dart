@@ -1,8 +1,8 @@
 import 'dart:html';
 import 'dart:async';
-import 'package:web_ui/watcher.dart' as watchers;
+import 'package:web_ui/web_ui.dart';
 
-String counter='00:00';
+@observable String counter='00:00';
 Stopwatch mywatch = new Stopwatch();
 
 ButtonElement stopButton;
@@ -48,5 +48,4 @@ void updateTime(Timer _) {
   String minute = (m <= 9) ? '0$m' : '$m';
   String second = (s <= 9) ? '0$s' : '$s';
   counter = '$minute:$second';
-  watchers.dispatch();
 }

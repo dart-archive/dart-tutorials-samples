@@ -1,21 +1,21 @@
-String sillyword='';
-String adjective='';
-String animal='';
-String bodypart='';
-String verb='';
-String adverb='';
+import 'package:web_ui/web_ui.dart';
 
-bool show=false;
+@observable String sillyword='';
+@observable String adjective='';
+@observable String animal='';
+@observable String bodypart='';
+@observable String verb='';
+@observable String adverb='';
 
 void main() {
 }
 
-void verify() {
+@observable bool show() {
   if (sillyword != '' && adjective != '' &&
       animal    != '' && bodypart  != '' &&
       verb      != '' && adverb    != '') {
-    show = true;
+    return true;
   } else {
-    show = false;
+    return false;
   }
 }

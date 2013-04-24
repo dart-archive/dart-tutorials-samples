@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:web_ui/watcher.dart' as watchers;
+import 'package:web_ui/web_ui.dart';
 
-String currentTime;
+@observable String currentTime;
 
 void main() {
   var oneSecond = new Duration(seconds:1);
@@ -12,7 +12,6 @@ void main() {
 void updateTime(Timer _) {
   DateTime today = new DateTime.now();
   currentTime = formatTime(today.hour, today.minute, today.second);
-  watchers.dispatch();
 }
 
 String formatTime(int h, int m, int s) {
