@@ -19,8 +19,9 @@ Project structure
 	Code samples used in the online tutorial. Contains sub-directories to organize the samples by target.
 
 **tool/:**
-	A tool that builds the gh-pages deployable version of the apps.
-	To run and update the gh-pages repo, run these commands from the top-level directory. Make sure Dart is in your path:
+	A tool that builds and deploys the gh-pages version of the apps.
+	To build the samples and push the changes to the gh-pages repo, run these commands from the top-level directory.
+	Make sure Dart is in your path:
 
     pub update && dart tool/hop_runner.dart pages
 
@@ -29,4 +30,4 @@ Project structure
 	This file.
 
 **runtests.sh:**
-       BASH script that runs dart_analyzer on all Dart source files in the web directory.
+	BASH script that runs dart_analyzer on all Dart source files in the web directory.
