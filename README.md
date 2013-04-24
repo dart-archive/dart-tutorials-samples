@@ -21,7 +21,7 @@ Project structure
 
  pub update && dart tool/hop_runner.dart pages
 
-	[Run all of the apps here.](http://dart-lang.github.io/dart-tutorials-samples/)
+[Run all of the apps here.](http://dart-lang.github.io/dart-tutorials-samples/)
 
 **README.md:**
 	This file.
