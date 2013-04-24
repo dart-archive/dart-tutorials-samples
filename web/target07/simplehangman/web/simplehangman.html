@@ -21,7 +21,7 @@
               <template instantiate="if wrongletters.length != 0"> Sorry! The word contains no: </template>
             </p>
             <p id="wrong">
-              <template iterate="usedchars in wrongletters"> {{usedchars}} </template>
+              <template iterate="wrongchar in wrongletters"> {{wrongchar}} </template>
             </p>
           </template>
           
