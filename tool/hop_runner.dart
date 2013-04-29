@@ -45,7 +45,7 @@ Future gitBranchPagesResetHard(ctx) => startProcess(ctx, 'git', ['reset', '--har
 Future gitBranchPagesPubUpdate(ctx) => startProcess(ctx, 'pub', ['update']);
 
 /**
- * Build a list of urls to the sample files. 
+ * Build a list of urls to the sample files.
  */
 List<String> buildWebUrls() {
   var urls = new List<String>();
@@ -96,7 +96,7 @@ void writeIndexFile() {
 }
 
 /**
- * Run dart2js on non web_ui web projects. 
+ * Run dart2js on non web_ui web projects.
  */
 Future<bool> dart2js(ctx) {
   ctx.info("executing dart2js");
@@ -130,7 +130,7 @@ Future<bool> dart2js(ctx) {
 }
 
 /**
- * Run dart2dart on non web_ui web projects. 
+ * Run dart2dart on non web_ui web projects.
  */
 Future<bool> dart2dart(ctx) {
   ctx.info("executing dart2dart");
@@ -166,13 +166,13 @@ Future<bool> dart2dart(ctx) {
 }
 
 /**
- * Run dart2js and dart2dart on web_ui web projects. 
+ * Run dart2js and dart2dart on web_ui web projects.
  */
 Future<bool> dart2WebUI(ctx, List bootstrapFiles) {
   ctx.info("executing dart2dart");
   ctx.info("bootstrapFiles = ${bootstrapFiles}");
   var completer = new Completer();
-  
+
   funcRun(List f) {
     if (f.length == 0) {
       completer.complete(true);
@@ -210,164 +210,129 @@ Future<bool> dart2WebUI(ctx, List bootstrapFiles) {
 
   return completer.future;
 }
-    
+
 /**
- * Build the pages branch and push to github. 
- */    
+ * Build the pages branch and push to github.
+ */
 buildPages(ctx) {
+  String barSeparator = "==========================================";
   ctx.info("executing buildPages");
-  var completer = new Completer();
+  //var completer = new Completer();
+  List webUiFilesResults;
 
-  web_ui.build(webUIArgs, webUIFiles).then(
-      (result) {
-
-        ctx.info("==========================================");
-        ctx.info("result = ${result}");
-        ctx.info("web_ui.build done");
-        ctx.info("==========================================");
-
-        startProcess(ctx, 'rsync', ['-RLrk',
-                                    '--include=*/',
-                                    '--include=packages/browser/dart.js',
-                                    '--exclude=packages/***',
-                                    '--verbose',
-                                    'web', deployFolderName]).then((rsync_result) {
-
-          ctx.info("==========================================");
-          ctx.info("result = ${rsync_result}");
-          ctx.info("rsync done");
-          ctx.info("==========================================");
-
-          dart2js(ctx).then((dart2js_result) {
-
-            ctx.info("==========================================");
-            ctx.info("result = ${dart2js_result}");
-            ctx.info("dart2js done");
-            ctx.info("==========================================");
-
-            dart2dart(ctx).then((dart2dart_result) {
-
-              ctx.info("==========================================");
-              ctx.info("result = ${dart2dart_result}");
-              ctx.info("dart2dart done");
-              ctx.info("==========================================");
-
-              var filesToProcess = new List();
-              result.forEach((o) => filesToProcess.addAll(o.outputs.keys.where((f) => f.endsWith("_bootstrap.dart"))));
-              
-              dart2WebUI(ctx, filesToProcess).then((dart2WebUI_results) {
-
-                ctx.info("==========================================");
-                ctx.info("result = ${dart2WebUI_results}");
-                ctx.info("dart2WebUI done");
-                ctx.info("=========================================="); 
-                                 
-                writeIndexFile();
-
-                gitBranchPagesDelete(ctx).then((r) {
-
-                  ctx.info("==========================================");
-                  ctx.info("result = ${r}");
-                  ctx.info("gitBranchPagesDelete done");
-                  ctx.info("=========================================="); 
-
-                  gitBranchPagesCreate(ctx).then((r) {
-
-                    ctx.info("==========================================");
-                    ctx.info("result = ${r}");
-                    ctx.info("gitBranchPagesCreate done");
-                    ctx.info("=========================================="); 
-
-                    gitBranchPagesCheckout(ctx).then((r) {
-
-                      ctx.info("==========================================");
-                      ctx.info("result = ${r}");
-                      ctx.info("gitBranchPagesCheckout done");
-                      ctx.info("=========================================="); 
-
-                      gitBranchPagesDeleteFilesGit(ctx).then((r) {
-
-                        ctx.info("==========================================");
-                        ctx.info("result = ${r}");
-                        ctx.info("gitBranchPagesDeleteFilesGit done");
-                        ctx.info("=========================================="); 
-
-                        gitBranchPagesDeleteFiles(ctx).then((r) {
-
-                          ctx.info("==========================================");
-                          ctx.info("result = ${r}");
-                          ctx.info("gitBranchPagesDeleteFiles done");
-                          ctx.info("=========================================="); 
-
-                          gitBranchPagesCopyFiles(ctx).then((r) {
-
-                            ctx.info("==========================================");
-                            ctx.info("result = ${r}");
-                            ctx.info("gitBranchPagesCopyFiles done");
-                            ctx.info("=========================================="); 
-
-                            gitBranchPagesAddFiles(ctx).then((r) {
-
-                              ctx.info("==========================================");
-                              ctx.info("result = ${r}");
-                              ctx.info("gitBranchPagesAddFiles done");
-                              ctx.info("=========================================="); 
-
-                              gitBranchPagesCommitFiles(ctx).then((r) {
-
-                                ctx.info("==========================================");
-                                ctx.info("result = ${r}");
-                                ctx.info("gitBranchPagesCommitFiles done");
-                                ctx.info("=========================================="); 
-
-                                gitBranchPagesPushFiles(ctx).then((r) {
-
-                                  ctx.info("==========================================");
-                                  ctx.info("result = ${r}");
-                                  ctx.info("gitBranchPagesPushFiles done");
-                                  ctx.info("=========================================="); 
-
-                                  gitBranchPagesCheckoutMainBranch(ctx).then((r) {
-
-                                    ctx.info("==========================================");
-                                    ctx.info("result = ${r}");
-                                    ctx.info("gitBranchPagesCheckoutMainBranch done");
-                                    ctx.info("=========================================="); 
-
-                                    gitBranchPagesResetHard(ctx).then((r) {
-
-                                      ctx.info("==========================================");
-                                      ctx.info("result = ${r}");
-                                      ctx.info("gitBranchPagesResetHard done");
-                                      ctx.info("=========================================="); 
-
-                                      gitBranchPagesPubUpdate(ctx).then((r) {
-
-                                        ctx.info("==========================================");
-                                        ctx.info("result = ${r}");
-                                        ctx.info("gitBranchPagesPubUpdate done");
-                                        ctx.info("=========================================="); 
-
-                                        completer.complete(true);
-                                      });
-                                    });
-                                  });
-                                });
-                              });
-                            });
-                          });
-                        });
-                      });
-                    });
-                  });
-                });                  
-              });
-            });
-          });
-        });
-      });
-
-  return completer.future;
+  return web_ui.build(webUIArgs, webUIFiles).then((result) {
+    ctx.info(barSeparator);
+    ctx.info("Building WebUI finished");
+    ctx.info("result = ${result}");
+    ctx.info(barSeparator);
+    webUiFilesResults = result;
+    return startProcess(ctx, 'rsync', ['-RLrk',
+                                '--include=*/',
+                                '--include=packages/browser/dart.js',
+                                '--exclude=packages/***',
+                                '--verbose',
+                                'web', deployFolderName]);
+  }).then((rsync_result) {
+    ctx.info(barSeparator);
+    ctx.info("rsync finished");
+    ctx.info("rsync_result = ${rsync_result}");
+    ctx.info(barSeparator);
+    return dart2js(ctx);
+  }).then((dart2js_result) {
+    ctx.info(barSeparator);
+    ctx.info("dart2js finished");
+    ctx.info("dart2js_result = ${dart2js_result}");
+    ctx.info(barSeparator);
+    return dart2dart(ctx);
+  }).then((dart2dart_result) {
+    ctx.info(barSeparator);
+    ctx.info("dart2dart finished");
+    ctx.info("dart2dart_result = ${dart2dart_result}");
+    ctx.info(barSeparator);
+    var filesToProcess = new List();
+    webUiFilesResults.forEach((o) => filesToProcess.addAll(o.outputs.keys.where((f) =>
+        f.endsWith("_bootstrap.dart"))));
+    return dart2WebUI(ctx, filesToProcess);
+  }).then((dart2WebUI_results) {
+    ctx.info(barSeparator);
+    ctx.info("dart2WebUI finished");
+    ctx.info("dart2WebUI_results = ${dart2WebUI_results}");
+    ctx.info(barSeparator);    
+    writeIndexFile();
+    return gitBranchPagesDelete(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesDelete finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);
+    return gitBranchPagesCreate(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesCreate finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);    
+    return gitBranchPagesCheckout(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesCheckout finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);    
+    return gitBranchPagesDeleteFilesGit(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesDeleteFilesGit finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);    
+    return gitBranchPagesDeleteFiles(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesDeleteFiles finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);    
+    return gitBranchPagesCopyFiles(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesCopyFiles finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);    
+    return gitBranchPagesAddFiles(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesAddFiles finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);
+    return gitBranchPagesCommitFiles(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesCommitFiles finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);    
+    return gitBranchPagesPushFiles(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesPushFiles finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);     
+    return gitBranchPagesCheckoutMainBranch(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesCheckoutMainBranch finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);     
+    return gitBranchPagesResetHard(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesResetHard finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator);    
+    return gitBranchPagesPubUpdate(ctx);
+  }).then((r) {
+    ctx.info(barSeparator);
+    ctx.info("gitBranchPagesPubUpdate finished");
+    ctx.info("r = ${r}");
+    ctx.info(barSeparator); 
+    return true;
+  });
 }
 
 void main() {
