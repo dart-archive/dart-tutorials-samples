@@ -217,7 +217,6 @@ Future<bool> dart2WebUI(ctx, List bootstrapFiles) {
 buildPages(ctx) {
   String barSeparator = "==========================================";
   ctx.info("executing buildPages");
-  //var completer = new Completer();
   List webUiFilesResults;
 
   return web_ui.build(webUIArgs, webUIFiles).then((result) {
