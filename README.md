@@ -30,4 +30,4 @@ Project structure
 	This file.
 
 **runtests.sh:**
-	BASH script that runs dart_analyzer on all Dart source files in the web directory.
+	BASH script that runs dartanalyzer on all Dart source files in the web directory.
