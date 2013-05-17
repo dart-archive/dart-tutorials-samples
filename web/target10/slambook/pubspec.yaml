@@ -1,0 +1,6 @@
+name: slambook
+description: What? You weren't a tween girl in the 1970's?
+dependencies:
+  browser: any
+  js: any
+  web_ui: any

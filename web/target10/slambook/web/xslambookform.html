@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+  <body>   
+  
+  <element name="x-slambook-form" extends="form" constructor="SlamBookComponent">
+    <template>
+      <div class="entry">
+        <label>First name?</label>
+        <input type="text" bind-value="theData['firstName']">
+      </div>
+      <div class="entry">
+        <label>Favorite quote?</label>
+        <textarea bind-value="theData['favoriteQuote']"></textarea>
+      </div> 
+      <div class="entry">
+        <label>Favorite color?</label>
+        <input type="color" bind-value="theData['favoriteColor']">
+      </div>
+      <div class="entry">
+        <label>Birthday?</label>
+        <input type="date" bind-value="theData['birthday']">
+      </div>
+      <div class="entry">
+        <label>Favorite volume?</label>
+        <input type="range" bind-value="theData['volume']" min="0" max="11">  
+      </div>
+      <div class="entry">
+        <label>Cat or dog?</label>
+        <input name="catOrDog" type="radio" value="cat" bind-value="theData['catOrDog']">Cat
+        <input name="catOrDog" type="radio" value="dog" bind-value="theData['catOrDog']">Dog
+        <input name="catOrDog" type="radio" value="iguana" bind-value="theData['catOrDog']">Iguana
+      </div>
+      <div>
+        <label>Favorite type of music?</label>
+        <select bind-selected-index="theData['music']">
+          <option>Classical</option>
+          <option>Country</option>
+          <option>Rock</option>
+          <option>Silence</option>
+        </select>
+      </div>
+      <div class="entry">
+        <label>Check for zombies. </label>
+        <input type="checkbox" bind-checked="theData['zombies']">
+      </div>
+      <div class="entry">
+        <label>Favorite things?</label>
+        <input type="checkbox" bind-checked="favoriteThings['kittens']">Kittens
+        <input type="checkbox" bind-checked="favoriteThings['raindrops']">Raindrops
+        <input type="checkbox" bind-checked="favoriteThings['mittens']">Mittens
+        <input type="checkbox" bind-checked="favoriteThings['kettles']">Kettles
+      </div>
+
+      <div class="submitarea">
+        <input type="submit" value="Submit" on-click="submitForm($event)">
+        <input type="reset"  value="Clear"  on-click="resetForm($event)"> <br />    
+        <textarea disabled class="responsetext" bind-value="serverResponse"></textarea>
+      </div>
+      
+      <script type="application/dart" src="xslambookform.dart">
+      </script>
+    </template>
+  </element>
+
+  </body>
+</html>
