@@ -1,4 +1,4 @@
 name: todo
-description: A procrastinator's todo app
+description: A todo list for procrastinators
 dependencies:
   browser: any

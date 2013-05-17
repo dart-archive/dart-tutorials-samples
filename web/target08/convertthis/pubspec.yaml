@@ -1,6 +1,5 @@
 name:  convertthis
 description:  Go metric!
-
 dependencies:
   browser: any
   web_ui: any

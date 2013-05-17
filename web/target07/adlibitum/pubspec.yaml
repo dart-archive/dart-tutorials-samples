@@ -1,6 +1,5 @@
 name:  adlibitum
 description:  Wacky word wit
-
 dependencies:
   browser: any
   web_ui: any

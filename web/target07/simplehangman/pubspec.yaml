@@ -1,6 +1,5 @@
 name:  simplehangman
 description:  Can you guess the word?
-
 dependencies:
   browser: any
   web_ui: any

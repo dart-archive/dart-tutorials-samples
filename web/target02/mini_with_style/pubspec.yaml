@@ -1,4 +1,4 @@
-name: mini
+name: mini_with_style
 description: A sample web application
 dependencies:
   browser: any

@@ -12,11 +12,11 @@
       <input type="text" bind-value="shoutThis" placeholder="Shout This!">
         
       <div>      Length: {{ shoutThis.length }} </div>
-      <div>     Shouted: {{ shoutThis.toUpperCase() }} </div>
+      <div>     Shouted: {{ shouted }} </div>
       <div>   Substring: {{ (shoutThis.length >= 6) ?
                              shoutThis.substring(1, 5) :
                              shoutThis.substring(0, 0) }} </div>
-      <div> Palindromic: {{ palindrome() }} </div>
+      <div> Palindromic: {{ palindrome }} </div>
       
     <script type="application/dart" src="shout.dart"></script>
     <script src="packages/browser/dart.js"></script>
