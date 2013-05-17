@@ -8,7 +8,6 @@ String deployFolderName = '.deploy';
 String workingBranch = 'master';
 
 List webUIFiles = ['web/target06/littleben/web/littleben.html',
-                   'web/target06/littleben_clock/web/littleben_clock.html',
                    'web/target06/shout/web/shout.html',
                    'web/target06/stopwatch/web/stopwatch.html',
                    'web/target07/adlibitum/web/adlibitum.html',
