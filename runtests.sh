@@ -11,7 +11,8 @@ FAILURES=0
 # Type Analysis
 
 #ANA="dart_analyzer --fatal-type-errors --extended-exit-code --type-checks-for-inferred-types"
-ANA="dart_analyzer --fatal-type-errors --extended-exit-code"
+# use new experimental analyzer
+ANA="dartanalyzer --fatal-type-errors"
 
 echo
 echo "Type Analysis, running dart_analyzer..."
