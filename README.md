@@ -10,7 +10,7 @@ For links to running versions of all of the apps, visit
 
 Repo and testing
 ----------------
-Currently, drone.io tests only whether the .dart files under web/ pass static analysis (dart_analyzer). We could do real unit testing, and we could do better with HTML samples.
+Currently, drone.io tests only whether the .dart files under web/ pass static analysis (dartanalyzer). We could do real unit testing, and we could do better with HTML samples.
 
 Project structure
 -----------------
