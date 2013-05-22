@@ -1,51 +1,32 @@
 import 'dart:io';
 
 /* A simple server stolen from Chris Buckett's JSON web-service article
- * and modified for my own purposes.
+ * and modified for purposes of this tutorial sample.
  *  
- * Browse to it using http://localhost:4040  
- * 
  * Provides CORS headers, so can be accessed from any other page
  */
 
 final HOST = "127.0.0.1"; // eg: localhost 
-final PORT = 4040; 
-final DATA_FILE = "data.json";
+final PORT = 4040;        // a port, must match the client program
 
 void main() {
-  HttpServer.bind(HOST, PORT).then((server) {
-    server.listen((HttpRequest request) {
-      switch (request.method) {
-        case "GET": 
-          handleGet(request);
-          break;
-        case "POST": 
-          handlePost(request);
-          break;
-        case "OPTIONS": 
-          handleOptions(request);
-          break;
-        default: defaultHandler(request);
-      }
-    }, 
-    onError: printError);
-    
-    print("Listening for GET and POST on http://$HOST:$PORT");
-  },
-  onError: printError);
+  HttpServer.bind(HOST, PORT).then(gotMessage, onError: printError);
 }
 
-/**
- * Handle GET requests 
- */
-void handleGet(HttpRequest req) {
-  HttpResponse res = req.response;
-  print("${req.method}: ${req.uri.path}");
-  addCorsHeaders(res);
-  
-  res.headers.add(HttpHeaders.CONTENT_TYPE, "application/json");
-  res.write("hi from the server");
-  res.close();
+void gotMessage(_server) {
+  _server.listen((HttpRequest request) {
+    switch (request.method) {
+      case "POST": 
+        handlePost(request);
+        break;
+      case "OPTIONS": 
+        handleOptions(request);
+        break;
+      default: defaultHandler(request);
+    }
+  },
+  onError: printError); // .listen failed
+  print("Listening for GET and POST on http://$HOST:$PORT");
 }
 
 /**
@@ -60,7 +41,7 @@ void handlePost(HttpRequest req) {
   
   req.listen((List<int> buffer) {
     // return the data back to the client
-    res.write("Thanks for the data: ");
+    res.write("Thanks for the data. This is what I heard you say: ");
     res.write(new String.fromCharCodes(buffer));
     res.close();
   },
@@ -76,7 +57,7 @@ void handlePost(HttpRequest req) {
  */
 void addCorsHeaders(HttpResponse res) {
   res.headers.add("Access-Control-Allow-Origin", "*, ");
-  res.headers.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+  res.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.headers.add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 }
 
@@ -97,3 +78,27 @@ void defaultHandler(HttpRequest req) {
 }
 
 void printError(error) => print(error);
+
+/* UNUSED CODE */
+/**
+ * Handle GET requests 
+ */
+/*
+void handleGet(HttpRequest req) {
+  HttpResponse res = req.response;
+  print("${req.method}: ${req.uri.path}");
+  addCorsHeaders(res);
+  
+  res.headers.add(HttpHeaders.CONTENT_TYPE, "application/json");
+  res.write("hi from the server");
+  res.close();
+}
+*/
+/**
+ *put this back in the switch statement in main() to handle GET requests
+ */
+/*
+        case "GET": 
+          handleGet(request);
+	  break;
+ */ 

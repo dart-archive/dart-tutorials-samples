@@ -23,32 +23,39 @@ class SlamBookComponent extends WebComponent {
   });
 
   @observable String serverResponse = "";
-  
+  HttpRequest request;
+
   void submitForm(Event e) {
     e.preventDefault(); // don't do the default submit
        
-    // Setup the request
-    var request = new HttpRequest();
-    request.onReadyStateChange.listen((_) {
-      if (request.readyState == HttpRequest.DONE &&
-          request.status == 200) {
-        // data saved OK.
-        serverResponse = "Server Sez: " + request.responseText;
-      } else if (request.readyState == HttpRequest.DONE &&
-                 request.status == 0) {
-        // status is 0...likely the server isn't running
-        serverResponse = "No server";
-      }
-    });
+    request = new HttpRequest();
+    
+    // Callback handler must be registered
+    // before sending the POST request
+    // else it won't get called
+    request.onReadyStateChange.listen(onData); 
     
     // POST the data to the server
     var url = "http://127.0.0.1:4040/slambookdata";
     request.open("POST", url);
     request.send(slambookAsJsonData());
   }
-    
+  
+  void onData(_) {
+    if (request.readyState == HttpRequest.DONE &&
+        request.status == 200) {
+      // data saved OK.
+      serverResponse = "Server Sez: " + request.responseText;
+    } else if (request.readyState == HttpRequest.DONE &&
+        request.status == 0) {
+      // status is 0...likely the server isn't running
+      serverResponse = "No server";
+    }
+  }
+   
   void resetForm(Event e) {
-    e.preventDefault(); // default behavior clears elements, but bound values don't follow
+    e.preventDefault(); // default behavior clears elements,
+                        // but bound values don't follow
                         // so have to do this explicitly
     favoriteThings['kittens'] = false;
     favoriteThings['raindrops'] = false;
