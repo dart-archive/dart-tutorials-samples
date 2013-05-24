@@ -42,19 +42,19 @@
       </div>
       <div class="entry">
         <label>Check for zombies. </label>
-        <input type="checkbox" bind-checked="theData['zombies']">
+        <label><input type="checkbox" bind-checked="theData['zombies']"></label>
       </div>
       <div class="entry">
         <label>Favorite things?</label>
-        <input type="checkbox" bind-checked="favoriteThings['kittens']">Kittens
-        <input type="checkbox" bind-checked="favoriteThings['raindrops']">Raindrops
-        <input type="checkbox" bind-checked="favoriteThings['mittens']">Mittens
-        <input type="checkbox" bind-checked="favoriteThings['kettles']">Kettles
+        <label><input type="checkbox" bind-checked="favoriteThings['kittens']">Kittens</label>
+        <label><input type="checkbox" bind-checked="favoriteThings['raindrops']">Raindrops</label>
+        <label><input type="checkbox" bind-checked="favoriteThings['mittens']">Mittens</label>
+        <label><input type="checkbox" bind-checked="favoriteThings['kettles']">Kettles</label>
       </div>
 
       <div class="submitarea">
         <input type="submit" value="Submit" on-click="submitForm($event)">
-        <input type="reset"  value="Clear"  on-click="resetForm($event)"> <br />    
+        <input type="reset"  value="Clear"  on-click="resetForm($event)"> <br>    
         <textarea disabled class="responsetext" bind-value="serverResponse"></textarea>
       </div>
       
