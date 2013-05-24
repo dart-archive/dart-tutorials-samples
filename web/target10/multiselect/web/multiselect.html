@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample app</title>
+    <link rel="stylesheet" href="multiselect.css">
+    
+  </head>
+  <body>
+    <h1>Multiselect</h1>
+ 
+    What books have you read? Choose all that apply.<br>
+
+    <div id="sample_container_id">
+      <template if='!books.isEmpty'>
+        
+        <!-- Why am I getting an empty one? -->
+        <select multiple
+                on-change="changeselected($event)"
+                id="bookselector">
+            <option template repeat="key in books.keys" value="{{key}}">{{key}}</option>
+        </select>
+
+        <p>You chose:</p>
+        <ul>
+           <li template repeat='selected in booksselected'>{{selected}}</li>
+        </ul>
+      </template>
+    </div>
+
+    <script type="application/dart" src="multiselect.dart">
+    </script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>

@@ -17,7 +17,8 @@ List webUIFiles = ['web/target06/littleben/web/littleben.html',
                    'web/target08/drseuss/web/drseuss.html',
                    'web/target09/its_all_about_you/web/its_all_about_you.html',
                    'web/target10/search_form/web/search_form.html',
-                   'web/target10/slambook/web/slambook.html'];
+                   'web/target10/slambook/web/slambook.html',
+                   'web/target10/multiselect/web/multiselect.html'];
 
 List webUIArgs = ['--', '--no-rewrite-urls'];
 

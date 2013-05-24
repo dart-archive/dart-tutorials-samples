@@ -11,14 +11,18 @@
     <h1>Search dartlang.org</h1>
 
     <div class="sample_container_id">
-      <form    method="GET"    action="http://www.google.com/search">
+      <form action="http://www.google.com/search"
+            method="GET"
+            target="_blank">
         <input type="text"     name="q" size="31" maxlength="255" value="Cookbook" />
         <input type="submit"   value="Google Search" />
         <input type="checkbox" name="sitesearch" value="dartlang.org" checked /> Search dartlang.org<br /> 
       </form>
     </div>
     
-    <script type="application/dart" src="search_form.dart"></script>
+    <script type="application/dart">
+      void main() { }
+    </script>
     <script src="packages/browser/dart.js"></script>
   </body>
 </html>
