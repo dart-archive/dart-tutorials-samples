@@ -41,15 +41,19 @@
         </select>
       </div>
       <div class="entry">
-        <label>Check for zombies. </label>
-        <label><input type="checkbox" bind-checked="theData['zombies']"></label>
+        <label for="zombies">Check for zombies. </label>
+        <input type="checkbox" bind-checked="theData['zombies']" id="zombies">
       </div>
       <div class="entry">
         <label>Favorite things?</label>
-        <label><input type="checkbox" bind-checked="favoriteThings['kittens']">Kittens</label>
-        <label><input type="checkbox" bind-checked="favoriteThings['raindrops']">Raindrops</label>
-        <label><input type="checkbox" bind-checked="favoriteThings['mittens']">Mittens</label>
-        <label><input type="checkbox" bind-checked="favoriteThings['kettles']">Kettles</label>
+        <input type="checkbox" bind-checked="favoriteThings['kittens']" id="kittens">
+          <label for="kittens" class="andrews">Kittens</label>
+        <input type="checkbox" bind-checked="favoriteThings['raindrops']" id="raindrops">
+          <label for="raindrops" class="andrews">Raindrops</label>
+        <input type="checkbox" bind-checked="favoriteThings['mittens']" id="mittens">
+          <label for="mittens" class="andrews">Mittens</label>
+        <input type="checkbox" bind-checked="favoriteThings['kettles']" id="kettles">
+          <label for="kettles" class="andrews">Kettles</label>
       </div>
 
       <div class="submitarea">
