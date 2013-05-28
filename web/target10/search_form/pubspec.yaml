@@ -1,5 +1,0 @@
-name: search_form
-description: Find it!
-dependencies:
-  js: any
-  browser: any
