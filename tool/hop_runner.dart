@@ -66,6 +66,19 @@ List<String> buildWebUrls() {
 }
 
 /**
+ * Copy hand-written index file for the built samples.
+ */
+void copyIndexFile() {
+  File outputFile;
+
+  outputFile = new File('${deployFolderName}/index.html');
+  new File('index-by-hand.html').readAsString().then((indexFile) {
+    outputFile.writeAsString(indexFile);
+  });
+}
+
+
+/**
  * Write index file for the built samples.
  */
 void writeIndexFile() {
@@ -259,7 +272,8 @@ buildPages(ctx) {
     ctx.info("dart2WebUI finished");
     ctx.info("dart2WebUI_results = ${dart2WebUI_results}");
     ctx.info(barSeparator);    
-    writeIndexFile();
+    //writeIndexFile();
+    copyIndexFile();
     return gitBranchPagesDelete(ctx);
   }).then((r) {
     ctx.info(barSeparator);
