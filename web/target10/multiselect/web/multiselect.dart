@@ -1,7 +1,6 @@
 import 'dart:html';
 import 'package:web_ui/web_ui.dart';
 
-int selectedIndex = 1;
 final Map<String, bool> books = toObservable(
     { 'The Cat in the Hat': true, 'War and Peace': false,
       'Pride and Prejudice': true, 'On the Road': true,
