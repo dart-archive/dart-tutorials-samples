@@ -1,12 +1,14 @@
+import 'package:web_ui/web_ui.dart';
 
 String answer = 'pumpernickel';
-List<String> characters = answer.split("");
-List<String> hyphens    = answer.replaceAll(new RegExp('.'), '-').split("");
 
-List<String> wrongletters = new List();
-String guessedletter = '';
-bool dead = false;
-bool won = false;
+List<String> characters = answer.split("");
+List<String> hyphens    = toObservable(answer.replaceAll(new RegExp('.'), '-').split(""));
+List<String> wrongletters = toObservable(new List());
+
+@observable String guessedletter = '';
+@observable bool dead = false;
+@observable bool won = false;
 
 void main() {
 }

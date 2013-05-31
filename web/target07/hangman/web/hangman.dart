@@ -1,13 +1,15 @@
+import 'package:web_ui/web_ui.dart';
+
 String answer = 'ambidextrous';
 
 List<String> characters   = answer.split("");
-List<String> hyphens      = answer.replaceAll(new RegExp('.'), '-').split("");
-List<String> wrongletters = new List();
+List<String> hyphens      = toObservable(answer.replaceAll(new RegExp('.'), '-').split(""));
+List<String> wrongletters = toObservable(new List());
 List<List> hangmandisplay;
 
-String guessedletter = '';
-bool dead = false;
-bool won = false;
+@observable String guessedletter = '';
+@observable bool dead = false;
+@observable bool won = false;
 
 void main() {
   setUpHangmanGrid();
@@ -60,7 +62,7 @@ void setUpHangmanGrid() {
                   '\|      ',
                   '\|      ',
                   '\|      ' ];
-  hangmandisplay = new List(gallows.length);
+  hangmandisplay = toObservable(new List(gallows.length));
   
   for (int i = 0; i < gallows.length; i++) {
     List<String> row = gallows[i].split("");
