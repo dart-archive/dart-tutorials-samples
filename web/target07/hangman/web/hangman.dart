@@ -62,10 +62,10 @@ void setUpHangmanGrid() {
                   '\|      ',
                   '\|      ',
                   '\|      ' ];
-  hangmandisplay = toObservable(new List(gallows.length));
+  hangmandisplay = new List(gallows.length);
   
   for (int i = 0; i < gallows.length; i++) {
     List<String> row = gallows[i].split("");
-    hangmandisplay[i] = row;
+    hangmandisplay[i] = toObservable(row);
   }
 }

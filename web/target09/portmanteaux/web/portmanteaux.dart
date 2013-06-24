@@ -11,9 +11,10 @@ void main() {
 void makeRequest(Event e) {
   var path = 'portmanteaux.json';
   var httpRequest = new HttpRequest();
-  httpRequest.open('GET', path);
-  httpRequest.onLoadEnd.listen((e) => requestComplete(httpRequest));
-  httpRequest.send('');
+  httpRequest
+  ..open('GET', path)
+  ..onLoadEnd.listen((e) => requestComplete(httpRequest))
+  ..send('');
 }
 
 requestComplete(HttpRequest request) {

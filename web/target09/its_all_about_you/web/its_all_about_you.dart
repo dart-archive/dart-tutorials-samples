@@ -1,13 +1,14 @@
 import 'dart:html';
 import 'dart:json' as json;
+import 'package:web_ui/web_ui.dart';
 
 // JSON strings, bound to HTML
-String intAsJson;
-String doubleAsJson;
-String stringAsJson;
-String listAsJson;
-String boolAsJson;
-String mapAsJson;
+@observable String intAsJson;
+@observable String doubleAsJson;
+@observable String stringAsJson;
+@observable String listAsJson;
+@observable String boolAsJson;
+@observable String mapAsJson;
 
 // Data input as strings, bound to input fields
 String favoriteNumber='';
