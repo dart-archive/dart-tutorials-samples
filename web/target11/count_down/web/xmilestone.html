@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<html>
+  <body>   
+    <element name="x-milestone" constructor="MilestoneComponent" extends="div">
+      <template>
+        <span>{{timeRemainingAsString}}</span> <button on-click="removeMilestone()">-</button>
+      </template>
+      <script type="application/dart" src="xmilestone.dart"></script>
+    </element>
+  </body>
+</html>
