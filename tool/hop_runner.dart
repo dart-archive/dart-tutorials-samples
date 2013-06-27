@@ -18,7 +18,9 @@ List webUIFiles = ['web/target06/littleben/web/littleben.html',
                    'web/target09/its_all_about_you/web/its_all_about_you.html',
                    'web/target10/search_form/web/search_form.html',
                    'web/target10/slambook/web/slambook.html',
-                   'web/target10/multiselect/web/multiselect.html'];
+                   'web/target10/multiselect/web/multiselect.html',
+                   'web/target11/count_down/web/count_down.html'];
+
 
 List webUIArgs = ['--', '--no-rewrite-urls'];
 
@@ -72,7 +74,7 @@ void copyIndexFile() {
   File outputFile;
 
   outputFile = new File('${deployFolderName}/index.html');
-  new File('index-by-hand.html').readAsString().then((indexFile) {
+  new File('tool/index-by-hand.html').readAsString().then((indexFile) {
     outputFile.writeAsString(indexFile);
   });
 }
