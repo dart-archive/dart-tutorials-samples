@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="stopwatch.css">
+</head>
+
+<body>
+
+  <element name="tute-stopwatch" class="tute-stopwatch" extends="div">
+ 
+    <template>
+      <div>
+        {{counter}}
+      </div>
+      <div>
+        <button on-click="startwatch" class="startbutton">Start</button>
+        <button on-click="stopwatch"  class="stopbutton">Stop</button>
+        <button on-click="resetwatch" class="resetbutton">Reset</button>
+      </div>
+    </template>
+
+    <script type="application/dart" src="tute_stopwatch.dart">
+    </script>
+
+  </element>
+</body>
+</html>
+    

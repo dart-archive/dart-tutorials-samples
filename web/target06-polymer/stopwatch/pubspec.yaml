@@ -1,0 +1,9 @@
+name: stopwatch
+description: Stop that!
+dependencies:
+  browser: any
+  mdv: any
+  observe: any
+  polymer: any
+  shadow_dom: any
+  web_ui: any

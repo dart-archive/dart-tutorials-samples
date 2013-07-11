@@ -1,0 +1,19 @@
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+p {
+  color: #333;
+}
+
+.tute-little-ben {
+  border: 2px solid Lavender;
+  padding: 5px 5px 5px 5px;
+  width: 235px;
+  color: SlateBlue;
+}

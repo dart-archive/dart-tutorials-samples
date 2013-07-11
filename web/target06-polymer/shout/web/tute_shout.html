@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="shout.css">
+</head>
+
+<body>
+
+    <element name="tute-shout" extends="div">
+      <template>
+        <input type="text" value="{{shoutThis}}" placeholder="Shout This!">
+          
+        <div>      Length: {{ shoutThis.length }} </div>
+        <div>     Shouted: {{ shouted }} </div>
+        <div>   Substring: {{ shoutedSubstring }} </div>
+        <div> Palindromic: {{ palindrome }} </div>
+      </template>
+      <script type="application/dart" src="tute_shout.dart">
+      </script>
+    </element>
+
+</body>
+</html>
+    
