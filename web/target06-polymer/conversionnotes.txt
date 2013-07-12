@@ -1,0 +1,125 @@
+﻿Converting tutorial examples to polymer notes
+
+
+1. change pubspec.yaml to have dependencies on polymer and related packages:
+
+
+dependencies:
+  browser: any
+  mdv: any
+  observe: any
+  polymer: any
+  shadow_dom: any
+  web_ui: any
+
+
+2. call mdv.initialize from main():
+
+
+import 'package:mdv/mdv.dart' as mdv;
+void main() {
+  mdv.initialize();
+}
+
+
+3. modify build.dart to import polymer/component_build.dart instead of web_ui
+
+
+import 'package:polymer/component_build.dart';
+import 'dart:io';
+void main() {
+  build(new Options().arguments, ['web/index.html']);
+}
+
+
+4. If you have top-level bindings, create a custom component that inherits from CustomElement and use the mixin Observable mixin. Here’s a tiny program with a custom element that displays one bound value:
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MyString</title>
+  </head>
+  <body>
+    <h1>MyString</h1>
+
+
+    <element name="my-custom-element" extends="div">
+      <template>
+        My string: {{myString}}
+      </template>
+      <script type="application/dart">
+        
+        import 'package:polymer/polymer.dart';
+        import 'package:observe/observe.dart';
+        
+        class MyCustomElement extends CustomElement with ObservableMixin {
+          @observable String myString = 'hello';
+        }
+        
+      </script>
+    </element>
+
+
+    <my-custom-element></my-custom-element>
+    
+    <script type="application/dart">
+      import 'package:mdv/mdv.dart' as mdv;
+      void main() {
+        mdv.initialize();
+      }
+      </script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+
+
+5. For two-way bindings to input fields use value=”{{string}}” instead of bind-value.
+HTML:
+<input type="text" value="{{mystring}}">
+Dart:
+@observable String mystring;
+
+
+
+
+6. Instead of using expressions in bound-values (ie. {{mystring.toUpperCase()}}, bind the observable value to a callback function:
+HTML:
+<input type="text" value="{{mystring}}">
+In Upper Case: {{ mystringinuppercase }}
+Dart:
+@observable String mystring;
+@observable String mystringinuppercase;
+
+
+  void created() {
+    // When 'mystring' changes compute uppercase version.
+    bindProperty(this, const Symbol('mystring'), () {
+      mystringinuppercase = mystring.toUpperCase();
+    });
+  }
+
+
+7. Query the shadow DOM for elements within the custom element:
+HTML:
+<element name="my-element" extends="div">
+...
+<button on-click="startwatch" class="startbutton">Start</button>
+<button on-click="stopwatch"  class="stopbutton">Stop</button>
+<button on-click="resetwatch" class="resetbutton">Reset</button>
+...
+</element>
+Dart:
+startButton = getShadowRoot("my-element").query('.startbutton');
+stopButton = getShadowRoot("my-element").query('.stopbutton');
+resetButton = getShadowRoot("my-element").query('.resetbutton');
+
+
+8. Conditional templates use the bind attribute now:
+HTML:
+<template bind if="{{show}}">
+...
+</template>
+Dart:
+@observable bool show = false;
