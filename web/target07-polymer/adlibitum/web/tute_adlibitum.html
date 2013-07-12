@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="adlibitum.css">
+</head>
+
+<body>
+  <element name="tute-adlibitum" class="tute-adlibitum" extends="div">
+    <template>
+      <input type="text" value="{{sillyword}}" placeholder="Silly Word">
+      <input type="text" value="{{adjective}}" placeholder="Adjective">
+      <input type="text" value="{{animal}}"    placeholder="Animal">
+      <input type="text" value="{{bodypart}}"  placeholder="Body Part">
+      <input type="text" value="{{verb}}"      placeholder="Verb">
+      <input type="text" value="{{adverb}}"    placeholder="Adverb">
+      
+      <template bind if="{{show}}">  
+        <p>Dear Ms. {{sillyword}},</p>
+        
+        <p>Little {{adjective}} Billy missed school
+        because he was sick with wild-{{animal}} flu.
+        His {{bodypart}} swelled up and fell off.
+        He can no longer {{verb}}.</p>
+        
+        <p>Most {{adverb}} yours, Billy's mother</p>
+      </template>
+    </template>
+    <script type="application/dart" src="tute_adlibitum.dart">
+    </script>
+  </element>
+</body>
+</html>
