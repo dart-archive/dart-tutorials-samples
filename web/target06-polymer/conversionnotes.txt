@@ -116,7 +116,14 @@ stopButton = getShadowRoot("my-element").query('.stopbutton');
 resetButton = getShadowRoot("my-element").query('.resetbutton');
 
 
-8. Conditional templates use the bind attribute now:
+8. Change the syntax for click handlers:
+HTML (remove the () after the callback function name)
+<button on-click="startwatch" class="startbutton">Start</button>
+Dart (use three arguments)
+void startwatch(Event e, var detail, Node target) { … }
+
+
+9. Conditional templates use the bind attribute now:
 HTML:
 <template bind if="{{show}}">
 ...
