@@ -11,3 +11,4 @@ dependencies:
 #  web_ui:
 #    git: https://github.com/dart-lang/web-ui.git
   web_ui: any
+  polymer: any
