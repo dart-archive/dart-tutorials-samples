@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="simple_hangman.css">
+  </head>
+  <body>
+    <element name="tute-simple-hangman" class="tute-simple-hangman" extends="div" apply-author-styles>
+      
+      <template>
+        <div id="hangman">
+          <template repeat="{{hyphens}}"> <span>{{}}</span> </template>
+        </div>
+      
+        <div>
+          <template bind if="{{stillPlaying}}">
+            Guess a letter...
+            <input on-key-up="checkit" value="{{guessedletter}}" maxlength="1">
+            <p>
+              <template bind if="{{hazWrongLetters}}"> Sorry! The word contains no: </template>
+            </p>
+            <p id="wrong">
+              <template repeat="{{wrongletters}}"> <span>{{}}</span> </template>
+            </p>
+          </template>
+          
+          <template bind if="{{dead}}"> You're dead! </template>
+          <template bind if="{{won}}"> You Win! </template>
+        </div>
+      </template>
+      
+      <script type="application/dart" src="tute_simple_hangman.dart">
+      </script>
+      
+    </element>
+  </body>
+</html>

@@ -1,4 +1,3 @@
-
 body {
   background-color: #F8F8F8;
   font-family: 'Open Sans', sans-serif;
@@ -15,18 +14,4 @@ p {
 input {
   padding: 5px;
   margin: 20px 0px 20px 0px;
-}
-  
-#container {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-
-#text {
-  font-size: 24pt;
-  text-align: center;
-  margin-top: 140px;
 }

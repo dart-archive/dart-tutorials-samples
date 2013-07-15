@@ -10,7 +10,7 @@ class TuteShout extends CustomElement with ObservableMixin {
   @observable String palindrome;
   
   void created() {
-    // When 'shoutThis' changes recompute to 'shouted' and 'palindrome'.
+    // When 'shoutThis' changes, recompute other dependent strings.
     bindProperty(this, const Symbol('shoutThis'), () {
       shouted = shoutThis.toUpperCase();
       shoutedSubstring = (shoutThis.length >= 6) ?

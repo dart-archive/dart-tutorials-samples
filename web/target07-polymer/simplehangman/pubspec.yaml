@@ -1,5 +1,5 @@
-name: stopwatch
-description: Stop that!
+name: simplehangman
+description: Can you guess the word?
 dependencies:
   browser: any
   mdv: any
