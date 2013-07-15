@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="hangman.css">
+  </head>
+  <body>
+    <element name="tute-hangman" extends="div" apply-author-styles>
+            
+      <template>
+        <div id="table-container">
+          <table>
+            <tbody>
+              <tr template repeat="{{hangmandisplay}}">
+                <td template repeat="{{}}">{{}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div id="hangman">
+          <template repeat="{{hyphens}}"> <span>{{}}</span> </template>
+        </div>
+        <div>
+          <template bind if="{{stillPlaying}}">
+            Guess a letter...
+            <input on-key-up="checkit" value="{{guessedletter}}" maxlength="1">
+            <p>
+              <template bind if="{{hazWrongLetters}}"> Sorry! The word contains no: </template>
+            </p>
+            <p id="wrong">
+              <template repeat="{{wrongletters}}"> <span>{{}}</span> </template>
+            </p>
+          </template>
+        </div>
+        
+        <template bind if="{{dead}}"> You're dead! </template>
+        <template bind if="{{won}}"> You Win! </template>
+      </template>
+      
+      <script type="application/dart" src="tute_hangman.dart"></script>
+      <script src="packages/browser/dart.js"></script>
+    </element>
+  </body>
+</html>
