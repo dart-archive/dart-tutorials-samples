@@ -175,3 +175,6 @@ HTML:
 in Dartium. You cannot place two instances of the same custom component,
 with a custom attribute, in an HTML page.
 
+
+^^^^^^^^^^^^^^^^^^^^^^^
+12. For now use a <p> item instead of a <textarea> to display {{bounddata}}
