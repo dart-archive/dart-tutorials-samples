@@ -36,7 +36,7 @@ void main() {
 
 ^^^^^^^^^^^^^^^^^^^^^^^
 4. If you have top-level bindings, create a custom component
-that inherits from CustomElement and use the mixin Observable mixin.
+that inherits from CustomElement or PolymerElement and use the mixin ObservableMixin.
 Here’s a tiny program with a custom element that displays one bound value:
 
 
@@ -136,7 +136,6 @@ resetButton = getShadowRoot("my-element").query('.resetbutton');
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-
 8. Change the syntax for click handlers:
 HTML: (remove the () after the callback function name)
 -----
@@ -171,10 +170,34 @@ HTML:
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-11. The convert this example can not be fully converted because it causes an "Aw snap" error
-in Dartium. You cannot place two instances of the same custom component,
-with a custom attribute, in an HTML page.
+11. The convertThis example can not be fully converted because it causes an "Aw snap" error
+in Dartium. You cannot place two instances of the same custom component with a custom attribute in an HTML page.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-12. For now use a <p> item instead of a <textarea> to display {{bounddata}}
+12. For now use a <p> item instead of a <textarea> with {{bounddata}}.
+Textareas don't work yet with bindings.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+13. Use the fancy_syntax package to bind to Map and List data.
+
+Dart:
+import 'package:mdv/mdv.dart' as mdv;
+import 'package:fancy_syntax/syntax.dart';
+import 'package:observe/observe.dart';
+import 'dart:html';
+
+void main() {
+  mdv.initialize();
+  TemplateElement.syntax['fancy'] = new FancySyntax();
+}
+
+HTML:
+<input type="text" value="{{myMap['aKeyToAnItem']}}">
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+14. Change "bind-selected-index" to "selectedIndex" (for select elements),
+and "bind-checked" to "checked" for checkboxes and radio buttons.
+
