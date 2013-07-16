@@ -1,0 +1,52 @@
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p {
+  color: #333;
+}
+
+#slambookform {
+  width: 500px;
+}
+
+#slambookform .entry {
+  float: left;
+  padding: 3px 3px 3px 3px;
+  width: 100%;
+}
+
+#slambookform .entry label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  vertical-align: middle;
+}
+
+#slambookform label.andrews {
+  width:auto;
+}
+
+.submitarea {
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: SlateBlue;
+  clear: left;
+}
+
+.responsetext {
+  padding: 5px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+  clear: left;
+  background-color: WhiteSmoke;
+  width: 90%;
+  height: 70px;
+  resize: none;
+}

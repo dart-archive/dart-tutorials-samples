@@ -180,7 +180,7 @@ Textareas don't work yet with bindings.
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-13. Use the fancy_syntax package to bind to Map and List data.
+13. Use the fancy_syntax package to bind to Map and List data (and for using expressions in bindings).
 
 Dart:
 import 'package:mdv/mdv.dart' as mdv;
@@ -201,3 +201,20 @@ HTML:
 14. Change "bind-selected-index" to "selectedIndex" (for select elements),
 and "bind-checked" to "checked" for checkboxes and radio buttons.
 
+
+^^^^^^^^^^^^^^^^^^^^^^^
+15. You can't yet bind a group of radio buttons to a single variable.
+One option is to use an on-change event handler instead:
+
+HTML:
+<input on-change="radioButtonChecked" name="myGroup" type="radio" value="cat">Cat
+<input on-change="radioButtonChecked" name="myGroup" type="radio" value="dog" checked>Dog
+<input on-change="radioButtonChecked" name="myGroup" type="radio" value="iguana">Iguana
+
+
+Dart:
+String radioGroupValue = 'dog';
+
+void radioButtonChecked(Event e, var detail, Element target) {
+  radioGroupValue = (target as RadioButtonInputElement).value;
+}
