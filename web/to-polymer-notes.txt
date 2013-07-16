@@ -168,3 +168,10 @@ to apply CSS rules within the scope of the element.
 HTML:
 -----
 <element name="tute-simple-hangman" class="tute-simple-hangman" extends="div" apply-author-styles>
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+11. The convert this example can not be fully converted because it causes an "Aw snap" error
+in Dartium. You cannot place two instances of the same custom component,
+with a custom attribute, in an HTML page.
+
