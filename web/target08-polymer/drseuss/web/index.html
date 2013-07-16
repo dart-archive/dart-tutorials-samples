@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Dr. Seuss</title>
+  <link rel="stylesheet" href="drseuss.css">
+  <link rel="import" href="tute-converter.html">
+</head>
+
+<body>
+  <h1>Dr. Seuss</h1>
+  <div>
+    <template id="drseuss" bind>
+      <tute-converter ratio="{{}}">
+        <label class="label-one"> Thing One </label>
+        <label class="label-two"> Thing Two </label>
+      </tute-converter>
+    </template>
+
+  </div>
+  <script type="application/dart" src="drseuss_app.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</body>
+</html>
