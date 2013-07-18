@@ -194,7 +194,12 @@ void main() {
 }
 
 HTML:
+<element ... >
+<template bind syntax="fancy">
 <input type="text" value="{{myMap['aKeyToAnItem']}}">
+</template>
+...
+</element>
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -218,3 +223,74 @@ String radioGroupValue = 'dog';
 void radioButtonChecked(Event e, var detail, Element target) {
   radioGroupValue = (target as RadioButtonInputElement).value;
 }
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+16. Changing iterate to repeat:
+      <table>
+        <tbody template iterate="row in hangmandisplay">
+          <tr template iterate="cell in row">
+            <td>{{cell}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+Move the repeat attributes down one level:
+       <table>
+          <tbody>
+            <tr  template repeat="{{hangmandisplay}}">
+              <td template repeat="{{}}">{{}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+Siggi sez:
+When you use use 'repeat' instead of 'iterate' there is a slight difference.
+They do practically the same when you use them in a <template> tag,
+but when you use them as attributes,
+'repeat' means to repeat the node that has the template-repeat,
+while 'iterate' means to repeat the children. 
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+17. ?? KeyEvent is now KeyboardEvent ??
+Saw an error about this and can't find it again.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+18. Can't observe getters...so use a field instead of a getter and use notifyPropertyChange.
+
+bool _allChecked;
+...
+    _allChecked = notifyPropertyChange(const Symbol('allChecked'),
+        _allChecked, hasTodos && remaining == 0);
+
+(parameters: the field that's changing, its old value, then the new value)
+
+^^^^^^^^^^^^^^^^^^^^^^^
+19. To put an observable field in a non-CustomElement non-PolymerElement class,
+make the class extend from ObservableBase.
+Call notifyPropertyChange whenever the field changes.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+20. To pass in a custom attribute, use the attributes tag on the element definition:
+
+HTML: component definition (myPoint is a Point object)
+    <element name="x-pointdisplay" constructor="XPointdisplay" attributes="my-point" extends="li">
+      <template>
+        My Point Exactly: {{myPoint.x}}, {{myPoint.y}}, {{z}}
+      </template>
+        
+      <script type="application/dart" src="x_pointdisplay.dart"></script>
+    </element>
+
+
+When instantiating set the custom attribute.
+
+HTML: component instantiation (myPoints is a list of Point objects)
+      <template repeat="{{myPoints}}">
+	<li is="x-pointdisplay" my-point="{{}}"></li>
+      </template>
+
+IMPORTANT: notice the names! Hyphenated version for HTML, camelcase for Dart.
