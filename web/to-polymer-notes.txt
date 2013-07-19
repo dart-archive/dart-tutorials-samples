@@ -201,6 +201,10 @@ HTML:
 ...
 </element>
 
+Here's some documentation:
+https://github.com/dart-lang/fancy-syntax
+https://pub.dartlang.org/packages/fancy_syntax
+
 
 ^^^^^^^^^^^^^^^^^^^^^^^
 14. Change "bind-selected-index" to "selectedIndex" (for select elements),
