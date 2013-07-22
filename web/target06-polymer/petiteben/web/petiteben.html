@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Petite Ben</title>
+    <link rel="stylesheet" href="petiteben.css">
+  </head>
+  <body>
+    <h1>Petite Ben</h1>
+
+    <div>
+      <template id="currenttime" bind>
+        <p class="currenttime">The current time is: {{currentTime}}</p>
+      </template>
+    </div>
+
+    <script type="application/dart" src="petiteben.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>

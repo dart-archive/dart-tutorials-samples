@@ -35,7 +35,7 @@ void main() {
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-4. If you have top-level bindings, create a custom component
+4. If you have top-level bindings, you can create a custom component
 that inherits from CustomElement or PolymerElement and use the mixin ObservableMixin.
 Here’s a tiny program with a custom element that displays one bound value:
 
@@ -79,6 +79,16 @@ Here’s a tiny program with a custom element that displays one bound value:
   </body>
 </html>
 
+
+OR.....
+
+^^^^^^^^^^^^^^^^^^^^^^^
+4.5 Use a template and programmatically bind a model to it.
+
+Compare these two different versions of the little ben example:
+
+target06-polymer/littleben (component version)
+target06-polymer/petiteben (template version with bound model version)
 
 ^^^^^^^^^^^^^^^^^^^^^^^
 5. For two-way bindings to input fields use value=”{{string}}” instead of bind-value.
@@ -175,7 +185,7 @@ in Dartium. You cannot place two instances of the same custom component with a c
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-12. For now use a <p> item instead of a <textarea> with {{bounddata}}.
+12. For now use a something other than <textarea> if you want bound text data.
 Textareas don't work yet with bindings.
 
 
