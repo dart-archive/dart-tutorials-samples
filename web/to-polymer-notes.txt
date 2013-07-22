@@ -35,8 +35,8 @@ void main() {
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-4. If you have top-level bindings, you can create a custom component
-that inherits from CustomElement or PolymerElement and use the mixin ObservableMixin.
+4. If you have top-level bindings, you can create a custom element
+that inherits from PolymerElement and use the mixin ObservableMixin.
 Here’s a tiny program with a custom element that displays one bound value:
 
 
@@ -50,7 +50,7 @@ Here’s a tiny program with a custom element that displays one bound value:
     <h1>MyString</h1>
 
 
-    <element name="my-custom-element" extends="div">
+    <element name="my-polymer-element" extends="div">
       <template>
         My string: {{myString}}
       </template>
@@ -59,7 +59,7 @@ Here’s a tiny program with a custom element that displays one bound value:
         import 'package:polymer/polymer.dart';
         import 'package:observe/observe.dart';
         
-        class MyCustomElement extends CustomElement with ObservableMixin {
+        class MyPolymerElement extends PolymerElement with ObservableMixin {
           @observable String myString = 'hello';
         }
         
@@ -67,7 +67,7 @@ Here’s a tiny program with a custom element that displays one bound value:
     </element>
 
 
-    <my-custom-element></my-custom-element>
+    <my-polymer-element></my-polymer-element>
     
     <script type="application/dart">
       import 'package:mdv/mdv.dart' as mdv;

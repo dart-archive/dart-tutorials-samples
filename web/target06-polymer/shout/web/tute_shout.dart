@@ -2,7 +2,7 @@ import 'package:polymer/polymer.dart';
 import 'package:observe/observe.dart';
 import 'dart:html';
 
-class TuteShout extends CustomElement with ObservableMixin {
+class TuteShout extends PolymerElement with ObservableMixin {
 
   @observable String shoutThis;
   @observable String shouted;
