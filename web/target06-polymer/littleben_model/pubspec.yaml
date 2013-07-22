@@ -1,4 +1,4 @@
-name: petiteben
+name: littleben_model
 description: A lesser clock
 dependencies:
   browser: any

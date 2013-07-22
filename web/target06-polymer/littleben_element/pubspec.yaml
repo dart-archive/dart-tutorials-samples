@@ -1,4 +1,4 @@
-name: littleben
+name: littleben_element
 description: A lesser clock
 dependencies:
   browser: any

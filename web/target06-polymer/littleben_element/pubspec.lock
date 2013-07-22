@@ -61,7 +61,3 @@ packages:
     description: unittest
     source: hosted
     version: "0.6.2"
-  web_ui:
-    description: web_ui
-    source: hosted
-    version: "0.4.14"
