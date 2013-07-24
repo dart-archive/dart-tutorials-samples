@@ -284,6 +284,9 @@ bool _allChecked;
 ^^^^^^^^^^^^^^^^^^^^^^^
 19. To put an observable field in a non-CustomElement non-PolymerElement class,
 make the class extend from ObservableBase.
+
+You can also mixin `ObservableMixin`: `class App extends Object with ObservableMixin`
+
 Call notifyPropertyChange whenever the field changes.
 
 
