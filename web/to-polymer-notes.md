@@ -8,7 +8,7 @@ to use the
 [Polymer Package](http://pub.dartlang.org/packages/polymer)
 instead.
 
-1. Change `pubspec.yaml` to have dependencies on polymer and related packages:
+1 Change `pubspec.yaml` to have dependencies on polymer and related packages:
 
 
     dependencies:
@@ -19,8 +19,7 @@ instead.
       shadow_dom: any
 
 
----------
-1 Call `mdv.initialize` from `main()`:
+1. Call `mdv.initialize` from `main()`:
 
 
     import 'package:mdv/mdv.dart' as mdv;
@@ -29,7 +28,6 @@ instead.
     }
 
 
----------
 1. Modify `build.dart` to import `polymer/component_build.dart` instead of `web_ui/component_build.dart`
 
 
@@ -40,7 +38,6 @@ instead.
     }
 
 
----------
 1. If you have top-level bindings, you can create a custom element
 that inherits from PolymerElement and use the mixin ObservableMixin.
 Here’s a tiny program with a custom element that displays one bound value:
@@ -88,7 +85,6 @@ Here’s a tiny program with a custom element that displays one bound value:
 
 OR.....
 
----------
 1. Use a template and programmatically bind a model to it.
 
 Compare these two different versions of the little ben example:
@@ -96,7 +92,7 @@ Compare these two different versions of the little ben example:
 target06-polymer/littleben (component version)
 target06-polymer/petiteben (template version with bound model version)
 
----------
+
 1. For two-way bindings to input fields use `value=”{{string}}”` instead of `bind-value`.
 
 HTML:
@@ -108,7 +104,6 @@ Dart:
     @observable String mystring;
 
 
----------
 1. Instead of using expressions in bound-values (ie. `{{mystring.toUpperCase()}}`),
 bind the observable value to a callback function (or use fancy_syntax):
 
@@ -130,7 +125,6 @@ Dart:
     }
 
 
----------
 1. Query the shadow DOM for elements within the custom element:
 
 HTML:
@@ -150,7 +144,6 @@ Dart:
     resetButton = getShadowRoot("my-element").query('.resetbutton');
 
 
----------
 1. Change the syntax for click handlers:
 HTML: (remove the () after the callback function name)
 -----
@@ -161,7 +154,6 @@ Dart: (use three arguments)
     void startwatch(Event e, var detail, Node target) { … }
 
 
----------
 1. Conditional templates use the `bind` attribute now:
 
 HTML:
@@ -175,7 +167,6 @@ Dart:
     @observable bool show = false;
 
 
----------
 1. Use `apply-author-styles` as an attribute to your custom element
 to apply CSS rules within the scope of the element.
 
@@ -184,17 +175,15 @@ HTML:
 <element name="tute-simple-hangman" class="tute-simple-hangman" extends="div" apply-author-styles>
 
 
----------
 1. The convertThis example can not be fully converted because it causes an "Aw snap" error
 in Dartium. You cannot place two instances of the same custom component with a custom attribute in an HTML page.
 
 
----------
 1. For now use a something other than `<textarea>` if you want bound text data.
 Textareas don't work yet with bindings.
 
 
----------
+
 1. Use the fancy_syntax package to bind to Map and List data (and for using expressions in bindings).
 
 Dart:
@@ -223,12 +212,10 @@ Here's some documentation:
 [https://pub.dartlang.org/packages/fancy_syntax](https://pub.dartlang.org/packages/fancy_syntax)
 
 
----------
 1. Change `bind-selected-index` to `selectedIndex` (for select elements),
 and `bind-checked` to `checked` for checkboxes and radio buttons.
 
 
----------
 1. You can't yet bind a group of radio buttons to a single variable.
 One option is to use an on-change event handler instead:
 
@@ -248,7 +235,6 @@ Dart:
     }
 
 
----------
 1. Changing `iterate` to `repeat`:
     <table>
       <tbody template iterate="row in hangmandisplay">
@@ -275,12 +261,10 @@ but when you use them as attributes,
 while `iterate` means to repeat the children. 
 
 
----------
 1. ?? KeyEvent is now KeyboardEvent ??
 Saw an error about this and can't find it again.
 
 
----------
 1. Can't observe getters...so use a field instead of a getter and use `notifyPropertyChange`.
 
     bool _allChecked;
@@ -290,7 +274,7 @@ Saw an error about this and can't find it again.
 
 (parameters: the field that's changing, its old value, then the new value)
 
----------
+
 1. To put an observable field in a non-CustomElement non-PolymerElement class,
 make the class extend from `ObservableBase`.
 
@@ -299,7 +283,6 @@ You can also mixin `ObservableMixin`: `class App extends Object with ObservableM
 Call `notifyPropertyChange` whenever the field changes.
 
 
----------
 1. To pass in a custom attribute, use the attributes tag on the element definition:
 
 HTML: component definition (myPoint is a Point object)
