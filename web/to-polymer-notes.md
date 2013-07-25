@@ -8,7 +8,7 @@ to use the
 [Polymer Package](http://pub.dartlang.org/packages/polymer)
 instead.
 
-1. Change `pubspec.yaml` to have dependencies on polymer and related packages:
+* Change `pubspec.yaml` to have dependencies on polymer and related packages:
 
 
     dependencies:
@@ -19,7 +19,7 @@ instead.
       shadow_dom: any
 
 
-1. Call `mdv.initialize` from `main()`:
+* Call `mdv.initialize` from `main()`:
 
 
     import 'package:mdv/mdv.dart' as mdv;
@@ -28,7 +28,7 @@ instead.
     }
 
 
-1. Modify `build.dart` to import `polymer/component_build.dart` instead of `web_ui/component_build.dart`
+* Modify `build.dart` to import `polymer/component_build.dart` instead of `web_ui/component_build.dart`
 
 
     import 'package:polymer/component_build.dart';
