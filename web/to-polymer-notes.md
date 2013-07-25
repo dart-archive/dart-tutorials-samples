@@ -1,15 +1,13 @@
 ﻿Notes
 =====
 
-This file contains informal notes about converting apps that use Web UI to use Polymer instead.
-To checkout the Web UI and Polymer packages on pub.dartlang.org follow these links:
-
+This file contains informal notes about converting apps that use
+the
 [Web UI Package](http://pub.dartlang.org/packages/web_ui)
-
+to use the
 [Polymer Package](http://pub.dartlang.org/packages/polymer)
+instead.
 
-
----------
 1 Change `pubspec.yaml` to have dependencies on polymer and related packages:
 
 
