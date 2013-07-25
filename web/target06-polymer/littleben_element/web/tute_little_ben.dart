@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:polymer/polymer.dart';
 import 'package:observe/observe.dart';
+import 'package:polymer/polymer.dart';
 
 class TuteLittleBen extends PolymerElement with ObservableMixin {
 
