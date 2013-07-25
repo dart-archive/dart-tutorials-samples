@@ -8,7 +8,7 @@ to use the
 [Polymer Package](http://pub.dartlang.org/packages/polymer)
 instead.
 
-1 Change `pubspec.yaml` to have dependencies on polymer and related packages:
+1. Change `pubspec.yaml` to have dependencies on polymer and related packages:
 
 
     dependencies:
