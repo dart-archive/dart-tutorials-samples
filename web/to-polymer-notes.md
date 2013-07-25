@@ -10,7 +10,7 @@ To checkout the Web UI and Polymer packages on pub.dartlang.org follow these lin
 
 
 ---------
-1. Change `pubspec.yaml` to have dependencies on polymer and related packages:
+1 Change `pubspec.yaml` to have dependencies on polymer and related packages:
 
 
     dependencies:
@@ -22,7 +22,7 @@ To checkout the Web UI and Polymer packages on pub.dartlang.org follow these lin
 
 
 ---------
-1. Call `mdv.initialize` from `main()`:
+1 Call `mdv.initialize` from `main()`:
 
 
     import 'package:mdv/mdv.dart' as mdv;
