@@ -1,6 +1,6 @@
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 
+@CustomTag('tute-simple-hangman')
 class TuteSimpleHangman extends PolymerElement with ObservableMixin {
 
   String answer = 'pumpernickel';

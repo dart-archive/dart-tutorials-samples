@@ -1,7 +1,7 @@
-import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 import 'dart:html';
+import 'package:polymer/polymer.dart';
 
+@CustomTag('tute-adlibitum')
 class TuteAdlibitum extends PolymerElement with ObservableMixin {
 
   @observable String sillyword='';
@@ -24,6 +24,7 @@ class TuteAdlibitum extends PolymerElement with ObservableMixin {
   }
   
   void created() {
+    super.created();
     bindProperty(this, const Symbol('sillyword'), _show);
     bindProperty(this, const Symbol('adjective'), _show);
     bindProperty(this, const Symbol('animal'), _show);

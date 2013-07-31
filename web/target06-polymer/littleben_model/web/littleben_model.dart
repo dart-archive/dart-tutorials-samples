@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'package:polymer/polymer.dart';
 import 'package:observe/observe.dart';
 import 'package:mdv/mdv.dart' as mdv;
 import 'dart:html';
-
 
 void main() {
   mdv.initialize();
@@ -22,6 +20,7 @@ class CurrentTime extends ObservableBase {
   void updateTime(Timer _) {
     DateTime today = new DateTime.now();
     currentTime = formatTime(today.hour, today.minute, today.second);
+    Observable.dirtyCheck();
   }
   
   String formatTime(int h, int m, int s) {

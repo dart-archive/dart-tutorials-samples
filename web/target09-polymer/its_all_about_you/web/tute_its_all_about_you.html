@@ -9,7 +9,7 @@
   <body>
     <h1>Tell me about yourself</h1>
     
-    <element name="tute-its-all-about-you" class="tute-its-all-about-you" extends="div" apply-author-styles>
+    <polymer-element name="tute-its-all-about-you" class="tute-its-all-about-you" extends="div" apply-author-styles>
  
       <template>
 
@@ -65,12 +65,12 @@
     
         <div class="givemespace">
           <label>All data together as a map</label><br>
-          <p>{{mapAsJson}}</p>
+          <p id="mapasjson">{{mapAsJson}}</p>
           <!-- the value of the bound data doesn't show in a textarea for now 
           <textarea id="mapasjson" readonly>{{mapAsJson}}</textarea> -->
         </div>
       </template>
       <script type="application/dart" src="tute_its_all_about_you.dart">
       </script>
-    </element>
+    </polymer-element>
 </html>

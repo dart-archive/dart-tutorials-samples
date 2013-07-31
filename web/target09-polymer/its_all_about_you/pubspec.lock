@@ -4,39 +4,55 @@ packages:
   analyzer_experimental:
     description: analyzer_experimental
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
   args:
     description: args
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
   browser:
     description: browser
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
   csslib:
     description: csslib
     source: hosted
     version: "0.4.7+10"
+  custom_element:
+    description: custom_element
+    source: hosted
+    version: "0.6.13"
   html5lib:
     description: html5lib
     source: hosted
     version: "0.4.3"
+  html_import:
+    description: html_import
+    source: hosted
+    version: "0.6.13"
   logging:
     description: logging
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
   mdv:
     description: mdv
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
   meta:
     description: meta
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
+  mutation_observer:
+    description: mutation_observer
+    source: hosted
+    version: "0.6.13"
   observe:
     description: observe
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
+  path:
+    description: path
+    source: hosted
+    version: "0.6.13"
   pathos:
     description: pathos
     source: hosted
@@ -44,20 +60,28 @@ packages:
   polymer:
     description: polymer
     source: hosted
-    version: "0.5.0+1"
+    version: "0.5.2"
   serialization:
     description: serialization
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
   shadow_dom:
     description: shadow_dom
     source: hosted
-    version: "0.6.3+2"
+    version: "0.6.13"
   source_maps:
     description: source_maps
     source: hosted
-    version: "0.6.3+3"
+    version: "0.6.13"
+  stack_trace:
+    description: stack_trace
+    source: hosted
+    version: "0.6.13"
   unittest:
     description: unittest
     source: hosted
-    version: "0.6.3+1"
+    version: "0.6.13"
+  unmodifiable_collection:
+    description: unmodifiable_collection
+    source: hosted
+    version: "0.6.13"

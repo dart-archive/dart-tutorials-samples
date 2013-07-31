@@ -8,17 +8,20 @@
 </head>
 
 <body>
+  
   <h1>Dr. Seuss</h1>
+  
   <div>
     <template id="drseuss" bind>
-      <tute-converter ratio="{{}}">
+      <tute-converter ratio="{{}}" class="tute-converter">
         <label class="label-one"> Thing One </label>
         <label class="label-two"> Thing Two </label>
       </tute-converter>
     </template>
-
   </div>
+  
   <script type="application/dart" src="drseuss_app.dart"></script>
-  <script src="packages/browser/dart.js"></script>
+  <script src='packages/polymer/boot.js'></script>
+  
 </body>
 </html>

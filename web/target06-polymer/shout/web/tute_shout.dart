@@ -1,7 +1,7 @@
-import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 import 'dart:html';
+import 'package:polymer/polymer.dart';
 
+@CustomTag('tute-shout')
 class TuteShout extends PolymerElement with ObservableMixin {
 
   @observable String shoutThis;
@@ -10,6 +10,8 @@ class TuteShout extends PolymerElement with ObservableMixin {
   @observable String palindrome;
   
   void created() {
+    super.created();
+    
     // When 'shoutThis' changes, recompute other dependent strings.
     bindProperty(this, const Symbol('shoutThis'), () {
       shouted = shoutThis.toUpperCase();
@@ -17,6 +19,7 @@ class TuteShout extends PolymerElement with ObservableMixin {
                           shoutThis.substring(1, 5) :
                           shoutThis.substring(0, 0);
       palindrome = shoutThis + shoutThis.split('').reversed.join();
+      //Observable.dirtyCheck();
     });
   }
 }

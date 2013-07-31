@@ -1,7 +1,7 @@
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 import 'dart:html';
 
+@CustomTag('tute-converter')
 class TuteConverter extends PolymerElement with ObservableMixin {
   
   @observable String ratio = '1';

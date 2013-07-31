@@ -1,8 +1,8 @@
 import 'dart:html';
 import 'dart:async';
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 
+@CustomTag('tute-stopwatch')
 class TuteStopwatch extends PolymerElement with ObservableMixin {
   @observable String counter='00:00';
   

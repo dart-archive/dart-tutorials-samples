@@ -1,8 +1,8 @@
 import 'dart:html';
 import 'dart:json' as json;
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 
+@CustomTag('tute-its-all-about-you')
 class TuteItsAllAboutYou extends PolymerElement with ObservableMixin {
   // JSON strings, bound to HTML
   @observable String intAsJson;

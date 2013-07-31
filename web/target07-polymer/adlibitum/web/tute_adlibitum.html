@@ -5,7 +5,9 @@
 </head>
 
 <body>
-  <element name="tute-adlibitum" class="tute-adlibitum" extends="div">
+  
+  <polymer-element name="tute-adlibitum" extends="div">
+
     <template>
       <input type="text" value="{{sillyword}}" placeholder="Silly Word">
       <input type="text" value="{{adjective}}" placeholder="Adjective">
@@ -25,8 +27,11 @@
         <p>Most {{adverb}} yours, Billy's mother</p>
       </template>
     </template>
+ 
     <script type="application/dart" src="tute_adlibitum.dart">
     </script>
-  </element>
+
+  </polymer-element>
+  
 </body>
 </html>

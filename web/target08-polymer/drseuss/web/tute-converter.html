@@ -7,7 +7,9 @@
 </head>
 
 <body>
-  <element name="tute-converter" extends="div" attributes="ratio" apply-author-styles>
+  
+  <polymer-element name="tute-converter" extends="div" attributes="ratio" apply-author-styles>
+    
     <template>
       <div class="tute-converter">
         <span> <content select=".label-one"></content> </span>
@@ -22,7 +24,10 @@
         <span> <content select=".label-two"></content> </span>
       </div>
     </template>
+    
     <script type="application/dart" src="tute-converter.dart"> </script>
-  </element>
+    
+  </polymer-element>
+  
 </body>
 </html>
