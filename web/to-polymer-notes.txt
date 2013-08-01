@@ -323,3 +323,9 @@ IMPORTANT: notice the names! Hyphenated version for HTML, camelcase for Dart.
 22. When manually observing an object, the ChangeRecord only has the field name.
     Not the old and new value. You have to use mirrors.
   
+^^^^^^^^^^^^^^^^^^^^^^^
+23. If you override created() in a custom element, you must call super.created().
+
+^^^^^^^^^^^^^^^^^^^^^^^
+24. The build step is no longer required.
+
