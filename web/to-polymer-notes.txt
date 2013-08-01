@@ -134,13 +134,13 @@ Dart:
 
 HTML:
 -----
-<element name="my-element" extends="div">
+<polymer-element name="my-element" extends="div">
 ...
 <button on-click="startwatch" class="startbutton">Start</button>
 <button on-click="stopwatch"  class="stopbutton">Stop</button>
 <button on-click="resetwatch" class="resetbutton">Reset</button>
 ...
-</element>
+</polymer-element>
 
 Dart:
 -----
@@ -180,7 +180,7 @@ to apply CSS rules within the scope of the element.
 
 HTML:
 -----
-<element name="tute-simple-hangman" class="tute-simple-hangman" extends="div" apply-author-styles>
+<polymer-element name="tute-simple-hangman" class="tute-simple-hangman" extends="div" apply-author-styles>
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -208,12 +208,12 @@ void main() {
 }
 
 HTML:
-<element ... >
+<polymer-element ... >
 <template bind syntax="fancy">
 <input type="text" value="{{myMap['aKeyToAnItem']}}">
 </template>
 ...
-</element>
+</polymer-element>
 
 Here's some documentation:
 https://github.com/dart-lang/fancy-syntax
@@ -298,13 +298,13 @@ Call notifyPropertyChange whenever the field changes.
 20. To pass in a custom attribute, use the attributes tag on the element definition:
 
 HTML: component definition (myPoint is a Point object)
-    <element name="x-pointdisplay" constructor="XPointdisplay" attributes="my-point" extends="li">
+    <polymer-element name="x-pointdisplay" constructor="XPointdisplay" attributes="my-point" extends="li">
       <template>
         My Point Exactly: {{myPoint.x}}, {{myPoint.y}}, {{z}}
       </template>
         
       <script type="application/dart" src="x_pointdisplay.dart"></script>
-    </element>
+    </polymer-element>
 
 
 When instantiating set the custom attribute.
