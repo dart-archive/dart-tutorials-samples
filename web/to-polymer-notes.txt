@@ -37,6 +37,9 @@ void main() {
 ^^^^^^^^^^^^^^^^^^^^^^^
 4. If you have top-level bindings, you can create a custom element
 that inherits from PolymerElement and use the mixin ObservableMixin.
+** Use `<polymer-element>` instead of `<element>`
+** IMPORTANT: If you use custom elements, you should include packages/polymer/boot.js and *NOT* dart.js
+** Custom element classes now require @CustomTag("my-element")
 Here’s a tiny program with a custom element that displays one bound value:
 
 
@@ -49,8 +52,8 @@ Here’s a tiny program with a custom element that displays one bound value:
   <body>
     <h1>MyString</h1>
 
-
-    <element name="my-polymer-element" extends="div">
+    <!-- define a custom tag called my-polymer-element -->
+    <polymer-element name="my-polymer-element" extends="div">
       <template>
         My string: {{myString}}
       </template>
@@ -59,12 +62,13 @@ Here’s a tiny program with a custom element that displays one bound value:
         import 'package:polymer/polymer.dart';
         import 'package:observe/observe.dart';
         
+        @CustomTag("my-polymer-element")
         class MyPolymerElement extends PolymerElement with ObservableMixin {
           @observable String myString = 'hello';
         }
         
       </script>
-    </element>
+    </polymer-element>
 
 
     <my-polymer-element></my-polymer-element>
@@ -75,7 +79,7 @@ Here’s a tiny program with a custom element that displays one bound value:
         mdv.initialize();
       }
       </script>
-    <script src="packages/browser/dart.js"></script>
+    <script src="packages/polymer/boot.js"></script> <!-- NOT dart.js -->
   </body>
 </html>
 
@@ -126,7 +130,7 @@ Dart:
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-7. Query the shadow DOM for elements within the custom element:
+7. Go through `shadowRoot` to find nodes inside of your custom element.
 
 HTML:
 -----
@@ -157,7 +161,7 @@ void startwatch(Event e, var detail, Node target) { … }
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
-9. Conditional templates use the bind attribute now:
+9. If you use an `if` attribute on your template, the `bind` attribute is optional.
 
 HTML:
 -----
@@ -311,3 +315,11 @@ HTML: component instantiation (myPoints is a list of Point objects)
       </template>
 
 IMPORTANT: notice the names! Hyphenated version for HTML, camelcase for Dart.
+
+^^^^^^^^^^^^^^^^^^^^^^^
+21. Declarative event binding requires custom elements.
+
+^^^^^^^^^^^^^^^^^^^^^^^
+22. When manually observing an object, the ChangeRecord only has the field name.
+    Not the old and new value. You have to use mirrors.
+  
