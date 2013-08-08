@@ -91,8 +91,8 @@ OR.....
 
 Compare these two different versions of the little ben example:
 
-target06-polymer/littleben (component version)
-target06-polymer/petiteben (template version with bound model version)
+target06-polymer/littleben_element (component version)
+target06-polymer/littleben_model (template version with bound model version)
 
 ^^^^^^^^^^^^^^^^^^^^^^^
 5. For two-way bindings to input fields use value=”{{string}}” instead of bind-value.
