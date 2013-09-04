@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Little Ben</title>
     <link rel="stylesheet" href="littleben_model.css">
+    <script src="packages/polymer/boot.js"></script>
   </head>
   
   <body>
@@ -11,11 +12,12 @@
 
     <div>
       <template id="currenttime" bind>        
-        <p class="currenttime">The current time is: &nbsp; &nbsp; {{currentTime}}</p>
+        <p class="currenttime">
+          The current time is: &nbsp; &nbsp; <span style="font-size:1.2em">{{currentTime}}<span>
+        </p>
       </template>
     </div>
 
     <script type="application/dart" src="littleben_model.dart"></script>
-    <script src="packages/polymer/boot.js"></script>
   </body>
 </html>

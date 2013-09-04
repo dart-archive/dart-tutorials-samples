@@ -6,23 +6,34 @@
 
 <body>
 
-  <element name="tute-stopwatch" class="tute-stopwatch" extends="div" apply-author-styles>
+  <polymer-element name="tute-stopwatch">
  
     <template>
-      <div>
-        {{counter}}
-      </div>
-      <div>
-        <button on-click="startwatch" class="startbutton">Start</button>
-        <button on-click="stopwatch"  class="stopbutton">Stop</button>
-        <button on-click="resetwatch" class="resetbutton">Reset</button>
+      <style>
+        #stopwatch_container {
+          background-color: LemonChiffon;
+          text-align: center;
+          width: 150px;
+          border: solid 1px;
+          padding: 10px 10px 10px 10px;
+        }
+      </style>
+      <div id="stopwatch_container">
+        <div>
+          {{counter}}
+        </div>
+        <div>
+          <button on-click="startwatch" class="startbutton">Start</button>
+          <button on-click="stopwatch"  class="stopbutton">Stop</button>
+          <button on-click="resetwatch" class="resetbutton">Reset</button>
+        </div>
       </div>
     </template>
 
     <script type="application/dart" src="tute_stopwatch.dart">
     </script>
 
-  </element>
+  </polymer-element>
 </body>
 </html>
     

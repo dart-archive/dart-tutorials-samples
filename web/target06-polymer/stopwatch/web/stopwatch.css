@@ -2,7 +2,7 @@
 body {
   background-color: #F8F8F8;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 14pt;
   font-weight: normal;
   margin: 15px;
 }
@@ -11,15 +11,3 @@ p {
   color: #333;
 }
 
-button {
-  margin: 0px 0px 0px 0px;
-}
-
-#stopwatch {
-  font-size: 14pt;
-  background-color: LemonChiffon;
-  border: solid 1px;
-  padding: 10px 10px 10px 10px;
-  width: 150px;
-  text-align: center;
-}

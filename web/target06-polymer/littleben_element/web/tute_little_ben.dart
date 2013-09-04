@@ -7,6 +7,7 @@ class TuteLittleBen extends PolymerElement with ObservableMixin {
   @observable String currentTime = 'Hello!';
   
   void inserted() {
+    super.inserted();
     new Timer.periodic(new Duration(seconds:1), _updateTime);
   }
   

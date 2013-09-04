@@ -6,8 +6,15 @@
 
 <body>
 
-    <element name="tute-shout" extends="div" apply-author-styles>
+    <polymer-element name="tute-shout">
+      
       <template>
+        <style>
+          input {
+            padding: 5px;
+            margin: 20px 0px 20px 0px;
+          }
+        </style>
         <input type="text" value="{{shoutThis}}" placeholder="Shout This!">
           
         <div>      Length: {{ shoutThis.length }} </div>
@@ -15,9 +22,11 @@
         <div>   Substring: {{ shoutedSubstring }} </div>
         <div> Palindromic: {{ palindrome }} </div>
       </template>
+      
       <script type="application/dart" src="tute_shout.dart">
       </script>
-    </element>
+      
+    </polymer-element>
 
 </body>
 </html>

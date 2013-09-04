@@ -1,7 +1,6 @@
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
-import 'dart:html';
 
+@CustomTag('tute-shout')
 class TuteShout extends PolymerElement with ObservableMixin {
 
   @observable String shoutThis;
@@ -10,6 +9,7 @@ class TuteShout extends PolymerElement with ObservableMixin {
   @observable String palindrome;
   
   void created() {
+    super.created();
     // When 'shoutThis' changes, recompute other dependent strings.
     bindProperty(this, const Symbol('shoutThis'), () {
       shouted = shoutThis.toUpperCase();

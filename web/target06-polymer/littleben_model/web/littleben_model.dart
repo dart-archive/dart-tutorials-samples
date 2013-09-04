@@ -2,13 +2,12 @@ import 'dart:async';
 import 'package:polymer/polymer.dart';
 import 'dart:html';
 
-
 void main() {
   query("#currenttime").model = new CurrentTime();;
 }
 
 class CurrentTime extends ObservableBase { 
-  @observable String currentTime;
+  @observable String currentTime = 'Hello!';
 
   CurrentTime() {
     var oneSecond = new Duration(seconds:1);
