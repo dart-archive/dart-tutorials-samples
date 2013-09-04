@@ -1,6 +1,6 @@
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 
+@CustomTag('tute-hangman')
 class TuteHangman extends PolymerElement with ObservableMixin {
 
   String answer = 'ambidextrous';

@@ -5,9 +5,26 @@
     <link rel="stylesheet" href="simple_hangman.css">
   </head>
   <body>
-    <element name="tute-simple-hangman" class="tute-simple-hangman" extends="div" apply-author-styles>
+    <polymer-element name="tute-simple-hangman">
       
       <template>
+        <style>
+          #hangman {
+            font-size: 24px;
+            margin-top: 64px;
+            margin-bottom: 24px;
+          }
+          
+          #wrong {
+            font-size: 24px;
+            margin-left: 32px;
+            margin-top: 12px;
+          }
+          
+          input {
+            width: 2em;
+          }
+        </style>
         <div id="hangman">
           <template repeat="{{hyphens}}"> <span>{{}}</span> </template>
         </div>
@@ -32,6 +49,6 @@
       <script type="application/dart" src="tute_simple_hangman.dart">
       </script>
       
-    </element>
+    </polymer-element>
   </body>
 </html>
