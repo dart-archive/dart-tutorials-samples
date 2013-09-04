@@ -7,8 +7,23 @@
 </head>
 
 <body>
-  <element name="tute-converter" extends="div" attributes="ratio" apply-author-styles>
+  <polymer-element name="tute-converter" attributes="ratio">
     <template>
+      <style>
+      .tute-converter {
+        text-align: center;
+        background-color: LemonChiffon;
+        margin: 10px;
+        padding: 10px;
+        border: inset;
+        display: inline-block;
+      }
+      
+      input {
+        width: 64px;
+        font-size: 14px;
+      }
+      </style>
       <div class="tute-converter">
         <span> <content select=".label-one"></content> </span>
         <input type="text"
@@ -23,6 +38,6 @@
       </div>
     </template>
     <script type="application/dart" src="tute-converter.dart"> </script>
-  </element>
+  </polymer-element>
 </body>
 </html>

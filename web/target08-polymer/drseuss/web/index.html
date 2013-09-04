@@ -5,20 +5,23 @@
   <title>Dr. Seuss</title>
   <link rel="stylesheet" href="drseuss.css">
   <link rel="import" href="tute-converter.html">
+  <script src="packages/polymer/boot.js"></script>
 </head>
 
 <body>
+  
   <h1>Dr. Seuss</h1>
+  
   <div>
-    <template id="drseuss" bind>
-      <tute-converter ratio="{{}}">
+    
+    <!--<template id="drseuss" bind>-->
+      <tute-converter ratio="0.5">
         <label class="label-one"> Thing One </label>
         <label class="label-two"> Thing Two </label>
       </tute-converter>
-    </template>
+    <!--</template>-->
 
   </div>
-  <script type="application/dart" src="drseuss_app.dart"></script>
-  <script src="packages/browser/dart.js"></script>
+  
 </body>
 </html>

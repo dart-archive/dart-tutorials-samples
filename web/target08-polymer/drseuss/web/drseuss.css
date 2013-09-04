@@ -8,16 +8,3 @@ body {
   margin: 20px;
 }
 
-.tute-converter {
-  text-align: center;
-  background-color: LemonChiffon;
-  margin: 10px;
-  padding: 10px;
-  border: inset;
-  display: inline-block;
-}
-
-input {
-  width: 72px;
-  font-size: 14px;
-}
