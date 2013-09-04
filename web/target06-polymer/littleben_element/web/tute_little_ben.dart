@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:observe/observe.dart';
 import 'package:polymer/polymer.dart';
 
+@CustomTag('tute-little-ben')
 class TuteLittleBen extends PolymerElement with ObservableMixin {
 
   @observable String currentTime = 'Hello!';

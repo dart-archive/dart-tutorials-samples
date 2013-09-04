@@ -1,12 +1,9 @@
 import 'dart:async';
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
-import 'package:mdv/mdv.dart' as mdv;
 import 'dart:html';
 
 
 void main() {
-  mdv.initialize();
   query("#currenttime").model = new CurrentTime();;
 }
 

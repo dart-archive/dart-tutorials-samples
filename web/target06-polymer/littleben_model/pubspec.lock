@@ -4,64 +4,92 @@ packages:
   analyzer_experimental:
     description: analyzer_experimental
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
   args:
     description: args
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
+  barback:
+    description: barback
+    source: hosted
+    version: "0.6.19"
   browser:
     description: browser
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
   csslib:
     description: csslib
     source: hosted
-    version: "0.4.7+10"
+    version: "0.4.7+11"
+  custom_element:
+    description: custom_element
+    source: hosted
+    version: "0.6.19"
+  fancy_syntax:
+    description: fancy_syntax
+    source: hosted
+    version: "0.0.7"
   html5lib:
     description: html5lib
     source: hosted
-    version: "0.4.3"
+    version: "0.4.4"
+  html_import:
+    description: html_import
+    source: hosted
+    version: "0.6.19"
+  js:
+    description: js
+    source: hosted
+    version: "0.0.24"
   logging:
     description: logging
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
   mdv:
     description: mdv
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
   meta:
     description: meta
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
+  mutation_observer:
+    description: mutation_observer
+    source: hosted
+    version: "0.6.19"
   observe:
     description: observe
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
   path:
     description: path
     source: hosted
-    version: "0.6.5"
-  pathos:
-    description: pathos
-    source: hosted
-    version: "0.6.3+1"
+    version: "0.6.19"
   polymer:
     description: polymer
     source: hosted
-    version: "0.5.0+1"
+    version: "0.5.5"
   serialization:
     description: serialization
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
   shadow_dom:
     description: shadow_dom
     source: hosted
-    version: "0.6.3+2"
+    version: "0.6.19"
   source_maps:
     description: source_maps
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
+  stack_trace:
+    description: stack_trace
+    source: hosted
+    version: "0.6.19"
   unittest:
     description: unittest
     source: hosted
-    version: "0.6.5"
+    version: "0.6.19"
+  unmodifiable_collection:
+    description: unmodifiable_collection
+    source: hosted
+    version: "0.6.19"
