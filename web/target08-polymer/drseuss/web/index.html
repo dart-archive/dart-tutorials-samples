@@ -14,14 +14,41 @@
   
   <div>
     
-    <!--<template id="drseuss" bind>-->
-      <tute-converter ratio="0.5">
+    <template id="drseuss" bind>
+      <tute-converter ratio="{{}}">
         <label class="label-one"> Thing One </label>
         <label class="label-two"> Thing Two </label>
       </tute-converter>
-    <!--</template>-->
+    </template>
+    <template id="mileskm" bind>
+      <tute-converter ratio="{{}}">
+        <label class="label-one"> Miles </label>
+        <label class="label-two"> Kilometers </label>
+      </tute-converter>
+    </template>
+    <template id="poundskg" bind>
+      <tute-converter ratio="{{}}">
+        <label class="label-one"> Pounds </label>
+        <label class="label-two"> Kilograms </label>
+      </tute-converter>
+    </template>
+    <template id="jiggersfifths" bind>
+      <tute-converter ratio="{{}}">
+        <label class="label-one"> Jiggers </label>
+        <label class="label-two"> Fifths </label>
+      </tute-converter>
+    </template>
 
   </div>
   
+  <script type="application/dart">
+    import 'dart:html';
+    main() {
+      query('#drseuss').model = '0.5';
+      query('#mileskm').model = '0.62';
+      query('#poundskg').model = '2.2';
+      query('#jiggersfifths').model = '17.06';
+    }
+  </script>
 </body>
 </html>

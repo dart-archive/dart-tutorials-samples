@@ -1,8 +1,8 @@
 import 'dart:html';
 import 'dart:json' as json;
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 
+@CustomTag('x-slambook-form')
 class SlamBookComponent extends PolymerElement with ObservableMixin {
   
   @observable String firstName = "mem";
