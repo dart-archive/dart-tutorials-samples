@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="littleben_element.css">
 </head>
 
@@ -13,12 +14,19 @@
         #theTime {
           font-size: 1.2em;
         }
+        #tute_little_ben_container {
+          border: 2px solid Lavender;
+          padding: 5px 5px 5px 5px;
+          width: 235px;
+          color: SlateBlue;
+          font-size: 16px;
+        }
       </style>
-      <p>
-        The current time is: &nbsp;&nbsp; <span id="theTime">{{currentTime}}</span>
-      </p>
+      <div id="tute_little_ben_container">
+        <p>The current time is: &nbsp;&nbsp; <span id="theTime">{{currentTime}}</span></p>
+      </div>
     </template>
-
+    
     <script type="application/dart" src="tute_little_ben.dart">
     </script>
 

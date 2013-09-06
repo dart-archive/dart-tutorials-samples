@@ -23,7 +23,6 @@ class TuteStopwatch extends PolymerElement with ObservableMixin {
   }
   
   void startwatch(Event e, var detail, Node target) {
-    print("hello");
     mywatch.start();
     var oneSecond = new Duration(seconds:1);
     new Timer.periodic(oneSecond, updateTime);

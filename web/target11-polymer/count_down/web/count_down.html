@@ -8,6 +8,8 @@
     
     <!-- import the countdown element -->
     <link rel="import" href="xcountdown.html">
+    <script src="packages/polymer/boot.js"></script>
+    
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
@@ -15,9 +17,8 @@
     <h1>Count down</h1>
     
     <!-- Insert the CountDownComponent, implemented in xcountdown.html & xcountdown.dart -->
-    <div is="x-count-down" id="count_down"></div>
+    <x-count-down id="count_down"></x-count-down>
     
-    <script type="application/dart" src="count_down.dart"></script>
-    <script src="packages/browser/dart.js"></script>
+    <!--<script type="application/dart" src="count_down.dart"></script>-->
   </body>
 </html>

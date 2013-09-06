@@ -1,9 +1,9 @@
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 import 'milestone.dart';
 import 'count_down.dart';
 import 'dart:html';
 
+@CustomTag('x-milestone')
 class MilestoneComponent extends PolymerElement with ObservableMixin {
   @observable Milestone milestone;
   @observable String _displayString = '';

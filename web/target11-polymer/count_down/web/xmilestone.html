@@ -2,11 +2,11 @@
 
 <html>
   <body>   
-    <element name="x-milestone" constructor="MilestoneComponent" attributes="milestone" extends="div">
+    <polymer-element name="x-milestone" attributes="milestone">
       <template>
         <span>{{milestone.timeRemainingAsString}}</span> <button on-click="removeMilestone">-</button>
       </template>
       <script type="application/dart" src="xmilestone.dart"></script>
-    </element>
+    </polymer-element>
   </body>
 </html>

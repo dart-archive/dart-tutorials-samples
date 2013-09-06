@@ -1,10 +1,6 @@
 import 'dart:async';
 import 'dart:indexed_db';
 import 'milestone.dart';
-import 'package:mdv/mdv.dart' as mdv;
-import 'package:fancy_syntax/syntax.dart';
-import 'dart:html';
-import 'package:observe/observe.dart';
 import 'package:polymer/polymer.dart';
 
 /*
@@ -20,11 +16,6 @@ import 'package:polymer/polymer.dart';
 
 MilestoneApp appObject = new MilestoneApp();
 
-
-void main() {
-  mdv.initialize();
-  TemplateElement.syntax['fancy'] = new FancySyntax();
-}
 
 class MilestoneApp extends ObservableBase {
   /****

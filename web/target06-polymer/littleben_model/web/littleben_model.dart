@@ -18,6 +18,7 @@ class CurrentTime extends ObservableBase {
   void updateTime(Timer _) {
     DateTime today = new DateTime.now();
     currentTime = formatTime(today.hour, today.minute, today.second);
+    Observable.dirtyCheck();
   }
   
   String formatTime(int h, int m, int s) {

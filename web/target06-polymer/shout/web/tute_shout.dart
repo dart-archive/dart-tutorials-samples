@@ -10,6 +10,7 @@ class TuteShout extends PolymerElement with ObservableMixin {
   
   void created() {
     super.created();
+
     // When 'shoutThis' changes, recompute other dependent strings.
     bindProperty(this, const Symbol('shoutThis'), () {
       shouted = shoutThis.toUpperCase();
@@ -17,6 +18,7 @@ class TuteShout extends PolymerElement with ObservableMixin {
                           shoutThis.substring(1, 5) :
                           shoutThis.substring(0, 0);
       palindrome = shoutThis + shoutThis.split('').reversed.join();
+      //Observable.dirtyCheck();
     });
   }
 }

@@ -1,7 +1,6 @@
 library milestone;
 
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 import 'dart:async';
 import 'dart:html';
 import 'dart:indexed_db';

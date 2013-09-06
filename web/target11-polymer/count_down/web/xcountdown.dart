@@ -1,12 +1,10 @@
 // Some things we need.
 import 'package:polymer/polymer.dart';
-import 'package:observe/observe.dart';
 import 'dart:html';
 import 'dart:async';
-import 'dart:indexed_db';
-import 'milestone.dart';
 import 'count_down.dart';
 
+@CustomTag('x-count-down')
 class CountDownComponent extends PolymerElement with ObservableMixin {
   
   // Observe errorMsg.
