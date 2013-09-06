@@ -1,11 +1,14 @@
 ﻿
 
 These are notes about converting tutorial examples from Web UI to polymer.
-This information is about one of the earliest versions of polymer
-and some of this may no longer apply.
+Checkout the
+[Polymer.dart](http://www.dartlang.org/polymer-dart/)
+home page for information.
 
+The information on this page is about one of the earliest versions of polymer
+and some of this may no longer apply.
 More up-to-date tips are at
-[Upgrading to Polymer.dart from Web UI](http://www.dart-lang.org/polymer-dart/upgrading-to-polymer-from-web-ui.html)
+[Upgrading to Polymer.dart from Web UI](http://www.dartlang.org/polymer-dart/upgrading-to-polymer-from-web-ui.html)
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
