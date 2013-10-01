@@ -4,7 +4,7 @@ import 'package:polymer/polymer.dart';
 @CustomTag('tute-little-ben')
 class TuteLittleBen extends PolymerElement with ObservableMixin {
 
-  @observable String currentTime = 'Hello!';
+  @observable String currentTime;
   
   void inserted() {
     super.inserted();

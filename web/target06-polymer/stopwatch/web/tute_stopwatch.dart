@@ -7,6 +7,7 @@ class TuteStopwatch extends PolymerElement with ObservableMixin {
   @observable String counter='00:00';
   
   Stopwatch mywatch = new Stopwatch();
+  Timer mytimer;
   
   ButtonElement stopButton;
   ButtonElement startButton;
@@ -14,31 +15,37 @@ class TuteStopwatch extends PolymerElement with ObservableMixin {
   
   void inserted() {
     super.inserted();
-    startButton = getShadowRoot("tute-stopwatch").query('.startbutton');
-    stopButton = getShadowRoot("tute-stopwatch").query('.stopbutton');
-    resetButton = getShadowRoot("tute-stopwatch").query('.resetbutton');
+    startButton = getShadowRoot("tute-stopwatch").query('#startbutton');
+    stopButton = getShadowRoot("tute-stopwatch").query('#stopbutton');
+    resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');
         
     stopButton.disabled = true;
     resetButton.disabled = true;
   }
   
-  void startwatch(Event e, var detail, Node target) {
+  void removed() {
+    super.removed();
+    mytimer.cancel();
+  }
+  
+  void start(Event e, var detail, Node target) {
     mywatch.start();
     var oneSecond = new Duration(seconds:1);
-    new Timer.periodic(oneSecond, updateTime);
+    mytimer = new Timer.periodic(oneSecond, updateTime);
     startButton.disabled = true;
     stopButton.disabled = false;
     resetButton.disabled = true;
   }
   
-  void stopwatch(Event e, var detail, Node target) {
+  void stop(Event e, var detail, Node target) {
     mywatch.stop();
+    mytimer.cancel();
     startButton.disabled = false;
     resetButton.disabled = false;
     stopButton.disabled = true;
   }
   
-  void resetwatch(Event e, var detail, Node target) {
+  void reset(Event e, var detail, Node target) {
     mywatch.reset();
     counter = '00:00';
     resetButton.disabled = true;
