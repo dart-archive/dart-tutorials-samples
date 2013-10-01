@@ -31,6 +31,13 @@ List files = ['web/target01/clickme/web/clickme.dart',
               'web/target03/anagram/web/anagram.dart',
               'web/target03/todo/web/todo.dart',
               'web/target04/todo_with_delete/web/todo_with_delete.dart',
+              'web/get-started/clickme/web/clickme.dart',
+              //'web/get-started/helloworld/bin/helloworld.dart',
+              'web/connect-dart-html/mini/web/mini.dart',
+              'web/connect-dart-html/mini_with_style/web/mini_with_style.dart',
+              'web/add-elements/anagram/web/anagram.dart',
+              'web/add-elements/todo/web/todo.dart',
+              'web/remove-elements/todo_with_delete/web/todo_with_delete.dart',
               'web/target09/portmanteaux/web/portmanteaux.dart',
               'web/target09/portmanteaux_simple/web/portmanteaux_simple.dart'];
 
