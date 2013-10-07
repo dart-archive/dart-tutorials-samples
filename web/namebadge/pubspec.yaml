@@ -1,0 +1,4 @@
+name: NameBadge
+description: A sample Polymer application
+dependencies:
+    polymer: any
