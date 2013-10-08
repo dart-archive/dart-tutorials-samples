@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample app</title>
+    <link rel="stylesheet" href="count_down.css">
+    
+    <!-- import the countdown element -->
+    <link rel="import" href="xcountdown.html">
+    <script src="packages/polymer/boot.js"></script>
+    
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <h1>Count down</h1>
+    
+    <!-- Insert the CountDownComponent, implemented in xcountdown.html & xcountdown.dart -->
+    <x-count-down id="count_down"></x-count-down>
+    
+    <!--<script type="application/dart" src="count_down.dart"></script>-->
+  </body>
+</html>

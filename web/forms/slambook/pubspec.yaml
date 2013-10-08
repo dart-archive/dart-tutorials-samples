@@ -1,0 +1,9 @@
+name: slambook
+description: What? You weren't a tween girl in the 1970's?
+dependencies:
+  browser: any
+  fancy_syntax: any
+  mdv: any
+  observe: any
+  polymer: any
+  shadow_dom: any

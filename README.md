@@ -1,12 +1,12 @@
-A Game of Darts
+Dart Tutorials
 ===============
 [![Build Status](https://drone.io/github.com/dart-lang/dart-tutorials-samples/status.png)](https://drone.io/github.com/dart-lang/dart-tutorials-samples/latest)
 
-These are small Dart samples used by the online Dart tutorials:
-[A Game of Darts](http://www.dartlang.org/docs/tutorials/)
+These are small Dart samples used by the online
+[Dart tutorials](http://www.dartlang.org/docs/tutorials/).
 
 For links to running versions of all of the apps, visit
-[index.html](http://dart-lang.github.io/dart-tutorials-samples/)
+[index.html](http://dart-lang.github.io/dart-tutorials-samples/).
 
 Repo and testing
 ----------------
@@ -16,7 +16,7 @@ Project structure
 -----------------
 
 **web/:**
-	Code samples used in the online tutorial. Contains sub-directories to organize the samples by target.
+	Code samples used in the online tutorial. Contains sub-directories to organize the samples by topic.
 
 **tool/:**
 	A tool that builds and deploys the gh-pages version of the apps.
