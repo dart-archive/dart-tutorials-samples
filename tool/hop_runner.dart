@@ -38,6 +38,8 @@ List files = ['web/target01/clickme/web/clickme.dart',
               'web/add-elements/anagram/web/anagram.dart',
               'web/add-elements/todo/web/todo.dart',
               'web/remove-elements/todo_with_delete/web/todo_with_delete.dart',
+              'web/fetchdata/portmanteaux/web/portmanteaux.dart',
+              'web/fetchdata/portmanteaux_simple/web/portmanteaux_simple.dart',
               'web/target09/portmanteaux/web/portmanteaux.dart',
               'web/target09/portmanteaux_simple/web/portmanteaux_simple.dart'];
 

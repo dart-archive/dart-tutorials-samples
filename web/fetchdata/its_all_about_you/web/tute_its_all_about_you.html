@@ -73,28 +73,28 @@
           <tbody>
           <tr>
             <td align="right">Favorite number:</td>
-            <td><input type="text" value="{{favoriteNumber}}" on-change="showJson"></td>
+            <td><input type="text" value="{{favoriteNumber}}" on-input="showJson"></td>
             <td>integer</td>
             <td><span class="result"> {{intAsJson}} </span></td>
           </tr>
           <tr>
             <td align="right">Do you know pi?</td>
-            <td><input type="text" value="{{valueOfPi}}" on-change="showJson"></td>
+            <td><input type="text" value="{{valueOfPi}}" on-input="showJson"></td>
             <td>double</td>
             <td><span class="result"> {{doubleAsJson}} </span></td>
           </tr>
           <tr>
             <td align="right">What's your sign?</td>
-            <td><input type="text" value="{{horrorScope}}" on-change="showJson"></td>
+            <td><input type="text" value="{{horrorScope}}" on-input="showJson"></td>
             <td>String</td>
             <td><span class="result"> {{stringAsJson}} </span></td>
           </tr>
           <tr>
             <td align="right">A few of your favorite things?</td>
             <td>
-              <input type="text" value="{{favOne}}" on-change="showJson">
-              <input type="text" value="{{favTwo}}" on-change="showJson">
-              <input type="text" value="{{favThree}}" on-change="showJson">
+              <input type="text" value="{{favOne}}" on-input="showJson">
+              <input type="text" value="{{favTwo}}" on-input="showJson">
+              <input type="text" value="{{favThree}}" on-input="showJson">
             </td>
             <td>List&lt;String&gt;</td>
             <td><span class="result"> {{listAsJson}} </span></td>
