@@ -1,9 +1,9 @@
 import 'dart:html';
-import 'dart:json' as json;
+import 'dart:convert';
 import 'package:polymer/polymer.dart';
 
 @CustomTag('x-slambook-form')
-class SlamBookComponent extends PolymerElement with ObservableMixin {
+class SlamBookComponent extends PolymerElement {
   
   @observable String firstName = "mem";
   
@@ -81,6 +81,6 @@ class SlamBookComponent extends PolymerElement with ObservableMixin {
   String _slambookAsJsonData() {
     // Put favoriteThings in the map.
     theData['favoriteThings'] = favoriteThings;
-    return json.stringify(theData);
+    return JSON.encode(theData);
   }
 }

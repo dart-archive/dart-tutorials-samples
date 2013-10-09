@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:polymer/polymer.dart';
 
 @CustomTag('tute-stopwatch')
-class TuteStopwatch extends PolymerElement with ObservableMixin {
+class TuteStopwatch extends PolymerElement {
   @observable String counter='00:00';
   
   Stopwatch mywatch = new Stopwatch();
@@ -15,9 +15,9 @@ class TuteStopwatch extends PolymerElement with ObservableMixin {
   
   void inserted() {
     super.inserted();
-    startButton = getShadowRoot('tute-stopwatch').query('#startButton');
-    stopButton = getShadowRoot('tute-stopwatch').query('#stopButton');
-    resetButton = getShadowRoot('tute-stopwatch').query('#resetButton');
+    startButton = $['startButton'];
+    stopButton = $['stopButton'];
+    resetButton = $['resetButton'];
         
     stopButton.disabled = true;
     resetButton.disabled = true;

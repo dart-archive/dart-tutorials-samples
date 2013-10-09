@@ -4,92 +4,88 @@ packages:
   analyzer_experimental:
     description: analyzer_experimental
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1+2"
   args:
     description: args
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   barback:
     description: barback
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   browser:
     description: browser
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   csslib:
     description: csslib
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   custom_element:
     description: custom_element
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   html5lib:
     description: html5lib
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   html_import:
     description: html_import
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   logging:
     description: logging
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   mdv:
     description: mdv
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   meta:
     description: meta
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   mutation_observer:
     description: mutation_observer
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   observe:
     description: observe
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   path:
     description: path
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   polymer:
     description: polymer
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1+1"
   polymer_expressions:
     description: polymer_expressions
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   shadow_dom:
     description: shadow_dom
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   source_maps:
     description: source_maps
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   stack_trace:
     description: stack_trace
     source: hosted
-    version: "0.7.6+4"
-  unittest:
-    description: unittest
-    source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   unmodifiable_collection:
     description: unmodifiable_collection
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   utf:
     description: utf
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"
   yaml:
     description: yaml
     source: hosted
-    version: "0.7.6+4"
+    version: "0.8.1"

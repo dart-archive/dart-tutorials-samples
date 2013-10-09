@@ -5,7 +5,7 @@ import 'dart:async';
 import 'count_down.dart';
 
 @CustomTag('x-count-down')
-class CountDownComponent extends PolymerElement with ObservableMixin {
+class CountDownComponent extends PolymerElement {
   
   // Observe errorMsg.
   // It displays a message for the user.
@@ -42,8 +42,8 @@ class CountDownComponent extends PolymerElement with ObservableMixin {
   void inserted() {
     appObject.start()
       .catchError((e) {
-        (getShadowRoot("tute-stopwatch").query('.addbutton') as ButtonElement).disabled = true;
-        (getShadowRoot("tute-stopwatch").query('.clearbutton') as ButtonElement).disabled = true;
+        ($['addbutton'] as ButtonElement).disabled = true;
+        ($['clearbutton'] as ButtonElement).disabled = true;
 
         errorMsg = e.toString();
       });

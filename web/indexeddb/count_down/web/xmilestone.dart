@@ -4,7 +4,7 @@ import 'count_down.dart';
 import 'dart:html';
 
 @CustomTag('x-milestone')
-class MilestoneComponent extends PolymerElement with ObservableMixin {
+class MilestoneComponent extends PolymerElement {
   @observable Milestone milestone;
   @observable String _displayString = '';
     
