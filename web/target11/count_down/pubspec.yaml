@@ -1,6 +1,0 @@
-name: count_down
-description: A sample WebUI application
-dependencies:
-  browser: any
-  js: any
-  web_ui: any

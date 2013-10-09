@@ -1,4 +1,0 @@
-name: todo_with_delete
-description: A todo list for people who Get. Stuff. Done.
-dependencies:
-  browser: any
