@@ -1,9 +1,9 @@
 import 'dart:html';
-import 'dart:json' as json;
+import 'dart:convert';
 import 'package:polymer/polymer.dart';
 
 @CustomTag('tute-its-all-about-you')
-class TuteItsAllAboutYou extends PolymerElement with ObservableMixin {
+class TuteItsAllAboutYou extends PolymerElement {
   // JSON strings, bound to HTML
   @observable String intAsJson;
   @observable String doubleAsJson;
@@ -39,12 +39,12 @@ class TuteItsAllAboutYou extends PolymerElement with ObservableMixin {
     };
   
     // Convert everything to JSON
-    intAsJson = json.stringify(favNum);          // int
-    doubleAsJson = json.stringify(pi);           // double
-    boolAsJson = json.stringify(choco);          // boolean
-    stringAsJson = json.stringify(horrorScope);  // string
-    listAsJson = json.stringify(favoriteThings); // list of strings
-    mapAsJson = json.stringify(formData);        // map with string keys
+    intAsJson = JSON.encode(favNum);          // int
+    doubleAsJson = JSON.encode(pi);           // double
+    boolAsJson = JSON.encode(choco);          // boolean
+    stringAsJson = JSON.encode(horrorScope);  // string
+    listAsJson = JSON.encode(favoriteThings); // list of strings
+    mapAsJson = JSON.encode(formData);        // map with string keys
                                                  // and mixed values
   }
   
@@ -67,7 +67,7 @@ class TuteItsAllAboutYou extends PolymerElement with ObservableMixin {
   }
   ''';
   
-    Map jsonData = json.parse(jsonDataAsString);
+    Map jsonData = JSON.decode(jsonDataAsString);
     
     favoriteNumber = jsonData['favoriteNumber'].toString();
     valueOfPi = jsonData['valueOfPi'].toString();
