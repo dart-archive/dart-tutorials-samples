@@ -1,8 +1,0 @@
-name: shout
-description: Shout! Shout! Let it all out!
-dependencies:
-  browser: any
-  mdv: any
-  observe: any
-  polymer: any
-  shadow_dom: any

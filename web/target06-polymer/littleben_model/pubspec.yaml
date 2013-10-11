@@ -1,8 +1,0 @@
-name: littleben_model
-description: A lesser clock
-dependencies:
-  browser: any
-  mdv: any
-  observe: any
-  polymer: any
-  shadow_dom: any

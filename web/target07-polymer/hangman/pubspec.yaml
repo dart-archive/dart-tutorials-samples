@@ -1,7 +1,0 @@
-name: hangman
-description: Don't get hung!
-dependencies:
-  browser: any
-  mdv: any
-  polymer: any
-  shadow_dom: any
