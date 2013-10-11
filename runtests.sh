@@ -17,19 +17,22 @@ ANA="dartanalyzer --fatal-type-errors"
 echo
 echo "Type Analysis, running dart_analyzer..."
 
-for dir in web/target*/*
+pub_result=`pub install`
+cmd="$ANA --package-root packages"
+
+for dir in web/*
 do
   echo $dir
   # Run pub if there is a pubspec in this code directory.
-  if [ -a "$dir/pubspec.yaml" ]; then
-    pub_result=`pushd $dir && pub install && popd`
-    cmd="$ANA --package-root $dir/packages"
-  else
-    cmd="$ANA"
-  fi
+#  if [ -a "$dir/pubspec.yaml" ]; then
+#    pub_result=`pushd $dir && pub install && popd`
+#    cmd="$ANA --package-root $dir/packages"
+#  else
+#    cmd="$ANA"
+#  fi
 
   # Loop through each Dart file in this code directory.
-  files="$dir/web/*.dart $dir/bin/*.dart"
+  files="$dir/*.dart"
   for file in $files
   do
     results=`$cmd $file 2>&1`

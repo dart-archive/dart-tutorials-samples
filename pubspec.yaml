@@ -8,7 +8,4 @@ dependencies:
   pathos: any
   hop: any
   browser: any
-#  web_ui:
-#    git: https://github.com/dart-lang/web-ui.git
-  web_ui: any
   polymer: any

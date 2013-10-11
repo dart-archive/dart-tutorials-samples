@@ -1,0 +1,29 @@
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample app</title>
+    <link rel="stylesheet" href="count_down.css">
+    
+    <!-- import the countdown element -->
+    <link rel="import" href="tute_countdown.html">
+    <script src="packages/polymer/boot.js"></script>
+    
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <h1>Count down</h1>
+    
+    <!-- Insert the CountDownComponent, implemented in tute_countdown.html & tute_countdown.dart -->
+    <tute-count-down id="count_down"></tute-count-down>
+    
+    <!--<script type="application/dart" src="count_down.dart"></script>-->
+  </body>
+</html>

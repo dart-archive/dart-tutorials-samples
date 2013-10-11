@@ -1,0 +1,53 @@
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file.
+-->
+
+<polymer-element name="name-badge">
+  <template>
+    <style>
+    .entry {
+      padding-bottom: 20pt;
+    }
+    .outer {
+      border: 2px solid brown;
+      border-radius: 1em;
+      background: red;
+      font-size: 20pt;
+      width: 12em;
+      height: 7em;
+      text-align: center;
+    }
+    .boilerplate {
+      color: white;
+      font-family: sans-serif;
+      padding: 0.5em;
+    }
+    .name {
+      color: black;
+      background: white;
+      font-family: "Marker Felt", cursive;
+      font-size: 45pt;
+      padding-top: 0.5em;
+      padding-bottom: 0.3em;
+    }
+    </style>
+    <div class="entry">
+      <label for="newName">Enter New Name:</label>
+      <input type="text" id="newName" value="{{badgename}}">
+      <button on-click="pirateName">Generate pirate name</button>
+      <input name="maleOrFemale" type="radio" value="male" checked={{male}}>Male
+      <input name="maleOrFemale" type="radio" value="female" checked={{female}}>Female
+    </div>
+    <div class="outer">
+      <div class="boilerplate">
+        Hi! My name is
+      </div>
+      <div class="name">
+        {{badgename}}
+      </div>
+    </div>
+  </template>
+  <script type="application/dart" src="name_badge_element.dart"></script>
+</polymer-element>
+
