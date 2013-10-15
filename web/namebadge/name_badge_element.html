@@ -13,8 +13,8 @@
       border: 2px solid brown;
       border-radius: 1em;
       background: red;
-      font-size: 20pt;
-      width: 12em;
+      font-size: 14pt;
+      width: 20em;
       height: 7em;
       text-align: center;
     }
@@ -31,21 +31,27 @@
       padding-top: 0.5em;
       padding-bottom: 0.3em;
     }
+    .alternatives {
+      margin-top: 60px;
+      text-align: left;
+      font-size:10pt;
+    }
     </style>
     <div class="entry">
-      <label for="newName">Enter New Name:</label>
-      <input type="text" id="newName" value="{{badgename}}">
-      <button on-click="pirateName">Generate pirate name</button>
-      <input name="maleOrFemale" type="radio" value="male" checked={{male}}>Male
-      <input name="maleOrFemale" type="radio" value="female" checked={{female}}>Female
+      <button on-click="generateName">Generate pirate name</button>
+      <input name="maleOrFemale" type="radio" value="male" on-change="updateRadios">Male
+      <input name="maleOrFemale" type="radio" value="female" on-change="updateRadios" checked>Female
     </div>
     <div class="outer">
       <div class="boilerplate">
         Hi! My name is
       </div>
       <div class="name">
-        {{badgename}}
+        {{badgeName}}
       </div>
+      <ul class="alternatives">
+        <template repeat="{{resultingNames}}"><li>{{}}</li></template>
+      </ul>
     </div>
   </template>
   <script type="application/dart" src="name_badge_element.dart"></script>
