@@ -4,72 +4,35 @@
 
 
 // Demonstrates:
-// list, random?, string interpolation, cascade, fat arrow, optional parameters
+// list, random, string interpolation, cascade, fat arrow,
 // named constructors.
-// getters
-// possible cascades: where. foreach, tostring
+// getters, setters,
+// httprequest, JSON
+// static methods/fields
+// cascades (onclick listen...piratename.male.name
 
-library piratebadge;
+// Does not yet demonstrate optional parameters
 
 import 'dart:html';
 import 'dart:math';
 import 'dart:convert';
-import 'package:polymer/polymer.dart';
 
-@CustomTag('name-badge')
-class NameBadge extends PolymerElement {
-  @observable String badgeName ='';
-  @observable String maleOrFemale = 'female';
-  
-  int NUM_NAMES = 5;
-  
-  @observable List resultingNames = toObservable(new List());
-  
-  void created() {
-    super.created();
-    makeRequest();
-  }
-  
-  void generateName(Event event, var detail, Node target) {
-    resultingNames.clear();
-    for (var i = 0; i < NUM_NAMES; i++) {
-      if (maleOrFemale == 'female') {
-        resultingNames.add(new PirateName.female().name);
-      } else {
-        resultingNames.add(new PirateName.male().name);
-      }
-    }
-    
-    if (maleOrFemale == 'female') {
-      badgeName = new PirateName.female().name;
-    } else {
-      badgeName = new PirateName.male().name;
-    }
-  }
-  
-  void updateRadios(Event e, var detail, Node target) {
-    maleOrFemale = (e.target as InputElement).value;
-  }
-  
-  void makeRequest(/*Event e*/) {
-    var path = 'piratenames.json';
-    HttpRequest.getString(path)
-    .then(processString)
-    .catchError(handleError);
-  }
-  
-  handleError(Error error) {
-    print('Request failed.');
-  }
+void  main() {
+  query('#generateButton').onClick.listen(generateName);
+  PirateName.initialize();
+}
 
-  processString(String jsonString) {
-    List<List> pirateNames = JSON.decode(jsonString);
-    femaleNames = pirateNames[0];
-    maleNames = pirateNames[1];
-    surnames = pirateNames[2];
-    
+void generateName(MouseEvent event) { 
+  
+  String badgeName = '';
+  
+  if ((query('#female') as RadioButtonInputElement).checked) {
+    badgeName = new PirateName.female().name;
+  } else {
+    badgeName = new PirateName.male().name;
   }
-
+  query('#badgeName').text = badgeName;
+  
 }
 
 //library models;
@@ -84,6 +47,14 @@ class PirateName {
          
   String toString() => name;
 
+  static List femaleNames;
+  static List maleNames;
+  static List surnames;
+
+  static void initialize() {
+    makeRequest();
+  }
+  
   PirateName.male() {
     String firstName = maleNames[indexGenerator.nextInt(maleNames.length)];
     String surname = surnames[indexGenerator.nextInt(surnames.length)];
@@ -95,11 +66,25 @@ class PirateName {
     String surname = surnames[indexGenerator.nextInt(surnames.length)];
     _pirateName = '$firstName the $surname';
   }
-}
 
-List femaleNames;
-List maleNames;
-List surnames;
+  static void makeRequest(/*Event e*/) {
+    var path = 'piratenames.json';
+    HttpRequest.getString(path)
+      .then(processString)
+        .catchError(handleError);
+  }
+
+  static handleError(Error error) {
+    print('Request failed.');
+  }
+
+  static processString(String jsonString) {
+    List<List> pirateNames = JSON.decode(jsonString);
+    femaleNames = pirateNames[0];
+    maleNames = pirateNames[1];
+    surnames = pirateNames[2];
+  }
+}
 
 //Read from JSON file
 /*

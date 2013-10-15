@@ -19,3 +19,33 @@ h1, p {
   background-color: #fff;
 }
 
+.entry {
+  padding-bottom: 20pt;
+}
+.outer {
+  border: 2px solid brown;
+  border-radius: 1em;
+  background: red;
+  font-size: 14pt;
+  width: 20em;
+  height: 7em;
+  text-align: center;
+}
+.boilerplate {
+  color: white;
+  font-family: sans-serif;
+  padding: 0.5em;
+}
+.name {
+  color: black;
+  background: white;
+  font-family: "Marker Felt", cursive;
+  font-size: 45pt;
+  padding-top: 0.5em;
+  padding-bottom: 0.3em;
+}
+.alternatives {
+  margin-top: 60px;
+  text-align: left;
+  font-size:10pt;
+}

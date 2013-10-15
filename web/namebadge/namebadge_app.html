@@ -8,16 +8,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sample app</title>
+    <title>Pirate Badge</title>
     <link rel="stylesheet" href="namebadge_app.css">
-    
-    <link rel="import" href="name_badge_element.html">
-    <script src="packages/polymer/boot.js"></script>
   </head>
   <body>
-    <h1>NameBadge</h1>
-        
-    <name-badge></name-badge>
+    <h1>Pirate Badge</h1>
+    
+    <div class="entry">
+      <button id="generateButton">Generate pirate name</button>
+      <input name="maleOrFemale" type="radio" value="male" id="male">Male
+      <input name="maleOrFemale" type="radio" value="female" id="female" checked>Female
+    </div>
+    <div class="outer">
+      <div class="boilerplate">
+        Hi! My name is
+      </div>
+      <div class="name">
+        <span id="badgeName"></span>
+      </div>
+    </div>
 
+
+    <script type="application/dart" src="namebadge_app.dart"></script>
+    <script src="packages/browser/dart.js"></script>
   </body>
 </html>
