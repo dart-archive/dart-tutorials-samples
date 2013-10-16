@@ -1,0 +1,146 @@
+
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p {
+  color: #333;
+}
+
+.entry {
+  padding-bottom: 20pt;
+}
+.outer {
+  border: 2px solid brown;
+  border-radius: 1em;
+  background: red;
+  font-size: 14pt;
+  width: 14em;
+  height: 7em;
+  text-align: center;
+}
+.boilerplate {
+  color: white;
+  font-family: sans-serif;
+  padding: 0.5em;
+}
+.name {
+  color: black;
+  background: white;
+  font-family: "Marker Felt", cursive;
+  font-size: 25pt;
+  padding-top: 1.0em;
+  padding-bottom: 0.7em;
+}
+#generateButton {
+  font-size: 12pt;
+  margin-top: 20px;
+}
+input[type="radio"]:disabled +label {
+  color: Gainsboro;
+}
+input[type="text"]:disabled {
+  color: Gainsboro;
+}
+input[type="text"] {
+  font-size: 12pt;
+  margin-top: 10pt;
+  margin-bottom: 10pt;
+}
+
+#goobers {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 40%;
+  height: 350px;
+    -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  
+   /* -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;*/
+  
+}
+
+#blah {
+  background-color: inherit;
+  position: absolute;
+  top: 50px;
+  left: 40%;
+  width: 500px;
+  height: 350px;
+    -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+#goobers.active {
+  width: 40%;
+}
+
+#goobers.inactive {
+  width: 0px;
+}
+
+#blah.active {
+  left: 0px;
+}
+
+#blah.inactive {
+  left: 40%;
+}
+
+@media all and (max-width: 500px) {
+  body {
+    overflow: hidden;
+  }
+
+#goobers {
+  background-color: inherit;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 100%;
+  height: 350px;/*
+    -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  */
+   /* -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;*/
+  
+}
+
+
+#goobers.active {
+  left: 0px;
+  width: 100%;
+}
+
+#goobers.inactive {
+  left: 0px;
+  width: 0%;
+}
+
+
+#blah.active {
+  left: 0px;
+  width: 100%;
+}
+
+#blah.inactive {
+  width: 0%;
+  left: 500px;
+}
+}
