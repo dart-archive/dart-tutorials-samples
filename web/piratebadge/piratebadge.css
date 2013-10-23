@@ -11,11 +11,11 @@ body {
 h1, p {
   color: #333;
 }
-
-.entry {
+.widgets {
   padding-bottom: 20pt;
+  float: left;
 }
-.outer {
+.badge {
   border: 2px solid brown;
   border-radius: 1em;
   background: red;
@@ -23,8 +23,10 @@ h1, p {
   width: 14em;
   height: 7em;
   text-align: center;
+  float: left;
+  margin-left: 20px;
 }
-.boilerplate {
+.greeting {
   color: white;
   font-family: sans-serif;
   padding: 0.5em;
@@ -40,12 +42,6 @@ h1, p {
 #generateButton {
   font-size: 12pt;
   margin-top: 20px;
-}
-input[type="radio"]:disabled +label {
-  color: Gainsboro;
-}
-input[type="text"]:disabled {
-  color: Gainsboro;
 }
 input[type="text"] {
   font-size: 12pt;

@@ -2,49 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-
-// Demonstrates:
-// list, maps, random, strings, string interpolation, cascade, fat arrow,
-// named constructors.
-// optional parameters.
-// a class
-// getters, setters
-// httprequest, JSON
-// local storage
-// static class-level methods/fields
-// top-level variable and functions
-// typecasting with 'as'
-// futures
-// import, also with show
-
 import 'dart:html';
 import 'dart:math' show Random;
 import 'dart:convert' show JSON;
-import 'dart:async' show Future;
 
 final String TREASUREKEY = 'pirateName';
 
-SpanElement badgeNameElement;
 ButtonElement genButton;
 
 void  main() {
-  InputElement inputField = query('#inputName')
-      ..onInput.listen(updateBadge);
+  query('#inputName').onInput.listen(updateBadge);
   genButton = query('#generateButton')
       ..onClick.listen(generateBadge);
   
-  badgeNameElement = query('#badgeName');
-  
-  PirateName.readyThePirates()
-    .then((_) {
-      inputField.disabled = false; //enable
-      genButton.disabled = false;  //enable
-      badgeName = pirateNameFromStorage;
-    })
-    .catchError((arrr) {
-      print('Error initializing pirate names: $arrr');
-      badgeNameElement.text = 'Arrr! No names.';
-    });
+  badgeName = pirateNameFromStorage;
 }
 
 void updateBadge(Event e) {
@@ -65,7 +36,7 @@ void generateBadge(Event e) {
 }
 
 set badgeName(PirateName newName) {
-  badgeNameElement.text = newName.pirateName;
+  query('#badgeName').text = newName.pirateName;
   window.localStorage[TREASUREKEY] = newName.toJsonString();
 }
 
@@ -82,12 +53,9 @@ class PirateName {
   
   static final Random indexGen = new Random();
 
-  static List<String> names = [];
-  static List<String> appellations = [];
-
   String _firstName;
   String _appellation;
-  
+
   PirateName({String firstName, String appellation}) {
     if (firstName == null) {
       _firstName = names[indexGen.nextInt(names.length)];
@@ -113,15 +81,10 @@ class PirateName {
 
   String get pirateName => '$_firstName the $_appellation';
 
-  static Future readyThePirates() {
-    String path = 'piratenames.json';
-    return HttpRequest.getString(path)
-        .then(_parsePirateNamesFromJSON);
-  }
-  
-  static _parsePirateNamesFromJSON(String jsonString) {
-    Map pirateNames = JSON.decode(jsonString);
-    names = pirateNames['names'];
-    appellations = pirateNames['appellations'];
-  }
+  static final List names = [
+    'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
+    'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
+  static final List appellations = [
+    'Black','Damned', 'Jackal', 'Red', 'Stalwart', 'Axe',
+    'Young', 'Old', 'Angry', 'Brave', 'Crazy', 'Noble'];
 }

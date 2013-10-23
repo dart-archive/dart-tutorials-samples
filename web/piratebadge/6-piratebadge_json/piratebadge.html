@@ -14,35 +14,24 @@
   <body>
     <h1>Pirate badge</h1>
     
-    <div class="entry">
+    <div class="widgets">
       <div>
-        <input type="text" id="inputName" value="Anne">
+        <input type="text" id="inputName" disabled>
       </div>
       <div>
-        <input type="checkbox" id="useRandomName">
-        <label for="useRandomName">Use random name.</label>
-      </div>
-      <div>
-        <input name="maleOrFemale" type="radio" value="male" id="male" disabled>
-        <label for="male">Male</label>
-        <input name="maleOrFemale" type="radio" value="female" id="female" disabled checked>
-        <label for="female">Female</label>
-      </div>
-
-      <div>
-        <button id="generateButton">Generate badge</button>
+        <button id="generateButton" disabled>Generate badge</button>
       </div>
       
     </div>
-    <div class="outer">
-      <div class="boilerplate">
+    <div class="badge">
+      <div class="greeting">
         Arrr! Me name is
       </div>
       <div class="name">
         <span id="badgeName"> </span>
       </div>
     </div>
-
+    
     <script type="application/dart" src="piratebadge.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>

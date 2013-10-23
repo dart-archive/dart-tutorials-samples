@@ -4,13 +4,10 @@
 
 import 'dart:html';
 
-InputElement inputNameElement;
-
 void  main() {
-  inputNameElement = query('#inputName');
-  inputNameElement.onInput.listen(generateBadge);
+  query('#inputName').onInput.listen(updateBadge);
 }
 
-void generateBadge(Event event) { 
-    query('#badgeName').text = inputNameElement.value;
+void updateBadge(Event e) {
+  query('#badgeName').text = (e.target as InputElement).value;
 }
