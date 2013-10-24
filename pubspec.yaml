@@ -8,4 +8,4 @@ dependencies:
   pathos: any
   hop: any
   browser: any
-  polymer: any
+  polymer: 0.8.1
