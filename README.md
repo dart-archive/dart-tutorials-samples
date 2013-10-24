@@ -7,6 +7,9 @@ These are small Dart samples used by the online
 
 Repo and testing
 ----------------
+
+The Polymer samples in the tutorial are compatible with 0.8.1.
+
 Currently, drone.io tests only whether the .dart files under web/ pass static analysis (dartanalyzer). We could do real unit testing, and we could do better with HTML samples.
 
 Project structure
