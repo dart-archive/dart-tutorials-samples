@@ -5,10 +5,10 @@ Dart Tutorials
 These are small Dart samples used by the online
 [Dart tutorials](http://www.dartlang.org/docs/tutorials/).
 
+Four samples use Polymer. The Polymer samples in the tutorial are compatible with 0.8.1.
+
 Repo and testing
 ----------------
-
-The Polymer samples in the tutorial are compatible with 0.8.1.
 
 Currently, drone.io tests only whether the .dart files under web/ pass static analysis (dartanalyzer). We could do real unit testing, and we could do better with HTML samples.
 
