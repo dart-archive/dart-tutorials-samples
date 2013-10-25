@@ -1,4 +1,0 @@
-name: piratebadge
-description: Pirate name badge generator
-dependencies:
-  browser: any
