@@ -1,11 +1,11 @@
-name:  tutorialsamples
-description:  A sample application
+name: tutorialsamples
+description: A sample application
 environment:
   sdk: any
 dependencies:
-  oauth2: any
-  http: any
-  pathos: any
-  hop: any
   browser: any
-  polymer: 0.8.1
+  hop: any
+  http: any
+  oauth2: any
+  pathos: any
+  polymer: any

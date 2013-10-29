@@ -25,6 +25,8 @@ class TuteItsAllAboutYou extends PolymerElement {
   @observable String favThree='';
   @observable String chocolate='';
   
+  TuteItsAllAboutYou.created() : super.created();
+  
   void showJson(Event e, var detail, Node target) {
     // Typed data to convert to JSON
     num favNum = int.parse(favoriteNumber);
@@ -52,8 +54,8 @@ class TuteItsAllAboutYou extends PolymerElement {
                                                  // and mixed values
   }
   
-  void inserted() {
-    super.inserted();
+  void enteredView() {
+    super.enteredView();
     _populateFromJson();
     showJson(null, null, null);
   }

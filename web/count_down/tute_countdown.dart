@@ -22,6 +22,7 @@ class CountDownComponent extends PolymerElement {
   
   @observable MilestoneApp appObj = appObject;
   
+  CountDownComponent.created() : super.created();
   /*
    * Click handlers.
    * NOTE: Minus - button handler is in xmilestone web component.
@@ -43,7 +44,8 @@ class CountDownComponent extends PolymerElement {
   /*
    * Life-cycle bizness
    */
-  void inserted() {
+  void enteredView() {
+    super.enteredView();
     appObject.start()
       .catchError((e) {
         ($['addbutton'] as ButtonElement).disabled = true;
@@ -53,7 +55,8 @@ class CountDownComponent extends PolymerElement {
       });
   }
   
-  void removed() {
+  void leftView() {
+    super.leftView();
     appObject.stop();
   }
 } // end class

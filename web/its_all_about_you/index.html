@@ -11,12 +11,19 @@
     <title>It's All About You</title>
     <link rel="stylesheet" href="its_all_about_you.css">
     <link rel="import" href="tute_its_all_about_you.html">
-    <script src="packages/polymer/boot.js"></script>
+    <script src="packages/browser/dart.js"></script>
   </head>
   <body>
     <h1>It's All About You</h1>
 
     <tute-its-all-about-you></tute-its-all-about-you>
     
+    <script type="application/dart">
+      import 'package:polymer/polymer.dart';
+         
+      void main() {
+        initPolymer();
+      }
+    </script>
   </body>
 </html>

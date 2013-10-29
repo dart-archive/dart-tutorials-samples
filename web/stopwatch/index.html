@@ -8,11 +8,11 @@
   <head>
     <meta charset="utf-8">
     <title>Stopwatch</title>
-    <script src="packages/polymer/boot.js"></script>
     <link rel="stylesheet" href="stopwatch.css">
     <link rel="import" href="tute_stopwatch.html">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="packages/browser/dart.js"></script>
   </head>
   
   <body>
@@ -21,5 +21,12 @@
 
     <tute-stopwatch></tute-stopwatch>
     
+    <script type="application/dart">
+      import 'package:polymer/polymer.dart';
+         
+      void main() {
+        initPolymer();
+      }
+    </script>
   </body>
 </html>

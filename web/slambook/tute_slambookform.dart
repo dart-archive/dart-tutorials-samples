@@ -7,7 +7,9 @@ import 'dart:convert';
 import 'package:polymer/polymer.dart';
 
 @CustomTag('tute-slambook-form')
-class SlamBookComponent extends PolymerElement {
+class SlamBookComponent extends FormElement with Polymer, Observable {
+  
+  SlamBookComponent.created() : super.created();
   
   @observable String firstName = "mem";
   

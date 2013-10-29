@@ -10,15 +10,18 @@ import 'package:polymer/polymer.dart';
 class TuteStopwatch extends PolymerElement {
   @observable String counter='00:00';
   
+  TuteStopwatch.created() : super.created();
+  
   Stopwatch mywatch = new Stopwatch();
   Timer mytimer;
   
   ButtonElement stopButton;
   ButtonElement startButton;
   ButtonElement resetButton;
-  
-  void inserted() {
-    super.inserted();
+    
+  @override
+  void enteredView() {
+    super.enteredView();
     startButton = $['startButton'];
     stopButton = $['stopButton'];
     resetButton = $['resetButton'];
@@ -27,8 +30,9 @@ class TuteStopwatch extends PolymerElement {
     resetButton.disabled = true;
   }
   
-  void removed() {
-    super.removed();
+  @override
+  void leftView() {
+    super.leftView();
     mytimer.cancel();
   }
   

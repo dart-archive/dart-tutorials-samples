@@ -11,7 +11,7 @@
     <title>Slambook</title>
     <link rel="stylesheet" href="slambook.css">
     <link rel="import" href="tute_slambookform.html">
-    <script src="packages/polymer/boot.js"></script>
+    <script src="packages/browser/dart.js"></script>
   </head>
   <body>
     <h1>SlamBook</h1>
@@ -20,5 +20,13 @@
       <form is="tute-slambook-form"></form>
     </div>
     
+    <script type="application/dart">
+      import 'package:polymer/polymer.dart';
+         
+      void main() {
+        initPolymer();
+      }
+    </script>  
+      
   </body>
 </html>

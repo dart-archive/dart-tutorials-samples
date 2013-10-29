@@ -21,7 +21,7 @@ import 'package:polymer/polymer.dart';
 MilestoneApp appObject = new MilestoneApp();
 
 
-class MilestoneApp extends ObservableBase {
+class MilestoneApp extends Observable {
   /****
    * Some things we need...
    */

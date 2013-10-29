@@ -21,7 +21,7 @@ import 'dart:indexed_db';
 /****
  * A class to hold the info for an individual milestone.
  */
-class Milestone extends ObservableBase {
+class Milestone extends Observable {
   final String milestoneName;
   final DateTime happensOn;
   var dbKey;

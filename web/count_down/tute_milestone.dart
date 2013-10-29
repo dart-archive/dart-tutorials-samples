@@ -12,6 +12,8 @@ class MilestoneComponent extends PolymerElement {
   @observable Milestone milestone;
   String _displayString = '';
     
+  MilestoneComponent.created() : super.created();
+  
   // xx: Internationalize this.
   //getters aren't automatically observed...so moved this method into the milestone object
   //and observe that instead.
