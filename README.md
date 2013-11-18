@@ -5,7 +5,7 @@ Dart Tutorials
 These are small Dart samples used by the online
 [Dart tutorials](http://www.dartlang.org/docs/tutorials/).
 
-Four samples use Polymer. These samples require Polymer version 0.8.7.
+Four samples use Polymer. These samples require Polymer version 1.0.
 
 Repo and testing
 ----------------
