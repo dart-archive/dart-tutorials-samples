@@ -63,6 +63,7 @@ class TuteStopwatch extends PolymerElement {
     var s = mywatch.elapsedMilliseconds~/1000;
     var m = 0;
     
+    // The operator ~/ divides and returns an integer.
     if (s >= 60) { m = s ~/ 60; s = s % 60; }
       
     String minute = (m <= 9) ? '0$m' : '$m';
