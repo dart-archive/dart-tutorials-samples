@@ -8,8 +8,8 @@ InputElement toDoInput;
 UListElement toDoList;
 
 void main() {
-  toDoInput = query('#to-do-input');
-  toDoList = query('#to-do-list');
+  toDoInput = querySelector('#to-do-input');
+  toDoList = querySelector('#to-do-list');
   toDoInput.onChange.listen(addToDoItem);
 }
 

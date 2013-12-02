@@ -24,11 +24,11 @@ Map scrabbleValues = { 'a':1, 'e':1, 'i':1, 'l':1, 'n':1,
                        'z':10, '*':0 };
 
 void main() {
-  letterpile = query("#letterpile");
-  result = query("#result");
-  value = query("#value");
+  letterpile = querySelector("#letterpile");
+  result = querySelector("#result");
+  value = querySelector("#value");
   
-  clearButton = query("#clearButton");
+  clearButton = querySelector("#clearButton");
   clearButton.onClick.listen(newletters);
   
   generateNewLetters();

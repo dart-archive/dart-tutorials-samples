@@ -20,7 +20,7 @@ echo "Type Analysis, running dart_analyzer..."
 pub_result=`pub install`
 cmd="$ANA --package-root packages"
 
-for dir in web/*
+for dir in web/* bin/*
 do
   echo $dir
   # Run pub if there is a pubspec in this code directory.
