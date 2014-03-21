@@ -1,0 +1,33 @@
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Write a Note</title>
+  </head>
+  <body>
+    <h1>Write a Note</h1>
+
+    <div class="sample_container_id">
+      <div>
+        <input id="note_entry" maxlength="50">
+        <button id="save_note">Save Note</button>
+        <p id="display_how_many_notes"></p><br>
+      </div>
+      
+      <div>
+        <input id="choose_note" type="text" maxlength="10">
+        <button id="get_note">Get Note</button>
+        <p id="display_note"></p><br>
+      </div>
+      
+    </div>
+    <script type="application/dart" src="note_client.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>

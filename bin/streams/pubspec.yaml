@@ -3,12 +3,4 @@ description: A sample application
 environment:
   sdk: any
 dependencies:
-  http_server: any
-  browser: any
-  hop: any
-  http: any
-  oauth2: any
-  pathos: any
-  polymer: any
   args: any
-  

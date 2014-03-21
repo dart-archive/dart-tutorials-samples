@@ -1,3 +1,5 @@
+
+import 'dart:convert';
 import 'package:args/args.dart';
 
 // BEGIN(consuming_a_stream)
@@ -134,7 +136,7 @@ transformingStream() {
   
   // BEGIN(stream_transformer)
   // define a stream transformer
-  var transformer = new StreamTransformer(handleData: (value, sink) {
+  var transformer = new StreamTransformer.fromHandlers(handleData: (value, sink) {
     // create two new values from the original value
     sink.add("Message: $value");
     sink.add("Body: $value");
@@ -275,7 +277,7 @@ readingAFile() {
   var this_file = Platform.script;
   //var thisFilePath = options.script;
   
-  File file = new File(thisFilePath);
+  File file = new File(this_file.toFilePath());
   /*
     BEGIN(string_decoder)
     BEGIN(reading_a_file)
@@ -286,7 +288,7 @@ readingAFile() {
   // BEGIN(string_decoder)
   // BEGIN(reading_a_file)
   file.openRead()
-    .transform(new StringDecoder()) // use a StringDecoder
+    .transform(UTF8.decoder)
     .listen((String data) => print(data), // output the data
         onError: (error) => print("Error, could not open file"),
         onDone: () => print("Finished reading data"));
