@@ -6,11 +6,11 @@ import 'dart:convert' show UTF8, JSON;
 
 main() {
   
-  Map jsonData = { 'name':     'Luke Skywalker',
+  Map jsonData = { 'name':     'Han Solo',
                    'job':      'reluctant hero',
                    'BFF':      'Chewbacca',
                    'ship':     'Millennium Falcon',
-                   'weakness': 'carbonite'
+                   'weakness': 'smuggling debts'
   };
   
   new HttpClient().post('localhost', 4043, '/file.txt')

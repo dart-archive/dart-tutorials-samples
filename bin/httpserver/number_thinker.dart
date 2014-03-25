@@ -11,7 +11,7 @@ import 'dart:math' show Random;
 int myNumber = new Random().nextInt(10);
 
 void main() {
-  print("I'm thinking of a number.");
+  print("I'm thinking of a number. $myNumber");
   HttpServer.bind(InternetAddress.LOOPBACK_IP_V6, 4041)
             .then(listenForRequests)
             .catchError((_) => print ('Bind failed.'));
@@ -32,6 +32,7 @@ listenForRequests(HttpServer _server) {
 
 void handleGet(HttpRequest request) {
   String guess = request.requestedUri.queryParameters['q'];
+  print(guess);
   request.response.statusCode = HttpStatus.OK;
   if (guess == myNumber.toString()) {
     request.response.writeln('true');
