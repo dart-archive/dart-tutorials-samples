@@ -1,3 +1,10 @@
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// Type localhost:4048 into your browser.
+// This server returns the contents of index.html for all requests.
+
 import 'dart:io';
 import 'package:http_server/http_server.dart';
 import 'package:path/path.dart';
@@ -12,7 +19,7 @@ void main() {
     staticFiles.serveFile(new File(indexUri.toFilePath()), request);
   };
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V6, 4048).then((server) {
+  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4048).then((server) {
     server.listen(staticFiles.serveRequest);
   });
 }
