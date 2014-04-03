@@ -6,7 +6,7 @@ These are small Dart samples used by the online
 [Dart tutorials](http://www.dartlang.org/docs/tutorials/).
 
 Four samples use Polymer. These samples require Polymer version 0.9.
-The samples in the Write HTTP Clients & Servers tutorial is compatible with Dart 1.2.
+The samples in  [Write HTTP Clients & Servers](http://www.dartlang.org/docs/tutorials/httpserver) are compatible with Dart 1.2.
 
 Repo and testing
 ----------------
