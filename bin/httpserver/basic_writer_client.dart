@@ -21,8 +21,7 @@ main() {
   
   new HttpClient().post(InternetAddress.LOOPBACK_IP_V4.host, 4049, '/file.txt')
       .then((HttpClientRequest request) {
-        request.headers.contentType = new ContentType('application',
-            'json', charset: 'utf-8');
+        request.headers.contentType = ContentType.JSON;
         request.write(JSON.encode(jsonData));
         return request.close();
       })

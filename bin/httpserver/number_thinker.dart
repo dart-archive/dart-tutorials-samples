@@ -29,7 +29,7 @@ listenForRequests(HttpServer _server) {
     }
   },
   onDone: () => print('No more requests.'),
-  onError: (_) => print('Server listen failed.') );
+  onError: (e) => print(e.toString()) );
 }
 
 void handleGet(HttpRequest request) {
