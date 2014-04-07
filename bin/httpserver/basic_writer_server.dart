@@ -14,21 +14,24 @@ void main() {
   HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049).then((server) {
     server.listen((req) {
 
-      StringBuffer data = new StringBuffer();
+      ContentType contentType = req.headers.contentType;
+      BytesBuilder builder = new BytesBuilder();
+
       if (req.method == 'POST' &&
-          req.headers.contentType.subType == 'json') {
+          contentType != null &&
+          contentType.mimeType == 'application/json') {
         req.listen((buffer) {
-          data.write(new String.fromCharCodes(buffer));
+          builder.add(buffer);
         }, onDone: () {
           // Write to a file, get the file name from the URI.
+          String jsonString = UTF8.decode(builder.takeBytes());
           String filename = req.uri.pathSegments.last;
-          new File(filename).writeAsString(data.toString(),
+          new File(filename).writeAsString(jsonString,
               mode: FileMode.WRITE).then((_) {
-            Map jsonData = JSON.decode(data.toString());
+            Map jsonData = JSON.decode(jsonString);
             req.response.statusCode = HttpStatus.OK;
             req.response.write('Wrote data for ${jsonData['name']}.');
             req.response.close();
-            data.clear();
           });
         });
       } else {

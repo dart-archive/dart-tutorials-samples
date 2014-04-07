@@ -24,6 +24,7 @@ listenForRequests(HttpServer _server) {
     if (request.method == 'GET') {
       handleGet(request);
     } else {
+      request.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
       request.response.write("Unsupported request: ${request.method}.");
       request.response.close();
     }
