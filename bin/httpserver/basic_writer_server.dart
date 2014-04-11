@@ -4,7 +4,7 @@
 
 // Server to basic_writer_client.dart.
 // Receives JSON encoded data in a POST request and writes it to
-// the file specified in the URI. 
+// the file specified in the URI.
 
 import 'dart:io';
 import 'dart:convert';
@@ -35,7 +35,8 @@ void main() {
           });
         });
       } else {
-        req.response.write('Unsupported request.');
+        req.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
+        req.response.write("Unsupported request: ${req.method}.");
         req.response.close();
       }
     });
