@@ -11,20 +11,16 @@
     <title>Sample app</title>
     <link rel="stylesheet" href="count_down.css">
     
-    <!-- import the countdown element -->
+    <link rel="import" href="packages/polymer/polymer.html">
     <link rel="import" href="tute_countdown.html">
     
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script type="application/dart">export 'package:polymer/init.dart';</script>
-    <script src="packages/browser/dart.js"></script>
   </head>
   <body>
     <h1>Count down</h1>
     
     <!-- Insert the CountDownComponent, implemented in tute_countdown.html & tute_countdown.dart -->
     <tute-count-down id="count_down"></tute-count-down>
-    
-    <!--<script type="application/dart" src="count_down.dart"></script>-->
     </body>
 </html>
