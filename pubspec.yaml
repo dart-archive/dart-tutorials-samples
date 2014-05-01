@@ -9,6 +9,9 @@ dependencies:
   http: any
   oauth2: any
   pathos: any
-  polymer: any
+  polymer: 0.10.0-pre.10
   args: any
-  
+transformers:
+- polymer:
+    entry_points:
+      - web/stopwatch/index.html
