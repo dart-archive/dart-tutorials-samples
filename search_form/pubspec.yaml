@@ -1,0 +1,4 @@
+name: search_form
+description: A sample application
+dependencies:
+  browser: any

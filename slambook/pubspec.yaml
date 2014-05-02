@@ -1,0 +1,8 @@
+name: slambook
+description: A sample application
+dependencies:
+  browser: any
+  polymer: 0.10.0-pre.10
+transformers:
+- polymer:
+    entry_points: web/slambook.html
