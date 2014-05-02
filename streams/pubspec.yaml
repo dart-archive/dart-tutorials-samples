@@ -1,6 +1,4 @@
-name: tutorialsamples
+name: streams
 description: A sample application
-environment:
-  sdk: any
 dependencies:
   args: any
