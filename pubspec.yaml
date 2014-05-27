@@ -11,4 +11,10 @@ dependencies:
   pathos: any
   polymer: any
   args: any
-  
+transformers:
+- polymer:
+    entry_points:
+    - web/count_down/count_down.html
+    - web/its_all_about_you/index.html
+    - web/slambook/slambook.html
+    - web/stopwatch/index.html
