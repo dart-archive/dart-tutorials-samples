@@ -20,8 +20,8 @@ class TuteStopwatch extends PolymerElement {
   ButtonElement resetButton;
     
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     startButton = $['startButton'];
     stopButton = $['stopButton'];
     resetButton = $['resetButton'];
@@ -31,8 +31,8 @@ class TuteStopwatch extends PolymerElement {
   }
   
   @override
-  void leftView() {
-    super.leftView();
+  void detached() {
+    super.detached();
     mytimer.cancel();
   }
   
