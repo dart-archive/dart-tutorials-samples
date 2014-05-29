@@ -1,7 +1,6 @@
 name: its_all_about_you
 description: A sample application
 dependencies:
-  browser: any
   polymer: '>=0.10.0-pre.13 <0.11.0'
 transformers:
 - polymer:
