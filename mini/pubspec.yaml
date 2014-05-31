@@ -1,0 +1,4 @@
+name: mini
+description: A sample application
+dependencies:
+  browser: any

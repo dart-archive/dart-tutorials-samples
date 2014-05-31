@@ -1,7 +1,0 @@
-name: tutorialsamples
-description: A sample application
-environment:
-  sdk: any
-dependencies:
-  browser: any
-  http_server: any

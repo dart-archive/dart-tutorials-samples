@@ -1,0 +1,4 @@
+name: streams
+description: A sample application
+dependencies:
+  args: any

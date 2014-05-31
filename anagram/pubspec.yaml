@@ -1,0 +1,4 @@
+name: anagram
+description: A sample application
+dependencies:
+  browser: any

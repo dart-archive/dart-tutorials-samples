@@ -1,0 +1,4 @@
+name: httpserver
+description: A sample application
+dependencies:
+  http_server: any

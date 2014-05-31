@@ -1,0 +1,4 @@
+name: mini_with_style
+description: A sample application
+dependencies:
+  browser: any

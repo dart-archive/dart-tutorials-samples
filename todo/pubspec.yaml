@@ -1,0 +1,4 @@
+name: todo
+description: A sample application
+dependencies:
+  browser: any
