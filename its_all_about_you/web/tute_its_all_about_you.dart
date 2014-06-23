@@ -54,8 +54,8 @@ class TuteItsAllAboutYou extends PolymerElement {
                                                  // and mixed values
   }
   
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     _populateFromJson();
     showJson(null, null, null);
   }
