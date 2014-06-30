@@ -48,7 +48,7 @@ packages:
   polymer:
     description: polymer
     source: hosted
-    version: "0.11.0-dev.7"
+    version: "0.11.0+4"
   polymer_expressions:
     description: polymer_expressions
     source: hosted
@@ -68,7 +68,7 @@ packages:
   template_binding:
     description: template_binding
     source: hosted
-    version: "0.11.0-dev"
+    version: "0.11.0"
   utf:
     description: utf
     source: hosted
@@ -76,7 +76,7 @@ packages:
   web_components:
     description: web_components
     source: hosted
-    version: "0.3.5-dev.3"
+    version: "0.3.5"
   yaml:
     description: yaml
     source: hosted
