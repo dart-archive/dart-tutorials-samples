@@ -47,8 +47,8 @@ class CountDownComponent extends PolymerElement {
   /*
    * Life-cycle bizness
    */
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     appObject.start()
       .catchError((e) {
         ($['addbutton'] as ButtonElement).disabled = true;
@@ -58,8 +58,8 @@ class CountDownComponent extends PolymerElement {
       });
   }
   
-  void leftView() {
-    super.leftView();
+  void detached() {
+    super.detached();
     appObject.stop();
   }
 } // end class

@@ -9,7 +9,9 @@ import 'package:polymer/polymer.dart';
 @CustomTag('tute-slambook-form')
 class SlamBookComponent extends FormElement with Polymer, Observable {
   
-  SlamBookComponent.created() : super.created();
+  SlamBookComponent.created() : super.created() { 
+    polymerCreated();
+  }
   
   @observable String firstName = "mem";
   
