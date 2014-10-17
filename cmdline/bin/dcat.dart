@@ -15,7 +15,7 @@ var NEWLINE = '\n';
 
 ArgResults argResults;
 
-/**
+/*
  * Simple implementation of the *nix cat utility.
  *
  * Usage: dart dcat.dart [-n] patterns [files]

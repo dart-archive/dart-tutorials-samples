@@ -1,7 +1,7 @@
 name: polymer_list
 description: A sample application
 dependencies:
-  polymer: '>=0.14.0 <0.15.0'
+  polymer: '>=0.15.1 <0.16.0'
 transformers:
 - polymer:
     entry_points: web/index.html

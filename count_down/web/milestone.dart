@@ -7,7 +7,7 @@ library milestone;
 import 'package:polymer/polymer.dart';
 import 'dart:async';
 import 'dart:html';
-import 'dart:indexed_db';
+import 'dart:indexed_db' as idb;
 
 /*
  * The MODEL for the app.
@@ -97,7 +97,7 @@ class MilestoneStore {
   
   final List<Milestone> milestones = toObservable(new List());
   
-  Database _db;
+  idb.Database _db;
   
   Future open() {
     return window.indexedDB.open('milestoneDB',
@@ -108,8 +108,8 @@ class MilestoneStore {
   
   // Initializes the object store if it is brand new,
   // or upgrades it if the version is older. 
-  void _initializeDatabase(VersionChangeEvent e) {
-    Database db = (e.target as Request).result;
+  void _initializeDatabase(idb.VersionChangeEvent e) {
+    idb.Database db = (e.target as idb.Request).result;
     
     var objectStore = db.createObjectStore(MILESTONE_STORE,
         autoIncrement: true);
@@ -121,7 +121,7 @@ class MilestoneStore {
   
   // Loads all of the existing objects from the database.
   // The future completes when loading is finished.
-  Future _loadFromDB(Database db) {
+  Future _loadFromDB(idb.Database db) {
     _db = db;
     
     var trans = db.transaction(MILESTONE_STORE, 'readonly');
