@@ -5,7 +5,8 @@
 import 'dart:html';
 import 'dart:math';
 
-// should remove tiles from here when they are selected otherwise the ratio is off.
+// Should remove tiles from here when they are selected otherwise the ratio
+// is off.
 
 String scrabbleLetters = 'aaaaaaaaabbccddddeeeeeeeeeeeeffggghhiiiiiiiiijkllllmmnnnnnnooooooooppqrrrrrrssssttttttuuuuvvwwxyyz**';
 
@@ -60,7 +61,7 @@ generateNewLetters() {
   buttons.clear();
   for (var i = 0; i < 7; i++) {
     int letterIndex = indexGenerator.nextInt(scrabbleLetters.length);
-      // should remove the letter from scrabbleLetters to keep the ratio correct
+    // should remove the letter from scrabbleLetters to keep the ratio correct
     buttons.add(new ButtonElement());
     buttons[i].classes.add("letter");
     buttons[i].onClick.listen(moveLetter);

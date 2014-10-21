@@ -279,13 +279,6 @@ readingAFile() {
   //var thisFilePath = options.script;
   
   File file = new File(this_file.toFilePath());
-  /*
-    BEGIN(string_decoder)
-    BEGIN(reading_a_file)
-    File file = new File("some_file.txt");
-    END(string_decoder)
-    END(reading_a_file)
-  */
   // BEGIN(string_decoder)
   // BEGIN(reading_a_file)
   file.openRead()

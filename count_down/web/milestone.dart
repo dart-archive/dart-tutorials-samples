@@ -9,18 +9,14 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:indexed_db' as idb;
 
-/*
- * The MODEL for the app.
- * 
- * Contains two classes:
- * Milestone to hold info for an individual milestone.
- * MilestoneStore to manage a list of milestones in memory
- * and in the IndexedDB.
- */
+/// The MODEL for the app.
+/// 
+/// Contains two classes:
+/// Milestone to hold info for an individual milestone.
+/// MilestoneStore to manage a list of milestones in memory
+/// and in the IndexedDB.
 
-/****
- * A class to hold the info for an individual milestone.
- */
+/// A class to hold the info for an individual milestone.
 class Milestone extends Observable {
   final String milestoneName;
   final DateTime happensOn;
@@ -69,7 +65,7 @@ class Milestone extends Observable {
       return _displayString;
     }
     
-    // Calculate days, hours, and minutes remaining.
+   // Calculate days, hours, and minutes remaining.
    // Duration timeRemaining = milestone.timeRemaining;
     
     int d = timeRemaining.inDays;
@@ -87,10 +83,8 @@ class Milestone extends Observable {
     return _displayString;
   }}
 
-/****
- * A class to manage a list of milestones in memory
- * and in an IndexedDB.
- */
+/// A class to manage a list of milestones in memory
+/// and in an IndexedDB.
 class MilestoneStore {
   static const String MILESTONE_STORE = 'milestoneStore';
   static const String NAME_INDEX = 'name_index';

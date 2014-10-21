@@ -7,24 +7,20 @@ import 'dart:indexed_db';
 import 'milestone.dart';
 import 'package:polymer/polymer.dart';
 
-/*
- * The VIEW-MODEL for the app.
- * 
- * Implements the business logic 
- * and manages the information exchanges
- * between the MODEL (Milestone & MilestoneStore)
- * and the VIEW (CountDownComponent & MilestoneComponent).
- * 
- * Manages a Timer to update the milestones.
- */
+/// The VIEW-MODEL for the app.
+/// 
+/// Implements the business logic 
+/// and manages the information exchanges
+/// between the MODEL (Milestone & MilestoneStore)
+/// and the VIEW (CountDownComponent & MilestoneComponent).
+/// 
+/// Manages a Timer to update the milestones.
 
 MilestoneApp appObject = new MilestoneApp();
 
 
 class MilestoneApp extends Observable {
-  /****
-   * Some things we need...
-   */
+  // Some things we need...
   // When there are no active milestones, timer is null.
   Timer timer = null;
   
@@ -40,9 +36,7 @@ class MilestoneApp extends Observable {
   // The list of milestones in the MODEL.
   List<Milestone> get milestones => _store.milestones;
  
-  /****
-   * Life-cycle methods...
-   */
+  // Life-cycle methods...
   
   // Called from the VIEW when the element is inserted into the DOM.
   Future start() {
@@ -63,11 +57,9 @@ class MilestoneApp extends Observable {
     _stopMilestoneTimer(true);
   }
 
-  /****
-   * Click handlers...
-   * Called from the VIEW (tute_countdown) when the user clicks a button.
-   * Delegates to MODEL.
-   */
+  // Click handlers...
+  // Called from the VIEW (tute_countdown) when the user clicks a button.
+  // Delegates to MODEL.
   
   void addMilestone(String milestoneName, DateTime occursOn) {
     // Make sure milestone is in the future, and not in the past.
@@ -97,9 +89,7 @@ class MilestoneApp extends Observable {
     });
   }
    
-  /****
-   * Timer stuff.
-   */
+  // Timer stuff.
   // Starts the timer if it's off and there are milestones.
   void _startMilestoneTimer() {
     if (timer == null && milestones.length > 0) {

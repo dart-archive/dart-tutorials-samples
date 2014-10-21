@@ -6,5 +6,5 @@ transformers:
 - polymer:
     entry_points:
      - web/index.html
-    inline_stylesheets:
-      web/its_all_about_you.css: false
+#    inline_stylesheets:
+#      web/its_all_about_you.css: false

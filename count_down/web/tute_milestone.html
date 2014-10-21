@@ -6,8 +6,10 @@
 <!DOCTYPE html>
 
 <html>
-  <body>   
+  <head>
     <link rel="import" href="../packages/polymer/polymer.html">
+  </head>
+  <body>   
     <polymer-element name="tute-milestone" attributes="milestone">
       <template>
         <span>{{milestone.timeRemainingAsString}}</span> <button on-click="{{removeMilestone}}">-</button>

@@ -22,10 +22,8 @@ class CountDownComponent extends PolymerElement {
   @observable MilestoneApp appObj = appObject;
   
   CountDownComponent.created() : super.created();
-  /*
-   * Click handlers.
-   * NOTE: Minus - button handler is in xmilestone web component.
-   */
+  // Click handlers.
+  // NOTE: Minus - button handler is in xmilestone web component.
   // Plus + button click handler.
   void addMilestone(Event e, var detail, Node target) {
     String str = newMilestoneDate + ' ' + newMilestoneTime;  
@@ -44,9 +42,7 @@ class CountDownComponent extends PolymerElement {
     appObject.clear();
   }
    
-  /*
-   * Life-cycle bizness
-   */
+  // Life-cycle bizness
   void attached() {
     super.attached();
     appObject.start()
