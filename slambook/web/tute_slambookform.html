@@ -3,50 +3,51 @@
      BSD-style license that can be found in the LICENSE file.
 -->
 
-link rel="import" href="packages/polymer/polymer.html">
-polymer-element name="tute-slambook-form" extends="form">
-<template>
- <style>
-   #slambookform {
-     width: 500px;
-   }
+<link rel="import" href="packages/polymer/polymer.html">
+<polymer-element name="tute-slambook-form" extends="form">
+
+  <template>
+   <style>
+     #slambookform {
+       width: 500px;
+     }
       
-   .entry {
-     float: left;
-     padding: 3px 3px 3px 3px;
-     width: 100%;
-   }
+     .entry {
+       float: left;
+       padding: 3px 3px 3px 3px;
+       width: 100%;
+     }
       
-   .entry label {
-     display: inline-block;
-     width: 150px;
-     text-align: right;
-     vertical-align: middle;
-   }
+     .entry label {
+       display: inline-block;
+       width: 150px;
+       text-align: right;
+       vertical-align: middle;
+     }
       
-   label.andrews {
-     width:auto;
-   }
+     label.andrews {
+       width:auto;
+     }
       
-   .submitarea {
-     padding: 10px 10px 10px 10px;
-     margin: 10px 10px 10px 10px;
-     border-style: solid;
-     border-width: 1px;
-     border-color: SlateBlue;
-     clear: left;
-   }
+     .submitarea {
+       padding: 10px 10px 10px 10px;
+       margin: 10px 10px 10px 10px;
+       border-style: solid;
+       border-width: 1px;
+       border-color: SlateBlue;
+       clear: left;
+     }
       
-   .responsetext {
-     padding: 5px 10px 10px 10px;
-     margin: 10px 10px 10px 10px;
-     clear: left;
-     background-color: WhiteSmoke;
-     width: 90%;
-     height: 70px;
-     resize: none;
-   }
- </style>
+     .responsetext {
+       padding: 5px 10px 10px 10px;
+       margin: 10px 10px 10px 10px;
+       clear: left;
+       background-color: WhiteSmoke;
+       width: 90%;
+       height: 70px;
+       resize: none;
+     }
+   </style>
    <div id="slambookform">
      <div class="entry">
        <label>First name?</label>
@@ -108,7 +109,7 @@ polymer-element name="tute-slambook-form" extends="form">
       </div>
     </div>
   </template>
-   
+     
   <script type="application/dart" src="tute_slambookform.dart">
   </script>
 </polymer-element>
