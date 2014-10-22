@@ -23,6 +23,7 @@ class CountDownComponent extends PolymerElement {
   
   CountDownComponent.created() : super.created();
   // Click handlers.
+
   // NOTE: Minus - button handler is in xmilestone web component.
   // Plus + button click handler.
   void addMilestone(Event e, var detail, Node target) {

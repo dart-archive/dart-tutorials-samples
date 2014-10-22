@@ -32,8 +32,8 @@ void gotMessage(_server) {
   print('Listening for GET and POST on http://$HOST:$PORT');
 }
 
-// Handle POST requests
-// Return the same set of data back to the client.
+/// Handle POST requests
+/// Return the same set of data back to the client.
 void handlePost(HttpRequest req) {
   HttpResponse res = req.response;
   print('${req.method}: ${req.uri.path}');
@@ -49,11 +49,11 @@ void handlePost(HttpRequest req) {
   onError: printError);
 }
 
-// Add Cross-site headers to enable accessing this server from pages
-// not served by this server
-//
-// See: http://www.html5rocks.com/en/tutorials/cors/ 
-// and http://enable-cors.org/server.html
+/// Adds cross-site headers to enable accessing this server from pages
+/// not served by this server
+///
+/// See: http://www.html5rocks.com/en/tutorials/cors/ 
+/// and http://enable-cors.org/server.html
 void addCorsHeaders(HttpResponse res) {
   res.headers.add('Access-Control-Allow-Origin', '*');
   res.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS');

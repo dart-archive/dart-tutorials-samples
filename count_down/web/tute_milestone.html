@@ -3,18 +3,12 @@
      BSD-style license that can be found in the LICENSE file.
 -->
 
-<!DOCTYPE html>
 
-<html>
-  <head>
     <link rel="import" href="../packages/polymer/polymer.html">
-  </head>
-  <body>   
     <polymer-element name="tute-milestone" attributes="milestone">
-      <template>
-        <span>{{milestone.timeRemainingAsString}}</span> <button on-click="{{removeMilestone}}">-</button>
-      </template>
-      <script type="application/dart" src="tute_milestone.dart"></script>
-    </polymer-element>
-  </body>
-</html>
+
+    <template>
+      <span>{{milestone.timeRemainingAsString}}</span> <button on-click="{{removeMilestone}}">-</button>
+    </template>
+    <script type="application/dart" src="tute_milestone.dart"></script>
+  </polymer-element>

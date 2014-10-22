@@ -21,7 +21,8 @@ MilestoneApp appObject = new MilestoneApp();
 
 class MilestoneApp extends Observable {
   // Some things we need...
-  // When there are no active milestones, timer is null.
+
+  /// When there are no active milestones, timer is null.
   Timer timer = null;
   
   // Is IndexedDB supported in this browser?
@@ -58,6 +59,7 @@ class MilestoneApp extends Observable {
   }
 
   // Click handlers...
+
   // Called from the VIEW (tute_countdown) when the user clicks a button.
   // Delegates to MODEL.
   
