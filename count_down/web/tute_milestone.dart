@@ -15,8 +15,8 @@ class MilestoneComponent extends PolymerElement {
   MilestoneComponent.created() : super.created();
   
   // xx: Internationalize this.
-  //getters aren't automatically observed...so moved this method into the milestone object
-  //and observe that instead.
+  // Getters aren't automatically observed...so moved this method into the
+  // milestone object and observe that instead.
   @observable String get timeRemainingAsString { 
     if (milestone.elapsed) {
       _displayString = 'Huzzah for ${milestone.milestoneName}!';

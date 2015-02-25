@@ -15,17 +15,15 @@ var NEWLINE = '\n';
 
 ArgResults argResults;
 
-/**
- * Simple implementation of the *nix cat utility.
- *
- * Usage: dart dcat.dart [-n] patterns [files]
- *
- * `dcat` reads `files` sequentially, writing them to standard output. The
- * file operands are processed in command-line order.
- * If `files` is absent, `dcat` reads from the standard input until `EOF`.
- *
- * Unlike the *nix `cat`, `dcat` does not support single dash ('-') arguments.
- */
+/// Simple implementation of the *nix cat utility.
+///
+/// Usage: dart dcat.dart [-n] patterns [files]
+///
+/// `dcat` reads `files` sequentially, writing them to standard output. The
+/// file operands are processed in command-line order.
+/// If `files` is absent, `dcat` reads from the standard input until `EOF`.
+///
+/// Unlike the *nix `cat`, `dcat` does not support single dash ('-') arguments.
 
 void main(List<String> arguments) {
   exitCode = 0; //presume success.

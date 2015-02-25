@@ -7,20 +7,16 @@ library milestone;
 import 'package:polymer/polymer.dart';
 import 'dart:async';
 import 'dart:html';
-import 'dart:indexed_db';
+import 'dart:indexed_db' as idb;
 
-/*
- * The MODEL for the app.
- * 
- * Contains two classes:
- * Milestone to hold info for an individual milestone.
- * MilestoneStore to manage a list of milestones in memory
- * and in the IndexedDB.
- */
+/// The MODEL for the app.
+/// 
+/// Contains two classes:
+/// Milestone to hold info for an individual milestone.
+/// MilestoneStore to manage a list of milestones in memory
+/// and in the IndexedDB.
 
-/****
- * A class to hold the info for an individual milestone.
- */
+/// A class to hold the info for an individual milestone.
 class Milestone extends Observable {
   final String milestoneName;
   final DateTime happensOn;
@@ -69,7 +65,7 @@ class Milestone extends Observable {
       return _displayString;
     }
     
-    // Calculate days, hours, and minutes remaining.
+   // Calculate days, hours, and minutes remaining.
    // Duration timeRemaining = milestone.timeRemaining;
     
     int d = timeRemaining.inDays;
@@ -87,17 +83,15 @@ class Milestone extends Observable {
     return _displayString;
   }}
 
-/****
- * A class to manage a list of milestones in memory
- * and in an IndexedDB.
- */
+/// A class to manage a list of milestones in memory
+/// and in an IndexedDB.
 class MilestoneStore {
   static const String MILESTONE_STORE = 'milestoneStore';
   static const String NAME_INDEX = 'name_index';
   
   final List<Milestone> milestones = toObservable(new List());
   
-  Database _db;
+  idb.Database _db;
   
   Future open() {
     return window.indexedDB.open('milestoneDB',
@@ -108,8 +102,8 @@ class MilestoneStore {
   
   // Initializes the object store if it is brand new,
   // or upgrades it if the version is older. 
-  void _initializeDatabase(VersionChangeEvent e) {
-    Database db = (e.target as Request).result;
+  void _initializeDatabase(idb.VersionChangeEvent e) {
+    idb.Database db = (e.target as idb.Request).result;
     
     var objectStore = db.createObjectStore(MILESTONE_STORE,
         autoIncrement: true);
@@ -121,7 +115,7 @@ class MilestoneStore {
   
   // Loads all of the existing objects from the database.
   // The future completes when loading is finished.
-  Future _loadFromDB(Database db) {
+  Future _loadFromDB(idb.Database db) {
     _db = db;
     
     var trans = db.transaction(MILESTONE_STORE, 'readonly');
