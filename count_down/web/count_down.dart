@@ -4,8 +4,10 @@
 
 import 'dart:async';
 import 'dart:indexed_db';
+
+import 'package:observe/observe.dart';
+
 import 'milestone.dart';
-import 'package:polymer/polymer.dart';
 
 /// The VIEW-MODEL for the app.
 /// 
@@ -40,17 +42,15 @@ class MilestoneApp extends Observable {
   // Life-cycle methods...
   
   // Called from the VIEW when the element is inserted into the DOM.
-  Future start() {
+  Future start() async {
     if (!idbAvailable) {
       return new Future.error('IndexedDB not supported.');
     }
     
-    return _store.open().then((_) {
-      _startMilestoneTimer();
-      hazMilestones = notifyPropertyChange(const Symbol('hazMilestones'),
-          hazMilestones, (milestones.length == 0) ? false : true);
-
-    });
+    await _store.open();
+    _startMilestoneTimer();
+    hazMilestones = notifyPropertyChange(const Symbol('hazMilestones'),
+        hazMilestones, (milestones.length == 0) ? false : true);
   }
   
   // Called from the VIEW when the element is removed from the DOM.
@@ -75,20 +75,18 @@ class MilestoneApp extends Observable {
     }
   }
 
-  Future removeMilestone(Milestone milestone) {
-    return _store.remove(milestone).then((_) {
-      _stopMilestoneTimer(false);
-      hazMilestones = notifyPropertyChange(const Symbol('hazMilestones'),
-          hazMilestones, (milestones.length == 0) ? false : true);
-   });
+  Future removeMilestone(Milestone milestone) async {
+    await _store.remove(milestone);    
+    _stopMilestoneTimer(false);
+    hazMilestones = notifyPropertyChange(const Symbol('hazMilestones'),
+        hazMilestones, (milestones.length == 0) ? false : true);
   }
   
-  Future clear() {
-    return _store.clear().then((_) {
-      _stopMilestoneTimer(false);
-      hazMilestones = notifyPropertyChange(const Symbol('hazMilestones'),
-          hazMilestones, (milestones.length == 0) ? false : true);
-    });
+  Future clear() async {
+    await _store.clear();
+    _stopMilestoneTimer(false);
+    hazMilestones = notifyPropertyChange(const Symbol('hazMilestones'),
+        hazMilestones, (milestones.length == 0) ? false : true);
   }
    
   // Timer stuff.

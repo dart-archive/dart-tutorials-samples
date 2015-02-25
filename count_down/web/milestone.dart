@@ -4,10 +4,11 @@
 
 library milestone;
 
-import 'package:polymer/polymer.dart';
 import 'dart:async';
 import 'dart:html';
 import 'dart:indexed_db' as idb;
+
+import 'package:observe/observe.dart';
 
 /// The MODEL for the app.
 /// 
@@ -56,7 +57,7 @@ class Milestone extends Observable {
     timeRemainingAsString = formatTimeRemainingAsString();
   }
   
-  // This should really be in the VIEW
+  // This should really be in the VIEW.
   String formatTimeRemainingAsString() {
     String _displayString;
     
@@ -93,11 +94,11 @@ class MilestoneStore {
   
   idb.Database _db;
   
-  Future open() {
-    return window.indexedDB.open('milestoneDB',
+  Future open() async {
+    var db = await window.indexedDB.open('milestoneDB',
         version: 1,
-        onUpgradeNeeded: _initializeDatabase)
-      .then(_loadFromDB);
+        onUpgradeNeeded: _initializeDatabase);
+    return _loadFromDB(db);
   }
   
   // Initializes the object store if it is brand new,
@@ -115,7 +116,7 @@ class MilestoneStore {
   
   // Loads all of the existing objects from the database.
   // The future completes when loading is finished.
-  Future _loadFromDB(idb.Database db) {
+  Future _loadFromDB(idb.Database db) async {
     _db = db;
     
     var trans = db.transaction(MILESTONE_STORE, 'readonly');
@@ -127,66 +128,55 @@ class MilestoneStore {
       // Add milestone to the internal list.
       var milestone = new Milestone.fromRaw(cursor.key, cursor.value);
       milestones.add(milestone);
-
     });
-    return cursors.length.then((_) {
-      return milestones.length;
-    });
+    
+    await cursors.length;
   }
   
-  // Add a new milestone to the milestones in the Database.
+  // Adds a new milestone to the milestones in the Database.
   // 
   // This returns a Future with the new milestone when the milestone
   // has been added.
-  Future<Milestone> add(String milestoneName, DateTime occursOn) {
+  Future<Milestone> add(String milestoneName, DateTime occursOn) async {
     var milestone = new Milestone(milestoneName, occursOn);
     var milestoneAsMap = milestone.toRaw();
 
     var transaction = _db.transaction(MILESTONE_STORE, 'readwrite');
     var objectStore = transaction.objectStore(MILESTONE_STORE);
     
-    
-    objectStore.add(milestoneAsMap).then((addedKey) {
-      // NOTE! The key cannot be used until the transaction completes.
-      milestone.dbKey = addedKey;
-    });
+    // NOTE! The key cannot be used until the transaction completes.
+    milestone.dbKey = await objectStore.add(milestoneAsMap);
     
     // Note that the milestone cannot be queried until the transaction
     // has completed!
-    return transaction.completed.then((_) {
-      // Once the transaction completes, add it to our list of available items.
-      milestones.add(milestone);
-      
-      // Return the milestone so this becomes the result of the future.
-      return milestone;
-    });
+    await transaction.completed;
+    await milestones.add(milestone);
+    return milestone;
   }
   
   // Removes a milestone from the list of milestones.
   // 
-  // This returns a Future which completes when the milestone has been removed.
-  Future remove(Milestone milestone) {
+  // This returns a Future that completes when the milestone has been removed.
+  Future remove(Milestone milestone) async {
     // Remove from database.
     var transaction = _db.transaction(MILESTONE_STORE, 'readwrite');
     transaction.objectStore(MILESTONE_STORE).delete(milestone.dbKey);
     
-    return transaction.completed.then((_) {
-      // Null out the key to indicate that the milestone is dead.
-      milestone.dbKey = null;
-      // Remove from internal list.
-      milestones.remove(milestone);
-    });
+    await transaction.completed;
+    // Null out the key to indicate that the milestone is dead.
+    milestone.dbKey = null;
+    // Remove from internal list.
+    milestones.remove(milestone);
   }
   
   // Removes ALL milestones.
-  Future clear() {
+  Future clear() async {
     // Clear database.
     var transaction = _db.transaction(MILESTONE_STORE, 'readwrite');
     transaction.objectStore(MILESTONE_STORE).clear();
     
-    return transaction.completed.then((_) {
-      // Clear internal list.
-      milestones.clear();
-    });
+    await transaction.completed;
+    // Clear internal list.
+    milestones.clear();
   }
 }
