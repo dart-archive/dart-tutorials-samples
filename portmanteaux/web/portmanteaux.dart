@@ -29,6 +29,6 @@ requestComplete(HttpRequest request) {
     }
   } else {
     wordList.children.add(new LIElement()..text =
-        'Request failed, status={$request.status}');
+        'Request failed, status=${request.status}');
   }
 }
