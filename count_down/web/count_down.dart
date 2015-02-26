@@ -63,15 +63,17 @@ class MilestoneApp extends Observable {
   // Called from the VIEW (tute_countdown) when the user clicks a button.
   // Delegates to MODEL.
   
-  void addMilestone(String milestoneName, DateTime occursOn) {
+  Future addMilestone(String milestoneName, DateTime occursOn) async {
     // Make sure milestone is in the future, and not in the past.
     if (occursOn.isAfter(new DateTime.now())) {
-      _store.add(milestoneName, occursOn).then((_) {
+      try {
+        await _store.add(milestoneName, occursOn);
         _startMilestoneTimer();
         hazMilestones = notifyPropertyChange(const Symbol('hazMilestones'),
             hazMilestones, (milestones.length == 0) ? false : true);
-      },
-      onError: (e) { print('duplicate key'); } );
+      } catch (e) {
+        print('duplicate key: $milestoneName');
+      }
     }
   }
 
