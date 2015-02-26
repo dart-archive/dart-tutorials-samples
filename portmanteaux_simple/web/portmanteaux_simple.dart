@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:html';
-import 'dart:convert';
 import 'dart:async';
+import 'dart:convert';
+import 'dart:html';
 
 var wordList;
 
@@ -13,11 +13,14 @@ void main() {
   wordList = querySelector('#wordList');
 }
 
-void makeRequest(Event e) {
+Future makeRequest(Event e) async {
   var path = 'portmanteaux_simple.json';
-  HttpRequest.getString(path)
-  .then(processString)
-  .catchError(handleError);
+  try {
+    processString(await HttpRequest.getString(path));
+  } catch (e) {
+    print('Couldn\'t open $path');
+    handleError(e);
+  }
 }
 
 processString(String jsonString) {
@@ -27,6 +30,6 @@ processString(String jsonString) {
   }
 }
 
-handleError(Error error) {
+handleError(Object error) {
   wordList.children.add(new LIElement()..text = 'Request failed.');
 }
