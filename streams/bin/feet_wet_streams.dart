@@ -1,10 +1,11 @@
-
-import 'dart:convert';
-import 'package:args/args.dart';
-
 // BEGIN(consuming_a_stream)
 import 'dart:async';
 // END(consuming_a_stream)
+
+//XXX: Change " to ' in strings?
+
+import 'dart:convert';
+
 // BEGIN(reading_a_file)
 import 'dart:io';
 // END(reading_a_file)
@@ -15,19 +16,11 @@ main() {
   // END(consuming_a_stream)
   // END(reading_a_file)
 
-  //var options = new Options();
-  var this_file = Platform.script;
-  
-  singleStream();
-  
+  singleStream();  
   streamProperties();
-
   broadcast();
-  
   streamSubsetsOfData();
-  
   transformingStream();
-  
   validatingStream();
   
   singleWhere();
@@ -38,9 +31,7 @@ main() {
   streamSubscription_handlerFunctionArgs();
   
   unsubscribing();
-  
   generic();
-  
   readingAFile();
 }
 
@@ -58,35 +49,36 @@ singleStream() {
 }
 // END(consuming_a_stream) 
 
-streamProperties() {
+streamProperties() async {
   var stream;
 
   // BEGIN(stream_properties)
   stream = new Stream.fromIterable([1,2,3,4,5]);
-  stream.first.then((value) => print("stream.first: $value"));  // 1
+  print("stream.first: ${await stream.first}");  // 1
 
   stream = new Stream.fromIterable([1,2,3,4,5]);
-  stream.last.then((value) => print("stream.last: $value"));  // 5  
+  print("stream.last: ${await stream.last}");  // 5  
 
   stream = new Stream.fromIterable([1,2,3,4,5]);
-  stream.isEmpty.then((value) => print("stream.isEmpty: $value")); // false
+  print("stream.isEmpty: ${await stream.isEmpty}"); // false
 
   stream = new Stream.fromIterable([1,2,3,4,5]);
-  stream.length.then((value) => print("stream.length: $value")); // 5
+  print("stream.length: ${await stream.length}"); // 5
   // END(stream_properties)
 }
 
-broadcast() {
+broadcast() async {
   // BEGIN(as_broadcast_stream)
   var data = [1,2,3,4,5];
   var stream = new Stream.fromIterable(data);
   var broadcastStream = stream.asBroadcastStream();
 
-  broadcastStream.listen((value) => print("stream.listen: $value")); 
-  broadcastStream.first.then((value) => print("stream.first: $value")); // 1 
-  broadcastStream.last.then((value) => print("stream.last: $value")); // 5
-  broadcastStream.isEmpty.then((value) => print("stream.isEmpty: $value")); // false
-  broadcastStream.length.then((value) => print("stream.length: $value")); // 5
+  broadcastStream.listen((value) => print("stream.listen: $value")); //XXX
+  
+  print("stream.first: ${await broadcastStream.first}"); // 1
+  print("stream.last: ${await broadcastStream.last}"); // 5
+  print("stream.isEmpty: ${await broadcastStream.isEmpty}"); // false
+  print("stream.length: ${broadcastStream.length}"); // 5
   // END(as_broadcast_stream)
 }
 
@@ -148,7 +140,7 @@ transformingStream() {
   // END(stream_transformer)
 }
 
-validatingStream() {
+validatingStream() async {
   var data = [1,2,3,4,5];
   var stream = new Stream.fromIterable(data);
   // get the stream as a broadcast stream
@@ -159,17 +151,16 @@ validatingStream() {
   // listeners
   
   // BEGIN(validating_stream_data)
-  broadcastStream
-      .any((value) => value < 5)
-      .then((result) => print("Any less than 5?: $result")); // true
+  var result;
   
-  broadcastStream
-      .every((value) => value < 5)
-      .then((result) => print("All less than 5?: $result")); // false
+  result = await broadcastStream.any((value) => value < 5);
+  print("Any less than 5?: $result"); // true
+
+  result = await broadcastStream.every((value) => value < 5);
+  print("All less than 5?: $result"); // false
   
-  broadcastStream
-      .contains(4)
-      .then((result) => print("Contains 4?: $result")); // true
+  result = await broadcastStream.contains(4);
+  print("Contains 4?: $result"); // true
   // END(validating_stream_data)
 }
 
@@ -180,10 +171,11 @@ singleWhere() {
   var broadcastStream = stream.asBroadcastStream(); 
   
   // BEGIN(single_where)
-  broadcastStream
-      .singleWhere((value) => value < 2) // there is only one value less than 2
-      .then((value) => print("single value: $value"));
-      // outputs: single value: 1
+  var result;
+  
+  // Only one value is less than 2
+  result = broadcastStream.singleWhere((value) => value < 2);
+  print("single value: $result"); // single value: 1
   // END(single_where)
 }
 
@@ -193,13 +185,19 @@ singleError() {
   // get the stream as a broadcast stream
   var broadcastStream = stream.asBroadcastStream(); 
 
-  Future inner() {
-    return
-        // BEGIN(failure_using_single)
-        broadcastStream
-            .single  // will fail - there is more than one value in the stream
-            .then((value) => print("single value: $value"));
-            // END(failure_using_single)
+  Future inner() async {
+    var result;
+    
+    // BEGIN(failure_using_single)
+    try {
+      // will fail: the stream has more than one value
+      result = broadcastStream.single;
+      print("single value: $result");
+      return result;
+    } catch (e) {
+      return e;
+    }
+    // END(failure_using_single)
   }
   
   inner().catchError((err) => print("Expected Error: $err"));
@@ -220,6 +218,24 @@ singleErrorWithCatch() {
       // END(catch_error)
 }
 
+singleErrorWithCatchAsync() async {
+  var data = [1,2,3,4,5];
+  var stream = new Stream.fromIterable(data);
+  // get the stream as a broadcast stream
+  var broadcastStream = stream.asBroadcastStream(); 
+  
+  // BEGIN(catch_error_async)
+  try {
+    // single will fail: stream has > 1 value
+    print("single value: ${await broadcastStream.single}");
+  } catch (e) {
+    print("Expected error: $e"); // catch any error
+    // output: Expected error: Bad State: Too many elements
+  }
+  // END(catch_error_async)
+}
+
+// XXX: Can I convert this to async*?
 streamSubscription_handlersOnSubscription() {
   var data = [1,2,3,4,5];
   var stream = new Stream.fromIterable(data);
