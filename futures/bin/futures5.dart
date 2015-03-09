@@ -1,10 +1,16 @@
-import 'dart:io';
 import 'dart:async';
 
-void main() {
-  Future.wait([expensiveA(), expensiveB(), expensiveC()])
-        .then((List responses) => chooseBestResponse(responses))
-        .catchError((e) => handleError(e));
+main() async {
+//  Future.wait([expensiveA(), expensiveB(), expensiveC()])
+//        .then((List responses) => chooseBestResponse(responses))
+//        .catchError((e) => handleError(e));
+  try {
+    List responses =
+        await Future.wait([expensiveA(), expensiveB(), expensiveC()]);
+    chooseBestResponse(responses);
+  } catch (e) {
+    handleError(e);
+  }
 }
 
 Future expensiveA() => new Future.value('from expensiveA');
@@ -17,6 +23,7 @@ doSomethingWith(value) {
 
 chooseBestResponse(List responses) {
   print(responses[1]);
+//  throw new Error();
 }
 
 handleError(e) {
