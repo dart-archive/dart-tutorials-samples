@@ -49,7 +49,7 @@ singleStream() {
 }
 // END(consuming_a_stream) 
 
-streamProperties() async {
+Future streamProperties() async {
   var stream;
 
   // BEGIN(stream_properties)
@@ -67,7 +67,7 @@ streamProperties() async {
   // END(stream_properties)
 }
 
-broadcast() async {
+Future broadcast() async {
   // BEGIN(as_broadcast_stream)
   var data = [1,2,3,4,5];
   var stream = new Stream.fromIterable(data);
@@ -140,7 +140,7 @@ transformingStream() {
   // END(stream_transformer)
 }
 
-validatingStream() async {
+Future validatingStream() async {
   var data = [1,2,3,4,5];
   var stream = new Stream.fromIterable(data);
   // get the stream as a broadcast stream
@@ -218,7 +218,7 @@ singleErrorWithCatch() {
       // END(catch_error)
 }
 
-singleErrorWithCatchAsync() async {
+Future singleErrorWithCatchAsync() async {
   var data = [1,2,3,4,5];
   var stream = new Stream.fromIterable(data);
   // get the stream as a broadcast stream

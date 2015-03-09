@@ -22,7 +22,7 @@ void printMatch(File file, List lines, int i) {
   print(sb.toString());
 }
 
-searchFile(File file, searchTerms) async {
+Future searchFile(File file, searchTerms) async {
   try {
     var lines = await file.readAsLines();
     for (var i = 0; i < lines.length; i++) {

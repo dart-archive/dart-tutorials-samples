@@ -60,7 +60,7 @@ Future dcat(List<String> paths, bool showLineNumbers) async {
   }
 }
 
-_handleError(String path) async {
+Future _handleError(String path) async {
   if (await FileSystemEntity.isDirectory(path)) {
     stderr.writeln('error: $path is a directory');
   } else {
