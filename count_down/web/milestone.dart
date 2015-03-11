@@ -93,12 +93,23 @@ class MilestoneStore {
   
   idb.Database _db;
   
-  Future open() {
-    return window.indexedDB.open('milestoneDB',
+  // This works in dartium but not when compiled to JS.
+  // The GUI shows this error:
+  //
+  //   NullError: NullError: Cannot call "get$length" on null
+  Future open() async {
+    var db = await window.indexedDB.open('milestoneDB',
         version: 1,
-        onUpgradeNeeded: _initializeDatabase)
-      .then(_loadFromDB);
+        onUpgradeNeeded: _initializeDatabase);
+    return _loadFromDB(db);
   }
+//  // This original code works for both Dartium & dart2js.
+//  Future open() {
+//    return window.indexedDB.open('milestoneDB',
+//        version: 1,
+//        onUpgradeNeeded: _initializeDatabase)
+//      .then(_loadFromDB);
+//  }
   
   // Initializes the object store if it is brand new,
   // or upgrades it if the version is older. 
