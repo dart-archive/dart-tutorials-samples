@@ -20,7 +20,6 @@ import 'milestone.dart';
 
 MilestoneApp appObject = new MilestoneApp();
 
-
 class MilestoneApp extends Observable {
   // Some things we need...
 

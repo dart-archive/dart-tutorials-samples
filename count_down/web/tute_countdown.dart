@@ -4,6 +4,7 @@
 
 // Some things we need.
 import 'package:polymer/polymer.dart';
+import 'package:observe/observe.dart';
 import 'dart:html';
 import 'count_down.dart';
 

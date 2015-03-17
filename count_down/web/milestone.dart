@@ -124,11 +124,11 @@ class MilestoneStore {
     
     // Get everything in the store.
     var cursors = store.openCursor(autoAdvance: true).asBroadcastStream();
-    cursors.listen((cursor) {
+    await for (var cursor in cursors) {
       // Add milestone to the internal list.
       var milestone = new Milestone.fromRaw(cursor.key, cursor.value);
       milestones.add(milestone);
-    });
+    };
     
     await cursors.length;
   }
