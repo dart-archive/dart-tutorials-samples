@@ -14,29 +14,25 @@ HttpClient client;
 
 main() {
   client = new HttpClient();
-  Timer timer = new Timer.periodic(new Duration(seconds: 2), makeGuess);
+  new Timer.periodic(new Duration(seconds: 2), makeGuess);
 }
 
-makeGuess(_) {
+makeGuess(_) async {
   var aRandomNumber = myRandomGenerator.nextInt(10);
   
-  client.get(InternetAddress.LOOPBACK_IP_V4.host, 4041, '/?q=${aRandomNumber}')
-      .then((HttpClientRequest request) {
-        print('Guess is $aRandomNumber.');
-        return request.close();
-      })
-      .then((HttpClientResponse response) {
-        if (response.statusCode == HttpStatus.OK) {
-          print(response.statusCode);
-          response.transform(UTF8.decoder).listen((contents) {
-            if (contents.toString().startsWith('true')) {
-              client.close();
-              print('yay');
-              exit(0);
-            } else {
-              print('boo');
-            }
-          });
-        }
-     });
+  HttpClientRequest request = await
+      client.get(InternetAddress.LOOPBACK_IP_V4.host, 4041, '/?q=${aRandomNumber}');
+  print('Guess is $aRandomNumber.');
+  HttpClientResponse response = await request.close();
+  if (response.statusCode == HttpStatus.OK) {
+    await for (var contents in response.transform(UTF8.decoder)) {
+      if (contents.toString().startsWith('true')) {
+        client.close();
+        print('yay');
+        exit(0);
+      } else {
+        print('boo');
+      }
+    }
+  }
 }
