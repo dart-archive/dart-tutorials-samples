@@ -14,7 +14,8 @@ import 'package:http_server/http_server.dart';
 main() async {
   VirtualDirectory staticFiles = new VirtualDirectory('.');
 
-  var serverRequests = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4046);
+  var serverRequests =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4046);
   await for (var request in serverRequests) {
     staticFiles.serveFile(new File('index.html'), request);
   }

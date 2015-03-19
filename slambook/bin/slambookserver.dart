@@ -9,8 +9,8 @@ import 'dart:io';
 //
 // Provides CORS headers, so can be accessed from any other page
 
-final HOST = '127.0.0.1'; // eg: localhost 
-final PORT = 4040;        // a port, must match the client program
+final HOST = '127.0.0.1'; // eg: localhost
+final PORT = 4040; // a port, must match the client program
 
 void main() {
   HttpServer.bind(HOST, PORT).then(gotMessage, onError: printError);
@@ -19,16 +19,16 @@ void main() {
 void gotMessage(_server) {
   _server.listen((HttpRequest request) {
     switch (request.method) {
-      case 'POST': 
+      case 'POST':
         handlePost(request);
         break;
-      case 'OPTIONS': 
+      case 'OPTIONS':
         handleOptions(request);
         break;
-      default: defaultHandler(request);
+      default:
+        defaultHandler(request);
     }
-  },
-  onError: printError); // .listen failed
+  }, onError: printError); // .listen failed
   print('Listening for GET and POST on http://$HOST:$PORT');
 }
 
@@ -37,27 +37,27 @@ void gotMessage(_server) {
 void handlePost(HttpRequest req) {
   HttpResponse res = req.response;
   print('${req.method}: ${req.uri.path}');
-  
+
   addCorsHeaders(res);
-  
+
   req.listen((List<int> buffer) {
     // return the data back to the client
     res.write('Thanks for the data. This is what I heard you say: ');
     res.write(new String.fromCharCodes(buffer));
     res.close();
-  },
-  onError: printError);
+  }, onError: printError);
 }
 
 /// Adds cross-site headers to enable accessing this server from pages
 /// not served by this server
 ///
-/// See: http://www.html5rocks.com/en/tutorials/cors/ 
+/// See: http://www.html5rocks.com/en/tutorials/cors/
 /// and http://enable-cors.org/server.html
 void addCorsHeaders(HttpResponse res) {
   res.headers.add('Access-Control-Allow-Origin', '*');
   res.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.headers.add('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.headers.add('Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept');
 }
 
 void handleOptions(HttpRequest req) {

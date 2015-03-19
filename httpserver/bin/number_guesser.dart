@@ -19,9 +19,10 @@ main() {
 
 makeGuess(_) async {
   var aRandomNumber = myRandomGenerator.nextInt(10);
-  
-  HttpClientRequest request = await
-      client.get(InternetAddress.LOOPBACK_IP_V4.host, 4041, '/?q=${aRandomNumber}');
+
+  HttpClientRequest request = await client.get(
+      InternetAddress.LOOPBACK_IP_V4.host, 4041,
+      '/?q=${aRandomNumber}');
   print('Guess is $aRandomNumber.');
   HttpClientResponse response = await request.close();
   if (response.statusCode == HttpStatus.OK) {

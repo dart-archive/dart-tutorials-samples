@@ -10,7 +10,8 @@ import 'dart:io';
 import 'dart:convert';
 
 main() async {
-  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049);
+  var server =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049);
   await for (var req in server) {
     ContentType contentType = req.headers.contentType;
     BytesBuilder builder = new BytesBuilder();

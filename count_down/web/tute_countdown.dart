@@ -10,7 +10,7 @@ import 'count_down.dart';
 
 @CustomTag('tute-count-down')
 class CountDownComponent extends PolymerElement {
-  
+
   // Observe errorMsg.
   // It displays a message for the user.
   @observable String errorMsg = '';
@@ -19,21 +19,22 @@ class CountDownComponent extends PolymerElement {
   @observable String newMilestoneName = "New Year's Day 2020";
   @observable String newMilestoneDate = '2020-01-01';
   @observable String newMilestoneTime = '00:00:00';
-  
+
   @observable MilestoneApp appObj = appObject;
-  
+
   CountDownComponent.created() : super.created();
   // Click handlers.
 
   // NOTE: Minus - button handler is in xmilestone web component.
   // Plus + button click handler.
   void addMilestone(Event e, var detail, Node target) {
-    String str = newMilestoneDate + ' ' + newMilestoneTime;  
+    String str = newMilestoneDate + ' ' + newMilestoneTime;
     DateTime occursOn = DateTime.parse(str);
 
     if (occursOn.isAfter(new DateTime.now())) {
       appObject.addMilestone(newMilestoneName, occursOn);
-    } else { // TODO: improve error message
+    } else {
+      // TODO: improve error message
       print("Can't add a date in the past.");
     }
   }
@@ -43,19 +44,18 @@ class CountDownComponent extends PolymerElement {
     errorMsg = '';
     appObject.clear();
   }
-   
+
   // Life-cycle bizness
   void attached() {
     super.attached();
-    appObject.start()
-      .catchError((e) {
-        ($['addbutton'] as ButtonElement).disabled = true;
-        ($['clearbutton'] as ButtonElement).disabled = true;
+    appObject.start().catchError((e) {
+      ($['addbutton'] as ButtonElement).disabled = true;
+      ($['clearbutton'] as ButtonElement).disabled = true;
 
-        errorMsg = e.toString();
-      });
+      errorMsg = e.toString();
+    });
   }
-  
+
   void detached() {
     super.detached();
     appObject.stop();

@@ -7,7 +7,8 @@ library dgrep;
 import 'dart:io';
 import 'package:args/args.dart';
 
-const USAGE = 'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
+const USAGE =
+    'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
 const RECURSIVE = 'recursive';
 const LINE_NUMBER = 'line-number';
 const FOLLOW_LINKS = 'follow-links';
@@ -41,10 +42,9 @@ Future searchFile(File file, searchTerms) async {
 
 main(List<String> arguments) async {
   final parser = new ArgParser()
-      ..addFlag(RECURSIVE, negatable: false, abbr: 'r')
-      ..addFlag(LINE_NUMBER, negatable: false, abbr: 'n')
-      ..addFlag(FOLLOW_LINKS, negatable: false, abbr: 'S');
-
+    ..addFlag(RECURSIVE, negatable: false, abbr: 'r')
+    ..addFlag(LINE_NUMBER, negatable: false, abbr: 'n')
+    ..addFlag(FOLLOW_LINKS, negatable: false, abbr: 'S');
 
   argResults = parser.parse(arguments);
 
@@ -54,12 +54,13 @@ main(List<String> arguments) async {
   }
 
   final searchPath = argResults.rest.last;
-  final searchTerms = argResults.rest.sublist(0, argResults.rest.length - 1);
+  final searchTerms =
+      argResults.rest.sublist(0, argResults.rest.length - 1);
 
   if (await FileSystemEntity.isDirectory(searchPath)) {
     final startingDir = new Directory(searchPath);
     await for (var entity in startingDir.list(
-        recursive:   argResults[RECURSIVE],
+        recursive: argResults[RECURSIVE],
         followLinks: argResults[FOLLOW_LINKS])) {
       if (entity is File) {
         searchFile(entity, searchTerms);

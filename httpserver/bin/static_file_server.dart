@@ -19,7 +19,9 @@ void main() {
     staticFiles.serveFile(new File(indexUri.toFilePath()), request);
   };
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4048).then((server) {
+  HttpServer
+      .bind(InternetAddress.LOOPBACK_IP_V4, 4048)
+      .then((server) {
     server.listen(staticFiles.serveRequest);
   });
 }

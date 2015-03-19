@@ -11,21 +11,22 @@ import 'dart:io';
 
 main() async {
   var server;
-  
+
   try {
-    server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
+    server =
+        await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
   } catch (e) {
     print("Couldn't bind to port 4044: $e");
     exit(-1);
   }
-  
+
   await for (HttpRequest req in server) {
     File file = new File('index.html');
     if (await file.exists()) {
       print("Serving index.html.");
-      req.response.headers.contentType = ContentType.HTML; // XXX should I do this?
-      file.openRead()
-          .pipe(req.response)  // HttpResponse type.
+      req.response.headers.contentType =
+          ContentType.HTML; // XXX should I do this?
+      file.openRead().pipe(req.response) // HttpResponse type.
           .catchError((e) => print(e.toString()));
     } else {
       print("Can't open index.html.");

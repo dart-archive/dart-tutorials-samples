@@ -10,7 +10,6 @@ import 'dart:io';
 import 'dart:convert' show UTF8, JSON;
 
 main() async {
-
   Map jsonData = {
     'name': 'Han Solo',
     'job': 'reluctant hero',
@@ -18,10 +17,9 @@ main() async {
     'ship': 'Millennium Falcon',
     'weakness': 'smuggling debts'
   };
-  
-  HttpClientRequest request = await
-      new HttpClient().post(InternetAddress.LOOPBACK_IP_V4.host,
-      4049, '/file.txt');
+
+  HttpClientRequest request = await new HttpClient().post(
+      InternetAddress.LOOPBACK_IP_V4.host, 4049, '/file.txt');
   request.headers.contentType = ContentType.JSON;
   request.write(JSON.encode(jsonData));
   HttpClientResponse response = await request.close();

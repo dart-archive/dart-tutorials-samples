@@ -15,7 +15,8 @@ void main() {
   List<String> lines = new File('notes.txt').readAsLinesSync();
   count = lines.length;
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4042)
+  HttpServer
+      .bind(InternetAddress.LOOPBACK_IP_V4, 4042)
       .then(listenForRequests)
       .catchError((e) => print('hello: ${e.toString()}'));
 }
@@ -34,8 +35,8 @@ listenForRequests(_server) {
         break;
     }
   },
-  onDone: () => print('No more requests.'),
-  onError: (e ) => print(e.toString()));
+      onDone: () => print('No more requests.'),
+      onError: (e) => print(e.toString()));
 }
 
 void handlePost(HttpRequest req) {
@@ -50,7 +51,8 @@ void handlePost(HttpRequest req) {
 
     if (decoded.containsKey('myNote')) {
       saveNote(req, '${decoded["myNote"]}\n');
-    } else { // 'getNote'
+    } else {
+      // 'getNote'
       getNote(req, decoded['getNote']);
     }
   }, onError: (_) {
@@ -59,7 +61,8 @@ void handlePost(HttpRequest req) {
 }
 
 saveNote(HttpRequest req, String myNote) {
-  new File('notes.txt').writeAsStringSync(myNote, mode: FileMode.APPEND);
+  new File('notes.txt').writeAsStringSync(myNote,
+      mode: FileMode.APPEND);
   count++;
   req.response.statusCode = HttpStatus.OK;
   req.response.writeln('You have $count notes.');

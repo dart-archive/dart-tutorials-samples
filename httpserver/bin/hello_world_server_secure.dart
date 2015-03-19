@@ -9,12 +9,15 @@
 import 'dart:io';
 
 main() {
-  var testPkcertDatabase = Platform.script.resolve('pkcert').toFilePath();
-  SecureSocket.initialize(database: testPkcertDatabase,
-      password: 'dartdart');
+  var testPkcertDatabase =
+      Platform.script.resolve('pkcert').toFilePath();
+  SecureSocket.initialize(
+      database: testPkcertDatabase, password: 'dartdart');
 
-  HttpServer.bindSecure('localhost', 4047,
-      certificateName: 'localhost_cert').then((server) {
+  HttpServer
+      .bindSecure('localhost', 4047,
+          certificateName: 'localhost_cert')
+      .then((server) {
     print('listening');
     server.listen((HttpRequest request) {
       request.response.write('Hello, world!');
