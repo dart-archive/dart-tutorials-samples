@@ -43,13 +43,13 @@ class MilestoneApp extends Observable {
   // Called from the VIEW when the element is inserted into the DOM.
   Future start() async {
     if (!idbAvailable) {
-      return new Future.error('IndexedDB not supported.');
+      throw 'IndexedDB not supported.';
     }
 
     await _store.open();
     _startMilestoneTimer();
     hazMilestones = notifyPropertyChange(
-        const Symbol('hazMilestones'), hazMilestones,
+        #hazMilestones, hazMilestones,
         (milestones.length == 0) ? false : true);
   }
 
@@ -91,7 +91,7 @@ class MilestoneApp extends Observable {
     _stopMilestoneTimer(false);
     hazMilestones = notifyPropertyChange(
         const Symbol('hazMilestones'), hazMilestones,
-        (milestones.length == 0) ? false : true);
+        milestones.isNotEmpty);
   }
 
   // Timer stuff.
@@ -115,7 +115,7 @@ class MilestoneApp extends Observable {
   }
 
   // Update the display for each milestone.
-  void _tick(Timer _) {
+  void _tick(_) {
     // For each milestone, update the time remaining...
     for (int i = 0; i < milestones.length; i++) {
       milestones[i].tick();

@@ -6,6 +6,7 @@ library dgrep;
 
 import 'dart:io';
 import 'package:args/args.dart';
+import 'dart:async';
 
 const USAGE =
     'usage: dart dgrep.dart [-rnS] patterns file_or_directory';

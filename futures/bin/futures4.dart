@@ -1,9 +1,6 @@
 import 'dart:async';
 
 main() async {
-//  expensiveA().then((aValue) => expensiveB())
-//              .then((bValue) => expensiveC())
-//              .then((cValue) => doSomethingWith(cValue));
   await expensiveA();
   await expensiveB();
   doSomethingWith(await expensiveC());

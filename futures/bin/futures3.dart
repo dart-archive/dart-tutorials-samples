@@ -1,12 +1,6 @@
 import 'dart:io';
 import 'dart:async';
 
-//void printDailyNewsDigest() {
-//  File file = new File("dailyNewsDigest.txt");
-//  Future future = file.readAsString();
-//  future.then((content) => doSomethingWith(content))
-//        .catchError((e) => handleError(e));
-//}
 Future printDailyNewsDigest() async {
   File file = new File("dailyNewsDigest.txt");
   try {

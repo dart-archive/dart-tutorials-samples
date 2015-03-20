@@ -1,4 +1,4 @@
 void main() {
-  int fortyTwo = 'Hello, World'; // Type mismatch
-  print(fortyTwo);
+//  int fortyTwo = 'Hello, World'; // Type mismatch
+//  print(fortyTwo);
 }

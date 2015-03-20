@@ -83,7 +83,7 @@ class Milestone extends Observable {
     String seconds = '$s seconds';
 
     _displayString =
-        '$days $hours $minutes $seconds until ${milestoneName}';
+        '$days $hours $minutes $seconds until $milestoneName';
     return _displayString;
   }
 }
@@ -134,7 +134,6 @@ class MilestoneStore {
       var milestone = new Milestone.fromRaw(cursor.key, cursor.value);
       milestones.add(milestone);
     }
-    ;
 
     await cursors.length;
   }

@@ -46,14 +46,15 @@ class CountDownComponent extends PolymerElement {
   }
 
   // Life-cycle bizness
-  void attached() {
+  attached() async {
     super.attached();
-    appObject.start().catchError((e) {
+    try {
+      appObject.start(); // Returns a future.
+    } catch (e) {
       ($['addbutton'] as ButtonElement).disabled = true;
       ($['clearbutton'] as ButtonElement).disabled = true;
-
       errorMsg = e.toString();
-    });
+    }
   }
 
   void detached() {

@@ -43,12 +43,12 @@ Future dcat(List<String> paths, bool showLineNumbers) async {
   } else {
     for (var path in paths) {
       int lineNumber = 1;
-      Stream stream = new File(path)
+      Stream lines = new File(path)
           .openRead()
           .transform(UTF8.decoder)
           .transform(const LineSplitter());
       try {
-        await for (var line in stream) {
+        await for (var line in lines) {
           if (showLineNumbers) {
             stdout.write('${lineNumber++} ');
           }
