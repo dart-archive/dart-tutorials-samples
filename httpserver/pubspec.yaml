@@ -1,4 +1,5 @@
 name: httpserver
 description: A sample application
 dependencies:
+  browser: any
   http_server: any
