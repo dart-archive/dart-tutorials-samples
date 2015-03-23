@@ -60,7 +60,7 @@ Future singleStreamAsync() async {
 
   // wait for all events in the stream
   await for (var value in stream) {
-    print('Received: $value'); // onData handler
+    print('Async received: $value'); // onData handler
   }
 }
 // END(consuming_a_stream_async)
