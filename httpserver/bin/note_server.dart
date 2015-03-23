@@ -41,14 +41,14 @@ listenForRequests(HttpServer requests) async {
           defaultHandler(request);
           break;
       }
-      print('No more requests.');
     }
+    print('No more requests.');
   } catch (e) {
     print(e.toString());
   }
 }
 
-handlePost(HttpRequest request)  async {
+handlePost(HttpRequest request) async {
   StringBuffer data = new StringBuffer();
 
   addCorsHeaders(request.response);

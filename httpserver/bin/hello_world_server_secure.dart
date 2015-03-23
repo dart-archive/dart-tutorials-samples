@@ -14,9 +14,8 @@ main() async {
   SecureSocket.initialize(
       database: testPkcertDatabase, password: 'dartdart');
 
-  var requests = await HttpServer
-      .bindSecure('localhost', 4047,
-          certificateName: 'localhost_cert');
+  var requests = await HttpServer.bindSecure('localhost', 4047,
+      certificateName: 'localhost_cert');
   print('listening');
   await for (HttpRequest request in requests) {
     request.response.write('Hello, world!');
