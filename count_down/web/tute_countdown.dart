@@ -49,7 +49,7 @@ class CountDownComponent extends PolymerElement {
   attached() async {
     super.attached();
     try {
-      appObject.start(); // Returns a future.
+      await appObject.start();
     } catch (e) {
       ($['addbutton'] as ButtonElement).disabled = true;
       ($['clearbutton'] as ButtonElement).disabled = true;

@@ -52,7 +52,7 @@ packages:
   initialize:
     description: initialize
     source: hosted
-    version: "0.5.1+8"
+    version: "0.6.0"
   logging:
     description: logging
     source: hosted
@@ -68,7 +68,7 @@ packages:
   polymer:
     description: polymer
     source: hosted
-    version: "0.16.0+6"
+    version: "0.16.0+7"
   polymer_expressions:
     description: polymer_expressions
     source: hosted
@@ -112,7 +112,7 @@ packages:
   web_components:
     description: web_components
     source: hosted
-    version: "0.11.0"
+    version: "0.11.1"
   when:
     description: when
     source: hosted
