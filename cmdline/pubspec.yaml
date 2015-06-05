@@ -1,4 +1,4 @@
 name: cmdline
 description: A sample application
 dependencies:
-  args: ^0.10.0+2
+  args: ^0.10.0

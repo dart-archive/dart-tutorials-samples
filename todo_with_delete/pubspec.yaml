@@ -1,4 +1,4 @@
 name: todo_with_delete
 description: A sample application
 dependencies:
-  browser: ^0.10.0+2
+  browser: ^0.10.0
