@@ -11,13 +11,12 @@
 import 'dart:io';
 import 'package:http_server/http_server.dart';
 
-void main() {
-
+main() async {
   VirtualDirectory staticFiles = new VirtualDirectory('.');
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4046).then((server) {
-    server.listen((req) {
-      staticFiles.serveFile(new File('index.html'), req);
-    });
-  });
+  var serverRequests =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4046);
+  await for (var request in serverRequests) {
+    staticFiles.serveFile(new File('index.html'), request);
+  }
 }

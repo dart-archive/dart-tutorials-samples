@@ -1,12 +1,10 @@
 import 'dart:io';
 import 'dart:async';
 
-void printDailyNewsDigest() {
+Future printDailyNewsDigest() async {
   File file = new File("dailyNewsDigest.txt");
-  Future future = file.readAsString();
-  future.then((content) {
-    print(content);
-  });
+  var content = await file.readAsString();
+  print(content);
 }
 
 void main() {

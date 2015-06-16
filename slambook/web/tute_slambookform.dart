@@ -8,29 +8,31 @@ import 'package:polymer/polymer.dart';
 
 @CustomTag('tute-slambook-form')
 class SlamBookComponent extends FormElement with Polymer, Observable {
-  
-  SlamBookComponent.created() : super.created() { 
+  SlamBookComponent.created() : super.created() {
     polymerCreated();
   }
-  
+
   @observable String firstName = "mem";
-  
+
   // Set up the maps for the form and give initial values.
   // Boolean values in this map are bound with bind-checked to checkboxes.
   @observable Map<String, bool> favoriteThings = toObservable({
-    'kittens': true, 'raindrops': false,
-    'mittens': true, 'kettles': false});
-  
+    'kittens': true,
+    'raindrops': false,
+    'mittens': true,
+    'kettles': false
+  });
+
   // This map contains the rest of the forma data.
   @observable Map theData = toObservable({
-    'firstName':      'mem',
-    'favoriteQuote':  'Enjoy all your meals.',
-    'favoriteColor':  '#4169E1',
-    'birthday':       '1963-08-30',
-    'volume':         '11', //I want this to be bound to an integer!
-    'catOrDog':       'dog',
-    'music':          2,
-    'zombies':        true
+    'firstName': 'mem',
+    'favoriteQuote': 'Enjoy all your meals.',
+    'favoriteColor': '#4169E1',
+    'birthday': '1963-08-30',
+    'volume': '11', //I want this to be bound to an integer!
+    'catOrDog': 'dog',
+    'music': 2,
+    'zombies': true
     // Add favoriteThings later...can't do it here...there is no this.
   });
 
@@ -39,21 +41,21 @@ class SlamBookComponent extends FormElement with Polymer, Observable {
 
   void submitForm(Event e, var detail, Node target) {
     e.preventDefault(); // Don't do the default submit.
-       
+
     request = new HttpRequest();
-    
-    request.onReadyStateChange.listen(onData); 
-    
+
+    request.onReadyStateChange.listen(onData);
+
     // POST the data to the server.
     var url = 'http://127.0.0.1:4040';
     request.open('POST', url);
     request.send(_slambookAsJsonData());
   }
-  
+
   void catOrDog(Event e, var detail, Element target) {
     theData['catOrDog'] = (target as RadioButtonInputElement).value;
   }
-  
+
   void onData(_) {
     if (request.readyState == HttpRequest.DONE &&
         request.status == 200) {
@@ -65,16 +67,16 @@ class SlamBookComponent extends FormElement with Polymer, Observable {
       serverResponse = 'No server';
     }
   }
-   
+
   void resetForm(Event e, var detail, Node target) {
     e.preventDefault(); // Default behavior clears elements,
-                        // but bound values don't follow
-                        // so have to do this explicitly.
+    // but bound values don't follow
+    // so have to do this explicitly.
     favoriteThings['kittens'] = false;
     favoriteThings['raindrops'] = false;
     favoriteThings['mittens'] = false;
     favoriteThings['kettles'] = false;
-    
+
     theData['firstName'] = '';
     theData['favoriteQuote'] = '';
     theData['favoriteColor'] = '#FFFFFF';
@@ -85,7 +87,7 @@ class SlamBookComponent extends FormElement with Polymer, Observable {
     theData['zombies'] = false;
     serverResponse = 'Data cleared.';
   }
-  
+
   String _slambookAsJsonData() {
     // Put favoriteThings in the map.
     theData['favoriteThings'] = favoriteThings;

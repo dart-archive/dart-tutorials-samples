@@ -28,10 +28,10 @@ void main() {
   letterpile = querySelector("#letterpile");
   result = querySelector("#result");
   value = querySelector("#value");
-  
+
   clearButton = querySelector("#clearButton");
   clearButton.onClick.listen(newletters);
-  
+
   generateNewLetters();
 }
 

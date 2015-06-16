@@ -9,7 +9,7 @@ import 'dart:io';
 import 'package:http_server/http_server.dart';
 import 'package:path/path.dart';
 
-void main() {
+main() async {
   var pathToBuild = join(dirname(Platform.script.toFilePath()));
 
   var staticFiles = new VirtualDirectory(pathToBuild);
@@ -19,7 +19,8 @@ void main() {
     staticFiles.serveFile(new File(indexUri.toFilePath()), request);
   };
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4048).then((server) {
-    server.listen(staticFiles.serveRequest);
-  });
+  var server = await HttpServer
+      .bind(InternetAddress.LOOPBACK_IP_V4, 4048);
+  server.listen(staticFiles.serveRequest);
+  print('Listening on port 4048');
 }

@@ -6,7 +6,7 @@ import 'dart:html' show LIElement;
 import 'package:polymer/polymer.dart';
 
 @CustomTag('my-li')
-class MyListElement extends LIElement with Polymer, Observable {  
+class MyListElement extends LIElement with Polymer, Observable {
   MyListElement.created() : super.created() {
     polymerCreated();
   }

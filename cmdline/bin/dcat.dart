@@ -28,7 +28,7 @@ ArgResults argResults;
 void main(List<String> arguments) {
   exitCode = 0; //presume success.
   final parser = new ArgParser()
-      ..addFlag(LINE_NUMBER, negatable: false, abbr: 'n');
+    ..addFlag(LINE_NUMBER, negatable: false, abbr: 'n');
 
   argResults = parser.parse(arguments);
   List<String> paths = argResults.rest;
@@ -36,34 +36,36 @@ void main(List<String> arguments) {
   dcat(paths, argResults[LINE_NUMBER]);
 }
 
-Future dcat(List<String> paths, bool showLineNumbers) {
+Future dcat(List<String> paths, bool showLineNumbers) async {
   if (paths.isEmpty) {
     // No files provided as arguments. Read from stdin and print each line.
-    return stdin.pipe(stdout);
+    stdin.pipe(stdout);
   } else {
-    return Future.forEach(paths, (path) {
+    for (var path in paths) {
       int lineNumber = 1;
-      Stream<List<int>> stream = new File(path).openRead();
-      return stream
+      Stream lines = new File(path)
+          .openRead()
           .transform(UTF8.decoder)
-          .transform(const LineSplitter())
-          .listen((line) {
-            if (showLineNumbers) {
-              stdout.write('${lineNumber++} ');
-            }
-            stdout.writeln(line);
-          }).asFuture().catchError((_) => _handleError(path));
-    });
+          .transform(const LineSplitter());
+      try {
+        await for (var line in lines) {
+          if (showLineNumbers) {
+            stdout.write('${lineNumber++} ');
+          }
+          stdout.writeln(line);
+        }
+      } catch (_) {
+        _handleError(path);
+      }
+    }
   }
 }
 
-_handleError(String path) {
-  FileSystemEntity.isDirectory(path).then((isDir) {
-    if (isDir) {
-      stderr.writeln('error: $path is a directory');
-    } else {
-      stderr.writeln('error: $path not found');
-    }
-  });
+Future _handleError(String path) async {
+  if (await FileSystemEntity.isDirectory(path)) {
+    stderr.writeln('error: $path is a directory');
+  } else {
+    stderr.writeln('error: $path not found');
+  }
   exitCode = 2;
 }

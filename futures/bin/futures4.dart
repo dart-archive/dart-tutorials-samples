@@ -1,10 +1,9 @@
-import 'dart:io';
 import 'dart:async';
 
-void main() {
-  expensiveA().then((aValue) => expensiveB()) 
-              .then((bValue) => expensiveC()) 
-              .then((cValue) => doSomethingWith(cValue));
+main() async {
+  await expensiveA();
+  await expensiveB();
+  doSomethingWith(await expensiveC());
 }
 
 Future expensiveA() => new Future.value('from expensiveA');
