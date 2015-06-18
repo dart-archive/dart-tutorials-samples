@@ -24,10 +24,13 @@ main() async {
     File file = new File('index.html');
     if (await file.exists()) {
       print("Serving index.html.");
-      req.response.headers.contentType =
-          ContentType.HTML; // XXX should I do this?
-      file.openRead().pipe(req.response) // HttpResponse type.
-          .catchError((e) => print(e.toString()));
+      req.response.headers.contentType = ContentType.HTML;
+      try {
+        await file.openRead().pipe(req.response); // HttpResponse type.
+      } catch(e) {
+        print("Couldn't read file: $e");
+        exit(-1);
+      }
     } else {
       print("Can't open index.html.");
       req.response.statusCode = HttpStatus.NOT_FOUND;
