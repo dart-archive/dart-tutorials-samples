@@ -6,6 +6,7 @@
 // Use note_taker.html to run the client.
 
 import 'dart:io';
+import 'dart:async';
 import 'dart:convert' show JSON;
 
 int count = 0;
@@ -16,10 +17,10 @@ main() async {
     List<String> lines = new File('notes.txt').readAsLinesSync();
     count = lines.length;
     
-    var _server = await HttpServer
+    var server = await HttpServer
       .bind(InternetAddress.LOOPBACK_IP_V4, 4042);
     print('Listening for requests on 4042.');
-    await listenForRequests(_server);
+    await listenForRequests(server);
   } on FileSystemException {
     print('Could not open notes.txt');
   } catch (e) {
@@ -27,7 +28,7 @@ main() async {
   }
 }
 
-listenForRequests(HttpServer requests) async {
+Future listenForRequests(HttpServer requests) async {
   try {
     await for (HttpRequest request in requests) {
       switch (request.method) {
@@ -86,7 +87,7 @@ saveNote(HttpRequest request, String myNote) {
   }
 }
 
-getNote(HttpRequest req, String getNote) {
+getNote(HttpRequest request, String getNote) {
   int requestedNote = int.parse(getNote, onError: (_) {
     print('error');
   });
@@ -95,9 +96,9 @@ getNote(HttpRequest req, String getNote) {
   }
   if (requestedNote >= 0 && requestedNote < count) {
     List<String> lines = new File('notes.txt').readAsLinesSync();
-    req.response.statusCode = HttpStatus.OK;
-    req.response.writeln(lines[requestedNote]);
-    req.response.close();
+    request.response.statusCode = HttpStatus.OK;
+    request.response.writeln(lines[requestedNote]);
+    request.response.close();
   }
 }
 

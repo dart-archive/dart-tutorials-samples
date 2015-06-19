@@ -32,12 +32,11 @@ main() async {
         Map jsonData = JSON.decode(jsonString);
         req.response.statusCode = HttpStatus.OK;
         req.response.write('Wrote data for ${jsonData['name']}.');
-        req.response.close();
       }
     } else {
       req.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
       req.response.write("Unsupported request: ${req.method}.");
-      req.response.close();
     }
+    req.response.close();
   }
 }
