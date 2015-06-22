@@ -38,9 +38,8 @@ void handleRequest(HttpRequest request) {
     }
   } catch (e) {
     print('Exception in handleRequest: $e');
-  } finally {
-    print('Request handled.');
   }
+  print('Request handled.');
 }
 
 void handleGet(HttpRequest request) {

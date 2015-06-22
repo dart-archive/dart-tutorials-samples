@@ -20,10 +20,8 @@ main() async {
         contentType != null &&
         contentType.mimeType == 'application/json') {
       try {
-        await for (var buffer in req) {
-          builder.add(buffer);
-        }
-      } finally {
+        await for (var buffer in req) builder.add(buffer);
+
         // Write to a file, get the file name from the URI.
         String jsonString = UTF8.decode(builder.takeBytes());
         String filename = req.uri.pathSegments.last;
@@ -32,11 +30,16 @@ main() async {
         Map jsonData = JSON.decode(jsonString);
         req.response.statusCode = HttpStatus.OK;
         req.response.write('Wrote data for ${jsonData['name']}.');
+        req.response.close();
+      } catch (e) {
+        req.response.statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
+        req.response.write("Exception during file I/O: $e.");
+        req.response.close();
       }
     } else {
       req.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
       req.response.write("Unsupported request: ${req.method}.");
+      req.response.close();
     }
-    req.response.close();
   }
 }
