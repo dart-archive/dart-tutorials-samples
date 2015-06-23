@@ -14,8 +14,9 @@ main() async {
 
   try {
     await for (HttpRequest request in requestServer) {
-      request.response.write('Hello, world!');
-      request.response.close();
+      request.response
+        ..write('Hello, world!')
+        ..close();
     }
   } catch (e) {
     print(e.toString());

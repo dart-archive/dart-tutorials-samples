@@ -26,15 +26,18 @@ main() async {
       print("Serving index.html.");
       req.response.headers.contentType = ContentType.HTML;
       try {
-        await file.openRead().pipe(req.response); // HttpResponse type.
-      } catch(e) {
+        await file
+            .openRead()
+            .pipe(req.response); // HttpResponse type.
+      } catch (e) {
         print("Couldn't read file: $e");
         exit(-1);
       }
     } else {
       print("Can't open index.html.");
-      req.response.statusCode = HttpStatus.NOT_FOUND;
-      req.response.close();
+      req.response
+        ..statusCode = HttpStatus.NOT_FOUND
+        ..close();
     }
   }
 }

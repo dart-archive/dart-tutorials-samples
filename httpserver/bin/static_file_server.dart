@@ -19,8 +19,8 @@ main() async {
     staticFiles.serveFile(new File(indexUri.toFilePath()), request);
   };
 
-  var server = await HttpServer
-      .bind(InternetAddress.LOOPBACK_IP_V4, 4048);
-  server.listen(staticFiles.serveRequest);
+  var server =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4048);
+  server.forEach(staticFiles.serveRequest);
   print('Listening on port 4048');
 }
