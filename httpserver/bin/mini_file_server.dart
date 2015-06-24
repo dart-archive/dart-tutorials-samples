@@ -9,20 +9,33 @@
 
 import 'dart:io';
 
-main() {
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044).then((server) {
-    server.listen((HttpRequest req) {
-      File file = new File('index.html');
-      file.exists().then((bool found) {
-        if (found) {
-          file.openRead()
-              .pipe(req.response)  // HttpResponse type.
-              .catchError((e) => print(e.toString()));
-        } else {
-          req.response.statusCode = HttpStatus.NOT_FOUND;
-          req.response.close();
-        }
-      });
-    });
-  });
+main() async {
+  var server;
+
+  try {
+    server =
+        await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
+  } catch (e) {
+    print("Couldn't bind to port 4044: $e");
+    exit(-1);
+  }
+
+  await for (HttpRequest req in server) {
+    var file = new File('index.html');
+    if (await file.exists()) {
+      print("Serving index.html.");
+      req.response.headers.contentType = ContentType.HTML;
+      try {
+        await file.openRead().pipe(req.response);
+      } catch (e) {
+        print("Couldn't read file: $e");
+        exit(-1);
+      }
+    } else {
+      print("Can't open index.html.");
+      req.response
+        ..statusCode = HttpStatus.NOT_FOUND
+        ..close();
+    }
+  }
 }

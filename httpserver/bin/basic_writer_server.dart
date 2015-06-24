@@ -9,36 +9,35 @@
 import 'dart:io';
 import 'dart:convert';
 
-void main() {
+main() async {
+  var server =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049);
+  await for (var req in server) {
+    ContentType contentType = req.headers.contentType;
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049).then((server) {
-    server.listen((req) {
+    if (req.method == 'POST' &&
+        contentType != null &&
+        contentType.mimeType == 'application/json') {
+      try {
+        var jsonString = await req.transform(UTF8.decoder).join();
 
-      ContentType contentType = req.headers.contentType;
-      BytesBuilder builder = new BytesBuilder();
-
-      if (req.method == 'POST' &&
-          contentType != null &&
-          contentType.mimeType == 'application/json') {
-        req.listen((buffer) {
-          builder.add(buffer);
-        }, onDone: () {
-          // Write to a file, get the file name from the URI.
-          String jsonString = UTF8.decode(builder.takeBytes());
-          String filename = req.uri.pathSegments.last;
-          new File(filename).writeAsString(jsonString,
-              mode: FileMode.WRITE).then((_) {
-            Map jsonData = JSON.decode(jsonString);
-            req.response.statusCode = HttpStatus.OK;
-            req.response.write('Wrote data for ${jsonData['name']}.');
-            req.response.close();
-          });
-        });
-      } else {
-        req.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
-        req.response.write("Unsupported request: ${req.method}.");
-        req.response.close();
+        // Write to a file, get the file name from the URI.
+        var filename = req.uri.pathSegments.last;
+        await new File(filename).writeAsString(jsonString,
+            mode: FileMode.WRITE);
+        Map jsonData = JSON.decode(jsonString);
+        req.response..statusCode = HttpStatus.OK
+                    ..write('Wrote data for ${jsonData['name']}.')
+                    ..close();
+      } catch (e) {
+        req.response..statusCode = HttpStatus.INTERNAL_SERVER_ERROR
+                    ..write("Exception during file I/O: $e.")
+                    ..close();
       }
-    });
-  });
+    } else {
+      req.response..statusCode = HttpStatus.METHOD_NOT_ALLOWED
+                  ..write("Unsupported request: ${req.method}.")
+                  ..close();
+    }
+  }
 }

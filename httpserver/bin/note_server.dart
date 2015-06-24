@@ -6,22 +6,28 @@
 // Use note_taker.html to run the client.
 
 import 'dart:io';
-import 'dart:convert' show JSON;
+import 'dart:convert' show UTF8, JSON;
 
 int count = 0;
 
-void main() {
+main() async {
   // One note per line.
-  List<String> lines = new File('notes.txt').readAsLinesSync();
-  count = lines.length;
+  try {
+    List<String> lines = new File('notes.txt').readAsLinesSync();
+    count = lines.length;
+  } on FileSystemException {
+    print('Could not open notes.txt.');
+    return;
+  }
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4042)
-      .then(listenForRequests)
-      .catchError((e) => print('hello: ${e.toString()}'));
+  var server =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4042);
+  print('Listening for requests on 4042.');
+  await listenForRequests(server);
 }
 
-listenForRequests(_server) {
-  _server.listen((HttpRequest request) {
+listenForRequests(HttpServer requests) async {
+  await for (HttpRequest request in requests) {
     switch (request.method) {
       case 'POST':
         handlePost(request);
@@ -33,41 +39,50 @@ listenForRequests(_server) {
         defaultHandler(request);
         break;
     }
-  },
-  onDone: () => print('No more requests.'),
-  onError: (e ) => print(e.toString()));
+  }
+  print('No more requests.');
 }
 
-void handlePost(HttpRequest req) {
-  StringBuffer data = new StringBuffer();
+handlePost(HttpRequest request) async {
+  var decoded;
 
-  addCorsHeaders(req.response);
+  addCorsHeaders(request.response);
 
-  req.listen((buffer) {
-    data.write(new String.fromCharCodes(buffer));
-  }, onDone: () {
-    var decoded = JSON.decode(data.toString());
+  try {
+    decoded = await request
+        .transform(UTF8.decoder.fuse(JSON.decoder)).first;
+  } catch (e) {
+    print('Request listen error: $e');
+    return;
+  }
 
-    if (decoded.containsKey('myNote')) {
-      saveNote(req, '${decoded["myNote"]}\n');
-    } else { // 'getNote'
-      getNote(req, decoded['getNote']);
-    }
-  }, onError: (_) {
-    print('Request listen error.');
-  });
+  if (decoded.containsKey('myNote')) {
+    saveNote(request, "${decoded['myNote']}\n");
+  } else {
+    getNote(request, decoded['getNote']);
+  }
 }
 
-saveNote(HttpRequest req, String myNote) {
-  new File('notes.txt').writeAsStringSync(myNote, mode: FileMode.APPEND);
+void saveNote(HttpRequest request, String myNote) {
+  try {
+    new File('notes.txt').writeAsStringSync(myNote,
+        mode: FileMode.APPEND);
+  } catch (e) {
+    print('Couldn\'t open notes.txt: $e');
+    request.response..statusCode = HttpStatus.INTERNAL_SERVER_ERROR
+                    ..writeln('Couldn\'t save note.')
+                    ..close();
+    return;
+  }
+
   count++;
-  req.response.statusCode = HttpStatus.OK;
-  req.response.writeln('You have $count notes.');
-  req.response.close();
+  request.response..statusCode = HttpStatus.OK
+                  ..writeln('You have $count notes.')
+                  ..close();
 }
 
-getNote(HttpRequest req, String getNote) {
-  int requestedNote = int.parse(getNote, onError: (_) {
+void getNote(HttpRequest request, String getNote) {
+  var requestedNote = int.parse(getNote, onError: (_) {
     print('error');
   });
   if (requestedNote == null) {
@@ -75,31 +90,35 @@ getNote(HttpRequest req, String getNote) {
   }
   if (requestedNote >= 0 && requestedNote < count) {
     List<String> lines = new File('notes.txt').readAsLinesSync();
-    req.response.statusCode = HttpStatus.OK;
-    req.response.writeln(lines[requestedNote]);
-    req.response.close();
+    request.response
+      ..statusCode = HttpStatus.OK
+      ..writeln(lines[requestedNote])
+      ..close();
   }
 }
 
-void defaultHandler(HttpRequest req) {
-  HttpResponse res = req.response;
-  addCorsHeaders(res);
-  res.statusCode = HttpStatus.NOT_FOUND;
-  res.write('Not found: ${req.method}, ${req.uri.path}');
-  res.close();
+void defaultHandler(HttpRequest request) {
+  var response = request.response;
+  addCorsHeaders(response);
+  response
+    ..statusCode = HttpStatus.NOT_FOUND
+    ..write('Not found: ${request.method}, ${request.uri.path}')
+    ..close();
 }
 
-void handleOptions(HttpRequest req) {
-  HttpResponse res = req.response;
-  addCorsHeaders(res);
-  print('${req.method}: ${req.uri.path}');
-  res.statusCode = HttpStatus.NO_CONTENT;
-  res.close();
+void handleOptions(HttpRequest request) {
+  var response = request.response;
+  addCorsHeaders(response);
+  print('${request.method}: ${request.uri.path}');
+  response
+    ..statusCode = HttpStatus.NO_CONTENT
+    ..close();
 }
 
-void addCorsHeaders(HttpResponse res) {
-  res.headers.add('Access-Control-Allow-Origin', '*');
-  res.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.headers.add('Access-Control-Allow-Headers',
+void addCorsHeaders(HttpResponse response) {
+  response.headers.add('Access-Control-Allow-Origin', '*');
+  response.headers.add(
+      'Access-Control-Allow-Methods', 'POST, OPTIONS');
+  response.headers.add('Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept');
 }

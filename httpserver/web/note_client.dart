@@ -50,14 +50,16 @@ void requestNote(Event e) {
 }
 
 void onData(_) {
-  if (request.readyState == HttpRequest.DONE && request.status == 200) {
+  if (request.readyState == HttpRequest.DONE &&
+      request.status == 200) {
     if (request.responseText.startsWith('You')) {
       howManyNotes.text = request.responseText;
     } else {
       displayNote.text = request.responseText;
     }
-  } else if (request.readyState == HttpRequest.DONE && request.status == 0) {
-    // Status is 0...most likely the server isn't running.
+  } else if (request.readyState == HttpRequest.DONE &&
+      request.status == 0) {
+    // Status is 0; most likely the server isn't running.
     howManyNotes.text = 'No server';
   }
 }

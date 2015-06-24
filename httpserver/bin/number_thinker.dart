@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Use the client program, number_guesser.dart to automatically make guesses.
-// Or, you can manually guess the number using the URL localhost:4045/?#,
+// Or, you can manually guess the number using the URL localhost:4045/?q=#,
 // where # is your guess.
 // Or, you can use the make_a_guess.html UI.
 
@@ -12,39 +12,45 @@ import 'dart:math' show Random;
 
 int myNumber = new Random().nextInt(10);
 
-void main() {
-  print("I'm thinking of a number. $myNumber");
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041)
-            .then(listenForRequests)
-            .catchError((e) => print (e.toString()));
+main() async {
+  print("I'm thinking of a number: $myNumber");
+
+  HttpServer requestServer =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041);
+  await for (var request in requestServer) {
+    handleRequest(request);
+  }
 }
 
-listenForRequests(HttpServer _server) {
-  _server.listen((HttpRequest request) {
+void handleRequest(HttpRequest request) {
+  try {
     if (request.method == 'GET') {
       handleGet(request);
     } else {
-      request.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
-      request.response.write("Unsupported request: ${request.method}.");
-      request.response.close();
+      request.response
+        ..statusCode = HttpStatus.METHOD_NOT_ALLOWED
+        ..write('Unsupported request: ${request.method}.')
+        ..close();
     }
-  },
-  onDone: () => print('No more requests.'),
-  onError: (e) => print(e.toString()) );
+  } catch (e) {
+    print('Exception in handleRequest: $e');
+  }
+  print('Request handled.');
 }
 
 void handleGet(HttpRequest request) {
-  String guess = request.uri.queryParameters['q'];
-  print(guess);
+  var guess = request.uri.queryParameters['q'];
   request.response.statusCode = HttpStatus.OK;
   if (guess == myNumber.toString()) {
-    request.response.writeln('true');
-    request.response.writeln("I'm thinking of another number.");
-    request.response.close();
+    request.response
+      ..writeln('true')
+      ..writeln("I'm thinking of another number.")
+      ..close();
     myNumber = new Random().nextInt(10);
     print("I'm thinking of another number: $myNumber");
   } else {
-    request.response.writeln('false');
-    request.response.close();
+    request.response
+      ..writeln('false')
+      ..close();
   }
 }
