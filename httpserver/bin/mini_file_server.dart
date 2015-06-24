@@ -33,9 +33,8 @@ main() async {
       }
     } else {
       print("Can't open index.html.");
-      req.response
-        ..statusCode = HttpStatus.NOT_FOUND
-        ..close();
+      req.response..statusCode = HttpStatus.NOT_FOUND
+                  ..close();
     }
   }
 }

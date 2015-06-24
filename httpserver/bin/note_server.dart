@@ -90,29 +90,26 @@ void getNote(HttpRequest request, String getNote) {
   }
   if (requestedNote >= 0 && requestedNote < count) {
     List<String> lines = new File('notes.txt').readAsLinesSync();
-    request.response
-      ..statusCode = HttpStatus.OK
-      ..writeln(lines[requestedNote])
-      ..close();
+    request.response..statusCode = HttpStatus.OK
+                    ..writeln(lines[requestedNote])
+                    ..close();
   }
 }
 
 void defaultHandler(HttpRequest request) {
   var response = request.response;
   addCorsHeaders(response);
-  response
-    ..statusCode = HttpStatus.NOT_FOUND
-    ..write('Not found: ${request.method}, ${request.uri.path}')
-    ..close();
+  response..statusCode = HttpStatus.NOT_FOUND
+          ..write('Not found: ${request.method}, ${request.uri.path}')
+          ..close();
 }
 
 void handleOptions(HttpRequest request) {
   var response = request.response;
   addCorsHeaders(response);
   print('${request.method}: ${request.uri.path}');
-  response
-    ..statusCode = HttpStatus.NO_CONTENT
-    ..close();
+  response..statusCode = HttpStatus.NO_CONTENT
+          ..close();
 }
 
 void addCorsHeaders(HttpResponse response) {

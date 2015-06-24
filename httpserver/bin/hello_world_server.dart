@@ -13,8 +13,7 @@ main() async {
   print('listening on localhost, port ${requestServer.port}');
 
   await for (HttpRequest request in requestServer) {
-    request.response
-      ..write('Hello, world!')
-      ..close();
+    request.response..write('Hello, world!')
+                    ..close();
   }
 }
