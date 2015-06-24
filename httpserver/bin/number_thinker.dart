@@ -15,14 +15,10 @@ int myNumber = new Random().nextInt(10);
 main() async {
   print("I'm thinking of a number: $myNumber");
 
-  try {
-    HttpServer requestServer =
-        await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041);
-    await for (var request in requestServer) {
-      handleRequest(request);
-    }
-  } catch (e) {
-    print('Exception in main: $e');
+  HttpServer requestServer =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041);
+  await for (var request in requestServer) {
+    handleRequest(request);
   }
 }
 
@@ -43,7 +39,7 @@ void handleRequest(HttpRequest request) {
 }
 
 void handleGet(HttpRequest request) {
-  String guess = request.uri.queryParameters['q'];
+  var guess = request.uri.queryParameters['q'];
   request.response.statusCode = HttpStatus.OK;
   if (guess == myNumber.toString()) {
     request.response

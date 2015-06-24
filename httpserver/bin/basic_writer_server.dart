@@ -22,25 +22,22 @@ main() async {
         var jsonString = await req.transform(UTF8.decoder).join();
 
         // Write to a file, get the file name from the URI.
-        String filename = req.uri.pathSegments.last;
+        var filename = req.uri.pathSegments.last;
         await new File(filename).writeAsString(jsonString,
             mode: FileMode.WRITE);
         Map jsonData = JSON.decode(jsonString);
-        req.response
-          ..statusCode = HttpStatus.OK
-          ..write('Wrote data for ${jsonData['name']}.')
-          ..close();
+        req.response..statusCode = HttpStatus.OK
+                    ..write('Wrote data for ${jsonData['name']}.')
+                    ..close();
       } catch (e) {
-        req.response
-          ..statusCode = HttpStatus.INTERNAL_SERVER_ERROR
-          ..write("Exception during file I/O: $e.")
-          ..close();
+        req.response..statusCode = HttpStatus.INTERNAL_SERVER_ERROR
+                    ..write("Exception during file I/O: $e.")
+                    ..close();
       }
     } else {
-      req.response
-        ..statusCode = HttpStatus.METHOD_NOT_ALLOWED
-        ..write("Unsupported request: ${req.method}.")
-        ..close();
+      req.response..statusCode = HttpStatus.METHOD_NOT_ALLOWED
+                  ..write("Unsupported request: ${req.method}.")
+                  ..close();
     }
   }
 }

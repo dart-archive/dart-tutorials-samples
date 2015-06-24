@@ -21,14 +21,12 @@ main() async {
   }
 
   await for (HttpRequest req in server) {
-    File file = new File('index.html');
+    var file = new File('index.html');
     if (await file.exists()) {
       print("Serving index.html.");
       req.response.headers.contentType = ContentType.HTML;
       try {
-        await file
-            .openRead()
-            .pipe(req.response); // HttpResponse type.
+        await file.openRead().pipe(req.response);
       } catch (e) {
         print("Couldn't read file: $e");
         exit(-1);

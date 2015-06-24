@@ -26,14 +26,13 @@ makeGuess(_) async {
   print('Guess is $aRandomNumber.');
   HttpClientResponse response = await request.close();
   if (response.statusCode == HttpStatus.OK) {
-    await for (var contents in response.transform(UTF8.decoder)) {
-      if (contents.toString().startsWith('true')) {
-        client.close();
-        print('yay');
-        exit(0);
-      } else {
-        print('boo');
-      }
+    var contents = await response.transform(UTF8.decoder).join();
+    if (contents.startsWith('true')) {
+      client.close();
+      print('yay');
+      exit(0);
+    } else {
+      print('boo');
     }
   }
 }

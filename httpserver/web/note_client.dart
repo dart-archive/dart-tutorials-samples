@@ -59,7 +59,7 @@ void onData(_) {
     }
   } else if (request.readyState == HttpRequest.DONE &&
       request.status == 0) {
-    // Status is 0...most likely the server isn't running.
+    // Status is 0; most likely the server isn't running.
     howManyNotes.text = 'No server';
   }
 }
