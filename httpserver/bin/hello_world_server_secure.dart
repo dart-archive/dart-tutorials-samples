@@ -18,8 +18,7 @@ main() async {
       certificateName: 'localhost_cert');
   print('listening');
   await for (HttpRequest request in requests) {
-    request.response
-      ..write('Hello, world!')
-      ..close();
+    request.response..write('Hello, world!')
+                    ..close();
   }
 }
