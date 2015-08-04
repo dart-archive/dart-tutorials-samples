@@ -1,4 +1,0 @@
-name: portmanteaux
-description: A sample application
-dependencies:
-  browser: ^0.10.0
