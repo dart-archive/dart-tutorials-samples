@@ -2,3 +2,5 @@ name: mini_with_style
 description: A sample application
 dependencies:
   browser: ^0.10.0
+
+homepage: http://gist.github.com/Sfshaza/87b31cee5b57c3678429

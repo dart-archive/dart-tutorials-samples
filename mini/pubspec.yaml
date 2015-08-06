@@ -2,3 +2,5 @@ name: mini
 description: A sample application
 dependencies:
   browser: ^0.10.0
+
+homepage: http://gist.github.com/Sfshaza/43e6160a9cde397e1907

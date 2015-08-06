@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   background-color: WhiteSmoke;
   margin: 15px;
+  color: black;
 }
 
 #to-do-input {
@@ -24,4 +25,3 @@ body {
   padding:5px 0px 5px 5px;
   border-bottom: 1px dotted Silver;
 }
-

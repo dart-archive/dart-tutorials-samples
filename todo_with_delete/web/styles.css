@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   background-color: WhiteSmoke;
   margin: 15px;
+  color: black;
 }
 
 #to-do-input {
@@ -15,23 +16,23 @@ body {
 }
 
 #to-do-list {
-  padding:0px;
-  margin:0px;
-  list-style-position:inside;
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
 }
 
 #to-do-list li {
-  padding:5px 0px 5px 5px;
+  padding: 5px 0px 5px 5px;
   border-bottom: 1px dotted Silver;
 }
 
 #to-do-list li:hover {
   color: red;
-  font-size: 18px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 #delete-all {
+  margin-top: 8px;
   background-color: #F8F8F8;
   border: 1px dotted #ccc;
   border-radius: 1em;

@@ -1,12 +1,13 @@
-// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
+// Copyright (c) 2012, the Dart project authors.  Please see the
+// AUTHORS file for details. All rights reserved. Use of this
+// source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 
 import 'dart:html';
 import 'dart:math';
 
-// Should remove tiles from here when they are selected otherwise the ratio
-// is off.
+// Should remove tiles from here when they are selected otherwise
+// the ratio is off.
 
 String scrabbleLetters = 'aaaaaaaaabbccddddeeeeeeeeeeeeffggghhiiiiiiiiijkllllmmnnnnnnooooooooppqrrrrrrssssttttttuuuuvvwwxyyz**';
 
@@ -28,10 +29,10 @@ void main() {
   letterpile = querySelector("#letterpile");
   result = querySelector("#result");
   value = querySelector("#value");
-  
+
   clearButton = querySelector("#clearButton");
   clearButton.onClick.listen(newletters);
-  
+
   generateNewLetters();
 }
 
@@ -60,8 +61,10 @@ generateNewLetters() {
   value.text = '';
   buttons.clear();
   for (var i = 0; i < 7; i++) {
-    int letterIndex = indexGenerator.nextInt(scrabbleLetters.length);
-    // should remove the letter from scrabbleLetters to keep the ratio correct
+    int letterIndex =
+        indexGenerator.nextInt(scrabbleLetters.length);
+    // Should remove the letter from scrabbleLetters to keep the
+    // ratio correct.
     buttons.add(new ButtonElement());
     buttons[i].classes.add("letter");
     buttons[i].onClick.listen(moveLetter);
@@ -69,4 +72,3 @@ generateNewLetters() {
     letterpile.children.add(buttons[i]);
   }
 }
-
