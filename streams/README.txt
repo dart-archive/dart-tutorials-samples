@@ -1,8 +1,6 @@
-The source code for these examples lives in the corresponding
-"web" directory in order to work with DartPad.
-Because these examples do not rely on dart:html,
-they could just as easily live in the "bin" directory.
+The source code for most of these examples is under /web 
+directories but could just as easily be under bin/ directories,
+because most of these examples don't rely on dart:io.
 
-The one exception is the "read_file" example.
-This example relies on "dart:io", so it can't be used with DartPad.
+The one exception is "read_file", which relies on dart:io.
 
