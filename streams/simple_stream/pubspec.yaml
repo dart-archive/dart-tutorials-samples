@@ -1,0 +1,6 @@
+name: simple_stream
+description: A simple application that reads integers from a stream and adds their values together.
+dependencies:
+  args: ^0.10.0
+
+homepage: http://gist.github.com/Sfshaza/6500c61e0fb3ed3ed612
