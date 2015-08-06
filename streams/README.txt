@@ -1,4 +1,4 @@
-The source code for these examples live in the corresponding
+The source code for these examples lives in the corresponding
 "web" directory in order to work with DartPad.
 Because these examples do not rely on dart:html,
 they could just as easily live in the "bin" directory.
