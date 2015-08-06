@@ -2,3 +2,5 @@ name: search_form
 description: A sample application
 dependencies:
   browser: ^0.10.0
+
+homepage: http://gist.github.com/Sfshaza/25245d5d3b09fe003cd4

@@ -5,4 +5,4 @@ dependencies:
 transformers:
 - polymer:
     entry_points:
-     - web/count_down.html
+     - web/index.html

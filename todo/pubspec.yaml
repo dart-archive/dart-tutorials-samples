@@ -2,3 +2,5 @@ name: todo
 description: A sample application
 dependencies:
   browser: ^0.10.0
+
+homepage: http://gist.github.com/Sfshaza/90b1d1d2bbf6ff3c5646

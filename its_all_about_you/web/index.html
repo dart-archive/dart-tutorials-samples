@@ -1,6 +1,8 @@
-<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-     for details. All rights reserved. Use of this source code is governed by a
-     BSD-style license that can be found in the LICENSE file.
+<!-- Copyright (c) 2012, the Dart project authors.
+     Please see the AUTHORS file for details.
+     All rights reserved. Use of this source code
+     is governed by a BSD-style license that can be
+     found in the LICENSE file.
 -->
 
 <!DOCTYPE html>
@@ -9,13 +11,74 @@
   <head>
     <meta charset="utf-8">
     <title>It's All About You</title>
-    <link rel="stylesheet" href="its_all_about_you.css">
-    <link rel="import" href="tute_its_all_about_you.html">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <h1>It's All About You</h1>
 
-    <tute-its-all-about-you></tute-its-all-about-you>
-    <script type="application/dart">export 'package:polymer/init.dart';</script>
-  </body>
+    <table>
+      <thead>
+      <tr>        <th> </th>
+        <th>Enter value</th>
+        <th>Data type</th>
+        <th>JSON string</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td align="right">Favorite number:</td>
+        <td><input type="text" id="favoriteNumber"></td>
+        <td>integer</td>
+        <td><textarea class="result" id="intAsJson" readonly></textarea></td>
+      </tr>
+
+      <tr>
+        <td align="right">Do you know pi?</td>
+        <td><input type="text" id="valueOfPi"></td>
+        <td>double</td>
+        <td><textarea class="result" id="doubleAsJson" readonly></textarea></td>
+      </tr>
+
+      <tr>
+        <td align="right">What's your sign?</td>
+        <td><input type="text" id="horoscope"></td>
+        <td>String</td>
+        <td><textarea class="result" id="stringAsJson" readonly></textarea></td>
+      </tr>
+
+      <tr>
+        <td align="right">A few of your favorite things?</td>
+        <td>
+          <input type="text" id="favOne">
+          <input type="text" id="favTwo">
+          <input type="text" id="favThree">
+        </td>
+        <td>List&lt;String&gt;</td>
+        <td><textarea class="result" id="listAsJson" readonly></textarea></td>
+      </tr>
+
+      <tr>
+        <td align="right">I love chocolate!</td>
+        <td>
+          <form>
+            <input type="radio" name="chocolate" id="loveChocolate" checked>True
+            <input type="radio" name="chocolate" id="noLoveForChocolate" checked>False
+          </form>
+        </td>
+        <td>bool</td>
+        <td><textarea class="result" id="boolAsJson" readonly> </textarea></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <div>
+      <label>All data together as a map</label><br>
+      <textarea id="mapAsJson" readonly></textarea>
+    </div>
+
+    <script type="application/dart" src="main.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+   </body>
 </html>

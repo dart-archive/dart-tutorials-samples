@@ -1,10 +1,6 @@
 name: its_all_about_you
 description: A sample application
 dependencies:
-  polymer: '>=0.15.1 <0.17.0'
-transformers:
-- polymer:
-    entry_points:
-      - web/index.html
-    inline_stylesheets:
-       web/its_all_about_you.css: false
+  browser: ^0.10.0
+
+homepage: http://gist.github.com/Sfshaza/4480228b79c978de708a

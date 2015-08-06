@@ -1,6 +1,8 @@
-// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
+// Copyright (c) 2012, the Dart project authors.  
+// Please see the AUTHORS file for details. 
+// All rights reserved. Use of this source code 
+// is governed by a BSD-style license that can be 
+// found in the LICENSE file.
 
 import 'dart:html';
 import 'dart:convert';
@@ -13,7 +15,7 @@ void main() {
 }
 
 void makeRequest(Event e) {
-  var path = 'portmanteaux.json';
+  var path = 'https://www.dartlang.org/samples-files/portmanteaux.json';
   var httpRequest = new HttpRequest();
   httpRequest
     ..open('GET', path)
