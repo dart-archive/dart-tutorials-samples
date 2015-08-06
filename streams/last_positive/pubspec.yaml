@@ -1,0 +1,6 @@
+name: last_positive
+description: A simple app that reads from an integer stream and reports the last positive value from the stream.
+dependencies:
+  args: ^0.10.0
+
+homepage: http://gist.github.com/Sfshaza/28f22ba28e2360b77f40

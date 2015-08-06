@@ -1,0 +1,4 @@
+name: read_file
+description: A simple app that reads a file (specified on the command line), decodes, and prints it out.
+dependencies:
+  args: ^0.10.0
