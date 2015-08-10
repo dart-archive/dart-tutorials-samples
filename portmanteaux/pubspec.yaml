@@ -3,6 +3,6 @@ description: A sample application
 dependencies:
   browser: ^0.10.0
 
-homepage: http://gist.github.com/Sfshaza/e1ad038d9bea1902c48e
+homepage: https://www.dartlang.org/docs/tutorials/fetchdata/
 gist: https://gist.github.com/Sfshaza/83f7779d18a8bbe8ccb1
 dartpad: https://dartpad.dartlang.org/83f7779d18a8bbe8ccb1
