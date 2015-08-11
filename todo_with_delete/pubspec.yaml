@@ -3,4 +3,6 @@ description: A sample application
 dependencies:
   browser: ^0.10.0
 
-homepage: http://gist.github.com/Sfshaza/b9f0c06f05830bc7780b
+homepage: https://www.dartlang.org/docs/tutorials/remove-elements/
+gist: https://gist.github.com/Sfshaza/582b9a8d36786566ba08
+dartpad: https://dartpad.dartlang.org/582b9a8d36786566ba08

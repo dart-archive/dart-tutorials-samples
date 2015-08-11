@@ -1,2 +1,4 @@
 name: helloworld
 description: A sample application
+
+homepage: https://www.dartlang.org/docs/tutorials/cmdline/
