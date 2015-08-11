@@ -3,6 +3,6 @@ description: A simple application that reads integers from a stream and adds the
 dependencies:
   args: ^0.10.0
 
-homepage: http://gist.github.com/Sfshaza/6500c61e0fb3ed3ed612
+homepage: https://www.dartlang.org/docs/tutorials/streams/
 gist: https://gist.github.com/Sfshaza/15d5ef986238c97dbc14
 dartpad: https://dartpad.dartlang.org/15d5ef986238c97dbc14

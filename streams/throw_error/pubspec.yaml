@@ -3,6 +3,6 @@ description: A simple app that reads from a stream and throws an error when the 
 dependencies:
   args: ^0.10.0
 
-homepage: http://gist.github.com/Sfshaza/d68171ddfdd8edeab932
+homepage: https://www.dartlang.org/docs/tutorials/streams/
 gist: https://gist.github.com/Sfshaza/38feef09be9b1e7b5136
 dartpad: https://dartpad.dartlang.org/38feef09be9b1e7b5136
