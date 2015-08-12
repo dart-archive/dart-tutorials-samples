@@ -1,9 +1,14 @@
-import 'dart:io';
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+import 'dart:html';
 import 'dart:async';
 
 void printDailyNewsDigest() {
-  File file = new File("dailyNewsDigest.txt");
-  Future future = file.readAsString();
+  String path =
+      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+  Future future = HttpRequest.getString(path);
   future.then((content) => doSomethingWith(content))
         .catchError((e) => handleError(e));
 }
@@ -16,7 +21,7 @@ void main() {
 }
 
 doSomethingWith(content) {
-  print('do something with content');
+  print(content);
 }
 
 handleError(e) {
