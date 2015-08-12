@@ -1,0 +1,6 @@
+name: read_file_async_catch_error
+description: A sample application that reads a file on dartlang using async/await, and prints the contents; errors are caught.
+
+homepage: https://www.dartlang.org/docs/tutorials/futures/
+gist: https://gist.github.com/Sfshaza/b182c4c923346b0071f7
+dartpad: https://dartpad.dartlang.org/b182c4c923346b0071f7
