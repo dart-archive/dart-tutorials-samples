@@ -1,0 +1,7 @@
+name: async_await
+description: A sample application that reads a file on dartlang using async/await, and prints the contents.
+
+homepage: https://www.dartlang.org/docs/tutorials/futures/
+
+gist: https://gist.github.com/Sfshaza/c0e8f5c38489ddeccb5a
+dartpad: https://dartpad.dartlang.org/c0e8f5c38489ddeccb5a

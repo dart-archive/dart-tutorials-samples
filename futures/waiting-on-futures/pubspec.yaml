@@ -1,0 +1,7 @@
+name: waiting_on_futures
+description: A sample application that triggers three functions and waits until all are finished.
+
+homepage: https://www.dartlang.org/docs/tutorials/futures/
+
+gist: https://gist.github.com/Sfshaza/7babd77d2b5460bc9251
+dartpad: https://dartpad.dartlang.org/7babd77d2b5460bc9251

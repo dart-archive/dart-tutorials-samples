@@ -15,7 +15,7 @@ void main() {
 }
 
 void makeRequest(Event e) {
-  var path = 'https://www.dartlang.org/samples-files/portmanteaux.json';
+  var path = 'https://www.dartlang.org/f/portmanteaux.json';
   var httpRequest = new HttpRequest();
   httpRequest
     ..open('GET', path)

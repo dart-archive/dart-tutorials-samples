@@ -1,0 +1,7 @@
+name: futures_api
+description: A sample application that reads a file on dartlang using the Futures API, and prints the contents.
+
+homepage: https://www.dartlang.org/docs/tutorials/futures/
+
+gist: https://gist.github.com/Sfshaza/ba1b258f810e34231a62
+dartpad: https://dartpad.dartlang.org/ba1b258f810e34231a62
