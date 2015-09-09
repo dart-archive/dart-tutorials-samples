@@ -1,9 +1,29 @@
 name: stopwatch
 description: A sample application
-dependencies:
-  polymer: '>=0.15.1 <0.17.0'
-transformers:
-- polymer:
-    entry_points: web/index.html
 
-https://www.dartlang.org/docs/tutorials/polymer-intro/
+dependencies:
+  polymer: ^1.0.0
+  web_components: ^0.12.0
+  browser: ^0.10.0
+  reflectable: ^0.1.4
+transformers:
+- web_components:
+    entry_points:
+    - web/index.html
+- reflectable:
+    entry_points:
+    - web/index.dart
+environment:
+  sdk: ">=1.2.0 <2.0.0"
+
+dependency_overrides:
+  polymer:
+    git:
+      ref: behaviors
+      url: https://github.com/dart-lang/polymer-dart.git
+  polymer_interop:
+    git:
+      ref: 0.2.0-dev
+      url: https://github.com/dart-lang/polymer_interop.git
+
+homepage: https://www.dartlang.org/docs/tutorials/polymer-intro/
