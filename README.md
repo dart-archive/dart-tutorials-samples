@@ -20,8 +20,7 @@ DartPad and Gist Files
 Some of the tutorial examples execute using
 [DartPad](https://dartpad.dartlang.org/).
 The DartPad examples are organized so that each complete example is
-placed in a sub-directory, with its own pubspec and **web/** or **bin/**
-directories, as appropriate.
+placed in a subdirectory, with its own pubspec and **web/** directory.
 
 DartPad grabs the source for these examples from 
 [gist](https://gist.github.com/) files.
