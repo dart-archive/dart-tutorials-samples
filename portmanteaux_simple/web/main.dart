@@ -16,7 +16,7 @@ void main() {
 }
 
 Future makeRequest(Event e) async {
-  var path = 'https://www.dartlang.org/samples-files/portmanteaux.json';
+  var path = 'https://www.dartlang.org/f/portmanteaux.json';
   try {
     processString(await HttpRequest.getString(path));
   } catch (e) {

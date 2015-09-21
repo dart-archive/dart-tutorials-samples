@@ -1,0 +1,7 @@
+name: sequential_procesing
+description: A sample application that performs time consuming operations sequentially.
+
+homepage: https://www.dartlang.org/docs/tutorials/futures/
+
+gist: https://gist.github.com/Sfshaza/6df1121fd6ea7b9e5201
+dartpad: https://dartpad.dartlang.org/6df1121fd6ea7b9e5201
