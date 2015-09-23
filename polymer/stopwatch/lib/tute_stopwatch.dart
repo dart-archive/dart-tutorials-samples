@@ -13,8 +13,14 @@ import 'package:web_components/web_components.dart' show HtmlImport;
 @PolymerRegister('tute-stopwatch')
 class TuteStopwatch extends PolymerElement {
 
+  String _counter = '00:00';
+
   @Property(observer: 'updateTime')
-  String counter = '00:00';
+  String get counter => _counter;
+  void set counter(String newValue) {
+    _counter = newValue;
+    notifyPath('counter', _counter);
+  }
 
   TuteStopwatch.created() : super.created();
 
@@ -65,7 +71,6 @@ class TuteStopwatch extends PolymerElement {
   void reset([_, __]) {
     mywatch.reset();
     counter = '00:00';
-    notifyPath('counter', counter);
     resetButton.disabled = true;
   }
 
@@ -83,6 +88,5 @@ class TuteStopwatch extends PolymerElement {
     String minute = (m <= 9) ? '0$m' : '$m';
     String second = (s <= 9) ? '0$s' : '$s';
     counter = '$minute:$second';
-    notifyPath('counter', counter);
   }
 }

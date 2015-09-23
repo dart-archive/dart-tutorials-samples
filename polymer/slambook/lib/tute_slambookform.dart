@@ -14,10 +14,10 @@ import 'package:web_components/web_components.dart' show HtmlImport;
 class SlamBookComponent extends FormElement with 
     PolymerMixin, PolymerBase, JsProxy {
 
-  AllAboutMe get myData => _myData;
   AllAboutMe _myData = new AllAboutMe();
 
   @Property(observer: 'submitForm')
+  AllAboutMe get myData => _myData;
   void set myData(AllAboutMe newValue) {
     _myData = newValue;
     notifyPath('myData', _myData);
@@ -26,13 +26,6 @@ class SlamBookComponent extends FormElement with
   SlamBookComponent.created() : super.created() {
     polymerCreated();
   }
-
-  @override
-  void attached() {
-    super.attached();
-    notifyPath('myData', _myData);
-  }
-
 
   @Property(observer: 'submitForm')
   String serverResponse = '';
@@ -50,47 +43,12 @@ class SlamBookComponent extends FormElement with
     // POST the data to the server.
     var url = 'http://127.0.0.1:4040';
     request.open('POST', url);
-    request.send(myData.convertToMap());
-  }
-
-  @eventHandler
-  void firstNameChanged(var e, [_]) {
-    myData.firstName = (e.target as InputElement).value;
-  }
-
-  @eventHandler
-  void quoteChanged(var e, [_]) {
-    myData.favoriteQuote = (e.target as InputElement).value;
-  }
-
-  @eventHandler
-  void colorChanged(var e, [_]) {
-    myData.favoriteColor = (e.target as InputElement).value;
-  }
-
-  @eventHandler
-  void birthdayChanged(var e, [_]) {
-    myData.birthday = (e.target as DateInputElement).value;
+    request.send(myData.jsonSerialize());
   }
 
   @eventHandler
   void petChanged(Event e, [_]) {
     myData.pet = (e.target as RadioButtonInputElement).value;
-  }
-
-  @eventHandler
-  void volumeChanged(var e, [_]) {
-    myData.musicVolume = int.parse((e.target as RangeInputElement).value);
-  }
-
-  @eventHandler
-  void musicChanged(var e, [_]) {
-    myData.musicType = int.parse((e.target as SelectElement).value);
-  }
-
-  @eventHandler
-  void zombiesChanged(var e, [_]) {
-    myData.zombies = (e.target as CheckboxInputElement).checked;
   }
 
   void onData(_) {
@@ -119,8 +77,7 @@ class SlamBookComponent extends FormElement with
   }
 }
 
-@jsProxyReflectable
-class AllAboutMe extends Object with JsProxy {
+class AllAboutMe extends JsProxy {
   String firstName = 'Bob';
   String favoriteQuote = 'Bob\'s your uncle!';
   String favoriteColor = '#4169E1';
@@ -130,8 +87,8 @@ class AllAboutMe extends Object with JsProxy {
   String pet = 'cat';
   bool zombies=true;
 
-  String convertToMap() {
-    Map theData = ({
+  String jsonSerialize() {
+    var theData = {
       'firstName': firstName,
       'favoriteQuote': favoriteQuote,
       'favoriteColor': favoriteColor,
@@ -140,7 +97,7 @@ class AllAboutMe extends Object with JsProxy {
       'musicVolume': musicVolume,
       'pet': pet,
       'zombies': zombies
-    });
+    };
 
     return JSON.encode(theData);
   }

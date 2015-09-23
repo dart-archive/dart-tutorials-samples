@@ -13,12 +13,6 @@ transformers:
     entry_points: web/index.html
 - reflectable:
     entry_points: web/index.dart
-- $dart2js:
-    $include: '**/*.bootstrap.initialize.dart'
-    minify: true
-    commandLineOptions:
-    - --trust-type-annotations
-    - --trust-primitives
 
 environment:
   sdk: '>=1.8.3 <2.0.0'
