@@ -1,0 +1,22 @@
+<!--
+  Copyright (c) 2015, the Dart project authors.
+  All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+
+<dom-module id="text-reverser">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+
+  <template>
+    <paper-input label="Type something..." value="{{text}}"></paper-input>
+    <p>
+      Text: <span>{{text}}</span><br />
+      Reversed: <span>{{reverseText(text)}}</span>
+    </p>
+  </template>
+</dom-module>

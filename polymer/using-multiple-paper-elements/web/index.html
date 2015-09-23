@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!--
+  Copyright (c) 2015, the Dart project authors.
+  All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Paper Elements</title>
+
+    <link rel="import" href="packages/polymer_elements/roboto.html">
+
+    <script async src="packages/web_components/webcomponents-lite.js"></script>
+    <script async type="application/dart" src="index.dart"></script>
+    <script async src="packages/browser/dart.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+
+  <body unresolved>
+    <header>
+        <h1>Using Paper Elements</h1>
+    </header>
+
+    <section>
+        <paper-button raised>Click me</paper-button>
+    </section>
+
+    <section>
+        <paper-checkbox>Notifications</paper-checkbox>
+    </section>
+
+    <section>
+        <paper-input label="Enter text: "></paper-input>
+    </section>
+
+    <section>
+        <paper-dropdown-menu label="Favorite pizza">
+            <paper-menu class="dropdown-content">
+                <paper-item>Cheese</paper-item>
+                <paper-item>Pesto</paper-item>
+                <paper-item>Mushroom</paper-item>
+                <paper-item>Everything</paper-item>
+            </paper-menu>
+        </paper-dropdown-menu>
+    </section>
+  </body>
+</html>

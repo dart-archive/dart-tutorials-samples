@@ -1,0 +1,32 @@
+name: 'using_paper_elements'
+description: A simple web app that uses paper elements.
+
+dependencies:
+  browser: ^0.10.0
+  polymer_elements: ^1.0.0-rc1
+  polymer: ^1.0.0-rc1
+  web_components: ^0.12.0
+  reflectable: ^0.2.0
+
+transformers:
+- web_components:
+    entry_points: web/index.html
+
+environment:
+  sdk: '>=1.8.3 <2.0.0'
+
+dependency_overrides:
+  polymer:
+    git:
+      ref: behaviors
+      url: https://github.com/dart-lang/polymer-dart.git
+  polymer_elements:
+    git:
+      ref: behaviors
+      url: https://github.com/dart-lang/polymer_elements.git
+  polymer_interop:
+    git:
+      ref: 0.2.0-dev
+      url: https://github.com/dart-lang/polymer_interop.git
+
+homepage: https://www.dartlang.org/docs/tutorials/using-paper-elements/
