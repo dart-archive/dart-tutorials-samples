@@ -22,12 +22,12 @@ main() async {
     print('Checkbox changed: $checked');
   });
 
-  querySelector('paper-input').on['keydown'].listen((var e) {
+  querySelector('paper-input').on['keyup'].listen((var e) {
     String input = e.target.value;
     print('Input entered: $input');
   });
 
-  querySelector('paper-menu').on['click'].listen((PaperItem e) {
+  querySelector('paper-menu').on['click'].listen((var e) {
     var selected = e.target.text;
     print('Selected pizza: $selected');
   });
