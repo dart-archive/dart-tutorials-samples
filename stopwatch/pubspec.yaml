@@ -5,7 +5,7 @@ dependencies:
   polymer: ^1.0.0
   web_components: ^0.12.0
   browser: ^0.10.0
-  reflectable: ^0.1.4
+  reflectable: ^0.3.0
 transformers:
 - web_components:
     entry_points:
@@ -19,7 +19,7 @@ environment:
 dependency_overrides:
   polymer:
     git:
-      ref: behaviors
+      ref: 1.0.0-rc.2
       url: https://github.com/dart-lang/polymer-dart.git
   polymer_interop:
     git:

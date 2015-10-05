@@ -41,7 +41,7 @@ class TuteStopwatch extends PolymerElement {
     mytimer.cancel();
   }
 
-  @eventHandler
+  @reflectable
   void start([_, __]) {
     mywatch.start();
     var oneSecond = new Duration(seconds:1);
@@ -51,7 +51,7 @@ class TuteStopwatch extends PolymerElement {
     resetButton.disabled = true;
   }
 
-  @eventHandler
+  @reflectable
   void stop([_, __]) {
     mywatch.stop();
     mytimer.cancel();
@@ -60,7 +60,7 @@ class TuteStopwatch extends PolymerElement {
     stopButton.disabled = true;
   }
 
-  @eventHandler
+  @reflectable
   void reset([_, __]) {
     mywatch.reset();
     counter = '00:00';
@@ -68,7 +68,7 @@ class TuteStopwatch extends PolymerElement {
     resetButton.disabled = true;
   }
 
-  @eventHandler
+  @reflectable
   void updateTime([_, __]) {
     var s = mywatch.elapsedMilliseconds ~/ 1000;
     var m = 0;
