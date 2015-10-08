@@ -2,6 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// This custom Polymer component extends a <form> element.
+// See "Extend native HTML elements"
+// https://github.com/dart-lang/polymer-dart/wiki/registration-and-lifecycle#extend-native-html-elements
+
 @HtmlImport('tute_slambookform.html')
 library slambook.lib.tute_slambookform;
 
@@ -16,6 +20,14 @@ class SlamBookComponent extends FormElement with
 
   AllAboutMe _myData = new AllAboutMe();
 
+  // This "@Property(observer:submitForm" declaration on myData
+  // means that the submitForm function will be called when
+  // "myData" changes.
+  // See "Property Change Observers"
+  // https://github.com/dart-lang/polymer-dart/wiki/properties#property-change-observers
+  // Calling "notifyPath" informs the system that a value has changed.
+  // See "Path change notification"
+  // https://github.com/dart-lang/polymer-dart/wiki/data-binding-syntax#path-change-notification
   @Property(observer: 'submitForm')
   AllAboutMe get myData => _myData;
   void set myData(AllAboutMe newValue) {
@@ -65,6 +77,8 @@ class SlamBookComponent extends FormElement with
     }
   }
    
+  // See "Event listener setup"
+  // https://github.com/dart-lang/polymer-dart/wiki/events#event-listener-setup
   @eventHandler
   void resetForm(var e, [_]) {
     if (e is Event) e.preventDefault(); // Default behavior clears elements,
@@ -77,6 +91,11 @@ class SlamBookComponent extends FormElement with
   }
 }
 
+// The Polymer Dart 0.16.0 version of slambook stored the data
+// using a Map. It's more efficient, and more Darty, to use
+// a class. When extending JsProxy, Polymer reads and writes
+// directly to the Dart object; when modifying a Map
+// value, Polymer copies the entire map to a new JS object.
 class AllAboutMe extends JsProxy {
   String firstName = 'Bob';
   String favoriteQuote = 'Bob\'s your uncle!';

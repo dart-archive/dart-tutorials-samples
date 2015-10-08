@@ -15,8 +15,9 @@ import 'package:polymer/polymer.dart';
 main() async {
   await initPolymer();
 
+  // Note: The "tap" event processes faster than the "click" event.
   querySelector('paper-button').on['tap'].listen((_) {
-    print('Button clicked!');
+    print('Button tapped!');
   });
 
   querySelector('paper-checkbox').on['change'].listen((e) {

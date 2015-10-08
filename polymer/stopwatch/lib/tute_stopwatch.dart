@@ -31,6 +31,9 @@ class TuteStopwatch extends PolymerElement {
   ButtonElement startButton;
   ButtonElement resetButton;
 
+  // "attached" and "detached" are standard lifecycle callbacks.
+  // See "Lifecycle callbacks"
+  // https://github.com/dart-lang/polymer-dart/wiki/registration-and-lifecycle#lifecycle-callbacks
   @override
   void attached() {
     super.attached();

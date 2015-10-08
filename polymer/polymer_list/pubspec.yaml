@@ -18,14 +18,3 @@ transformers:
 environment:
   sdk: ">=1.8.3 <2.0.0"
 
-dependency_overrides:
-  polymer:
-    git:
-      ref: behaviors
-      url: https://github.com/dart-lang/polymer-dart.git
-  polymer_interop:
-    git:
-      ref: 0.2.0-dev
-      url: https://github.com/dart-lang/polymer_interop.git
-
-homepage: https://www.dartlang.org/docs/tutorials/creating-polymer-elements/
