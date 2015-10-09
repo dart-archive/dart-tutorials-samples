@@ -94,23 +94,17 @@ packages:
     source: hosted
     version: "0.1.0"
   polymer:
-    description:
-      ref: behaviors
-      resolved-ref: "46be7836f387a8a2868507baf61940e871519986"
-      url: "https://github.com/dart-lang/polymer-dart.git"
-    source: git
-    version: "0.17.0-dev"
+    description: polymer
+    source: hosted
+    version: "1.0.0-rc.2"
   polymer_interop:
-    description:
-      ref: "0.2.0-dev"
-      resolved-ref: cbef534ef5d0839beeeb63f7c25f502df7e79377
-      url: "https://github.com/dart-lang/polymer_interop.git"
-    source: git
-    version: "0.2.0"
+    description: polymer_interop
+    source: hosted
+    version: "1.0.0-rc.1"
   pool:
     description: pool
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   pub_semver:
     description: pub_semver
     source: hosted
@@ -118,7 +112,7 @@ packages:
   reflectable:
     description: reflectable
     source: hosted
-    version: "0.2.0"
+    version: "0.3.2"
   shelf:
     description: shelf
     source: hosted

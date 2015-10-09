@@ -4,7 +4,7 @@ packages:
   analyzer:
     description: analyzer
     source: hosted
-    version: "0.26.1+4"
+    version: "0.26.1+9"
   args:
     description: args
     source: hosted
@@ -72,7 +72,7 @@ packages:
   logging:
     description: logging
     source: hosted
-    version: "0.11.1+1"
+    version: "0.11.2"
   matcher:
     description: matcher
     source: hosted
@@ -94,23 +94,17 @@ packages:
     source: hosted
     version: "0.1.0"
   polymer:
-    description:
-      ref: behaviors
-      resolved-ref: f108466d2635e1503913ce6d1af38ee525de7e68
-      url: "https://github.com/dart-lang/polymer-dart.git"
-    source: git
-    version: "0.17.0-dev"
+    description: polymer
+    source: hosted
+    version: "1.0.0-rc.2"
   polymer_interop:
-    description:
-      ref: "0.2.0-dev"
-      resolved-ref: "6477d497b25cc4d13b255c2eb27053985667d3dc"
-      url: "https://github.com/dart-lang/polymer_interop.git"
-    source: git
-    version: "0.2.0"
+    description: polymer_interop
+    source: hosted
+    version: "1.0.0-rc.1"
   pool:
     description: pool
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   pub_semver:
     description: pub_semver
     source: hosted
@@ -118,7 +112,7 @@ packages:
   reflectable:
     description: reflectable
     source: hosted
-    version: "0.2.0"
+    version: "0.3.2"
   shelf:
     description: shelf
     source: hosted
@@ -142,7 +136,7 @@ packages:
   source_span:
     description: source_span
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   stack_trace:
     description: stack_trace
     source: hosted
@@ -154,7 +148,7 @@ packages:
   test:
     description: test
     source: hosted
-    version: "0.12.4+8"
+    version: "0.12.4+9"
   utf:
     description: utf
     source: hosted
@@ -178,4 +172,4 @@ packages:
   yaml:
     description: yaml
     source: hosted
-    version: "2.1.5"
+    version: "2.1.7"
