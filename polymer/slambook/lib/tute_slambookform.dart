@@ -44,7 +44,7 @@ class SlamBookComponent extends FormElement with
 
   HttpRequest request;
 
-  @eventHandler
+  @reflectable
   void submitForm(var e, [_]) {
     if (e is Event) e.preventDefault(); // Don't do the default submit.
        
@@ -58,7 +58,7 @@ class SlamBookComponent extends FormElement with
     request.send(myData.jsonSerialize());
   }
 
-  @eventHandler
+  @reflectable
   void petChanged(Event e, [_]) {
     myData.pet = (e.target as RadioButtonInputElement).value;
   }
@@ -79,7 +79,7 @@ class SlamBookComponent extends FormElement with
    
   // See "Event listener setup"
   // https://github.com/dart-lang/polymer-dart/wiki/events#event-listener-setup
-  @eventHandler
+  @reflectable
   void resetForm(var e, [_]) {
     if (e is Event) e.preventDefault(); // Default behavior clears elements,
                         // but bound values don't follow

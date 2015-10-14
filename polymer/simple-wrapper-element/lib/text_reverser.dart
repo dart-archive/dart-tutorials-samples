@@ -33,7 +33,7 @@ class TextReverser extends PolymerElement {
 
   TextReverser.created() : super.created();
 
-  @eventHandler
+  @reflectable
   String reverseText(String text) {
     return text.split('').reversed.join('');
   }
