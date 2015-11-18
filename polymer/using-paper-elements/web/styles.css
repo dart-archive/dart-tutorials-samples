@@ -14,10 +14,6 @@ body {
     -webkit-touch-callout: none;
 }
 
-section {
-    padding: 20px 0;
-}
-
 paper-button {
     color: white;
     background: blue;

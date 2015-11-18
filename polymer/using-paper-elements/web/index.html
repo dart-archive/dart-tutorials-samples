@@ -8,7 +8,7 @@
 -->
 
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,34 +21,24 @@
     <script async src="packages/browser/dart.js"></script>
 
     <link rel="stylesheet" href="styles.css">
-  </head>
+</head>
 
-  <body unresolved>
-    <header>
-        <h1>Using Paper Elements</h1>
-    </header>
+<body unresolved>
 
-    <section>
-        <paper-button raised>Click me</paper-button>
-    </section>
+<h2>Using Paper Elements</h2>
 
-    <section>
-        <paper-checkbox>Notifications</paper-checkbox>
-    </section>
+<paper-checkbox>Notifications</paper-checkbox>
+<paper-dropdown-menu label="Favorite pizza">
+    <paper-menu class="dropdown-content">
+        <paper-item>Cheese</paper-item>
+        <paper-item>Pesto</paper-item>
+        <paper-item>Mushroom</paper-item>
+        <paper-item>Everything</paper-item>
+    </paper-menu>
+</paper-dropdown-menu>
+<paper-button raised>Click me</paper-button>
 
-    <section>
-        <paper-input label="Enter text: "></paper-input>
-    </section>
+<paper-input label="Enter text: "></paper-input>
 
-    <section>
-        <paper-dropdown-menu label="Favorite pizza">
-            <paper-menu class="dropdown-content">
-                <paper-item>Cheese</paper-item>
-                <paper-item>Pesto</paper-item>
-                <paper-item>Mushroom</paper-item>
-                <paper-item>Everything</paper-item>
-            </paper-menu>
-        </paper-dropdown-menu>
-    </section>
-  </body>
+</body>
 </html>
