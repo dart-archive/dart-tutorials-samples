@@ -25,13 +25,14 @@ main() async {
     print('Checkbox changed: $checked');
   });
 
-  querySelector('paper-input').on['keyup'].listen((e) {
-    String input = e.target.value;
-    print('Input entered: $input');
-  });
-
   querySelector('paper-menu').on['tap'].listen((e) {
     var selected = e.target.text;
     print('Selected pizza: $selected');
   });
+
+  var domBind = querySelector('template[is="dom-bind"]');
+  domBind['onKeyUp'] = (e, _) {
+    String input = e.target.value;
+    print('Input entered: $input');
+  };
 }

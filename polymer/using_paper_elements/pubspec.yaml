@@ -1,6 +1,9 @@
 name: 'using_paper_elements'
 description: A simple web app that uses paper elements.
 
+# Uncomment the "dart_to_js_script_rewriter" lines if you are
+# creating a deployment version of the app.
+
 dependencies:
   browser: ^0.10.0
   polymer_elements: ^1.0.0-rc.3
@@ -12,9 +15,6 @@ dependencies:
 transformers:
 - web_components:
     entry_points: web/index.html
-
-# Uncomment the following line if you are creating a deployment 
-# version of the app.
 #- dart_to_js_script_rewriter
 
 environment:
