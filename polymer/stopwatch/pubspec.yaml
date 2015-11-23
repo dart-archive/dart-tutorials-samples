@@ -1,0 +1,20 @@
+name: stopwatch
+description: A web app that implements a stopwatch using Polymer.
+
+dependencies:
+  browser: ^0.10.0
+  polymer: ^1.0.0-rc.2
+  web_components: ^0.12.0
+  reflectable: ^0.3.1
+
+transformers:
+- web_components:
+    entry_points:
+    - web/index.html
+- reflectable:
+    entry_points:
+    - web/index.dart
+
+environment:
+  sdk: ">=1.8.3 <2.0.0"
+

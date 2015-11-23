@@ -1,0 +1,26 @@
+<!--
+  Copyright (c) 2015, the Dart project authors.
+  All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+
+<!-- For info on the local DOM template, see -->
+<!-- https://github.com/dart-lang/polymer-dart/wiki/local-dom -->
+<dom-module id="text-reverser">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <!-- The "text" property is bound to the paper-input element. -->
+    <!-- See https://github.com/dart-lang/polymer-dart/wiki/data-binding-syntax -->
+    <paper-input label="Type something..." value="{{text}}"></paper-input>
+    <p>
+      Text: <span>{{text}}</span><br />
+      Reversed: <span>{{reverseText(text)}}</span>
+    </p>
+  </template>
+</dom-module>
