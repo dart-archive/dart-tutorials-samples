@@ -2,18 +2,14 @@ name: 'simple_wrapper_element'
 description: A web app that wraps a paper element inside another Polymer element.
 
 dependencies:
+  polymer_elements: ^1.0.0-rc.1
+  polymer: ^1.0.0-rc.11
+  web_components: ^0.12.0
   browser: ^0.10.0
-  polymer_elements: ^1.0.0-rc.3
-  polymer: ^1.0.0-rc.6
-  web_components: ^0.12.0+3
-  reflectable: ^0.3.3
 
 transformers:
-- web_components:
+- polymer:
     entry_points: web/index.html
-- reflectable:
-    entry_points: web/index.dart
 
 environment:
   sdk: '>=1.8.3 <2.0.0'
-
