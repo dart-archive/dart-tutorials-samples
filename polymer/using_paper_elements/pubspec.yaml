@@ -5,15 +5,14 @@ description: A simple web app that uses paper elements.
 # creating a deployment version of the app.
 
 dependencies:
+  polymer_elements: ^1.0.0-rc.1
+  polymer: ^1.0.0-rc.11
+  web_components: ^0.12.0
   browser: ^0.10.0
-  polymer_elements: ^1.0.0-rc.3
-  polymer: ^1.0.0-rc.6
-  web_components: ^0.12.0+3
-  reflectable: ^0.3.3
 #  dart_to_js_script_rewriter: ^0.1.0+4
 
 transformers:
-- web_components:
+- polymer:
     entry_points: web/index.html
 #- dart_to_js_script_rewriter
 
