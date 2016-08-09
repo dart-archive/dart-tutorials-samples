@@ -25,13 +25,13 @@ Future makeRequest(Event e) async {
   }
 }
 
-processString(String jsonString) {
-  List<String> portmanteaux = JSON.decode(jsonString);
+void processString(String jsonString) {
+  List<String> portmanteaux = JSON.decode(jsonString) as List<String>;
   for (int i = 0; i < portmanteaux.length; i++) {
     wordList.children.add(new LIElement()..text = portmanteaux[i]);
   }
 }
 
-handleError(Object error) {
+void handleError(Object error) {
   wordList.children.add(new LIElement()..text = 'Request failed.');
 }

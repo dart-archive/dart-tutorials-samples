@@ -1,7 +1,7 @@
-// Copyright (c) 2012, the Dart project authors.  
-// Please see the AUTHORS file for details. 
-// All rights reserved. Use of this source code 
-// is governed by a BSD-style license that can be 
+// Copyright (c) 2012, the Dart project authors.
+// Please see the AUTHORS file for details.
+// All rights reserved. Use of this source code
+// is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 import 'dart:html';
@@ -23,14 +23,15 @@ void makeRequest(Event e) {
     ..send('');
 }
 
-requestComplete(HttpRequest request) {
+void requestComplete(HttpRequest request) {
   if (request.status == 200) {
-    List<String> portmanteaux = JSON.decode(request.responseText);
+    List<String> portmanteaux =
+        JSON.decode(request.responseText) as List<String>;
     for (int i = 0; i < portmanteaux.length; i++) {
       wordList.children.add(new LIElement()..text = portmanteaux[i]);
     }
   } else {
-    wordList.children.add(new LIElement()
-      ..text = 'Request failed, status=${request.status}');
+    wordList.children.add(
+        new LIElement()..text = 'Request failed, status=${request.status}');
   }
 }

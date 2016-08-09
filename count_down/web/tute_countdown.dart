@@ -44,6 +44,7 @@ class CountDownComponent extends PolymerElement {
   }
    
   // Life-cycle bizness
+  @override
   void attached() {
     super.attached();
     appObject.start()
@@ -54,7 +55,8 @@ class CountDownComponent extends PolymerElement {
         errorMsg = e.toString();
       });
   }
-  
+
+  @override
   void detached() {
     super.detached();
     appObject.stop();

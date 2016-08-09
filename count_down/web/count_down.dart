@@ -23,7 +23,7 @@ class MilestoneApp extends Observable {
   // Some things we need...
 
   /// When there are no active milestones, timer is null.
-  Timer timer = null;
+  Timer timer;
   
   // Is IndexedDB supported in this browser?
   bool idbAvailable = IdbFactory.supported;

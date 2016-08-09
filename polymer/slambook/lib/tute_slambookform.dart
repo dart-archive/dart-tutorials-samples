@@ -15,7 +15,7 @@ import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart' show HtmlImport;
 
 @PolymerRegister('tute-slambookform', extendsTag: 'form')
-class SlamBookComponent extends FormElement with 
+class SlamBookComponent extends FormElement with
     PolymerMixin, PolymerBase, JsProxy {
 
   AllAboutMe _myData = new AllAboutMe();
@@ -47,11 +47,11 @@ class SlamBookComponent extends FormElement with
   @reflectable
   void submitForm(var e, [_]) {
     if (e is Event) e.preventDefault(); // Don't do the default submit.
-       
+
     request = new HttpRequest();
-    
-    request.onReadyStateChange.listen(onData); 
-    
+
+    request.onReadyStateChange.listen(onData);
+
     // POST the data to the server.
     var url = 'http://127.0.0.1:4040';
     request.open('POST', url);
@@ -76,7 +76,7 @@ class SlamBookComponent extends FormElement with
       notifyPath('serverResponse', serverResponse);
     }
   }
-   
+
   // See "Event listener setup"
   // https://github.com/dart-lang/polymer-dart/wiki/events#event-listener-setup
   @reflectable
@@ -97,13 +97,28 @@ class SlamBookComponent extends FormElement with
 // directly to the Dart object; when modifying a Map
 // value, Polymer copies the entire map to a new JS object.
 class AllAboutMe extends JsProxy {
+  @reflectable
   String firstName = 'Bob';
+
+  @reflectable
   String favoriteQuote = 'Bob\'s your uncle!';
+
+  @reflectable
   String favoriteColor = '#4169E1';
+
+  @reflectable
   String birthday = '1963-08-30';
+
+  @reflectable
   int musicVolume = 11;
+
+  @reflectable
   int musicType = 2;
+
+  @reflectable
   String pet = 'cat';
+
+  @reflectable
   bool zombies=true;
 
   String jsonSerialize() {
