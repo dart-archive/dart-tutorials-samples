@@ -11,8 +11,9 @@
 // authority to avoid this message, but that may make that browser less secure.
 
 import 'dart:io';
+import 'dart:async';
 
-main() async {
+Future main() async {
   var certificateChain =
       Platform.script.resolve('server_chain.pem').toFilePath();
   var serverKey =

@@ -6,10 +6,11 @@
 // This server returns the contents of index.html for all requests.
 
 import 'dart:io';
+import 'dart:async';
 import 'package:http_server/http_server.dart';
 import 'package:path/path.dart';
 
-main() async {
+Future main() async {
   var pathToBuild = join(dirname(Platform.script.toFilePath()));
 
   var staticFiles = new VirtualDirectory(pathToBuild);

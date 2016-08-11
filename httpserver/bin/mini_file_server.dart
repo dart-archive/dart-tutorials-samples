@@ -8,8 +8,9 @@
 // see basic_file_server.dart.
 
 import 'dart:io';
+import 'dart:async';
 
-main() async {
+Future main() async {
   var server;
 
   try {

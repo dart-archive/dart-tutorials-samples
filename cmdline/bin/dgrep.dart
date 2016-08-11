@@ -7,22 +7,22 @@ library dgrep;
 import 'dart:io';
 import 'package:args/args.dart';
 
-const USAGE = 'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
-const RECURSIVE = 'recursive';
-const LINE_NUMBER = 'line-number';
-const FOLLOW_LINKS = 'follow-links';
+const usage = 'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
+const recursive = 'recursive';
+const lineNumber = 'line-number';
+const followLinks = 'follow-links';
 
 ArgResults argResults;
 
 void printMatch(File file, List lines, int i) {
   StringBuffer sb = new StringBuffer();
-  if (argResults[RECURSIVE]) sb.write('${file.path}:');
-  if (argResults[LINE_NUMBER]) sb.write('${i + 1}:');
+  if (argResults[recursive]) sb.write('${file.path}:');
+  if (argResults[lineNumber]) sb.write('${i + 1}:');
   sb.write(lines[i]);
   print(sb.toString());
 }
 
-searchFile(File file, searchTerms) {
+void searchFile(File file, searchTerms) {
   file.readAsLines().then((lines) {
     for (var i = 0; i < lines.length; i++) {
       bool found = false;
@@ -38,15 +38,15 @@ searchFile(File file, searchTerms) {
 
 void main(List<String> arguments) {
   final parser = new ArgParser()
-      ..addFlag(RECURSIVE, negatable: false, abbr: 'r')
-      ..addFlag(LINE_NUMBER, negatable: false, abbr: 'n')
-      ..addFlag(FOLLOW_LINKS, negatable: false, abbr: 'S');
+      ..addFlag(recursive, negatable: false, abbr: 'r')
+      ..addFlag(lineNumber, negatable: false, abbr: 'n')
+      ..addFlag(followLinks, negatable: false, abbr: 'S');
 
 
   argResults = parser.parse(arguments);
 
   if (argResults.rest.length < 2) {
-    print(USAGE);
+    print(usage);
     exit(1);
   }
 
@@ -56,8 +56,8 @@ void main(List<String> arguments) {
   FileSystemEntity.isDirectory(searchPath).then((isDir) {
     if (isDir) {
       final startingDir = new Directory(searchPath);
-      startingDir.list(recursive:   argResults[RECURSIVE],
-                       followLinks: argResults[FOLLOW_LINKS]).listen((entity) {
+      startingDir.list(recursive:   argResults[recursive],
+                       followLinks: argResults[followLinks]).listen((entity) {
         if (entity is File) {
           searchFile(entity, searchTerms);
         }

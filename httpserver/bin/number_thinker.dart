@@ -8,11 +8,12 @@
 // Or, you can use the make_a_guess.html UI.
 
 import 'dart:io';
+import 'dart:async';
 import 'dart:math' show Random;
 
 int myNumber = new Random().nextInt(10);
 
-main() async {
+Future main() async {
   print("I'm thinking of a number: $myNumber");
 
   HttpServer requestServer =

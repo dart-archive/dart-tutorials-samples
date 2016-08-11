@@ -89,7 +89,7 @@ class MilestoneStore {
   static const String mileStoneStore = 'milestoneStore';
   static const String nameIndex = 'name_index';
 
-  final List<Milestone> milestones = toObservable([]) as List<Milestone>;
+  final milestones = new ObservableList<Milestone>();
 
   idb.Database _db;
 

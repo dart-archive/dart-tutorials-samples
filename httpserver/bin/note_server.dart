@@ -6,11 +6,12 @@
 // Use note_taker.html to run the client.
 
 import 'dart:io';
+import 'dart:async';
 import 'dart:convert' show UTF8, JSON;
 
 int count = 0;
 
-main() async {
+Future main() async {
   // One note per line.
   try {
     List<String> lines = new File('notes.txt').readAsLinesSync();
@@ -26,7 +27,7 @@ main() async {
   await listenForRequests(server);
 }
 
-listenForRequests(HttpServer requests) async {
+Future listenForRequests(HttpServer requests) async {
   await for (HttpRequest request in requests) {
     switch (request.method) {
       case 'POST':
@@ -43,7 +44,7 @@ listenForRequests(HttpServer requests) async {
   print('No more requests.');
 }
 
-handlePost(HttpRequest request) async {
+Future handlePost(HttpRequest request) async {
   var decoded;
 
   addCorsHeaders(request.response);

@@ -7,9 +7,10 @@
 // the file specified in the URI.
 
 import 'dart:io';
+import 'dart:async';
 import 'dart:convert';
 
-main() async {
+Future main() async {
   var server =
       await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049);
   await for (var req in server) {

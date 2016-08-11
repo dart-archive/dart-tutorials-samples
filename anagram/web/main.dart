@@ -55,7 +55,7 @@ void newletters(Event e) {
   generateNewLetters();
 }
 
-generateNewLetters() {
+void generateNewLetters() {
   Random indexGenerator = new Random();
   wordvalue = 0;
   value.text = '';

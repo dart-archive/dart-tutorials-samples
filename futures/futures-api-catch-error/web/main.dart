@@ -3,38 +3,39 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:html';
+import 'dart:async';
 
-printDailyNewsDigest() {
-  var future = gatherNewsReports();
+void printDailyNewsDigest() {
+  Future future = gatherNewsReports();
   future.then((content) => print(content))
         .catchError((e) => handleError(e));
 }
 
-main() {
+void main() {
   printDailyNewsDigest();
   printWinningLotteryNumbers();
   printWeatherForecast();
   printBaseballScore();
 }
 
-handleError(e) {
+void handleError(e) {
   print('handleError');
 }
 
-printWinningLotteryNumbers() {
+void printWinningLotteryNumbers() {
   print('Winning lotto numbers: [23, 63, 87, 26, 2]');
 }
 
-printWeatherForecast() {
+void printWeatherForecast() {
   print('Tomorrow\'s forecast: 70F, sunny.');
 }
 
-printBaseballScore() {
+void printBaseballScore() {
   print('Baseball score: Red Sox 10, Yankees 0');
 }
 
 // Imagine that this function is more complex and slow. :)
-gatherNewsReports() {
+Future gatherNewsReports() {
   String path =
       'https://www.dartlang.org/f/dailyNewsDigest.txt';
   return HttpRequest.getString(path);
