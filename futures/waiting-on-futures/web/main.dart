@@ -14,14 +14,14 @@ Future expensiveA() => new Future.value('from expensiveA');
 Future expensiveB() => new Future.value('from expensiveB');
 Future expensiveC() => new Future.value('from expensiveC');
 
-doSomethingWith(value) {
+void doSomethingWith(value) {
   print(value);
 }
 
-chooseBestResponse(List responses) {
+void chooseBestResponse(List responses) {
   print(responses[1]);
 }
 
-handleError(e) {
+void handleError(e) {
   print('error handled');
 }

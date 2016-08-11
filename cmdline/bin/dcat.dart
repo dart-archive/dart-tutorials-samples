@@ -10,7 +10,7 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 
-const LINE_NUMBER = 'line-number';
+const lineNumber = 'line-number';
 var NEWLINE = '\n';
 
 ArgResults argResults;
@@ -28,12 +28,12 @@ ArgResults argResults;
 void main(List<String> arguments) {
   exitCode = 0; //presume success.
   final parser = new ArgParser()
-      ..addFlag(LINE_NUMBER, negatable: false, abbr: 'n');
+      ..addFlag(lineNumber, negatable: false, abbr: 'n');
 
   argResults = parser.parse(arguments);
   List<String> paths = argResults.rest;
 
-  dcat(paths, argResults[LINE_NUMBER]);
+  dcat(paths, argResults[lineNumber]);
 }
 
 Future dcat(List<String> paths, bool showLineNumbers) {
@@ -57,7 +57,7 @@ Future dcat(List<String> paths, bool showLineNumbers) {
   }
 }
 
-_handleError(String path) {
+void _handleError(String path) {
   FileSystemEntity.isDirectory(path).then((isDir) {
     if (isDir) {
       stderr.writeln('error: $path is a directory');

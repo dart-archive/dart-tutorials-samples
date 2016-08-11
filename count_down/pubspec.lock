@@ -121,3 +121,4 @@ packages:
     description: yaml
     source: hosted
     version: "2.1.2"
+sdk: ">=1.9.0-dev.7.1 <2.0.0"

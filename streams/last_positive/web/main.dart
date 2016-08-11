@@ -6,7 +6,7 @@
 import 'dart:async';
 
 Future<int> lastPositive(Stream<int> stream) async {
-  var lastValue = null;
+  var lastValue;
   await for (var value in stream) {
     if (value < 0) continue;
     lastValue = value;
@@ -14,7 +14,7 @@ Future<int> lastPositive(Stream<int> stream) async {
   return lastValue;
 }
 
-main() async {
+Future main() async {
   var data = [1, -2, 3, -4, 5, -6, 7, -8, 9, -10];
   var stream = new Stream.fromIterable(data);
   var lastPos = await lastPositive(stream);

@@ -16,7 +16,7 @@ ParagraphElement displayNote;
 HttpRequest request;
 String url = 'http://localhost:4042';
 
-main() {
+void main() {
   noteTextInput = querySelector('#note_entry');
   howManyNotes = querySelector('#display_how_many_notes');
   chooseNote = querySelector('#choose_note');
@@ -46,7 +46,7 @@ void requestNote(Event e) {
   request.onReadyStateChange.listen(onData);
 
   request.open('POST', url);
-  request.send('{"getNote":"${getNoteNumber}"}');
+  request.send('{"getNote":"$getNoteNumber}"');
 }
 
 void onData(_) {

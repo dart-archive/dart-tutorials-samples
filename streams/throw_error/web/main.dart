@@ -27,7 +27,7 @@ Stream<int> countStream(int to) async* {
   }
 }
 
-main() async {
+Future main() async {
   var stream = countStream(10);
   var sum = await sumStream(stream);
   print(sum); // -1

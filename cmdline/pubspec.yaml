@@ -1,6 +1,8 @@
 name: cmdline
 description: A sample application
 dependencies:
-  args: ^0.10.0
+  args: any
+  dart_style: any
+  test: any
 
 homepage: https://www.dartlang.org/docs/tutorials/cmdline/

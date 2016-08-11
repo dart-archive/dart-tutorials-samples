@@ -10,22 +10,22 @@ Future printDailyNewsDigest() async {
   print(news);
 }
 
-main() {
+void main() {
   printDailyNewsDigest();
   printWinningLotteryNumbers();
   printWeatherForecast();
   printBaseballScore();
 }
 
-printWinningLotteryNumbers() {
+void printWinningLotteryNumbers() {
   print('Winning lotto numbers: [23, 63, 87, 26, 2]');
 }
 
-printWeatherForecast() {
+void printWeatherForecast() {
   print('Tomorrow\'s forecast: 70F, sunny.');
 }
 
-printBaseballScore() {
+void printBaseballScore() {
   print('Baseball score: Red Sox 10, Yankees 0');
 }
 

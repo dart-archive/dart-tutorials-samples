@@ -7,7 +7,7 @@ import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
 
-main(args) async {
+Future main(args) async {
   var file = new File(args[0]);
   var lines = file
       .openRead()

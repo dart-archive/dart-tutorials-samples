@@ -12,17 +12,17 @@ import 'dart:async';
 Random myRandomGenerator = new Random();
 HttpClient client;
 
-main() {
+void main() {
   client = new HttpClient();
   new Timer.periodic(new Duration(seconds: 2), makeGuess);
 }
 
-makeGuess(_) async {
+Future makeGuess(_) async {
   var aRandomNumber = myRandomGenerator.nextInt(10);
 
   HttpClientRequest request = await client.get(
       InternetAddress.LOOPBACK_IP_V4.host, 4041,
-      '/?q=${aRandomNumber}');
+      '/?q=$aRandomNumber');
   print('Guess is $aRandomNumber.');
   HttpClientResponse response = await request.close();
   if (response.statusCode == HttpStatus.OK) {

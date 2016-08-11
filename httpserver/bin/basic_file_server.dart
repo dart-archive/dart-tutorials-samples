@@ -9,9 +9,10 @@
 // Also see static_file_server.dart.
 
 import 'dart:io';
+import 'dart:async';
 import 'package:http_server/http_server.dart';
 
-main() async {
+Future main() async {
   VirtualDirectory staticFiles = new VirtualDirectory('.');
 
   var serverRequests =

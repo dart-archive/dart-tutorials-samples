@@ -29,7 +29,7 @@ void gotMessage(_server) {
         defaultHandler(request);
     }
   }, onError: printError); // .listen failed
-  print('Listening for GET and POST on http://$HOST:$PORT');
+  print('Listening for GET and POST on https://$HOST:$PORT');
 }
 
 /// Handle POST requests

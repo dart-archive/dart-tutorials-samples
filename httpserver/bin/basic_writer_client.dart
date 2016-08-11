@@ -7,9 +7,10 @@
 // to the server and prints the response.
 
 import 'dart:io';
+import 'dart:async';
 import 'dart:convert' show UTF8, JSON;
 
-main() async {
+Future main() async {
   Map jsonData = {
     'name': 'Han Solo',
     'job': 'reluctant hero',
