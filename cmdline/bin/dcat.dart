@@ -11,7 +11,6 @@ import 'dart:io';
 import 'package:args/args.dart';
 
 const lineNumber = 'line-number';
-var newLine = '\n';
 
 ArgResults argResults;
 
