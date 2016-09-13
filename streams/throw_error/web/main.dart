@@ -20,7 +20,8 @@ Future<int> sumStream(Stream<int> stream) async {
 Stream<int> countStream(int to) async* {
   for (int i = 1; i <= to; i++) {
     if (i == 4) {
-      throw "Whoops!";  // Intentional error
+      // ignore: only_throw_errors
+      throw "Whoops!"; // Intentional error
     } else {
       yield i;
     }

@@ -14,8 +14,7 @@ Future main() async {
   var server;
 
   try {
-    server =
-        await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
+    server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
   } catch (e) {
     print("Couldn't bind to port 4044: $e");
     exit(-1);
@@ -34,8 +33,9 @@ Future main() async {
       }
     } else {
       print("Can't open index.html.");
-      req.response..statusCode = HttpStatus.NOT_FOUND
-                  ..close();
+      req.response
+        ..statusCode = HttpStatus.NOT_FOUND
+        ..close();
     }
   }
 }

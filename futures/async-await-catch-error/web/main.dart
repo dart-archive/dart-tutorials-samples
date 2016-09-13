@@ -35,8 +35,7 @@ void printBaseballScore() {
 
 // Imagine that this function is more complex and slow. :)
 Future gatherNewsReports() async {
-  String path =
-      'https://www.dartlang.org/f/dailyNewsDigest.txt';
-    String content = await HttpRequest.getString(path);
-    return content;
+  String path = 'https://www.dartlang.org/f/dailyNewsDigest.txt';
+  String content = await HttpRequest.getString(path);
+  return content;
 }

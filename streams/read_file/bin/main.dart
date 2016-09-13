@@ -9,10 +9,8 @@ import 'dart:convert';
 
 Future main(args) async {
   var file = new File(args[0]);
-  var lines = file
-      .openRead()
-      .transform(UTF8.decoder)
-      .transform(const LineSplitter());
+  var lines =
+      file.openRead().transform(UTF8.decoder).transform(const LineSplitter());
   await for (var line in lines) {
     if (!line.startsWith('#')) {
       print(line);

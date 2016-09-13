@@ -25,7 +25,6 @@ TextAreaElement boolAsJson;
 TextAreaElement mapAsJson;
 
 void main() {
-
   // Set up the input text areas.
   favoriteNumber = querySelector('#favoriteNumber');
   valueOfPi = querySelector('#valueOfPi');
@@ -36,7 +35,7 @@ void main() {
   loveChocolate = querySelector('#loveChocolate');
   noLoveForChocolate = querySelector('#noLoveForChocolate');
 
-  // Set up the results text areas 
+  // Set up the results text areas
   // to display the values as JSON.
   intAsJson = querySelector('#intAsJson');
   doubleAsJson = querySelector('#doubleAsJson');
@@ -61,7 +60,6 @@ void main() {
 
 // Pre-fill the form with some default values.
 void _populateFromJson() {
-
   String jsonDataAsString = '''
   { "favoriteNumber":73,
     "valueOfPi":3.141592,
@@ -91,14 +89,12 @@ void _populateFromJson() {
 
 // Display all values as JSON.
 void showJson(Event e) {
-  
   // Grab the data that will be converted to JSON.
   num favNum = int.parse(favoriteNumber.value);
   num pi = double.parse(valueOfPi.value);
   bool chocolate = loveChocolate.checked;
   String sign = horoscope.value;
-  List<String> favoriteThings =
-      [ favOne.value, favTwo.value, favThree.value ];
+  List<String> favoriteThings = [favOne.value, favTwo.value, favThree.value];
 
   Map formData = {
     'favoriteNumber': favNum,
@@ -110,10 +106,10 @@ void showJson(Event e) {
 
   // Convert everything to JSON and
   // display the results.
-  intAsJson.text    = JSON.encode(favNum);
+  intAsJson.text = JSON.encode(favNum);
   doubleAsJson.text = JSON.encode(pi);
-  boolAsJson.text   = JSON.encode(chocolate);
+  boolAsJson.text = JSON.encode(chocolate);
   stringAsJson.text = JSON.encode(sign);
-  listAsJson.text   = JSON.encode(favoriteThings);
-  mapAsJson.text    = JSON.encode(formData);
+  listAsJson.text = JSON.encode(favoriteThings);
+  mapAsJson.text = JSON.encode(formData);
 }

@@ -7,8 +7,7 @@ import 'dart:async';
 
 void printDailyNewsDigest() {
   Future future = gatherNewsReports();
-  future.then((content) => print(content))
-        .catchError((e) => handleError(e));
+  future.then((content) => print(content)).catchError((e) => handleError(e));
 }
 
 void main() {
@@ -36,7 +35,6 @@ void printBaseballScore() {
 
 // Imagine that this function is more complex and slow. :)
 Future gatherNewsReports() {
-  String path =
-      'https://www.dartlang.org/f/dailyNewsDigest.txt';
+  String path = 'https://www.dartlang.org/f/dailyNewsDigest.txt';
   return HttpRequest.getString(path);
 }

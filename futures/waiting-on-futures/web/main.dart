@@ -5,7 +5,8 @@
 import 'dart:async';
 
 void main() {
-  Future.wait([expensiveA(), expensiveB(), expensiveC()])
+  Future
+      .wait([expensiveA(), expensiveB(), expensiveC()])
       .then((List responses) => chooseBestResponse(responses))
       .catchError((e) => handleError(e));
 }

@@ -16,8 +16,7 @@ import 'dart:async';
 Future main() async {
   var certificateChain =
       Platform.script.resolve('server_chain.pem').toFilePath();
-  var serverKey =
-      Platform.script.resolve('server_key.pem').toFilePath();
+  var serverKey = Platform.script.resolve('server_key.pem').toFilePath();
   var serverContext = new SecurityContext();
   serverContext.useCertificateChain(certificateChain);
   serverContext.usePrivateKey(serverKey, password: 'dartdart');
@@ -25,7 +24,8 @@ Future main() async {
   var requests = await HttpServer.bindSecure('localhost', 4047, serverContext);
   print('listening');
   await for (HttpRequest request in requests) {
-    request.response..write('Hello, world!')
-                    ..close();
+    request.response
+      ..write('Hello, world!')
+      ..close();
   }
 }

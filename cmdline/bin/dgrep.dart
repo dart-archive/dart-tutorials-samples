@@ -6,6 +6,7 @@ library dgrep;
 
 import 'dart:io';
 import 'package:args/args.dart';
+import 'dart:async';
 
 const usage = 'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
 const recursive = 'recursive';
@@ -22,8 +23,9 @@ void printMatch(File file, List lines, int i) {
   print(sb.toString());
 }
 
-void searchFile(File file, searchTerms) {
-  file.readAsLines().then((lines) {
+Future searchFile(File file, searchTerms) async {
+  try {
+    var lines = await file.readAsLines();
     for (var i = 0; i < lines.length; i++) {
       bool found = false;
       for (var j = 0; j < searchTerms.length && !found; j++) {
@@ -33,15 +35,16 @@ void searchFile(File file, searchTerms) {
         }
       }
     }
-  }).catchError(print);
+  } catch (e) {
+    print(e);
+  }
 }
 
-void main(List<String> arguments) {
+Future main(List<String> arguments) async {
   final parser = new ArgParser()
-      ..addFlag(recursive, negatable: false, abbr: 'r')
-      ..addFlag(lineNumber, negatable: false, abbr: 'n')
-      ..addFlag(followLinks, negatable: false, abbr: 'S');
-
+    ..addFlag(recursive, negatable: false, abbr: 'r')
+    ..addFlag(lineNumber, negatable: false, abbr: 'n')
+    ..addFlag(followLinks, negatable: false, abbr: 'S');
 
   argResults = parser.parse(arguments);
 
@@ -53,17 +56,16 @@ void main(List<String> arguments) {
   final searchPath = argResults.rest.last;
   final searchTerms = argResults.rest.sublist(0, argResults.rest.length - 1);
 
-  FileSystemEntity.isDirectory(searchPath).then((isDir) {
-    if (isDir) {
-      final startingDir = new Directory(searchPath);
-      startingDir.list(recursive:   argResults[recursive],
-                       followLinks: argResults[followLinks]).listen((entity) {
-        if (entity is File) {
-          searchFile(entity, searchTerms);
-        }
-      });
-    } else {
-      searchFile(new File(searchPath), searchTerms);
+  if (await FileSystemEntity.isDirectory(searchPath)) {
+    final startingDir = new Directory(searchPath);
+    await for (var entity in startingDir.list(
+        recursive: argResults[recursive],
+        followLinks: argResults[followLinks])) {
+      if (entity is File) {
+        searchFile(entity, searchTerms);
+      } else {
+        searchFile(new File(searchPath), searchTerms);
+      }
     }
-  });
+  }
 }

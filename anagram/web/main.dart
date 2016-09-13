@@ -9,7 +9,8 @@ import 'dart:math';
 // Should remove tiles from here when they are selected otherwise
 // the ratio is off.
 
-String scrabbleLetters = 'aaaaaaaaabbccddddeeeeeeeeeeeeffggghhiiiiiiiiijkllllmmnnnnnnooooooooppqrrrrrrssssttttttuuuuvvwwxyyz**';
+String scrabbleLetters =
+    'aaaaaaaaabbccddddeeeeeeeeeeeeffggghhiiiiiiiiijkllllmmnnnnnnooooooooppqrrrrrrssssttttttuuuuvvwwxyyz**';
 
 List<ButtonElement> buttons = new List();
 Element letterpile;
@@ -18,12 +19,35 @@ ButtonElement clearButton;
 Element value;
 int wordvalue = 0;
 
-Map scrabbleValues = { 'a':1, 'e':1, 'i':1, 'l':1, 'n':1,
-                       'o':1, 'r':1, 's':1, 't':1, 'u':1,
-                       'd':2, 'g':2, 'b':3, 'c':3, 'm':3,
-                       'p':3, 'f':4, 'h':4, 'v':4, 'w':4,
-                       'y':4, 'k':5, 'j':8, 'x':8, 'q':10,
-                       'z':10, '*':0 };
+Map scrabbleValues = {
+  'a': 1,
+  'e': 1,
+  'i': 1,
+  'l': 1,
+  'n': 1,
+  'o': 1,
+  'r': 1,
+  's': 1,
+  't': 1,
+  'u': 1,
+  'd': 2,
+  'g': 2,
+  'b': 3,
+  'c': 3,
+  'm': 3,
+  'p': 3,
+  'f': 4,
+  'h': 4,
+  'v': 4,
+  'w': 4,
+  'y': 4,
+  'k': 5,
+  'j': 8,
+  'x': 8,
+  'q': 10,
+  'z': 10,
+  '*': 0
+};
 
 void main() {
   letterpile = querySelector("#letterpile");
@@ -61,8 +85,7 @@ void generateNewLetters() {
   value.text = '';
   buttons.clear();
   for (var i = 0; i < 7; i++) {
-    int letterIndex =
-        indexGenerator.nextInt(scrabbleLetters.length);
+    int letterIndex = indexGenerator.nextInt(scrabbleLetters.length);
     // Should remove the letter from scrabbleLetters to keep the
     // ratio correct.
     buttons.add(new ButtonElement());

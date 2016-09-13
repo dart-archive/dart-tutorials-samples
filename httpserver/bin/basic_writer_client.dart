@@ -19,8 +19,8 @@ Future main() async {
     'weakness': 'smuggling debts'
   };
 
-  var request = await new HttpClient().post(
-      InternetAddress.LOOPBACK_IP_V4.host, 4049, '/file.txt');
+  var request = await new HttpClient()
+      .post(InternetAddress.LOOPBACK_IP_V4.host, 4049, '/file.txt');
   request.headers.contentType = ContentType.JSON;
   request.write(JSON.encode(jsonData));
   HttpClientResponse response = await request.close();

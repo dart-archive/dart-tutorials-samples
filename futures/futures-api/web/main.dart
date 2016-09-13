@@ -31,7 +31,6 @@ void printBaseballScore() {
 
 // Imagine that this function is more complex and slow. :)
 Future gatherNewsReports() {
-  String path =
-      'https://www.dartlang.org/f/dailyNewsDigest.txt';
+  String path = 'https://www.dartlang.org/f/dailyNewsDigest.txt';
   return HttpRequest.getString(path);
 }

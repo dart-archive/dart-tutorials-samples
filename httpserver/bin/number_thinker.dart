@@ -28,9 +28,10 @@ void handleRequest(HttpRequest request) {
     if (request.method == 'GET') {
       handleGet(request);
     } else {
-      request.response..statusCode = HttpStatus.METHOD_NOT_ALLOWED
-                      ..write('Unsupported request: ${request.method}.')
-                      ..close();
+      request.response
+        ..statusCode = HttpStatus.METHOD_NOT_ALLOWED
+        ..write('Unsupported request: ${request.method}.')
+        ..close();
     }
   } catch (e) {
     print('Exception in handleRequest: $e');
@@ -42,13 +43,15 @@ void handleGet(HttpRequest request) {
   var guess = request.uri.queryParameters['q'];
   request.response.statusCode = HttpStatus.OK;
   if (guess == myNumber.toString()) {
-    request.response..writeln('true')
-                    ..writeln("I'm thinking of another number.")
-                    ..close();
+    request.response
+      ..writeln('true')
+      ..writeln("I'm thinking of another number.")
+      ..close();
     myNumber = new Random().nextInt(10);
     print("I'm thinking of another number: $myNumber");
   } else {
-    request.response..writeln('false')
-                    ..close();
+    request.response
+      ..writeln('false')
+      ..close();
   }
 }
