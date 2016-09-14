@@ -4,9 +4,9 @@
 
 library dcat;
 
-import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:async';
 
 import 'package:args/args.dart';
 
@@ -25,7 +25,7 @@ ArgResults argResults;
 /// Unlike the *nix `cat`, `dcat` does not support single dash ('-') arguments.
 
 void main(List<String> arguments) {
-  exitCode = 0; //presume success.
+  exitCode = 0; //presume success
   final parser = new ArgParser()
     ..addFlag(lineNumber, negatable: false, abbr: 'n');
 
