@@ -1,0 +1,5 @@
+# Supported lint rules and documentation:
+#   http://dart-lang.github.io/linter/lints/
+
+analyzer:
+  strong-mode: true
