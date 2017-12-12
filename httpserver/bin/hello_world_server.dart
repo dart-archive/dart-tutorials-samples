@@ -4,22 +4,21 @@
 
 // Replies "Hello, world!" to all requests.
 // Use the URL localhost:4040 in your browser.
-
 import 'dart:io';
 import 'dart:async';
 
 Future main() async {
-  var requestServer =
-      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4040);
-  print('listening on localhost, port ${requestServer.port}');
+  var server = await HttpServer.bind(
+    InternetAddress.LOOPBACK_IP_V4,
+    4040,
+  );
+  // #enddocregion bind
+  print('Listening on localhost:${server.port}');
 
-  try {
-    await for (HttpRequest request in requestServer) {
-      request.response
-        ..write('Hello, world!')
-        ..close();
-    }
-  } catch (e) {
-    print(e.toString);
+  await for (HttpRequest request in server) {
+    request.response
+      ..write('Hello, world!')
+      ..close();
   }
+  // #enddocregion listen
 }
