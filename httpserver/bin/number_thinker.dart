@@ -7,50 +7,62 @@
 // where # is your guess.
 // Or, you can use the make_a_guess.html UI.
 
-import 'dart:io';
 import 'dart:async';
+import 'dart:io';
 import 'dart:math' show Random;
 
-int myNumber = new Random().nextInt(10);
+Random intGenerator = new Random();
+int myNumber = intGenerator.nextInt(10);
 
 Future main() async {
   print("I'm thinking of a number: $myNumber");
 
-  HttpServer requestServer =
-      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041);
-  await for (var request in requestServer) {
+  HttpServer server = await HttpServer.bind(
+    InternetAddress.LOOPBACK_IP_V4,
+    4041,
+  );
+  await for (var request in server) {
     handleRequest(request);
   }
 }
+// #enddocregion main
 
 void handleRequest(HttpRequest request) {
   try {
     if (request.method == 'GET') {
       handleGet(request);
     } else {
+      // #enddocregion handleRequest
       request.response
         ..statusCode = HttpStatus.METHOD_NOT_ALLOWED
         ..write('Unsupported request: ${request.method}.')
         ..close();
     }
+    // #enddocregion request-method
   } catch (e) {
     print('Exception in handleRequest: $e');
   }
   print('Request handled.');
 }
+// #enddocregion handleRequest
 
 void handleGet(HttpRequest request) {
-  var guess = request.uri.queryParameters['q'];
-  request.response.statusCode = HttpStatus.OK;
+  // #enddocregion write
+  final guess = request.uri.queryParameters['q'];
+  // #enddocregion uri
+  final response = request.response;
+  response.statusCode = HttpStatus.OK;
+  // #enddocregion statusCode
   if (guess == myNumber.toString()) {
-    request.response
+    response
       ..writeln('true')
       ..writeln("I'm thinking of another number.")
       ..close();
-    myNumber = new Random().nextInt(10);
+    // #enddocregion write
+    myNumber = intGenerator.nextInt(10);
     print("I'm thinking of another number: $myNumber");
   } else {
-    request.response
+    response
       ..writeln('false')
       ..close();
   }
