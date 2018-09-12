@@ -7,22 +7,22 @@
 
 import 'dart:async';
 import 'dart:io';
-import 'dart:convert' show UTF8, JSON;
+import 'dart:convert' show utf8, json;
 
 int count = 0;
 
 Future main() async {
   // One note per line.
   try {
-    List<String> lines = new File('notes.txt').readAsLinesSync();
+    List<String> lines = File('notes.txt').readAsLinesSync();
     count = lines.length;
   } on FileSystemException {
     print('Could not open notes.txt.');
     return;
   }
 
-  var server = await HttpServer.bind(
-      InternetAddress.LOOPBACK_IP_V4, 4042);
+  var server =
+      await HttpServer.bind(InternetAddress.loopbackIPv4, 4042);
   print('Listening for requests on 4042.');
   await listenForRequests(server);
 }
@@ -45,14 +45,14 @@ Future listenForRequests(HttpServer requests) async {
 }
 
 Future handlePost(HttpRequest request) async {
-  var decoded;
+  Map decoded;
 
   addCorsHeaders(request.response);
 
   try {
     decoded = await request
-        .transform(UTF8.decoder.fuse(JSON.decoder))
-        .first;
+        .transform(utf8.decoder.fuse(json.decoder))
+        .first as Map;
   } catch (e) {
     print('Request listen error: $e');
     return;
@@ -61,18 +61,18 @@ Future handlePost(HttpRequest request) async {
   if (decoded.containsKey('myNote')) {
     saveNote(request, "${decoded['myNote']}\n");
   } else {
-    getNote(request, decoded['getNote']);
+    getNote(request, decoded['getNote'] as String);
   }
 }
 
 void saveNote(HttpRequest request, String myNote) {
   try {
-    new File('notes.txt')
-        .writeAsStringSync(myNote, mode: FileMode.APPEND);
+    File('notes.txt')
+        .writeAsStringSync(myNote, mode: FileMode.append);
   } catch (e) {
     print('Couldn\'t open notes.txt: $e');
     request.response
-      ..statusCode = HttpStatus.INTERNAL_SERVER_ERROR
+      ..statusCode = HttpStatus.internalServerError
       ..writeln('Couldn\'t save note.')
       ..close();
     return;
@@ -80,42 +80,37 @@ void saveNote(HttpRequest request, String myNote) {
 
   count++;
   request.response
-    ..statusCode = HttpStatus.OK
+    ..statusCode = HttpStatus.ok
     ..writeln('You have $count notes.')
     ..close();
 }
 
 void getNote(HttpRequest request, String getNote) {
-  var requestedNote = int.parse(getNote, onError: (_) {
-    print('error');
-  });
-  if (requestedNote == null) {
-    requestedNote = 0;
-  }
+  final requestedNote = int.tryParse(getNote) ?? 0;
   if (requestedNote >= 0 && requestedNote < count) {
-    List<String> lines = new File('notes.txt').readAsLinesSync();
+    List<String> lines = File('notes.txt').readAsLinesSync();
     request.response
-      ..statusCode = HttpStatus.OK
+      ..statusCode = HttpStatus.ok
       ..writeln(lines[requestedNote])
       ..close();
   }
 }
 
 void defaultHandler(HttpRequest request) {
-  var response = request.response;
+  final response = request.response;
   addCorsHeaders(response);
   response
-    ..statusCode = HttpStatus.NOT_FOUND
+    ..statusCode = HttpStatus.notFound
     ..write('Not found: ${request.method}, ${request.uri.path}')
     ..close();
 }
 
 void handleOptions(HttpRequest request) {
-  var response = request.response;
+  final response = request.response;
   addCorsHeaders(response);
   print('${request.method}: ${request.uri.path}');
   response
-    ..statusCode = HttpStatus.NO_CONTENT
+    ..statusCode = HttpStatus.noContent
     ..close();
 }
 

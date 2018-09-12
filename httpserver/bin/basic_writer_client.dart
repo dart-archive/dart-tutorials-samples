@@ -8,9 +8,9 @@
 
 import 'dart:async';
 import 'dart:io';
-import 'dart:convert' show UTF8, JSON;
+import 'dart:convert';
 
-String _host = InternetAddress.LOOPBACK_IP_V4.host;
+String _host = InternetAddress.loopbackIPv4.host;
 String path = 'file.txt';
 
 Map jsonData = {
@@ -22,10 +22,9 @@ Map jsonData = {
 };
 
 Future main() async {
-  HttpClientRequest request =
-      await new HttpClient().post(_host, 4049, path) /*1*/
-        ..headers.contentType = ContentType.JSON /*2*/
-        ..write(JSON.encode(jsonData)); /*3*/
+  HttpClientRequest request = await HttpClient().post(_host, 4049, path) /*1*/
+    ..headers.contentType = ContentType.json /*2*/
+    ..write(jsonEncode(jsonData)); /*3*/
   HttpClientResponse response = await request.close(); /*4*/
-  await response.transform(UTF8.decoder /*5*/).forEach(print);
+  await response.transform(utf8.decoder /*5*/).forEach(print);
 }

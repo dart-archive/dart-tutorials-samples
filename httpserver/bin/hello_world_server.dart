@@ -9,10 +9,9 @@ import 'dart:async';
 
 Future main() async {
   var server = await HttpServer.bind(
-    InternetAddress.LOOPBACK_IP_V4,
+    InternetAddress.loopbackIPv4,
     4040,
   );
-  // #enddocregion bind
   print('Listening on localhost:${server.port}');
 
   await for (HttpRequest request in server) {
@@ -20,5 +19,4 @@ Future main() async {
       ..write('Hello, world!')
       ..close();
   }
-  // #enddocregion listen
 }
