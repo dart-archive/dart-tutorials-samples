@@ -9,13 +9,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
-Duration oneSecond = const Duration(seconds: 1);
-Random myRandomGenerator = new Random();
-HttpClient client = new HttpClient();
+Duration oneSecond = Duration(seconds: 1);
+Random myRandomGenerator = Random();
+HttpClient client = HttpClient();
 
 Future main() async {
   // Delay successive guesses by oneSecond.
-  final guesses = new Stream.periodic(oneSecond, (_) => guess());
+  final guesses = Stream.periodic(oneSecond, (_) => guess());
 
   // Guess until we get it right
   await for (final guess in guesses) {
@@ -28,14 +28,14 @@ Future<bool> guess() {
   return checkGuess(guess);
 }
 
-Future checkGuess(int guess) async {
+Future<bool> checkGuess(int guess) async {
   bool isGoodGuess = false;
   HttpClientRequest request =
-      await client.get(InternetAddress.LOOPBACK_IP_V4.host, 4041, '/?q=$guess');
+      await client.get(InternetAddress.loopbackIPv4.host, 4041, '/?q=$guess');
   print('Guess is $guess.');
   HttpClientResponse response = await request.close();
-  if (response.statusCode == HttpStatus.OK) {
-    var contents = await response.transform(UTF8.decoder).join();
+  if (response.statusCode == HttpStatus.ok) {
+    var contents = await response.transform(utf8.decoder).join();
     if (contents.startsWith('true')) {
       isGoodGuess = true;
       client.close();

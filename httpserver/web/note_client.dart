@@ -17,17 +17,17 @@ HttpRequest request;
 String url = 'http://localhost:4042';
 
 void main() {
-  noteTextInput = querySelector('#note_entry');
-  howManyNotes = querySelector('#display_how_many_notes');
-  chooseNote = querySelector('#choose_note');
-  displayNote = querySelector('#display_note');
+  noteTextInput = querySelector('#note_entry') as TextInputElement;
+  howManyNotes = querySelector('#display_how_many_notes') as ParagraphElement;
+  chooseNote = querySelector('#choose_note') as TextInputElement;
+  displayNote = querySelector('#display_note') as ParagraphElement;
 
   querySelector('#save_note').onClick.listen(saveNote);
   querySelector('#get_note').onClick.listen(requestNote);
 }
 
 void saveNote(Event e) {
-  request = new HttpRequest();
+  request = HttpRequest();
   request.onReadyStateChange.listen(onData);
 
   request.open('POST', url);
@@ -37,12 +37,9 @@ void saveNote(Event e) {
 void requestNote(Event e) {
   if (chooseNote.value.isEmpty) return;
 
-  int getNoteNumber = int.parse(chooseNote.value, onError: (_) {
-    print('NaN');
-  });
-  if (getNoteNumber == null) getNoteNumber = 0;
+  int getNoteNumber = int.tryParse(chooseNote.value) ?? 0;
 
-  request = new HttpRequest();
+  request = HttpRequest();
   request.onReadyStateChange.listen(onData);
 
   request.open('POST', url);
