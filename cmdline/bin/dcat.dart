@@ -44,7 +44,7 @@ Future dcat(List<String> paths, bool showLineNumbers) async {
       int lineNumber = 1;
       Stream lines = new File(path)
           .openRead()
-          .transform(UTF8.decoder)
+          .transform(utf8.decoder)
           .transform(const LineSplitter());
       try {
         await for (var line in lines) {
