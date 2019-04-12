@@ -2,7 +2,6 @@
 #   http://dart-lang.github.io/linter/lints/
 
 analyzer:
-  strong-mode: true
   exclude:
     - bin/helloworld42.dart
 
