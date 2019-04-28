@@ -6,7 +6,6 @@ library dcat;
 
 import 'dart:convert';
 import 'dart:io';
-import 'dart:async';
 
 import 'package:args/args.dart';
 
@@ -38,7 +37,7 @@ void main(List<String> arguments) {
 Future dcat(List<String> paths, bool showLineNumbers) async {
   if (paths.isEmpty) {
     // No files provided as arguments. Read from stdin and print each line.
-    stdin.pipe(stdout);
+    await stdin.pipe(stdout);
   } else {
     for (var path in paths) {
       int lineNumber = 1;
@@ -54,7 +53,7 @@ Future dcat(List<String> paths, bool showLineNumbers) async {
           stdout.writeln(line);
         }
       } catch (_) {
-        _handleError(path);
+        await _handleError(path);
       }
     }
   }
