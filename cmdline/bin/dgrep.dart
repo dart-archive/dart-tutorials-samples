@@ -6,7 +6,6 @@ library dgrep;
 
 import 'dart:io';
 import 'package:args/args.dart';
-import 'dart:async';
 
 const usage = 'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
 const recursive = 'recursive';
@@ -62,9 +61,9 @@ Future main(List<String> arguments) async {
         recursive: argResults[recursive],
         followLinks: argResults[followLinks])) {
       if (entity is File) {
-        searchFile(entity, searchTerms);
+        await searchFile(entity, searchTerms);
       } else {
-        searchFile(new File(searchPath), searchTerms);
+        await searchFile(new File(searchPath), searchTerms);
       }
     }
   }
