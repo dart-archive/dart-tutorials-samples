@@ -8,25 +8,25 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
 
-var wordList;
+UListElement wordList;
 
 void main() {
   querySelector('#getWords').onClick.listen(makeRequest);
-  wordList = querySelector('#wordList');
+  wordList = querySelector('#wordList') as UListElement;
 }
 
 Future makeRequest(Event e) async {
-  var path = 'https://www.dartlang.org/f/portmanteaux.json';
+  var path = 'https://dart.dev/f/portmanteaux.json';
   try {
     processString(await HttpRequest.getString(path));
   } catch (e) {
-    print('Couldn\'t open $path');
+    print('Couldn\'t open $path: $e');
     handleError(e);
   }
 }
 
 void processString(String jsonString) {
-  List<String> portmanteaux = JSON.decode(jsonString) as List<String>;
+  List<String> portmanteaux = (json.decode(jsonString) as List<dynamic>).cast<String>();
   for (int i = 0; i < portmanteaux.length; i++) {
     wordList.children.add(new LIElement()..text = portmanteaux[i]);
   }
