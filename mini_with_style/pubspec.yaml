@@ -1,8 +1,11 @@
 name: mini_with_style
 description: A sample application
-dependencies:
-  browser: ^0.10.0
-
 homepage: https://www.dartlang.org/docs/tutorials/connect-dart-html/
-gist: https://gist.github.com/Sfshaza/ff2ccfff828813c34ffc
-dartpad: https://dartpad.dartlang.org/ff2ccfff828813c34ffc
+
+environment:
+  sdk: '>=2.2.0 <3.0.0'
+
+dev_dependencies:
+  build_runner: ^1.1.2
+  build_web_compilers: ^1.0.0
+  pedantic: ^1.0.0
