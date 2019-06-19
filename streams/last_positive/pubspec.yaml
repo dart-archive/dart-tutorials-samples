@@ -1,6 +1,6 @@
 name: last_positive
 description: A simple app that reads from an integer stream and reports the last positive value from the stream.
-homepage: https://www.dartlang.org/docs/tutorials/streams/
+homepage: https://dart.dev/tutorials/language/streams
 
 environment:
   sdk: '>=2.2.0 <3.0.0'

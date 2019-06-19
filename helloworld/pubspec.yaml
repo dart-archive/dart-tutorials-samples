@@ -1,6 +1,6 @@
 name: helloworld
 description: A sample application
-homepage: https://www.dartlang.org/docs/tutorials/cmdline/
+homepage: https://dart.dev/tutorials/server/cmdline
 
 environment:
   sdk: '>=2.2.0 <3.0.0'

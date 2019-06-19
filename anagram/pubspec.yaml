@@ -10,4 +10,4 @@ dev_dependencies:
   build_web_compilers: ^1.0.0
   pedantic: ^1.7.0
 
-homepage: https://www.dartlang.org/docs/tutorials/add-elements/
+homepage: https://dart.dev/tutorials/web/low-level-html/add-elements

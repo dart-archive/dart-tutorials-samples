@@ -1,6 +1,6 @@
 name: todo_with_delete
 description: A sample application
-homepage: https://www.dartlang.org/docs/tutorials/remove-elements/
+homepage: https://dart.dev/tutorials/web/low-level-html/remove-elements
 
 environment:
   sdk: '>=2.2.0 <3.0.0'

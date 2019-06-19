@@ -1,6 +1,6 @@
 name: simple_stream
 description: A simple application that reads integers from a stream and adds their values together.
-homepage: https://www.dartlang.org/docs/tutorials/streams/
+homepage: https://dart.dev/tutorials/language/streams
 
 environment:
   sdk: '>=2.2.0 <3.0.0'

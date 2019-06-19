@@ -16,7 +16,7 @@ executables:
   dcat:
   dgrep:
 
-homepage: https://www.dartlang.org/tutorials/server/cmdline
+homepage: https://dart.dev/tutorials/server/cmdline
 
 
 
