@@ -71,7 +71,7 @@ void _populateFromJson() {
   }
   ''';
 
-  Map jsonData = JSON.decode(jsonDataAsString);
+  Map jsonData = json.decode(jsonDataAsString);
 
   favoriteNumber.value = jsonData['favoriteNumber'].toString();
   valueOfPi.value = jsonData['valueOfPi'].toString();
@@ -106,10 +106,10 @@ void showJson(Event e) {
 
   // Convert everything to JSON and
   // display the results.
-  intAsJson.text = JSON.encode(favNum);
-  doubleAsJson.text = JSON.encode(pi);
-  boolAsJson.text = JSON.encode(chocolate);
-  stringAsJson.text = JSON.encode(sign);
-  listAsJson.text = JSON.encode(favoriteThings);
-  mapAsJson.text = JSON.encode(formData);
+  intAsJson.text = json.encode(favNum);
+  doubleAsJson.text = json.encode(pi);
+  boolAsJson.text = json.encode(chocolate);
+  stringAsJson.text = json.encode(sign);
+  listAsJson.text = json.encode(favoriteThings);
+  mapAsJson.text = json.encode(formData);
 }
