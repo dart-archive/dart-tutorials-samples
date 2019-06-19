@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:test/test.dart';
+import 'package:path/path.dart';
 import '../bin/basic_file_server.dart' as basic_file_server;
 import '../bin/basic_writer_client.dart' as basic_writer_client;
 import '../bin/basic_writer_server.dart' as basic_writer_server;
@@ -24,7 +25,7 @@ void main() {
               hello_world_server.main(),
               _test(),
             ]),
-        prints(startsWith('Listening on localhost:$port')));
+        prints(startsWith('Listening on http://127.0.0.1:$port')));
   });
 
   group('number_thinker and number_guesser:', () {
@@ -146,7 +147,7 @@ void main() {
               _server(),
               _test(),
             ]),
-        prints('Serving ${file.path}.\n'));
+        prints('Listening on http://127.0.0.1:4044/\nServing ${file.path}.\n'));
   });
 
   test('basic_file_server', () async {

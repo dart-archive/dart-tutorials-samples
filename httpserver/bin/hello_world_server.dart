@@ -12,11 +12,10 @@ Future main() async {
     InternetAddress.loopbackIPv4,
     4040,
   );
-  print('Listening on localhost:${server.port}');
+  print('Listening on http://${server.address.address}:${server.port}/');
 
   await for (HttpRequest request in server) {
-    request.response
-      ..write('Hello, world!')
-      ..close();
+    request.response.write('Hello, world!');
+    await request.response.close();
   }
 }

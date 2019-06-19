@@ -21,6 +21,7 @@ Future main() async {
     InternetAddress.loopbackIPv4,
     4041,
   );
+  print('Listening on http://${server.address.address}:${server.port}/');
   await for (var request in server) {
     handleRequest(request);
   }

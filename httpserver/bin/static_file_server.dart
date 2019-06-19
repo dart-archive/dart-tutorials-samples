@@ -21,6 +21,6 @@ Future main() async {
   };
 
   var server = await HttpServer.bind(InternetAddress.loopbackIPv4, 4048);
-  print('Listening on port 4048');
+  print('Listening on http://${server.address.address}:${server.port}/');
   await server.forEach(staticFiles.serveRequest); /*4*/
 }

@@ -6,6 +6,7 @@
 // Use note_taker.html to run this script.
 
 import 'dart:html';
+import 'dart:convert' show jsonEncode;
 
 String note;
 
@@ -31,7 +32,7 @@ void saveNote(Event e) {
   request.onReadyStateChange.listen(onData);
 
   request.open('POST', url);
-  request.send('{"myNote":"${noteTextInput.value}"}');
+  request.send(jsonEncode({'myNote': noteTextInput.value}));
 }
 
 void requestNote(Event e) {
@@ -43,7 +44,7 @@ void requestNote(Event e) {
   request.onReadyStateChange.listen(onData);
 
   request.open('POST', url);
-  request.send('{"getNote":"$getNoteNumber}"');
+  request.send(jsonEncode({'getNote': getNoteNumber.toString()}));
 }
 
 void onData(_) {

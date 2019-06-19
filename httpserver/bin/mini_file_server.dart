@@ -9,8 +9,10 @@
 
 import 'dart:async';
 import 'dart:io';
+import 'package:path/path.dart';
 
-File targetFile = File('index.html');
+var targetFile =
+    File(join(dirname(Platform.script.toFilePath()), 'index.html'));
 
 Future main() async {
   var server;
@@ -21,6 +23,7 @@ Future main() async {
     print("Couldn't bind to port 4044: $e");
     exit(-1);
   }
+  print('Listening on http://${server.address.address}:${server.port}/');
 
   await for (HttpRequest req in server) {
     if (await targetFile.exists()) {
@@ -34,9 +37,8 @@ Future main() async {
       }
     } else {
       print("Can't open ${targetFile.path}.");
-      req.response
-        ..statusCode = HttpStatus.notFound
-        ..close();
+      req.response.statusCode = HttpStatus.notFound;
+      await req.response.close();
     }
   }
 }
