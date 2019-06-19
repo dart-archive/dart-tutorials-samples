@@ -1,8 +1,11 @@
 name: todo_with_delete
 description: A sample application
-dependencies:
-  browser: ^0.10.0
-
 homepage: https://www.dartlang.org/docs/tutorials/remove-elements/
-gist: https://gist.github.com/Sfshaza/582b9a8d36786566ba08
-dartpad: https://dartpad.dartlang.org/582b9a8d36786566ba08
+
+environment:
+  sdk: '>=2.2.0 <3.0.0'
+
+dev_dependencies:
+  build_runner: ^1.1.2
+  build_web_compilers: ^1.0.0
+  pedantic: ^1.0.0
