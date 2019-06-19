@@ -1,8 +1,10 @@
 name: simple_stream
 description: A simple application that reads integers from a stream and adds their values together.
-dependencies:
-  args: ^0.10.0
-
 homepage: https://www.dartlang.org/docs/tutorials/streams/
-gist: https://gist.github.com/Sfshaza/15d5ef986238c97dbc14
-dartpad: https://dartpad.dartlang.org/15d5ef986238c97dbc14
+
+environment:
+  sdk: '>=2.2.0 <3.0.0'
+
+dev_dependencies:
+  pedantic: ^1.0.0
+  test: ^1.0.0
