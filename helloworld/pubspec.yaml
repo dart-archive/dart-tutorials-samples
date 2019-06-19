@@ -1,4 +1,9 @@
 name: helloworld
 description: A sample application
-
 homepage: https://www.dartlang.org/docs/tutorials/cmdline/
+
+environment:
+  sdk: '>=2.2.0 <3.0.0'
+
+dev_dependencies:
+  pedantic: ^1.7.0
