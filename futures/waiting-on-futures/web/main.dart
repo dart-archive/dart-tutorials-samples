@@ -3,26 +3,24 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
+
+DivElement output = querySelector('#output');
 
 void main() {
-  Future
-      .wait([expensiveA(), expensiveB(), expensiveC()])
+  Future.wait([expensiveA(), expensiveB(), expensiveC()])
       .then((List responses) => chooseBestResponse(responses))
       .catchError((e) => handleError(e));
 }
 
-Future expensiveA() => new Future.value('from expensiveA');
-Future expensiveB() => new Future.value('from expensiveB');
-Future expensiveC() => new Future.value('from expensiveC');
-
-void doSomethingWith(value) {
-  print(value);
-}
+Future expensiveA() => Future.value('from expensiveA');
+Future expensiveB() => Future.value('from expensiveB');
+Future expensiveC() => Future.value('from expensiveC');
 
 void chooseBestResponse(List responses) {
-  print(responses[1]);
+  output.appendText(responses[1]);
 }
 
 void handleError(e) {
-  print('error handled');
+  output.appendText('handle error: $e');
 }
