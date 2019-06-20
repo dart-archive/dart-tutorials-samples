@@ -35,7 +35,7 @@ void printWeatherForecast() {
 }
 
 void printBaseballScore() {
-  pre.appendText('Baseball score: Red Sox 10, Yankees 30\n');
+  pre.appendText('Baseball score: Red Sox 10, Yankees 0\n');
 }
 
 // Imagine that this function is more complex and slow. :)
