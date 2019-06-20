@@ -25,9 +25,9 @@ void makeRequest(Event e) {
 
 void requestComplete(HttpRequest request) {
   if (request.status == 200) {
-    List<String> portmanteaux =
+    final portmanteaux =
         (json.decode(request.responseText) as List<dynamic>).cast<String>();
-    for (int i = 0; i < portmanteaux.length; i++) {
+    for (var i = 0; i < portmanteaux.length; i++) {
       wordList.children.add(new LIElement()..text = portmanteaux[i]);
     }
   } else {

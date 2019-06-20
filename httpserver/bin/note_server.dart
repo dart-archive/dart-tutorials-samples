@@ -8,16 +8,16 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:convert' show utf8, json;
-import 'package:path/path.dart' show dirname;
+import 'package:path/path.dart' as p;
 
 int count = 0;
 
 Future main() async {
-  Directory.current = dirname(Platform.script.toFilePath());
+  Directory.current = p.dirname(Platform.script.toFilePath());
 
   // One note per line.
   try {
-    List<String> lines = File('notes.txt').readAsLinesSync();
+    final lines = File('notes.txt').readAsLinesSync();
     count = lines.length;
   } on FileSystemException {
     print('Could not open notes.txt.');
@@ -88,7 +88,7 @@ void saveNote(HttpRequest request, String myNote) {
 void getNote(HttpRequest request, String getNote) {
   final requestedNote = int.tryParse(getNote) ?? 0;
   if (requestedNote >= 0 && requestedNote < count) {
-    List<String> lines = File('notes.txt').readAsLinesSync();
+    final lines = File('notes.txt').readAsLinesSync();
     request.response
       ..statusCode = HttpStatus.ok
       ..writeln(lines[requestedNote])

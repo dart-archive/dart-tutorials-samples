@@ -1,13 +1,11 @@
 name: anagram
 description: A sample application
+homepage: https://dart.dev/tutorials/web/low-level-html/add-elements
 
 environment:
-  sdk: '>=2.2.0 <3.0.0'
-
+  sdk: '>=2.3.0 <3.0.0'
 
 dev_dependencies:
-  build_runner: ^1.1.2
-  build_web_compilers: ^1.0.0
+  build_runner: ^1.5.0
+  build_web_compilers: ^2.1.0
   pedantic: ^1.7.0
-
-homepage: https://dart.dev/tutorials/web/low-level-html/add-elements

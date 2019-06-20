@@ -38,7 +38,7 @@ void saveNote(Event e) {
 void requestNote(Event e) {
   if (chooseNote.value.isEmpty) return;
 
-  int getNoteNumber = int.tryParse(chooseNote.value) ?? 0;
+  final getNoteNumber = int.tryParse(chooseNote.value) ?? 0;
 
   request = HttpRequest();
   request.onReadyStateChange.listen(onData);

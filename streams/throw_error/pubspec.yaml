@@ -3,8 +3,8 @@ description: A simple app that reads from a stream and throws an error when the 
 homepage: https://dart.dev/tutorials/language/streams
 
 environment:
-  sdk: '>=2.2.0 <3.0.0'
+  sdk: '>=2.3.0 <3.0.0'
 
 dev_dependencies:
-  pedantic: ^1.0.0
-  test: ^1.0.0
+  pedantic: ^1.7.0
+  test: ^1.6.0

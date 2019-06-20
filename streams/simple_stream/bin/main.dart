@@ -14,7 +14,7 @@ Future<int> sumStream(Stream<int> stream) async {
 }
 
 Stream<int> countStream(int to) async* {
-  for (int i = 1; i <= to; i++) {
+  for (var i = 1; i <= to; i++) {
     yield i;
   }
 }

@@ -12,13 +12,13 @@
 
 import 'dart:async';
 import 'dart:io';
-import 'package:path/path.dart' show dirname;
+import 'package:path/path.dart' as p;
 
 String certificateChain = 'server_chain.pem';
 String serverKey = 'server_key.pem';
 
 Future main() async {
-  Directory.current = dirname(Platform.script.toFilePath());
+  Directory.current = p.dirname(Platform.script.toFilePath());
   var serverContext = SecurityContext(); /*1*/
   serverContext.useCertificateChain(certificateChain); /*2*/
   serverContext.usePrivateKey(serverKey, password: 'dartdart'); /*3*/

@@ -16,13 +16,13 @@ Future main() async {
   var server = await HttpServer.bind(_host, 4049);
   print('Listening on http://${server.address.address}:${server.port}/');
   await for (var req in server) {
-    ContentType contentType = req.headers.contentType;
-    HttpResponse response = req.response;
+    final contentType = req.headers.contentType;
+    final response = req.response;
 
     if (req.method == 'POST' &&
         contentType?.mimeType == 'application/json' /*1*/) {
       try {
-        String content = await req.transform(utf8.decoder).join(); /*2*/
+        final content = await req.transform(utf8.decoder).join(); /*2*/
         var data = jsonDecode(content) as Map; /*3*/
         var fileName = req.uri.pathSegments.last; /*4*/
         await File(fileName).writeAsString(content, mode: FileMode.write);

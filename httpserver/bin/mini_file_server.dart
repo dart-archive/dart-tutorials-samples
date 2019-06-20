@@ -9,10 +9,10 @@
 
 import 'dart:async';
 import 'dart:io';
-import 'package:path/path.dart';
+import 'package:path/path.dart' as p;
 
 var targetFile =
-    File(join(dirname(Platform.script.toFilePath()), 'index.html'));
+    File(p.join(p.dirname(Platform.script.toFilePath()), 'index.html'));
 
 Future main() async {
   var server;

@@ -26,8 +26,8 @@ Future makeRequest(Event e) async {
 }
 
 void processString(String jsonString) {
-  List<String> portmanteaux = (json.decode(jsonString) as List<dynamic>).cast<String>();
-  for (int i = 0; i < portmanteaux.length; i++) {
+  final portmanteaux = (json.decode(jsonString) as List<dynamic>).cast<String>();
+  for (var i = 0; i < portmanteaux.length; i++) {
     wordList.children.add(new LIElement()..text = portmanteaux[i]);
   }
 }

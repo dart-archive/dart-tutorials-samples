@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:test/test.dart';
-import 'package:path/path.dart';
 import '../bin/basic_file_server.dart' as basic_file_server;
 import '../bin/basic_writer_client.dart' as basic_writer_client;
 import '../bin/basic_writer_server.dart' as basic_writer_server;
@@ -86,7 +85,7 @@ void main() {
 
     // Only resolve the server once for all tests in this group to avoid
     // "binding multiple times on the same (address, port) combination".
-    Future server = basic_writer_server.main();
+    final server = basic_writer_server.main();
 
     void deleteTmpFile() {
       if (file.existsSync()) file.delete();

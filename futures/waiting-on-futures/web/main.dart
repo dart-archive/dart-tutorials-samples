@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
-DivElement output = querySelector('#output');
+final output = querySelector('#output');
 
 void main() {
   Future.wait([expensiveA(), expensiveB(), expensiveC()])
@@ -13,9 +13,9 @@ void main() {
       .catchError((e) => handleError(e));
 }
 
-Future expensiveA() => Future.value('from expensiveA');
-Future expensiveB() => Future.value('from expensiveB');
-Future expensiveC() => Future.value('from expensiveC');
+Future<String> expensiveA() => Future.value('from expensiveA');
+Future<String> expensiveB() => Future.value('from expensiveB');
+Future<String> expensiveC() => Future.value('from expensiveC');
 
 void chooseBestResponse(List responses) {
   output.appendText(responses[1]);

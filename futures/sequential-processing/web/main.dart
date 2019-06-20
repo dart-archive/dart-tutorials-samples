@@ -12,9 +12,9 @@ void main() {
       .then((cValue) => doSomethingWith(cValue));
 }
 
-Future expensiveA() => Future.value('from expensiveA');
-Future expensiveB() => Future.value('from expensiveB');
-Future expensiveC() => Future.value('from expensiveC');
+Future<String> expensiveA() => Future.value('from expensiveA');
+Future<String> expensiveB() => Future.value('from expensiveB');
+Future<String> expensiveC() => Future.value('from expensiveC');
 
 void doSomethingWith(value) {
   querySelector('#output').appendText(value);

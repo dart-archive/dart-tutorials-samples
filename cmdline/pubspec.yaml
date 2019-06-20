@@ -1,8 +1,9 @@
 name: cmdline
 description: A sample application
+homepage: https://dart.dev/tutorials/server/cmdline
 
 environment:
-  sdk: '>=2.2.0 <3.0.0'
+  sdk: '>=2.3.0 <3.0.0'
 
 dependencies:
   args: any
@@ -15,8 +16,3 @@ dev_dependencies:
 executables:
   dcat:
   dgrep:
-
-homepage: https://dart.dev/tutorials/server/cmdline
-
-
-

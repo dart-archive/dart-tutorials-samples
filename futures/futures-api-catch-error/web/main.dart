@@ -5,11 +5,11 @@
 import 'dart:html';
 import 'dart:async';
 
-DivElement output = querySelector('#output');
-PreElement pre = PreElement();
+final output = querySelector('#output');
+final pre = PreElement();
 
 void printDailyNewsDigest() {
-  Future future = gatherNewsReports();
+  final future = gatherNewsReports();
   future.then((content) => pre.appendText(content)).catchError((e) => handleError(e));
 }
 
@@ -40,6 +40,6 @@ void printBaseballScore() {
 
 // Imagine that this function is more complex and slow. :)
 Future gatherNewsReports() {
-  String path = 'https://dart.dev/f/dailyNewsDigest.txt';
+  final path = 'https://dart.dev/f/dailyNewsDigest.txt';
   return HttpRequest.getString(path);
 }

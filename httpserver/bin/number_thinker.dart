@@ -17,7 +17,7 @@ int myNumber = intGenerator.nextInt(10);
 Future main() async {
   print("I'm thinking of a number: $myNumber");
 
-  HttpServer server = await HttpServer.bind(
+  final server = await HttpServer.bind(
     InternetAddress.loopbackIPv4,
     4041,
   );

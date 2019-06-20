@@ -28,7 +28,7 @@ packages:
       name: boolean_selector
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   charcode:
     dependency: transitive
     description:
@@ -345,4 +345,4 @@ packages:
     source: hosted
     version: "2.1.16"
 sdks:
-  dart: ">=2.2.0 <3.0.0"
+  dart: ">=2.3.0 <3.0.0"
