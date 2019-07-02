@@ -80,12 +80,12 @@ void newletters(Event e) {
 }
 
 void generateNewLetters() {
-  Random indexGenerator = new Random();
+  final indexGenerator = new Random();
   wordvalue = 0;
   value.text = '';
   buttons.clear();
   for (var i = 0; i < 7; i++) {
-    int letterIndex = indexGenerator.nextInt(scrabbleLetters.length);
+    final letterIndex = indexGenerator.nextInt(scrabbleLetters.length);
     // Should remove the letter from scrabbleLetters to keep the
     // ratio correct.
     buttons.add(new ButtonElement());

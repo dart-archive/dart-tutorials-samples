@@ -5,12 +5,17 @@
 import 'dart:html';
 import 'dart:async';
 
+final output = querySelector('#output');
+final pre = PreElement();
+
 void printDailyNewsDigest() {
-  Future future = gatherNewsReports();
-  future.then((content) => print(content)).catchError((e) => handleError(e));
+  final future = gatherNewsReports();
+  future.then((content) => pre.appendText(content)).catchError((e) => handleError(e));
 }
 
 void main() {
+  output.append(pre);
+
   printDailyNewsDigest();
   printWinningLotteryNumbers();
   printWeatherForecast();
@@ -18,23 +23,23 @@ void main() {
 }
 
 void handleError(e) {
-  print('handleError');
+  pre.appendText('handleError: $e');
 }
 
 void printWinningLotteryNumbers() {
-  print('Winning lotto numbers: [23, 63, 87, 26, 2]');
+  pre.appendText('Winning lotto numbers: [23, 63, 87, 26, 2]\n');
 }
 
 void printWeatherForecast() {
-  print('Tomorrow\'s forecast: 70F, sunny.');
+  pre.appendText('Tomorrow\'s forecast: 70F, sunny.\n');
 }
 
 void printBaseballScore() {
-  print('Baseball score: Red Sox 10, Yankees 0');
+  pre.appendText('Baseball score: Red Sox 10, Yankees 0\n');
 }
 
 // Imagine that this function is more complex and slow. :)
 Future gatherNewsReports() {
-  String path = 'https://www.dartlang.org/f/dailyNewsDigest.txt';
+  final path = 'https://dart.dev/f/dailyNewsDigest.txt';
   return HttpRequest.getString(path);
 }

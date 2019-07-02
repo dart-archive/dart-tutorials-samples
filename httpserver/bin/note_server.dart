@@ -8,22 +8,24 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:convert' show utf8, json;
+import 'package:path/path.dart' as p;
 
 int count = 0;
 
 Future main() async {
+  Directory.current = p.dirname(Platform.script.toFilePath());
+
   // One note per line.
   try {
-    List<String> lines = File('notes.txt').readAsLinesSync();
+    final lines = File('notes.txt').readAsLinesSync();
     count = lines.length;
   } on FileSystemException {
     print('Could not open notes.txt.');
     return;
   }
 
-  var server =
-      await HttpServer.bind(InternetAddress.loopbackIPv4, 4042);
-  print('Listening for requests on 4042.');
+  var server = await HttpServer.bind(InternetAddress.loopbackIPv4, 4042);
+  print('Listening on http://${server.address.address}:${server.port}/');
   await listenForRequests(server);
 }
 
@@ -31,7 +33,7 @@ Future listenForRequests(HttpServer requests) async {
   await for (HttpRequest request in requests) {
     switch (request.method) {
       case 'POST':
-        handlePost(request);
+        await handlePost(request);
         break;
       case 'OPTION':
         handleOptions(request);
@@ -50,9 +52,8 @@ Future handlePost(HttpRequest request) async {
   addCorsHeaders(request.response);
 
   try {
-    decoded = await request
-        .transform(utf8.decoder.fuse(json.decoder))
-        .first as Map;
+    decoded =
+        await request.transform(utf8.decoder.fuse(json.decoder)).first as Map;
   } catch (e) {
     print('Request listen error: $e');
     return;
@@ -67,8 +68,7 @@ Future handlePost(HttpRequest request) async {
 
 void saveNote(HttpRequest request, String myNote) {
   try {
-    File('notes.txt')
-        .writeAsStringSync(myNote, mode: FileMode.append);
+    File('notes.txt').writeAsStringSync(myNote, mode: FileMode.append);
   } catch (e) {
     print('Couldn\'t open notes.txt: $e');
     request.response
@@ -88,7 +88,7 @@ void saveNote(HttpRequest request, String myNote) {
 void getNote(HttpRequest request, String getNote) {
   final requestedNote = int.tryParse(getNote) ?? 0;
   if (requestedNote >= 0 && requestedNote < count) {
-    List<String> lines = File('notes.txt').readAsLinesSync();
+    final lines = File('notes.txt').readAsLinesSync();
     request.response
       ..statusCode = HttpStatus.ok
       ..writeln(lines[requestedNote])
@@ -116,8 +116,7 @@ void handleOptions(HttpRequest request) {
 
 void addCorsHeaders(HttpResponse response) {
   response.headers.add('Access-Control-Allow-Origin', '*');
-  response.headers
-      .add('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS');
   response.headers.add('Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept');
 }

@@ -29,7 +29,7 @@ void main(List<String> arguments) {
     ..addFlag(lineNumber, negatable: false, abbr: 'n');
 
   argResults = parser.parse(arguments);
-  List<String> paths = argResults.rest;
+  final paths = argResults.rest;
 
   dcat(paths, argResults[lineNumber]);
 }
@@ -40,8 +40,8 @@ Future dcat(List<String> paths, bool showLineNumbers) async {
     await stdin.pipe(stdout);
   } else {
     for (var path in paths) {
-      int lineNumber = 1;
-      Stream lines = new File(path)
+      var lineNumber = 1;
+      final lines = new File(path)
           .openRead()
           .transform(utf8.decoder)
           .transform(const LineSplitter());

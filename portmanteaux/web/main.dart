@@ -7,15 +7,15 @@
 import 'dart:html';
 import 'dart:convert';
 
-var wordList;
+UListElement wordList;
 
 void main() {
   querySelector('#getWords').onClick.listen(makeRequest);
-  wordList = querySelector('#wordList');
+  wordList = querySelector('#wordList') as UListElement;
 }
 
 void makeRequest(Event e) {
-  var path = 'https://www.dartlang.org/f/portmanteaux.json';
+  var path = 'https://dart.dev/f/portmanteaux.json';
   var httpRequest = new HttpRequest();
   httpRequest
     ..open('GET', path)
@@ -25,9 +25,9 @@ void makeRequest(Event e) {
 
 void requestComplete(HttpRequest request) {
   if (request.status == 200) {
-    List<String> portmanteaux =
-        JSON.decode(request.responseText) as List<String>;
-    for (int i = 0; i < portmanteaux.length; i++) {
+    final portmanteaux =
+        (json.decode(request.responseText) as List<dynamic>).cast<String>();
+    for (var i = 0; i < portmanteaux.length; i++) {
       wordList.children.add(new LIElement()..text = portmanteaux[i]);
     }
   } else {

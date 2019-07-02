@@ -8,10 +8,10 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:http_server/http_server.dart';
-import 'package:path/path.dart';
+import 'package:path/path.dart' as p;
 
 Future main() async {
-  var pathToBuild = join(dirname(Platform.script.toFilePath()));
+  var pathToBuild = p.join(p.dirname(Platform.script.toFilePath()));
 
   var staticFiles = VirtualDirectory(pathToBuild);
   staticFiles.allowDirectoryListing = true; /*1*/
@@ -21,6 +21,6 @@ Future main() async {
   };
 
   var server = await HttpServer.bind(InternetAddress.loopbackIPv4, 4048);
-  print('Listening on port 4048');
+  print('Listening on http://${server.address.address}:${server.port}/');
   await server.forEach(staticFiles.serveRequest); /*4*/
 }

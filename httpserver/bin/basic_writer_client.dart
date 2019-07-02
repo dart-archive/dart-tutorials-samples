@@ -22,9 +22,9 @@ Map jsonData = {
 };
 
 Future main() async {
-  HttpClientRequest request = await HttpClient().post(_host, 4049, path) /*1*/
+  final request = await HttpClient().post(_host, 4049, path) /*1*/
     ..headers.contentType = ContentType.json /*2*/
     ..write(jsonEncode(jsonData)); /*3*/
-  HttpClientResponse response = await request.close(); /*4*/
+  final response = await request.close(); /*4*/
   await response.transform(utf8.decoder /*5*/).forEach(print);
 }

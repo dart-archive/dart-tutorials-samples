@@ -60,7 +60,7 @@ void main() {
 
 // Pre-fill the form with some default values.
 void _populateFromJson() {
-  String jsonDataAsString = '''
+  final jsonDataAsString = '''
   { "favoriteNumber":73,
     "valueOfPi":3.141592,
     "chocolate":true,
@@ -71,7 +71,7 @@ void _populateFromJson() {
   }
   ''';
 
-  Map jsonData = JSON.decode(jsonDataAsString);
+  Map jsonData = json.decode(jsonDataAsString);
 
   favoriteNumber.value = jsonData['favoriteNumber'].toString();
   valueOfPi.value = jsonData['valueOfPi'].toString();
@@ -90,13 +90,13 @@ void _populateFromJson() {
 // Display all values as JSON.
 void showJson(Event e) {
   // Grab the data that will be converted to JSON.
-  num favNum = int.parse(favoriteNumber.value);
-  num pi = double.parse(valueOfPi.value);
-  bool chocolate = loveChocolate.checked;
-  String sign = horoscope.value;
-  List<String> favoriteThings = [favOne.value, favTwo.value, favThree.value];
+  final favNum = int.parse(favoriteNumber.value);
+  final pi = double.parse(valueOfPi.value);
+  final chocolate = loveChocolate.checked;
+  final sign = horoscope.value;
+  final favoriteThings = [favOne.value, favTwo.value, favThree.value];
 
-  Map formData = {
+  final formData = {
     'favoriteNumber': favNum,
     'valueOfPi': pi,
     'chocolate': chocolate,
@@ -106,10 +106,10 @@ void showJson(Event e) {
 
   // Convert everything to JSON and
   // display the results.
-  intAsJson.text = JSON.encode(favNum);
-  doubleAsJson.text = JSON.encode(pi);
-  boolAsJson.text = JSON.encode(chocolate);
-  stringAsJson.text = JSON.encode(sign);
-  listAsJson.text = JSON.encode(favoriteThings);
-  mapAsJson.text = JSON.encode(formData);
+  intAsJson.text = json.encode(favNum);
+  doubleAsJson.text = json.encode(pi);
+  boolAsJson.text = json.encode(chocolate);
+  stringAsJson.text = json.encode(sign);
+  listAsJson.text = json.encode(favoriteThings);
+  mapAsJson.text = json.encode(formData);
 }

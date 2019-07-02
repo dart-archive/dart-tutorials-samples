@@ -29,11 +29,11 @@ Future<bool> guess() {
 }
 
 Future<bool> checkGuess(int guess) async {
-  bool isGoodGuess = false;
-  HttpClientRequest request =
+  var isGoodGuess = false;
+  final request =
       await client.get(InternetAddress.loopbackIPv4.host, 4041, '/?q=$guess');
   print('Guess is $guess.');
-  HttpClientResponse response = await request.close();
+  final response = await request.close();
   if (response.statusCode == HttpStatus.ok) {
     var contents = await response.transform(utf8.decoder).join();
     if (contents.startsWith('true')) {

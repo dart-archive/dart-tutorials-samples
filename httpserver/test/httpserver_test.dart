@@ -24,7 +24,7 @@ void main() {
               hello_world_server.main(),
               _test(),
             ]),
-        prints(startsWith('Listening on localhost:$port')));
+        prints(startsWith('Listening on http://127.0.0.1:$port')));
   });
 
   group('number_thinker and number_guesser:', () {
@@ -85,7 +85,7 @@ void main() {
 
     // Only resolve the server once for all tests in this group to avoid
     // "binding multiple times on the same (address, port) combination".
-    Future server = basic_writer_server.main();
+    final server = basic_writer_server.main();
 
     void deleteTmpFile() {
       if (file.existsSync()) file.delete();
@@ -146,7 +146,7 @@ void main() {
               _server(),
               _test(),
             ]),
-        prints('Serving ${file.path}.\n'));
+        prints('Listening on http://127.0.0.1:4044/\nServing ${file.path}.\n'));
   });
 
   test('basic_file_server', () async {

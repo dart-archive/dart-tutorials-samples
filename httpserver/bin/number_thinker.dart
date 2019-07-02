@@ -17,10 +17,11 @@ int myNumber = intGenerator.nextInt(10);
 Future main() async {
   print("I'm thinking of a number: $myNumber");
 
-  HttpServer server = await HttpServer.bind(
+  final server = await HttpServer.bind(
     InternetAddress.loopbackIPv4,
     4041,
   );
+  print('Listening on http://${server.address.address}:${server.port}/');
   await for (var request in server) {
     handleRequest(request);
   }

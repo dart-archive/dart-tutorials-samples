@@ -15,18 +15,18 @@ const followLinks = 'follow-links';
 ArgResults argResults;
 
 void printMatch(File file, List lines, int i) {
-  StringBuffer sb = new StringBuffer();
+  final sb = new StringBuffer();
   if (argResults[recursive]) sb.write('${file.path}:');
   if (argResults[lineNumber]) sb.write('${i + 1}:');
   sb.write(lines[i]);
   print(sb.toString());
 }
 
-Future searchFile(File file, searchTerms) async {
+Future searchFile(File file, List<String> searchTerms) async {
   try {
     var lines = await file.readAsLines();
     for (var i = 0; i < lines.length; i++) {
-      bool found = false;
+      var found = false;
       for (var j = 0; j < searchTerms.length && !found; j++) {
         if (lines[i].contains(searchTerms[j])) {
           printMatch(file, lines, i);
@@ -66,5 +66,7 @@ Future main(List<String> arguments) async {
         await searchFile(new File(searchPath), searchTerms);
       }
     }
+  } else {
+    await searchFile(new File(searchPath), searchTerms);
   }
 }

@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 void main() {
   expensiveA()
@@ -11,10 +12,10 @@ void main() {
       .then((cValue) => doSomethingWith(cValue));
 }
 
-Future expensiveA() => new Future.value('from expensiveA');
-Future expensiveB() => new Future.value('from expensiveB');
-Future expensiveC() => new Future.value('from expensiveC');
+Future<String> expensiveA() => Future.value('from expensiveA');
+Future<String> expensiveB() => Future.value('from expensiveB');
+Future<String> expensiveC() => Future.value('from expensiveC');
 
 void doSomethingWith(value) {
-  print(value);
+  querySelector('#output').appendText(value);
 }

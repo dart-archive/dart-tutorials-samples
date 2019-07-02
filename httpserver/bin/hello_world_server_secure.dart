@@ -12,24 +12,25 @@
 
 import 'dart:async';
 import 'dart:io';
+import 'package:path/path.dart' as p;
 
 String certificateChain = 'server_chain.pem';
 String serverKey = 'server_key.pem';
 
 Future main() async {
+  Directory.current = p.dirname(Platform.script.toFilePath());
   var serverContext = SecurityContext(); /*1*/
   serverContext.useCertificateChain(certificateChain); /*2*/
   serverContext.usePrivateKey(serverKey, password: 'dartdart'); /*3*/
 
   var server = await HttpServer.bindSecure(
-    'localhost',
+    InternetAddress.loopbackIPv4,
     4047,
     serverContext, /*4*/
   );
-  print('Listening on localhost:${server.port}');
+  print('Listening on https://${server.address.address}:${server.port}/');
   await for (HttpRequest request in server) {
-    request.response
-      ..write('Hello, world!')
-      ..close();
+    request.response.write('Hello, world!');
+    await request.response.close();
   }
 }

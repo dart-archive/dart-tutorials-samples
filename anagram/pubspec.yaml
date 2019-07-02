@@ -1,8 +1,11 @@
 name: anagram
 description: A sample application
-dependencies:
-  browser: ^0.10.0
+homepage: https://dart.dev/tutorials/web/low-level-html/add-elements
 
-homepage: https://www.dartlang.org/docs/tutorials/add-elements/
-gist: https://gist.github.com/Sfshaza/0532bfcb70bf5e4a900c
-dartpad: https://dartpad.dartlang.org/0532bfcb70bf5e4a900c
+environment:
+  sdk: '>=2.3.0 <3.0.0'
+
+dev_dependencies:
+  build_runner: ^1.5.0
+  build_web_compilers: ^2.1.0
+  pedantic: ^1.7.0
