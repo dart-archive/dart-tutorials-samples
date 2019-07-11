@@ -5,11 +5,6 @@ Each directory in this repo represents a tutorial.
 The `homepage` field in each pubspec file points to the
 corresponding tutorial on www.dartlang.org.
 
-Repo and testing
-----------------
-
-Currently, drone.io tests only whether the .dart files under web/ and bin/ pass static analysis (dartanalyzer). We could do real unit testing, and we could do better with HTML samples.
-
 DartPad and Gist Files
 ----------------------
 
