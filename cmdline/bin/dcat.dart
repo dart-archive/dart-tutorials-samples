@@ -25,8 +25,7 @@ ArgResults argResults;
 
 void main(List<String> arguments) {
   exitCode = 0; //presume success
-  final parser = new ArgParser()
-    ..addFlag(lineNumber, negatable: false, abbr: 'n');
+  final parser = ArgParser()..addFlag(lineNumber, negatable: false, abbr: 'n');
 
   argResults = parser.parse(arguments);
   final paths = argResults.rest;

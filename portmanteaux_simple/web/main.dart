@@ -26,12 +26,13 @@ Future makeRequest(Event e) async {
 }
 
 void processString(String jsonString) {
-  final portmanteaux = (json.decode(jsonString) as List<dynamic>).cast<String>();
+  final portmanteaux =
+      (json.decode(jsonString) as List<dynamic>).cast<String>();
   for (var i = 0; i < portmanteaux.length; i++) {
-    wordList.children.add(new LIElement()..text = portmanteaux[i]);
+    wordList.children.add(LIElement()..text = portmanteaux[i]);
   }
 }
 
 void handleError(Object error) {
-  wordList.children.add(new LIElement()..text = 'Request failed.');
+  wordList.children.add(LIElement()..text = 'Request failed.');
 }

@@ -16,7 +16,7 @@ void main() {
 
 void makeRequest(Event e) {
   var path = 'https://dart.dev/f/portmanteaux.json';
-  var httpRequest = new HttpRequest();
+  var httpRequest = HttpRequest();
   httpRequest
     ..open('GET', path)
     ..onLoadEnd.listen((e) => requestComplete(httpRequest))
@@ -28,10 +28,10 @@ void requestComplete(HttpRequest request) {
     final portmanteaux =
         (json.decode(request.responseText) as List<dynamic>).cast<String>();
     for (var i = 0; i < portmanteaux.length; i++) {
-      wordList.children.add(new LIElement()..text = portmanteaux[i]);
+      wordList.children.add(LIElement()..text = portmanteaux[i]);
     }
   } else {
-    wordList.children.add(
-        new LIElement()..text = 'Request failed, status=${request.status}');
+    wordList.children
+        .add(LIElement()..text = 'Request failed, status=${request.status}');
   }
 }
