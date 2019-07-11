@@ -1,7 +1,3 @@
-Dart Tutorials
-===============
-[![Build Status](https://drone.io/github.com/dart-lang/dart-tutorials-samples/status.png)](https://drone.io/github.com/dart-lang/dart-tutorials-samples/latest)
-
 These are small Dart samples used by the online
 [Dart tutorials](http://www.dartlang.org/docs/tutorials/).
 
