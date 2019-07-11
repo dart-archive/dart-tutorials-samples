@@ -7,8 +7,8 @@
 // to the server and prints the response.
 
 import 'dart:async';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
 
 String _host = InternetAddress.loopbackIPv4.host;
 String path = 'file.txt';
@@ -26,5 +26,5 @@ Future main() async {
     ..headers.contentType = ContentType.json /*2*/
     ..write(jsonEncode(jsonData)); /*3*/
   final response = await request.close(); /*4*/
-  await response.transform(utf8.decoder /*5*/).forEach(print);
+  await utf8.decoder.bind(response /*5*/).forEach(print);
 }

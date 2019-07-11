@@ -19,7 +19,7 @@ void main() {
 }
 
 void addToDoItem(Event e) {
-  var newToDo = new LIElement();
+  var newToDo = LIElement();
   newToDo.text = toDoInput.value;
   newToDo.onClick.listen((e) => newToDo.remove());
   toDoInput.value = '';

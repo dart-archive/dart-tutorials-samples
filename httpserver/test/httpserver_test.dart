@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:test/test.dart';
+
 import '../bin/basic_file_server.dart' as basic_file_server;
 import '../bin/basic_writer_client.dart' as basic_writer_client;
 import '../bin/basic_writer_server.dart' as basic_writer_server;
@@ -101,9 +103,9 @@ void main() {
 
       expect(
         () async => Future.any([
-              server,
-              _test(),
-            ]),
+          server,
+          _test(),
+        ]),
         prints(''),
       );
     });
@@ -121,9 +123,9 @@ void main() {
 
       expect(
         () async => Future.any([
-              server,
-              _test(),
-            ]),
+          server,
+          _test(),
+        ]),
         prints('Wrote data for Han Solo.\n'),
       );
     });
@@ -203,6 +205,6 @@ Future<String> getUrl([
   final client = HttpClient();
   final request = await client.get(host, port, path);
   final response = await request.close();
-  final data = await response.transform(utf8.decoder).toList();
+  final data = await utf8.decoder.bind(response).toList();
   return data.join('');
 }

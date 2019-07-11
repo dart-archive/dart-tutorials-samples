@@ -7,8 +7,8 @@
 // the file specified in the URI.
 
 import 'dart:async';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
 
 String _host = InternetAddress.loopbackIPv4.host;
 
@@ -22,7 +22,7 @@ Future main() async {
     if (req.method == 'POST' &&
         contentType?.mimeType == 'application/json' /*1*/) {
       try {
-        final content = await req.transform(utf8.decoder).join(); /*2*/
+        final content = await utf8.decoder.bind(req).join(); /*2*/
         var data = jsonDecode(content) as Map; /*3*/
         var fileName = req.uri.pathSegments.last; /*4*/
         await File(fileName).writeAsString(content, mode: FileMode.write);

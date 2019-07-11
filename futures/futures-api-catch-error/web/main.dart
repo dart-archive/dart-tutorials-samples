@@ -10,7 +10,9 @@ final pre = PreElement();
 
 void printDailyNewsDigest() {
   final future = gatherNewsReports();
-  future.then((content) => pre.appendText(content)).catchError((e) => handleError(e));
+  future
+      .then((content) => pre.appendText(content))
+      .catchError((e) => handleError(e));
 }
 
 void main() {

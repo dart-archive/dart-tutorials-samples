@@ -6,8 +6,9 @@
 // Use note_taker.html to run the client.
 
 import 'dart:async';
-import 'dart:io';
 import 'dart:convert' show utf8, json;
+import 'dart:io';
+
 import 'package:path/path.dart' as p;
 
 int count = 0;
@@ -53,7 +54,7 @@ Future handlePost(HttpRequest request) async {
 
   try {
     decoded =
-        await request.transform(utf8.decoder.fuse(json.decoder)).first as Map;
+        await utf8.decoder.bind(request).transform(json.decoder).first as Map;
   } catch (e) {
     print('Request listen error: $e');
     return;

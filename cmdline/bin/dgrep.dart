@@ -15,7 +15,7 @@ const followLinks = 'follow-links';
 ArgResults argResults;
 
 void printMatch(File file, List lines, int i) {
-  final sb = new StringBuffer();
+  final sb = StringBuffer();
   if (argResults[recursive]) sb.write('${file.path}:');
   if (argResults[lineNumber]) sb.write('${i + 1}:');
   sb.write(lines[i]);
@@ -40,7 +40,7 @@ Future searchFile(File file, List<String> searchTerms) async {
 }
 
 Future main(List<String> arguments) async {
-  final parser = new ArgParser()
+  final parser = ArgParser()
     ..addFlag(recursive, negatable: false, abbr: 'r')
     ..addFlag(lineNumber, negatable: false, abbr: 'n')
     ..addFlag(followLinks, negatable: false, abbr: 'S');
@@ -56,17 +56,17 @@ Future main(List<String> arguments) async {
   final searchTerms = argResults.rest.sublist(0, argResults.rest.length - 1);
 
   if (await FileSystemEntity.isDirectory(searchPath)) {
-    final startingDir = new Directory(searchPath);
+    final startingDir = Directory(searchPath);
     await for (var entity in startingDir.list(
         recursive: argResults[recursive],
         followLinks: argResults[followLinks])) {
       if (entity is File) {
         await searchFile(entity, searchTerms);
       } else {
-        await searchFile(new File(searchPath), searchTerms);
+        await searchFile(File(searchPath), searchTerms);
       }
     }
   } else {
-    await searchFile(new File(searchPath), searchTerms);
+    await searchFile(File(searchPath), searchTerms);
   }
 }

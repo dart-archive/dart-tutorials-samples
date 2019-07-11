@@ -12,7 +12,7 @@ import 'dart:math';
 String scrabbleLetters =
     'aaaaaaaaabbccddddeeeeeeeeeeeeffggghhiiiiiiiiijkllllmmnnnnnnooooooooppqrrrrrrssssttttttuuuuvvwwxyyz**';
 
-List<ButtonElement> buttons = new List();
+List<ButtonElement> buttons = List();
 Element letterpile;
 Element result;
 ButtonElement clearButton;
@@ -80,7 +80,7 @@ void newletters(Event e) {
 }
 
 void generateNewLetters() {
-  final indexGenerator = new Random();
+  final indexGenerator = Random();
   wordvalue = 0;
   value.text = '';
   buttons.clear();
@@ -88,7 +88,7 @@ void generateNewLetters() {
     final letterIndex = indexGenerator.nextInt(scrabbleLetters.length);
     // Should remove the letter from scrabbleLetters to keep the
     // ratio correct.
-    buttons.add(new ButtonElement());
+    buttons.add(ButtonElement());
     buttons[i].classes.add("letter");
     buttons[i].onClick.listen(moveLetter);
     buttons[i].text = scrabbleLetters[letterIndex];
