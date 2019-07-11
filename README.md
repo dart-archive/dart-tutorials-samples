@@ -1,15 +1,14 @@
 These are small Dart samples used by the online
-[Dart tutorials](http://www.dartlang.org/docs/tutorials/).
+[Dart tutorials](https://dart.dev/tutorials).
 
 Each directory in this repo represents a tutorial.
 The `homepage` field in each pubspec file points to the
-corresponding tutorial on www.dartlang.org.
+corresponding tutorial on [dart.dev](https://dart.dev/).
 
-DartPad and Gist Files
-----------------------
+## DartPad and Gist Files
 
 Some of the tutorial examples execute using
-[DartPad](https://dartpad.dartlang.org/).
+[DartPad](https://dartpad.dev/).
 The DartPad examples are organized so that each complete example is
 placed in a subdirectory, with its own pubspec and **web/** directory.
 
@@ -32,8 +31,8 @@ You can update the gist files, as follows:
   you'll need to provide a Gist token.
   (See the project lead for info on obtaining an existing Gist token.)
 
-Additional files
------------------
+## Additional files
+
 **README.md:**
 	This file.
 
