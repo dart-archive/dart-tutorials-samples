@@ -16,7 +16,7 @@ var targetFile =
     File(p.join(p.dirname(Platform.script.toFilePath()), 'index.html'));
 
 Future main() async {
-  var server;
+  Stream<HttpRequest> server;
 
   try {
     server = await HttpServer.bind(InternetAddress.loopbackIPv4, 4044);
@@ -39,7 +39,7 @@ Future main() async {
     } else {
       print("Can't open ${targetFile.path}.");
       req.response.statusCode = HttpStatus.notFound;
-      await req.response.close();
     }
+    await req.response.close();
   }
 }
