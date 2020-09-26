@@ -32,7 +32,6 @@ Future main() async {
       req.response.headers.contentType = ContentType.html;
       try {
         await req.response.addStream(targetFile.openRead());
-	await req.response.close();
       } catch (e) {
         print("Couldn't read file: $e");
         exit(-1);
@@ -40,7 +39,7 @@ Future main() async {
     } else {
       print("Can't open ${targetFile.path}.");
       req.response.statusCode = HttpStatus.notFound;
-      await req.response.close();
     }
+      await req.response.close();
   }
 }
