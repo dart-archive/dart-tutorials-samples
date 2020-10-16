@@ -24,7 +24,7 @@ Future main() async {
     print("Couldn't bind to port 4044: $e");
     exit(-1);
   }
-  print('Listening on http://localhost:4044/');
+  print("Listening on ${InternetAddress.loopbackIPv4.address}:4044");
 
   await for (HttpRequest req in server) {
     if (await targetFile.exists()) {
