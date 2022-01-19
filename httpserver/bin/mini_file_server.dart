@@ -16,30 +16,30 @@ var targetFile =
     File(p.join(p.dirname(Platform.script.toFilePath()), 'index.html'));
 
 Future main() async {
-  var server;
+  Stream<HttpRequest> server;
 
   try {
     server = await HttpServer.bind(InternetAddress.loopbackIPv4, 4044);
   } catch (e) {
-    print("Couldn't bind to port 4044: $e");
+    print('Could not bind to port 4044: $e');
     exit(-1);
   }
-  print('Listening on http://${server.address.address}:${server.port}/');
+  print('Listening on ${InternetAddress.loopbackIPv4.address}:4044');
 
   await for (HttpRequest req in server) {
     if (await targetFile.exists()) {
-      print("Serving ${targetFile.path}.");
+      print('Serving ${targetFile.path}.');
       req.response.headers.contentType = ContentType.html;
       try {
         await req.response.addStream(targetFile.openRead());
       } catch (e) {
-        print("Couldn't read file: $e");
+        print('Could not read file: $e');
         exit(-1);
       }
     } else {
-      print("Can't open ${targetFile.path}.");
+      print('Could not open ${targetFile.path}.');
       req.response.statusCode = HttpStatus.notFound;
     }
-      await req.response.close();
+    await req.response.close();
   }
 }
