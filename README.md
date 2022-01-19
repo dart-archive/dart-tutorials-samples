@@ -1,3 +1,14 @@
+## DISCONTINUED
+
+This repo has been discontinued. 
+
+For current samples, please see:
+
+* https://dart.dev/samples
+* https://github.com/dart-lang/samples/
+
+---
+
 These are small Dart samples used by the online
 [Dart tutorials](https://dart.dev/tutorials).
 
